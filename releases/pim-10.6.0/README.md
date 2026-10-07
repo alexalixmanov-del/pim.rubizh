@@ -19,7 +19,7 @@
 
 ```bash
 curl -fL --connect-timeout 20 --max-time 60 \
-'https://raw.githubusercontent.com/alexalixmanov-del/pim.rubizh/deploy/pim-10.5.2-terminal/releases/pim-10.6.0/install-from-github.sh' \
+'https://raw.githubusercontent.com/alexalixmanov-del/pim.rubizh/3b3c839524be4241a840ba597510662c13be58ce/releases/pim-10.6.0/install-from-github.sh' \
 -o /tmp/rubizh-pim-install.sh &&
 bash /tmp/rubizh-pim-install.sh
 ```
@@ -27,3 +27,5 @@ bash /tmp/rubizh-pim-install.sh
 Скрипт скачивает и проверяет архив на сервере, сохраняет старые файлы вне публичной папки и устанавливает необходимые ресурсы. По завершении обновите прежний адрес в том же браузере/профиле через Ctrl+F5 или Cmd+Shift+R и проверьте версию 10.6.0 и сохранение карточки. На хостинге обновление ещё не подтверждено.
 
 Готовый запрос поставщикам: [SUPPLIER-REQUEST.md](SUPPLIER-REQUEST.md).
+
+Проверка опубликованного установщика: [terminal-download-check.json](terminal-download-check.json). Скачивание, SHA-256, установка в отдельную папку и откат прошли; production не изменялся.
