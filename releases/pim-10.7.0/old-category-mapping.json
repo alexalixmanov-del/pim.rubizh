@@ -1,0 +1,2775 @@
+[
+  {
+    "old_category": "",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Інструменти та ножі",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "tools_other",
+      "tools_knives"
+    ]
+  },
+  {
+    "old_category": "Інструменти та ножі / Лопати та шанцевий інструмент",
+    "canonical_category_id": "tools_other",
+    "new_category": "Інструменти та ножі / Інші інструменти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Інструменти та ножі / Ножі та мультитули",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "tools_multitools",
+      "tools_knives"
+    ]
+  },
+  {
+    "old_category": "Автономне живлення",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Аксесуари",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Аксесуари / Аксесуари живлення",
+    "canonical_category_id": "power_accessories",
+    "new_category": "Автономне живлення / Аксесуари живлення",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Акумулятори та батарейки",
+    "canonical_category_id": "power_batteries",
+    "new_category": "Автономне живлення / Акумулятори та батарейки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Зарядні станції",
+    "canonical_category_id": "power_stations",
+    "new_category": "Автономне живлення / Зарядні станції",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Зарядні станції / Портативні зарядні станції",
+    "canonical_category_id": "power_stations",
+    "new_category": "Автономне живлення / Зарядні станції",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Кабелі та перехідники",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Павербанки",
+    "canonical_category_id": "power_banks",
+    "new_category": "Автономне живлення / Павербанки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Сонячна енергія",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Автономне живлення / Сонячна енергія / Сонячні панелі",
+    "canonical_category_id": "power_solar",
+    "new_category": "Автономне живлення / Сонячні панелі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронежилети",
+    "canonical_category_id": "armor_vests",
+    "new_category": "Бронезахист / Бронежилети",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронежилети / Бронежилети",
+    "canonical_category_id": "armor_vests",
+    "new_category": "Бронезахист / Бронежилети",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронекомплекти",
+    "canonical_category_id": "armor_sets",
+    "new_category": "Бронезахист / Бронекомплекти",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронекомплекти / 1 клас захисту",
+    "canonical_category_id": "armor_sets",
+    "new_category": "Бронезахист / Бронекомплекти",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронекомплекти / 2 клас захисту",
+    "canonical_category_id": "armor_sets",
+    "new_category": "Бронезахист / Бронекомплекти",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронеплити",
+    "canonical_category_id": "armor_plates",
+    "new_category": "Бронезахист / Бронеплити",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронеплити / Бокові бронеплити",
+    "canonical_category_id": "armor_plates",
+    "new_category": "Бронезахист / Бронеплити",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронеплити / Бронеплити",
+    "canonical_category_id": "armor_plates",
+    "new_category": "Бронезахист / Бронеплити",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Бронеплити / Демпфери та травмопади",
+    "canonical_category_id": "armor_plates",
+    "new_category": "Бронезахист / Бронеплити",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / М'які балістичні пакети",
+    "canonical_category_id": "armor_soft",
+    "new_category": "Бронезахист / М'які балістичні пакети",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / М'які балістичні пакети / 1 клас захисту",
+    "canonical_category_id": "armor_soft",
+    "new_category": "Бронезахист / М'які балістичні пакети",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / М'які балістичні пакети / 2 клас захисту",
+    "canonical_category_id": "armor_soft",
+    "new_category": "Бронезахист / М'які балістичні пакети",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски",
+    "canonical_category_id": "armor_plate_carriers",
+    "new_category": "Бронезахист / Плитоноски",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски / Аксесуари для плитоносок",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "armor_accessories",
+      "armor_plate_carriers"
+    ]
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски / Камербанди",
+    "canonical_category_id": "armor_accessories",
+    "new_category": "Бронезахист / Аксесуари бронезахисту",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски / Комплекти плитоносок",
+    "canonical_category_id": "armor_plate_carriers",
+    "new_category": "Бронезахист / Плитоноски",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски / Наплічники",
+    "canonical_category_id": "armor_plate_carriers",
+    "new_category": "Бронезахист / Плитоноски",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски / Плитоноски",
+    "canonical_category_id": "armor_plate_carriers",
+    "new_category": "Бронезахист / Плитоноски",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Бронезахист / Плитоноски / Швидкоскиди",
+    "canonical_category_id": "armor_plate_carriers",
+    "new_category": "Бронезахист / Плитоноски",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Аксесуари взуття / Бахіли",
+    "canonical_category_id": "footwear_gaiters",
+    "new_category": "Взуття / Гамаші та бахіли",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Догляд та аксесуари",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Догляд та аксесуари / Засоби догляду",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Берці",
+    "canonical_category_id": "footwear_boots",
+    "new_category": "Взуття / Берці",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Берці демісезонні",
+    "canonical_category_id": "footwear_boots",
+    "new_category": "Взуття / Берці",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Берці зимові",
+    "canonical_category_id": "footwear_boots",
+    "new_category": "Взуття / Берці",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Демісезонне взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Зимове взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Кросівки",
+    "canonical_category_id": "footwear_sneakers",
+    "new_category": "Взуття / Кросівки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Кросівки великих розмірів",
+    "canonical_category_id": "footwear_sneakers",
+    "new_category": "Взуття / Кросівки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Кросівки демісезонні",
+    "canonical_category_id": "footwear_sneakers",
+    "new_category": "Взуття / Кросівки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Кросівки зимові",
+    "canonical_category_id": "footwear_sneakers",
+    "new_category": "Взуття / Кросівки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Кросівки літні",
+    "canonical_category_id": "footwear_sneakers",
+    "new_category": "Взуття / Кросівки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Лофери та чоловіче взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Літнє взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Тактичні кросівки",
+    "canonical_category_id": "footwear_sneakers",
+    "new_category": "Взуття / Кросівки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Трекінгове взуття",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Черевики",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Черевики демісезонні",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Тактичне взуття / Черевики зимові",
+    "canonical_category_id": "footwear_tactical_boots",
+    "new_category": "Взуття / Тактичні черевики",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Шкарпетки та аксесуари",
+    "canonical_category_id": "footwear_socks",
+    "new_category": "Взуття / Шкарпетки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Шкарпетки та аксесуари / Бахіли та гамаші",
+    "canonical_category_id": "footwear_gaiters",
+    "new_category": "Взуття / Гамаші та бахіли",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Шкарпетки та аксесуари / Тактичні шкарпетки",
+    "canonical_category_id": "footwear_socks",
+    "new_category": "Взуття / Шкарпетки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Шкарпетки та аксесуари / Термостельки",
+    "canonical_category_id": "field_thermos",
+    "new_category": "Туризм та польове спорядження / Термоси",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Шкарпетки та аксесуари / Термошкарпетки",
+    "canonical_category_id": "footwear_socks",
+    "new_category": "Взуття / Шкарпетки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Взуття / Шкарпетки та аксесуари / Устілки",
+    "canonical_category_id": "footwear_insoles",
+    "new_category": "Взуття / Устілки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Годинники",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Годинники / Тактичні годинники",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Аксесуари",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Аксесуари / Карти пам'яті",
+    "canonical_category_id": "electronics_memory",
+    "new_category": "Електроніка та спостереження / Карти пам'яті",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Екшн-камери",
+    "canonical_category_id": "electronics_action_cameras",
+    "new_category": "Електроніка та спостереження / Екшн-камери",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Екшн-камери / Екшн-камери",
+    "canonical_category_id": "electronics_action_cameras",
+    "new_category": "Електроніка та спостереження / Екшн-камери",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Кріплення",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Кріплення / Для ПНБ та тепловізорів",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Навігація",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Навігація / GPS-навігатори",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Навігація / Компаси",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Оптика",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Оптика / Біноклі",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Оптика / Далекоміри",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Оптика / Монокуляри",
+    "canonical_category_id": "electronics_monoculars",
+    "new_category": "Електроніка та спостереження / Монокуляри",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Прилади нічного бачення",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / РЕБ та РЕР",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / РЕБ та РЕР / Засоби РЕБ та РЕР",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Електроніка та спостереження / Тепловізори",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів / Комплекти",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів / Комплекти / Наколінники + налокітники",
+    "canonical_category_id": "protection_kits",
+    "new_category": "Захист колін та ліктів / Комплекти захисту",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів / Наколінники",
+    "canonical_category_id": "protection_knee",
+    "new_category": "Захист колін та ліктів / Наколінники",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів / Наколінники / Наколінники",
+    "canonical_category_id": "protection_knee",
+    "new_category": "Захист колін та ліктів / Наколінники",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів / Налокітники",
+    "canonical_category_id": "protection_elbow",
+    "new_category": "Захист колін та ліктів / Налокітники",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист колін та ліктів / Налокітники / Налокітники",
+    "canonical_category_id": "protection_elbow",
+    "new_category": "Захист колін та ліктів / Налокітники",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Маски",
+    "canonical_category_id": "eye_masks",
+    "new_category": "Захист очей та обличчя / Маски",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Маски / Захисні маски",
+    "canonical_category_id": "eye_masks",
+    "new_category": "Захист очей та обличчя / Маски",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Маски / Сітчасті маски",
+    "canonical_category_id": "eye_masks",
+    "new_category": "Захист очей та обличчя / Маски",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Окуляри",
+    "canonical_category_id": "eye_glasses",
+    "new_category": "Захист очей та обличчя / Окуляри",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Окуляри / Балістичні окуляри",
+    "canonical_category_id": "eye_glasses",
+    "new_category": "Захист очей та обличчя / Окуляри",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Окуляри / Змінні лінзи",
+    "canonical_category_id": "eye_glasses",
+    "new_category": "Захист очей та обличчя / Окуляри",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Захист очей та обличчя / Окуляри / Тактичні окуляри",
+    "canonical_category_id": "eye_glasses",
+    "new_category": "Захист очей та обличчя / Окуляри",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Інше",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Інше / Інші аксесуари",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Інше / Глушники",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Аксесуари / Для AR",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Аксесуари / Для АК",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Боєприпаси",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Боєприпаси / Патрони",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Догляд",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Догляд / Мастила та хімія",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Догляд / Набори для чищення",
+    "canonical_category_id": "weapon_cleaning",
+    "new_category": "Збройові аксесуари / Догляд за зброєю",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Догляд / Чищення зброї",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Догляд / Чищення та обслуговування",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Кобури",
+    "canonical_category_id": "weapon_holsters",
+    "new_category": "Збройові аксесуари / Кобури",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Кобури / Тактичні кобури",
+    "canonical_category_id": "weapon_holsters",
+    "new_category": "Збройові аксесуари / Кобури",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Магазини",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Магазини / Аксесуари магазинів",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Магазини / Для АК та AR-15",
+    "canonical_category_id": "weapon_magazines",
+    "new_category": "Збройові аксесуари / Магазини для зброї",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Магазини / Магазини АК та AR15",
+    "canonical_category_id": "weapon_magazines",
+    "new_category": "Збройові аксесуари / Магазини для зброї",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Модулі / Глушники",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Оптичні кріплення",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Планки та рейки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Платформа AR",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Платформа AR / Аксесуари",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Платформа АК",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Платформа АК / Аксесуари",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Приклади та щоки",
+    "canonical_category_id": "weapon_stocks",
+    "new_category": "Збройові аксесуари / Приклади та щоки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Ремені",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Ремені / Двоточкові ремені",
+    "canonical_category_id": "weapon_slings",
+    "new_category": "Збройові аксесуари / Ремені для зброї",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Ремені / Одноточкові ремені",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Ремені / Ремені для зброї",
+    "canonical_category_id": "weapon_slings",
+    "new_category": "Збройові аксесуари / Ремені для зброї",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Ремені / Трьохточкові ремені",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Руків'я та упори",
+    "canonical_category_id": "weapon_grips",
+    "new_category": "Збройові аксесуари / Руків'я та упори",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Сошки",
+    "canonical_category_id": "weapon_bipods",
+    "new_category": "Збройові аксесуари / Сошки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Збройові аксесуари / Чохли для зброї",
+    "canonical_category_id": "weapon_cases",
+    "new_category": "Збройові аксесуари / Чохли для зброї",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Аксесуари маскування / Маскувальні шарфи",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Антидронові сітки",
+    "canonical_category_id": "camouflage_antidrone",
+    "new_category": "Маскування / Антидронові сітки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Антидронові сітки / Для доріг і техніки",
+    "canonical_category_id": "camouflage_antidrone",
+    "new_category": "Маскування / Антидронові сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні костюми",
+    "canonical_category_id": "camouflage_suits",
+    "new_category": "Маскування / Маскувальні костюми",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні костюми / Кікімори та гілі",
+    "canonical_category_id": "camouflage_suits",
+    "new_category": "Маскування / Маскувальні костюми",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні костюми / Сітчасті та сезонні костюми",
+    "canonical_category_id": "clothing_suits",
+    "new_category": "Одяг та форма / Костюми та комплекти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні матеріали",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні матеріали / Стрічки та тканини",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні матеріали / Фарби та грим",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки / Маскувальні сітки",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Альпійська клякса",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Дубове листя",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / З основою зимовий мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / З основою мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / З основою піксель",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / З основою темний мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / З основою хвойний ліс",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Зимовий мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Камуфляж",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Камуфляж земля",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Листя",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Листя осінь",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Мультикам бруд",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Мультикам весна",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Очерет",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Піксель",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Степовий мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Темний мультикам",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Хвойний Ліс",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Маскування / Маскувальні сітки Militex / Хижак",
+    "canonical_category_id": "camouflage_nets",
+    "new_category": "Маскування / Маскувальні сітки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Балаклави та бафи",
+    "canonical_category_id": "clothing_balaclavas",
+    "new_category": "Одяг та форма / Балаклави та бафи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Баффи",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Головні убори",
+    "canonical_category_id": "clothing_headwear",
+    "new_category": "Одяг та форма / Головні убори",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Кепки, панами, бейсболки",
+    "canonical_category_id": "clothing_headwear",
+    "new_category": "Одяг та форма / Головні убори",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Підтяжки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Ремені та портупеї",
+    "canonical_category_id": "clothing_belts",
+    "new_category": "Одяг та форма / Ремені одягу",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Тактичні ремені",
+    "canonical_category_id": "clothing_belts",
+    "new_category": "Одяг та форма / Ремені одягу",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Тактичні рукавички",
+    "canonical_category_id": "clothing_gloves",
+    "new_category": "Одяг та форма / Рукавички",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Аксесуари одягу / Шапки та балаклави",
+    "canonical_category_id": "clothing_balaclavas",
+    "new_category": "Одяг та форма / Балаклави та бафи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Жіночий одяг",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Жіночий одяг / Куртки",
+    "canonical_category_id": "clothing_jackets",
+    "new_category": "Одяг та форма / Куртки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Жіночий одяг / Тактичні штани",
+    "canonical_category_id": "clothing_pants",
+    "new_category": "Одяг та форма / Штани",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Жіночий одяг / Убакси та бойові сорочки",
+    "canonical_category_id": "clothing_combat_shirts",
+    "new_category": "Одяг та форма / Убакси та бойові сорочки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Інший формений одяг",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Дощовики",
+    "canonical_category_id": "clothing_rainwear",
+    "new_category": "Одяг та форма / Дощовики та пончо",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Жилети",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Зимові костюми та комплекти",
+    "canonical_category_id": "clothing_suits",
+    "new_category": "Одяг та форма / Костюми та комплекти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Зимові та утеплені куртки",
+    "canonical_category_id": "clothing_jackets",
+    "new_category": "Одяг та форма / Куртки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Зимові та утеплені штани",
+    "canonical_category_id": "clothing_pants",
+    "new_category": "Одяг та форма / Штани",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Костюми Soft Shell",
+    "canonical_category_id": "clothing_suits",
+    "new_category": "Одяг та форма / Костюми та комплекти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Куртки та вітровки",
+    "canonical_category_id": "clothing_jackets",
+    "new_category": "Одяг та форма / Куртки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Майки та тільняшки",
+    "canonical_category_id": "clothing_tshirts",
+    "new_category": "Одяг та форма / Футболки та поло",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Пончо та гамаші",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "footwear_gaiters",
+      "clothing_rainwear"
+    ]
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Светри та гольфи",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Сорочки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Спортивні костюми та комплекти",
+    "canonical_category_id": "clothing_suits",
+    "new_category": "Одяг та форма / Костюми та комплекти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Тактичні сорочки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Тактичні шорти",
+    "canonical_category_id": "clothing_shorts",
+    "new_category": "Одяг та форма / Шорти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Тактичні штани",
+    "canonical_category_id": "clothing_pants",
+    "new_category": "Одяг та форма / Штани",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Термобілизна",
+    "canonical_category_id": "clothing_thermal",
+    "new_category": "Одяг та форма / Термобілизна",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Термофутболки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Убакси та бойові сорочки",
+    "canonical_category_id": "clothing_combat_shirts",
+    "new_category": "Одяг та форма / Убакси та бойові сорочки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Фліс, кофти та худі",
+    "canonical_category_id": "clothing_fleece",
+    "new_category": "Одяг та форма / Фліс та кофти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Формені комплекти та костюми",
+    "canonical_category_id": "clothing_suits",
+    "new_category": "Одяг та форма / Костюми та комплекти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Футболки та поло",
+    "canonical_category_id": "clothing_tshirts",
+    "new_category": "Одяг та форма / Футболки та поло",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Одяг та форма / Чоловічий одяг / Штани Soft Shell",
+    "canonical_category_id": "clothing_pants",
+    "new_category": "Одяг та форма / Штани",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення / Ліхтарі та аксесуари",
+    "canonical_category_id": "lighting_handheld",
+    "new_category": "Освітлення / Ручні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення / Ліхтарі та аксесуари / Кріплення для ліхтарів",
+    "canonical_category_id": "lighting_handheld",
+    "new_category": "Освітлення / Ручні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення / Ліхтарі та аксесуари / Ліхтарі та аксесуари",
+    "canonical_category_id": "lighting_handheld",
+    "new_category": "Освітлення / Ручні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення / Ліхтарі та аксесуари / Налобні ліхтарі",
+    "canonical_category_id": "lighting_headlamps",
+    "new_category": "Освітлення / Налобні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення / Ліхтарі та аксесуари / Ручні ліхтарі",
+    "canonical_category_id": "lighting_handheld",
+    "new_category": "Освітлення / Ручні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Освітлення / Ліхтарі та аксесуари / Сигнальні ліхтарі",
+    "canonical_category_id": "lighting_handheld",
+    "new_category": "Освітлення / Ручні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки / Для гранат",
+    "canonical_category_id": "pouches_grenade",
+    "new_category": "Підсумки / Для гранат",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки / Для магазинів",
+    "canonical_category_id": "pouches_magazine",
+    "new_category": "Підсумки / Для магазинів",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки / Для пістолетних магазинів",
+    "canonical_category_id": "pouches_magazine",
+    "new_category": "Підсумки / Для магазинів",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки / Для ракет та спецзасобів",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки / Нерозсипайки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Бойові підсумки / Скидання магазинів",
+    "canonical_category_id": "pouches_dump",
+    "new_category": "Підсумки / Скидання магазинів",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Комплекти",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Комплекти / Комплекти підсумків",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Медичні підсумки",
+    "canonical_category_id": "pouches_medical",
+    "new_category": "Підсумки / Медичні підсумки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Медичні підсумки / Аптечки IFAK",
+    "canonical_category_id": "medical_ifak",
+    "new_category": "Тактична медицина / Укомплектовані аптечки IFAK",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Медичні підсумки / Для турнікету",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "pouches_tourniquet",
+      "medical_tourniquets"
+    ]
+  },
+  {
+    "old_category": "Підсумки / Нагрудні та напашні",
+    "canonical_category_id": "pouches_dangler",
+    "new_category": "Підсумки / Напашні підсумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Нагрудні та напашні / Для живота",
+    "canonical_category_id": "pouches_dangler",
+    "new_category": "Підсумки / Напашні підсумки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Нагрудні та напашні / Напашні сумки",
+    "canonical_category_id": "pouches_dangler",
+    "new_category": "Підсумки / Напашні підсумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Панелі та платформи",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Панелі та платформи / MOLLE-панелі",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Панелі та платформи / Велкро-панелі",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Панелі та платформи / Панелі для плитоносок",
+    "canonical_category_id": "armor_plate_carriers",
+    "new_category": "Бронезахист / Плитоноски",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки / Для документів",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки / Для ліхтаря",
+    "canonical_category_id": "lighting_handheld",
+    "new_category": "Освітлення / Ручні ліхтарі",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки / Для навушників",
+    "canonical_category_id": "communications_headsets",
+    "new_category": "Тактичний зв'язок та слух / Навушники",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки / Для планшетів",
+    "canonical_category_id": "pouches_other",
+    "new_category": "Підсумки / Інші підсумки",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки / Для рацій",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "pouches_radio",
+      "communications_radios"
+    ]
+  },
+  {
+    "old_category": "Підсумки / Спеціальні підсумки / Для телефону",
+    "canonical_category_id": "pouches_phone",
+    "new_category": "Підсумки / Для телефонів",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Утилітарні",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Утилітарні / MOLLE-органайзери",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Утилітарні / Стегнові підсумки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Підсумки / Утилітарні / Утилітарні підсумки",
+    "canonical_category_id": "pouches_utility",
+    "new_category": "Підсумки / Утилітарні підсумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Комплекти",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Комплекти / Комплекти РПС",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Компоненти",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Компоненти / Внутрішні пояси",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Компоненти / Зовнішні бойові пояси",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Компоненти / Лямки",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Компоненти / Пояси",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Компоненти / Тактичні та розвантажувальні ремені",
+    "canonical_category_id": "load_bearing_belts",
+    "new_category": "РПС та розвантаження / Розвантажувальні пояси",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Системи",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Системи / Chest Rig",
+    "canonical_category_id": "load_bearing_systems",
+    "new_category": "РПС та розвантаження / Розвантажувальні системи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "РПС та розвантаження / Системи / Ремінно-плечові системи",
+    "canonical_category_id": "load_bearing_rps",
+    "new_category": "РПС та розвантаження / Ремінно-плечові системи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "bags_backpacks",
+      "bags_duffels"
+    ]
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Рюкзаки",
+    "canonical_category_id": "bags_backpacks",
+    "new_category": "Рюкзаки, сумки та баули / Рюкзаки",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Рюкзаки / Гідратори та рюкзаки-гідратори",
+    "canonical_category_id": "bags_hydration",
+    "new_category": "Рюкзаки, сумки та баули / Гідратори",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Рюкзаки / Медичні рюкзаки",
+    "canonical_category_id": "bags_backpacks",
+    "new_category": "Рюкзаки, сумки та баули / Рюкзаки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Рюкзаки / Патрульні рюкзаки",
+    "canonical_category_id": "bags_backpacks",
+    "new_category": "Рюкзаки, сумки та баули / Рюкзаки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Рюкзаки / Тактичні рюкзаки",
+    "canonical_category_id": "bags_backpacks",
+    "new_category": "Рюкзаки, сумки та баули / Рюкзаки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Рюкзаки / Штурмові рюкзаки",
+    "canonical_category_id": "bags_assault_backpacks",
+    "new_category": "Рюкзаки, сумки та баули / Штурмові рюкзаки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки",
+    "canonical_category_id": "bags_tactical",
+    "new_category": "Рюкзаки, сумки та баули / Тактичні сумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Баули та транспортні сумки",
+    "canonical_category_id": "bags_duffels",
+    "new_category": "Рюкзаки, сумки та баули / Баули та транспортні сумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Гермомішки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "bags_backpacks",
+      "bags_duffels"
+    ]
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Органайзери",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "bags_backpacks",
+      "bags_duffels"
+    ]
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Поясні сумки та органайзери",
+    "canonical_category_id": "bags_waist",
+    "new_category": "Рюкзаки, сумки та баули / Поясні сумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Сумки для шоломів",
+    "canonical_category_id": "bags_tactical",
+    "new_category": "Рюкзаки, сумки та баули / Тактичні сумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Тактичні сумки",
+    "canonical_category_id": "bags_tactical",
+    "new_category": "Рюкзаки, сумки та баули / Тактичні сумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Рюкзаки, сумки та баули / Сумки / Через плече та бананки",
+    "canonical_category_id": "bags_waist",
+    "new_category": "Рюкзаки, сумки та баули / Поясні сумки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Іммобілізація",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Іммобілізація / Шини",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Інструменти",
+    "canonical_category_id": "tools_other",
+    "new_category": "Інструменти та ножі / Інші інструменти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Інструменти / Медичні ножиці",
+    "canonical_category_id": "medical_scissors",
+    "new_category": "Тактична медицина / Медичні ножиці",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Аптечки",
+    "canonical_category_id": "medical_ifak",
+    "new_category": "Тактична медицина / Укомплектовані аптечки IFAK",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Аптечки / IFAK",
+    "canonical_category_id": "medical_ifak",
+    "new_category": "Тактична медицина / Укомплектовані аптечки IFAK",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Аптечки / Аптечки та укладки",
+    "canonical_category_id": "medical_ifak",
+    "new_category": "Тактична медицина / Укомплектовані аптечки IFAK",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Аптечки / Групові аптечки",
+    "canonical_category_id": "medical_ifak",
+    "new_category": "Тактична медицина / Укомплектовані аптечки IFAK",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Герметизація ран",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Герметизація ран / Оклюзійні наліпки",
+    "canonical_category_id": "medical_occlusive",
+    "new_category": "Тактична медицина / Оклюзійні наліпки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Кровоспинні засоби",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Кровоспинні засоби / Турнікети, джгути та гемостатики",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "medical_hemostatic",
+      "medical_tourniquets"
+    ]
+  },
+  {
+    "old_category": "Тактична медицина / Перев'язувальні засоби",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Перев'язувальні засоби / Бандажі",
+    "canonical_category_id": "medical_bandages",
+    "new_category": "Тактична медицина / Бандажі та бинти",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактична медицина / Перев'язувальні засоби / Компресійні пов'язки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Активні навушники",
+    "canonical_category_id": "communications_headsets",
+    "new_category": "Тактичний зв'язок та слух / Навушники",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Активні навушники / EARMOR",
+    "canonical_category_id": "communications_headsets",
+    "new_category": "Тактичний зв'язок та слух / Навушники",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Активні навушники / HD",
+    "canonical_category_id": "communications_headsets",
+    "new_category": "Тактичний зв'язок та слух / Навушники",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Активні навушники / Walker's",
+    "canonical_category_id": "communications_headsets",
+    "new_category": "Тактичний зв'язок та слух / Навушники",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Активні навушники / Інші бренди",
+    "canonical_category_id": "communications_headsets",
+    "new_category": "Тактичний зв'язок та слух / Навушники",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Пасивний захист слуху",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Пасивний захист слуху / Беруші",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Радіозв'язок",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Радіозв'язок / PTT-кнопки",
+    "canonical_category_id": "communications_ptt",
+    "new_category": "Тактичний зв'язок та слух / Кнопки PTT",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Радіозв'язок / Аксесуари для рацій",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "communications_accessories",
+      "pouches_radio",
+      "communications_radios"
+    ]
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Радіозв'язок / Антени",
+    "canonical_category_id": "communications_antennas",
+    "new_category": "Тактичний зв'язок та слух / Антени",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Радіозв'язок / Кабелі та перехідники",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Тактичний зв'язок та слух / Радіозв'язок / Рації",
+    "canonical_category_id": "communications_radios",
+    "new_category": "Тактичний зв'язок та слух / Рації",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Інше",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Інше / Інше спорядження",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Інше / Карабіни та кріплення",
+    "canonical_category_id": "field_carabiners",
+    "new_category": "Туризм та польове спорядження / Карабіни та кріплення",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Інше / Польове спорядження",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Інше / Прапори та шеврони",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Вогонь та обігрів",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Вогонь та обігрів / Грілки",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Вогонь та обігрів / Пальники",
+    "canonical_category_id": "field_burners",
+    "new_category": "Туризм та польове спорядження / Пальники",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Гігієна",
+    "canonical_category_id": "field_hygiene",
+    "new_category": "Туризм та польове спорядження / Гігієна",
+    "confidence": 1,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Гігієна / Засоби гігієни",
+    "canonical_category_id": "field_hygiene",
+    "new_category": "Туризм та польове спорядження / Гігієна",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Каремати та сидушки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0.65,
+    "status": "CONFLICT_REVIEW",
+    "candidates": [
+      "field_mats",
+      "field_seats"
+    ]
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Каремати та сидушки / Розкладні каремати",
+    "canonical_category_id": "field_mats",
+    "new_category": "Туризм та польове спорядження / Каремати",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Каремати та сидушки / Тактичні сидушки",
+    "canonical_category_id": "field_seats",
+    "new_category": "Туризм та польове спорядження / Сидушки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Каремати та сидушки / Туристичні каремати",
+    "canonical_category_id": "field_mats",
+    "new_category": "Туризм та польове спорядження / Каремати",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Намети та укриття",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Намети та укриття / Гамаки",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Намети та укриття / Намети",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Намети та укриття / Тенти",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Посуд та харчування",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Посуд та харчування / Пляшки та фляги",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Посуд та харчування / Польовий посуд",
+    "canonical_category_id": "field_cookware",
+    "new_category": "Туризм та польове спорядження / Польовий посуд",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Посуд та харчування / Термоси",
+    "canonical_category_id": "field_thermos",
+    "new_category": "Туризм та польове спорядження / Термоси",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Сон",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Сон / Каремати",
+    "canonical_category_id": "field_mats",
+    "new_category": "Туризм та польове спорядження / Каремати",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Сон / Подушки",
+    "canonical_category_id": "field_other",
+    "new_category": "Туризм та польове спорядження / Інше польове спорядження",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Сон / Спальні мішки",
+    "canonical_category_id": "field_sleeping_bags",
+    "new_category": "Туризм та польове спорядження / Спальні мішки",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Туризм та польове спорядження / Сон / Термоковдри",
+    "canonical_category_id": "field_thermal_blankets",
+    "new_category": "Туризм та польове спорядження / Термоковдри",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Інші аксесуари",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Кавери на шоломи",
+    "canonical_category_id": "helmets_covers",
+    "new_category": "Шоломи та захист голови / Кавери на шоломи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Кріплення ПНБ",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Кріплення для навушників",
+    "canonical_category_id": "helmets_mounts",
+    "new_category": "Шоломи та захист голови / Кріплення для шоломів",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Підвісні системи та подушки",
+    "canonical_category_id": "helmets_padding",
+    "new_category": "Шоломи та захист голови / Подушки та підвісні системи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Рейки та планки",
+    "canonical_category_id": null,
+    "new_category": null,
+    "confidence": 0,
+    "status": "NEEDS_REVIEW",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Аксесуари / Шрауди",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Шоломи",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.99,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Шоломи / FAST",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Шоломи / MICH",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  },
+  {
+    "old_category": "Шоломи та захист голови / Шоломи / Комплекти шоломів",
+    "canonical_category_id": "helmets_ballistic",
+    "new_category": "Шоломи та захист голови / Балістичні шоломи",
+    "confidence": 0.96,
+    "status": "CONFIRMED",
+    "candidates": []
+  }
+]

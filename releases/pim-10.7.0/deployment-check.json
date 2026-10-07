@@ -1,0 +1,20 @@
+{
+  "version": "10.7.0",
+  "productionWrites": false,
+  "checks": [
+    "zip integrity",
+    "HTML aliases match assembled source",
+    "runtime checksums valid",
+    "explicit archive allow-list",
+    "installation adds all runtime assets",
+    "old files backed up outside public site",
+    "server and unrelated files preserved",
+    "development files not published",
+    "uploaded zip removed from public directory",
+    "web-readable permissions",
+    "manual rollback restores old contents and modes",
+    "injected failure triggers automatic rollback",
+    "automatic rollback restores original files and removes added runtime files"
+  ],
+  "passed": 13
+}

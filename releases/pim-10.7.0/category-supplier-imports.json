@@ -1,0 +1,126 @@
+{
+  "productionWrites": false,
+  "originalSupplierFilesTested": false,
+  "suppliers": [
+    {
+      "supplier": "м вин",
+      "fixture": "reconstructed from uploaded backup; original supplier file unavailable",
+      "inputRows": 104,
+      "productsBefore": 24,
+      "productsAfter": 24,
+      "variantsBefore": 104,
+      "variantsAfter": 104,
+      "firstUpdated": 104,
+      "secondUpdated": 104,
+      "unexpectedNewQueue": 0,
+      "createdOnRepeat": 0,
+      "manualPreserved": true,
+      "repeatPricesStocksAndCategoryIdsUnchanged": true,
+      "categoryReport": {
+        "automatic": 22,
+        "mapping": 0,
+        "manual": 1,
+        "review": 1,
+        "conflicts": 0,
+        "unchanged": 24,
+        "new_supplier_categories": []
+      }
+    },
+    {
+      "supplier": "тактикал белт",
+      "fixture": "reconstructed from uploaded backup; original supplier file unavailable",
+      "inputRows": 32,
+      "productsBefore": 24,
+      "productsAfter": 24,
+      "variantsBefore": 32,
+      "variantsAfter": 32,
+      "firstUpdated": 32,
+      "secondUpdated": 32,
+      "unexpectedNewQueue": 0,
+      "createdOnRepeat": 0,
+      "manualPreserved": true,
+      "repeatPricesStocksAndCategoryIdsUnchanged": true,
+      "categoryReport": {
+        "automatic": 9,
+        "mapping": 0,
+        "manual": 1,
+        "review": 1,
+        "conflicts": 13,
+        "unchanged": 24,
+        "new_supplier_categories": []
+      }
+    },
+    {
+      "supplier": "армолайн",
+      "fixture": "reconstructed from uploaded backup; original supplier file unavailable",
+      "inputRows": 442,
+      "productsBefore": 24,
+      "productsAfter": 24,
+      "variantsBefore": 442,
+      "variantsAfter": 442,
+      "firstUpdated": 442,
+      "secondUpdated": 442,
+      "unexpectedNewQueue": 0,
+      "createdOnRepeat": 0,
+      "manualPreserved": true,
+      "repeatPricesStocksAndCategoryIdsUnchanged": true,
+      "categoryReport": {
+        "automatic": 20,
+        "mapping": 0,
+        "manual": 1,
+        "review": 1,
+        "conflicts": 2,
+        "unchanged": 24,
+        "new_supplier_categories": []
+      }
+    },
+    {
+      "supplier": "укр тек",
+      "fixture": "reconstructed from uploaded backup; original supplier file unavailable",
+      "inputRows": 78,
+      "productsBefore": 24,
+      "productsAfter": 24,
+      "variantsBefore": 78,
+      "variantsAfter": 78,
+      "firstUpdated": 78,
+      "secondUpdated": 78,
+      "unexpectedNewQueue": 0,
+      "createdOnRepeat": 0,
+      "manualPreserved": true,
+      "repeatPricesStocksAndCategoryIdsUnchanged": true,
+      "categoryReport": {
+        "automatic": 20,
+        "mapping": 0,
+        "manual": 1,
+        "review": 1,
+        "conflicts": 2,
+        "unchanged": 24,
+        "new_supplier_categories": []
+      }
+    },
+    {
+      "supplier": "киборг",
+      "fixture": "reconstructed from uploaded backup; original supplier file unavailable",
+      "inputRows": 43,
+      "productsBefore": 24,
+      "productsAfter": 24,
+      "variantsBefore": 52,
+      "variantsAfter": 52,
+      "firstUpdated": 43,
+      "secondUpdated": 43,
+      "unexpectedNewQueue": 0,
+      "createdOnRepeat": 0,
+      "manualPreserved": true,
+      "repeatPricesStocksAndCategoryIdsUnchanged": true,
+      "categoryReport": {
+        "automatic": 22,
+        "mapping": 0,
+        "manual": 1,
+        "review": 1,
+        "conflicts": 0,
+        "unchanged": 24,
+        "new_supplier_categories": []
+      }
+    }
+  ]
+}

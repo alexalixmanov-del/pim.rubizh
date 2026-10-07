@@ -1,0 +1,772 @@
+{
+  "fixtureProducts": 36,
+  "realNetwork": false,
+  "views": 25,
+  "widths": [
+    1440,
+    768,
+    390
+  ],
+  "errors": [],
+  "layouts": [
+    {
+      "width": 1440,
+      "view": "categorization",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Категоризація",
+      "buttons": 97,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "today",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Главная",
+      "buttons": 7,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "products",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Товары",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "table",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Таблица",
+      "buttons": 39,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "suppliers",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Поставщики",
+      "buttons": 8,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "maps",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Соответствия",
+      "buttons": 8,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "check",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Проверка",
+      "buttons": 52,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "cats",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Категории",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "merge",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Объединение карточек",
+      "buttons": 4,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "publish",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Публикация",
+      "buttons": 110,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "quote",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Прорахунок для підрозділу",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "localization",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Локализация",
+      "buttons": 10,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "launch",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Готовность к запуску сайта",
+      "buttons": 18,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "log",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Журнал загрузок",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "export",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Выгрузка на сайт",
+      "buttons": 15,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "backup",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Резервная копия",
+      "buttons": 9,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "maintenance",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Обслуживание базы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "settings",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Настройки",
+      "buttons": 13,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "docs",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Документы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "queue",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Проблемы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "prices",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Цены",
+      "buttons": 4,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "contentEngine",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Контент для сайту",
+      "buttons": 59,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "import",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Загрузить прайс",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "kits",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Комплекти",
+      "buttons": 16,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 1440,
+      "view": "sup:supplier-a",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "title": "Тестовий постачальник",
+      "buttons": 9,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "categorization",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Категоризація",
+      "buttons": 97,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "today",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Главная",
+      "buttons": 7,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "products",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Товары",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "table",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Таблица",
+      "buttons": 39,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "suppliers",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Поставщики",
+      "buttons": 8,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "maps",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Соответствия",
+      "buttons": 8,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "check",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Проверка",
+      "buttons": 52,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "cats",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Категории",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "merge",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Объединение карточек",
+      "buttons": 4,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "publish",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Публикация",
+      "buttons": 110,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "quote",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Прорахунок для підрозділу",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "localization",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Локализация",
+      "buttons": 10,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "launch",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Готовность к запуску сайта",
+      "buttons": 18,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "log",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Журнал загрузок",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "export",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Выгрузка на сайт",
+      "buttons": 15,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "backup",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Резервная копия",
+      "buttons": 9,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "maintenance",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Обслуживание базы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "settings",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Настройки",
+      "buttons": 13,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "docs",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Документы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "queue",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Проблемы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "prices",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Цены",
+      "buttons": 4,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "contentEngine",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Контент для сайту",
+      "buttons": 59,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "import",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Загрузить прайс",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "kits",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Комплекти",
+      "buttons": 16,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 768,
+      "view": "sup:supplier-a",
+      "viewport": 768,
+      "pageWidth": 768,
+      "title": "Тестовий постачальник",
+      "buttons": 9,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "categorization",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Категоризація",
+      "buttons": 97,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "today",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Главная",
+      "buttons": 7,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "products",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Товары",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "table",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Таблица",
+      "buttons": 39,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "suppliers",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Поставщики",
+      "buttons": 8,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "maps",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Соответствия",
+      "buttons": 8,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "check",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Проверка",
+      "buttons": 52,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "cats",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Категории",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "merge",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Объединение карточек",
+      "buttons": 4,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "publish",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Публикация",
+      "buttons": 110,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "quote",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Прорахунок для підрозділу",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "localization",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Локализация",
+      "buttons": 10,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "launch",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Готовность к запуску сайта",
+      "buttons": 18,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "log",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Журнал загрузок",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "export",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Выгрузка на сайт",
+      "buttons": 15,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "backup",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Резервная копия",
+      "buttons": 9,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "maintenance",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Обслуживание базы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "settings",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Настройки",
+      "buttons": 13,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "docs",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Документы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "queue",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Проблемы",
+      "buttons": 5,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "prices",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Цены",
+      "buttons": 4,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "contentEngine",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Контент для сайту",
+      "buttons": 59,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "import",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Загрузить прайс",
+      "buttons": 2,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "kits",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Комплекти",
+      "buttons": 16,
+      "overflowElements": [],
+      "newErrors": []
+    },
+    {
+      "width": 390,
+      "view": "sup:supplier-a",
+      "viewport": 390,
+      "pageWidth": 390,
+      "title": "Тестовий постачальник",
+      "buttons": 9,
+      "overflowElements": [],
+      "newErrors": []
+    }
+  ],
+  "clickChecks": {
+    "draftBatch": {
+      "drafts": 35,
+      "unchanged": "<p>Матеріал: Нейлон</p><p>Має дві бічні кишені.</p><p>Знімна поясна система.</p>",
+      "progress": "Готово: 35 / 35. Чернеток створено: 35. Без змін: 0. Потребують виправлення: 0.",
+      "sourceUnchanged": true
+    },
+    "localizationMessage": "Переклад збережено. Товар прибрано зі списку."
+  }
+}
