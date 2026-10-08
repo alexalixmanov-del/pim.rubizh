@@ -7,7 +7,8 @@
     "test:legacy": "node tests/test.cjs",
     "serve": "python3 -m http.server 8765 --bind 0.0.0.0",
     "build": "node tools/build.cjs",
-    "serve:v2": "node server/model-v2-server.cjs"
+    "serve:v2": "node server/model-v2-server.cjs",
+    "test:review": "node --test tests/conflict-triage-v2.test.cjs tests/review-evidence-v2.test.cjs"
   },
   "dependencies": {
     "fake-indexeddb": "6.2.5",

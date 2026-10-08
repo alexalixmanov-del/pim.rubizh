@@ -1,0 +1,50 @@
+{
+  "review_date": "2026-10-08",
+  "production_modified": false,
+  "mode": "READ_ONLY_REVIEW",
+  "ready_for_migration": false,
+  "MODELS_BEFORE": 4317,
+  "MODELS_AFTER": 4317,
+  "model_counter_unit": "legacy-card-equivalent UNKNOWN placeholders; not confirmed marketing MODEL",
+  "CONFIRMED_MODELS_AFTER": 0,
+  "SKU_BEFORE": 12618,
+  "SKU_AFTER": 12618,
+  "AUTO_CONFIRMED_MERGES": 0,
+  "SAFE_AUTO_ELIGIBLE_CARDS": 17,
+  "NEEDS_DECISION": 430,
+  "needs_decision_scope": "447 multi-group legacy cards only; all target registry mappings still UNKNOWN",
+  "SITE_ONLY_UNRESOLVED": 3884,
+  "MULTI_SUPPLIER_CONFLICTS": 1,
+  "MULTI_GROUP_CONFLICT_CARDS": 447,
+  "LIKELY": 252,
+  "AMBIGUOUS": 178,
+  "LOST_SKU": 0,
+  "LOST_VARIANTS": 0,
+  "LOST_PHOTOS": 0,
+  "LOST_PRICES": 0,
+  "LOST_STOCK": 0,
+  "LOST_CANONICAL_CATEGORIES": 0,
+  "LOST_SUPPLIER_LINKS": 0,
+  "LOST_CATEGORIES": 0,
+  "source_photos": 101353,
+  "photo_color_assignments_confirmed": 0,
+  "safe_plans_applied": 0,
+  "confidence_is_calibrated_probability": false,
+  "confirmed_supplier_links": 8734,
+  "unconfirmed_registry_mappings": 21252,
+  "availability_verified_from_fresh_feeds": false,
+  "source_manifest": {
+    "source": {
+      "sha256": "22443f3c79b10f5bd29c90401b00c200d4cd32ea4cb9828ba53db1cd685b35c2",
+      "bytes": 162627420
+    },
+    "mapping": {
+      "sha256": "35ee017202b934a62a351892e5f60f563f4f68c84d1dc3c7e13b83e863f928cf",
+      "bytes": 53868926
+    },
+    "feeds": {
+      "sha256": "ca90461af00f4cd2d59b609d7f1282e6cc619a29313608eec61de6824acff789",
+      "bytes": 72817783
+    }
+  }
+}

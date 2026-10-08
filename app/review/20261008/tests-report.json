@@ -1,0 +1,2821 @@
+{
+  "baseline_commit": "a0b3c3c0a805df45ee6ca54fe00d27e587051fab",
+  "baseline_500": {
+    "total": {
+      "tests": 500,
+      "passed": 500,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "success": true
+    },
+    "files": [
+      {
+        "file": "categories.test.cjs",
+        "scope": "Taxonomy and category mapping",
+        "result": {
+          "tests": 182,
+          "passed": 182,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "canonical context: Куртка зимова чоловіча Soft Shell Multicam",
+            "line": 2,
+            "duration_ms": 191.406504
+          },
+          {
+            "name": "canonical context: Куртки тактические",
+            "line": 2,
+            "duration_ms": 23.611822
+          },
+          {
+            "name": "canonical context: берцы",
+            "line": 2,
+            "duration_ms": 2.236535
+          },
+          {
+            "name": "canonical context: тактичні берці",
+            "line": 2,
+            "duration_ms": 10.628577
+          },
+          {
+            "name": "canonical context: UBACS",
+            "line": 2,
+            "duration_ms": 5.136824
+          },
+          {
+            "name": "canonical context: combat shirt",
+            "line": 2,
+            "duration_ms": 1.253307
+          },
+          {
+            "name": "canonical context: боевая рубашка",
+            "line": 2,
+            "duration_ms": 2.744774
+          },
+          {
+            "name": "canonical context: plate carrier",
+            "line": 2,
+            "duration_ms": 2.040749
+          },
+          {
+            "name": "canonical context: Кавер на шолом Fast Multicam",
+            "line": 2,
+            "duration_ms": 5.623511
+          },
+          {
+            "name": "canonical context: Підсумок для рації",
+            "line": 2,
+            "duration_ms": 31.584172
+          },
+          {
+            "name": "canonical context: Чохол для зброї",
+            "line": 2,
+            "duration_ms": 7.230834
+          },
+          {
+            "name": "canonical context: Сумка для шолома",
+            "line": 2,
+            "duration_ms": 12.070008
+          },
+          {
+            "name": "canonical context: Рюкзак для шолома",
+            "line": 2,
+            "duration_ms": 3.033471
+          },
+          {
+            "name": "canonical context: Сумка для аптечки",
+            "line": 2,
+            "duration_ms": 1.641355
+          },
+          {
+            "name": "canonical context: Підсумок під 2 гранати",
+            "line": 2,
+            "duration_ms": 6.249189
+          },
+          {
+            "name": "canonical context: Підсумок під 2 магазини",
+            "line": 2,
+            "duration_ms": 3.816396
+          },
+          {
+            "name": "canonical context: Бронеплита 4 клас 25x30",
+            "line": 2,
+            "duration_ms": 6.360226
+          },
+          {
+            "name": "canonical context: Флісова куртка",
+            "line": 2,
+            "duration_ms": 4.14957
+          },
+          {
+            "name": "canonical context: Куртка с флисовой подкладкой",
+            "line": 2,
+            "duration_ms": 4.586872
+          },
+          {
+            "name": "canonical context: Штани фліс",
+            "line": 2,
+            "duration_ms": 3.137438
+          },
+          {
+            "name": "canonical context: Ремінь для плитоноски",
+            "line": 2,
+            "duration_ms": 21.535144
+          },
+          {
+            "name": "canonical context: Балистический пакет",
+            "line": 2,
+            "duration_ms": 7.165565
+          },
+          {
+            "name": "canonical context: Маскувальна сітка Militex Мультикам",
+            "line": 2,
+            "duration_ms": 12.864851
+          },
+          {
+            "name": "canonical context: Антидронова сітка",
+            "line": 2,
+            "duration_ms": 4.769639
+          },
+          {
+            "name": "canonical context: Тренувальний турнікет",
+            "line": 2,
+            "duration_ms": 5.0673
+          },
+          {
+            "name": "canonical context: Налобний ліхтар",
+            "line": 2,
+            "duration_ms": 8.202445
+          },
+          {
+            "name": "canonical context: Поясна сумка",
+            "line": 2,
+            "duration_ms": 2.518062
+          },
+          {
+            "name": "canonical context: Штурмовий рюкзак",
+            "line": 2,
+            "duration_ms": 3.198591
+          },
+          {
+            "name": "ambiguous words remain review: магазин Рубіж",
+            "line": 3,
+            "duration_ms": 1.55265
+          },
+          {
+            "name": "ambiguous words remain review: плита для кухні",
+            "line": 3,
+            "duration_ms": 0.309839
+          },
+          {
+            "name": "ambiguous words remain review: Soft Shell Multicam",
+            "line": 3,
+            "duration_ms": 0.9782
+          },
+          {
+            "name": "ambiguous words remain review: Продукт ZX-100",
+            "line": 3,
+            "duration_ms": 0.267525
+          },
+          {
+            "name": "ambiguous words remain review: Кріплення для маскувальної сітки",
+            "line": 3,
+            "duration_ms": 8.398321
+          },
+          {
+            "name": "requested category IDs are unique and stable when names change",
+            "line": 4,
+            "duration_ms": 0.643374
+          },
+          {
+            "name": "normalization handles RU/UA, spaces, apostrophes, punctuation and transliteration",
+            "line": 5,
+            "duration_ms": 0.223688
+          },
+          {
+            "name": "classification extracts attributes without creating public categories",
+            "line": 6,
+            "duration_ms": 2.453193
+          },
+          {
+            "name": "confirmed mapping outranks keywords and remains scoped to one supplier",
+            "line": 7,
+            "duration_ms": 0.701912
+          },
+          {
+            "name": "confirmed supplier path mapping works when raw category changes",
+            "line": 8,
+            "duration_ms": 0.160674
+          },
+          {
+            "name": "manual choice has priority over mapping and automatic classification",
+            "line": 9,
+            "duration_ms": 0.109325
+          },
+          {
+            "name": "supplier name disagreement is a conflict with both reasons",
+            "line": 10,
+            "duration_ms": 0.458234
+          },
+          {
+            "name": "contradictory confirmed mappings are not arbitrarily selected",
+            "line": 11,
+            "duration_ms": 0.157669
+          },
+          {
+            "name": "description-only and attribute-only evidence stays a suggestion",
+            "line": 12,
+            "duration_ms": 0.889897
+          },
+          {
+            "name": "dry run is non-mutating and reports every old path",
+            "line": 16,
+            "duration_ms": 427.924555
+          },
+          {
+            "name": "migration keeps IDs, variant SKUs, photos, status, prices, stock, minimum margin and full backup",
+            "line": 17,
+            "duration_ms": 245.358631
+          },
+          {
+            "name": "unknown and conflicting products survive migration and remain published locally",
+            "line": 18,
+            "duration_ms": 198.591444
+          },
+          {
+            "name": "migration refuses a stale dry run or a declared data-loss risk",
+            "line": 19,
+            "duration_ms": 185.259932
+          },
+          {
+            "name": "failed backup prevents any category mutation",
+            "line": 20,
+            "duration_ms": 93.495065
+          },
+          {
+            "name": "failed migration commit restores original categories in memory and storage",
+            "line": 21,
+            "duration_ms": 106.068144
+          },
+          {
+            "name": "manual decision persists, adds history, and is never learned as a mapping implicitly",
+            "line": 22,
+            "duration_ms": 330.84849
+          },
+          {
+            "name": "bulk mapping protects manual decisions and all offers and prices",
+            "line": 23,
+            "duration_ms": 217.79266
+          },
+          {
+            "name": "unknown changed supplier category retains last confirmed canonical ID and records original data",
+            "line": 26,
+            "duration_ms": 350.016441
+          },
+          {
+            "name": "stable supplier product ID matches an existing variant after supplier SKU changes",
+            "line": 27,
+            "duration_ms": 194.369889
+          },
+          {
+            "name": "source categories, canonical categories and empty categories do not influence grouping",
+            "line": 28,
+            "duration_ms": 40.388529
+          },
+          {
+            "name": "new unknown products import without deletion, random category or preorder invention",
+            "line": 29,
+            "duration_ms": 177.909823
+          },
+          {
+            "name": "feed sends canonical IDs and the approved tree while excluding supplier raw categories",
+            "line": 30,
+            "duration_ms": 162.775552
+          },
+          {
+            "name": "review page shows source, confidence, conflicts, confirmation and bulk mapping",
+            "line": 31,
+            "duration_ms": 25.405241
+          },
+          {
+            "name": "broad supplier group is refined by a specific product: Балаклава мікрофліс",
+            "line": 32,
+            "duration_ms": 0.506997
+          },
+          {
+            "name": "broad supplier group is refined by a specific product: Кавер на шолом FAST",
+            "line": 32,
+            "duration_ms": 0.337912
+          },
+          {
+            "name": "broad supplier group is refined by a specific product: Берці Alpha",
+            "line": 32,
+            "duration_ms": 0.398713
+          },
+          {
+            "name": "broad supplier group is refined by a specific product: Кросівки Alpha",
+            "line": 32,
+            "duration_ms": 0.302298
+          },
+          {
+            "name": "explicit contradictory helmet types remain a conflict",
+            "line": 33,
+            "duration_ms": 0.413626
+          },
+          {
+            "name": "secondary kit components cannot change the primary product type",
+            "line": 34,
+            "duration_ms": 0.959052
+          },
+          {
+            "name": "weapon magazine requires a concrete weapon or caliber",
+            "line": 35,
+            "duration_ms": 0.695533
+          },
+          {
+            "name": "migration report retains original counts after dry run is cleared",
+            "line": 36,
+            "duration_ms": 169.081565
+          },
+          {
+            "name": "failed queued manual assignment restores every item and prevents false confirmation",
+            "line": 38,
+            "duration_ms": 154.666609
+          },
+          {
+            "name": "failed bulk assignment rolls back queued decisions and supplier mapping",
+            "line": 39,
+            "duration_ms": 217.82531
+          },
+          {
+            "name": "table category edit updates canonical ID and preserves its old pricing scope",
+            "line": 40,
+            "duration_ms": 175.859744
+          },
+          {
+            "name": "Armoline models with one supplier category do not merge into a giant card",
+            "line": 41,
+            "duration_ms": 242.576956
+          },
+          {
+            "name": "a shared parent product ID cannot silently attach an unrelated changed SKU",
+            "line": 42,
+            "duration_ms": 157.729915
+          },
+          {
+            "name": "unsupported shop is blocked before any category or product POST",
+            "line": 43,
+            "duration_ms": 151.922766
+          },
+          {
+            "name": "full publication protects unknown previously published IDs from deletion",
+            "line": 44,
+            "duration_ms": 201.85611
+          },
+          {
+            "name": "shop must acknowledge the exact canonical product ID before its hash is stored",
+            "line": 45,
+            "duration_ms": 253.995584
+          },
+          {
+            "name": "unknown products can be manually resolved in dry run without changing the live catalog",
+            "line": 46,
+            "duration_ms": 201.601885
+          },
+          {
+            "name": "bulk dry-run mapping remains staged until migration and preserves manual proposals",
+            "line": 47,
+            "duration_ms": 170.363016
+          },
+          {
+            "name": "a stale dry run cannot be made current by confirming a category",
+            "line": 48,
+            "duration_ms": 101.293398
+          },
+          {
+            "name": "a queued manual category survives the next supplier import",
+            "line": 49,
+            "duration_ms": 187.514584
+          },
+          {
+            "name": "processing one old SKU does not make a shared parent ID unique for the next row",
+            "line": 50,
+            "duration_ms": 195.173116
+          },
+          {
+            "name": "category undo restores canonical ID and automatic provenance alongside the displayed path",
+            "line": 51,
+            "duration_ms": 199.766737
+          },
+          {
+            "name": "invalid category mass edits are rejected before any earlier product is changed",
+            "line": 52,
+            "duration_ms": 193.806073
+          },
+          {
+            "name": "explicit low-confidence supplier mapping is never promoted to a confirmed assignment",
+            "line": 53,
+            "duration_ms": 0.773951
+          },
+          {
+            "name": "manually entered public attributes take priority over inferred values",
+            "line": 54,
+            "duration_ms": 150.590521
+          },
+          {
+            "name": "supported shop confirmation marks only the exact saved canonical product as synced",
+            "line": 55,
+            "duration_ms": 275.912345
+          },
+          {
+            "name": "a scoped winter mapping cannot classify winter pants as winter jackets",
+            "line": 56,
+            "duration_ms": 1.424876
+          },
+          {
+            "name": "source groups distinguish the same leaf under different supplier paths",
+            "line": 57,
+            "duration_ms": 248.413325
+          },
+          {
+            "name": "explicit new canonical pricing rules work without migrating legacy price scopes",
+            "line": 58,
+            "duration_ms": 213.524071
+          },
+          {
+            "name": "an empty IFAK name or description cannot become a complete medical kit",
+            "line": 59,
+            "duration_ms": 0.811628
+          },
+          {
+            "name": "canonical kit roles keep drone-backpack exclusions and owner-specific role restrictions",
+            "line": 60,
+            "duration_ms": 34.626723
+          },
+          {
+            "name": "whole item and source context: Костюм (Кітель+Штани) ММ-14 розмір 44-46 (S)",
+            "line": 111,
+            "duration_ms": 2.66202
+          },
+          {
+            "name": "whole item and source context: Комплект (Убакс+Штани) ММ-14 розмір 48 (M)",
+            "line": 111,
+            "duration_ms": 0.961625
+          },
+          {
+            "name": "whole item and source context: Польовий костюм (Кітель та штани) для ЗСУ",
+            "line": 111,
+            "duration_ms": 1.629216
+          },
+          {
+            "name": "whole item and source context: Утеплений зимовий костюм (куртка + штани)",
+            "line": 111,
+            "duration_ms": 0.475399
+          },
+          {
+            "name": "whole item and source context: Бойовий комплект (штани та Ubacs)",
+            "line": 111,
+            "duration_ms": 0.979012
+          },
+          {
+            "name": "whole item and source context: Комплект термобілизни ESDY Fleece Thermal Suit",
+            "line": 111,
+            "duration_ms": 8.227599
+          },
+          {
+            "name": "whole item and source context: Костюм Alpha + термобілизна",
+            "line": 111,
+            "duration_ms": 0.551465
+          },
+          {
+            "name": "whole item and source context: Акумуляторний LED ліхтарик D48 з запальничкою",
+            "line": 111,
+            "duration_ms": 7.741437
+          },
+          {
+            "name": "whole item and source context: Акумуляторний тактичний ліхтар",
+            "line": 111,
+            "duration_ms": 0.499336
+          },
+          {
+            "name": "whole item and source context: Акумулятор для рації Baofeng",
+            "line": 111,
+            "duration_ms": 0.563283
+          },
+          {
+            "name": "whole item and source context: Акумуляторна батарея 5000 mAh з USB-C для радіостанцій",
+            "line": 111,
+            "duration_ms": 3.91787
+          },
+          {
+            "name": "whole item and source context: Антена тактична складна для портативних радіостанцій",
+            "line": 111,
+            "duration_ms": 0.533668
+          },
+          {
+            "name": "whole item and source context: Зарядний пристрій універсальний для рацій",
+            "line": 111,
+            "duration_ms": 0.480337
+          },
+          {
+            "name": "whole item and source context: Термостійкі рукавиці",
+            "line": 111,
+            "duration_ms": 0.437703
+          },
+          {
+            "name": "whole item and source context: Балістичний захист 1 класу для поясу РПС",
+            "line": 111,
+            "duration_ms": 0.672088
+          },
+          {
+            "name": "whole item and source context: Балістичний захист для плитоноски камербанд 1 шт",
+            "line": 111,
+            "duration_ms": 0.591376
+          },
+          {
+            "name": "whole item and source context: Балістичний захист для сумки під захист паху",
+            "line": 111,
+            "duration_ms": 0.641611
+          },
+          {
+            "name": "whole item and source context: Балістичний пакет (Напашник)",
+            "line": 111,
+            "duration_ms": 0.498204
+          },
+          {
+            "name": "whole item and source context: Підсумок медичний з панеллю швидкого скидання",
+            "line": 111,
+            "duration_ms": 0.57498
+          },
+          {
+            "name": "whole item and source context: Підсумок під аптечку швидкоскид",
+            "line": 111,
+            "duration_ms": 0.325863
+          },
+          {
+            "name": "whole item and source context: Підсумок аптечка з швидким скиданням",
+            "line": 111,
+            "duration_ms": 0.300024
+          },
+          {
+            "name": "whole item and source context: Підсумок медичний з турнікетом",
+            "line": 111,
+            "duration_ms": 0.432996
+          },
+          {
+            "name": "whole item and source context: Підсумок тактичний напашний швидкоскидний",
+            "line": 111,
+            "duration_ms": 0.40972
+          },
+          {
+            "name": "whole item and source context: Підсумок скидання магазинів",
+            "line": 111,
+            "duration_ms": 0.379965
+          },
+          {
+            "name": "whole item and source context: Підсумок під турнікет",
+            "line": 111,
+            "duration_ms": 0.456961
+          },
+          {
+            "name": "whole item and source context: Сумка - органайзер для зброї",
+            "line": 111,
+            "duration_ms": 0.688942
+          },
+          {
+            "name": "whole item and source context: Штурмовий рюкзак",
+            "line": 111,
+            "duration_ms": 0.371652
+          },
+          {
+            "name": "whole item and source context: Гідратор 3 л",
+            "line": 111,
+            "duration_ms": 0.431142
+          },
+          {
+            "name": "whole item and source context: Рюкзак з MOLLE",
+            "line": 111,
+            "duration_ms": 0.406595
+          },
+          {
+            "name": "whole item and source context: Каремат-сидушка для сидіння",
+            "line": 111,
+            "duration_ms": 0.754492
+          },
+          {
+            "name": "whole item and source context: П'ятиточка - сидушка",
+            "line": 111,
+            "duration_ms": 0.361327
+          },
+          {
+            "name": "whole item and source context: Захисні наколінники та налокітники",
+            "line": 111,
+            "duration_ms": 0.576282
+          },
+          {
+            "name": "whole item and source context: Комплект чорних наколінників та налокітників",
+            "line": 111,
+            "duration_ms": 0.603233
+          },
+          {
+            "name": "whole item and source context: Ремінно-плечова система (РПС)",
+            "line": 111,
+            "duration_ms": 0.589142
+          },
+          {
+            "name": "whole item and source context: Плечові лямки до РПС",
+            "line": 111,
+            "duration_ms": 0.524033
+          },
+          {
+            "name": "whole item and source context: Футляр для навушників",
+            "line": 111,
+            "duration_ms": 0.549382
+          },
+          {
+            "name": "whole item and source context: Екшн-камера на шолом",
+            "line": 111,
+            "duration_ms": 0.338072
+          },
+          {
+            "name": "whole item and source context: Ножиці тактичні медичні",
+            "line": 111,
+            "duration_ms": 2.425762
+          },
+          {
+            "name": "whole item and source context: Шестигранний ключ",
+            "line": 111,
+            "duration_ms": 1.297594
+          },
+          {
+            "name": "whole item and source context: Нiж складний Alpha",
+            "line": 111,
+            "duration_ms": 1.246156
+          },
+          {
+            "name": "whole item and source context: Точилка для ножів",
+            "line": 111,
+            "duration_ms": 5.514617
+          },
+          {
+            "name": "whole item and source context: Компактний маркер для турнікету",
+            "line": 111,
+            "duration_ms": 0.64742
+          },
+          {
+            "name": "whole item and source context: Панель під три магазини АК",
+            "line": 111,
+            "duration_ms": 0.658536
+          },
+          {
+            "name": "whole item and source context: Комплект адаптерів для монокулярів",
+            "line": 111,
+            "duration_ms": 0.428238
+          },
+          {
+            "name": "whole item and source context: Нейтралізатор запаху для ніг та взуття",
+            "line": 111,
+            "duration_ms": 2.634819
+          },
+          {
+            "name": "whole item and source context: Термоковдра Medical Blizzard IFAK",
+            "line": 111,
+            "duration_ms": 2.776813
+          },
+          {
+            "name": "whole item and source context: Штани тактичні без наколінників",
+            "line": 111,
+            "duration_ms": 0.624896
+          },
+          {
+            "name": "whole item and source context: Бронежилет Modular + балістичний пакет",
+            "line": 111,
+            "duration_ms": 0.564865
+          },
+          {
+            "name": "genuine ambiguity is retained: Бронежилет Phantom. Плитоноска з підсумками",
+            "line": 121,
+            "duration_ms": 0.732409
+          },
+          {
+            "name": "genuine ambiguity is retained: Балістичний пакет + напашник",
+            "line": 121,
+            "duration_ms": 0.420417
+          },
+          {
+            "name": "genuine ambiguity is retained: Рюкзак-сумка для дрона",
+            "line": 121,
+            "duration_ms": 0.669563
+          },
+          {
+            "name": "genuine ambiguity is retained: Костюм + ліхтар",
+            "line": 121,
+            "duration_ms": 0.298822
+          },
+          {
+            "name": "genuine ambiguity is retained: Підсумок для аптечки",
+            "line": 121,
+            "duration_ms": 0.477873
+          },
+          {
+            "name": "genuine ambiguity is retained: Балістичний пакет 2 класу",
+            "line": 121,
+            "duration_ms": 0.287685
+          },
+          {
+            "name": "genuine ambiguity is retained: Комплект шолом + навушники",
+            "line": 121,
+            "duration_ms": 0.40955
+          },
+          {
+            "name": "genuine ambiguity is retained: Налокітники",
+            "line": 121,
+            "duration_ms": 0.458784
+          },
+          {
+            "name": "counterexample retains the actual item: Акумулятор 18650",
+            "line": 122,
+            "duration_ms": 0.298211
+          },
+          {
+            "name": "counterexample retains the actual item: Батарейка AA",
+            "line": 122,
+            "duration_ms": 0.271631
+          },
+          {
+            "name": "counterexample retains the actual item: Термос 1 л",
+            "line": 122,
+            "duration_ms": 0.25068
+          },
+          {
+            "name": "counterexample retains the actual item: Підсумок під магазини",
+            "line": 122,
+            "duration_ms": 0.273234
+          },
+          {
+            "name": "counterexample retains the actual item: Куртка для костюма",
+            "line": 122,
+            "duration_ms": 0.322418
+          },
+          {
+            "name": "counterexample retains the actual item: Мультитул 16 в 1",
+            "line": 122,
+            "duration_ms": 0.336459
+          },
+          {
+            "name": "counterexample retains the actual item: Каремат туристичний",
+            "line": 122,
+            "duration_ms": 0.251701
+          },
+          {
+            "name": "counterexample retains the actual item: Рюкзак з аптечкою",
+            "line": 122,
+            "duration_ms": 0.361888
+          },
+          {
+            "name": "rule upgrades keep schema compatibility and manual priority for semantically corrected items",
+            "line": 123,
+            "duration_ms": 0.147023
+          },
+          {
+            "name": "one clothing assembly rule covers all sizes and subsequent classifications without learning a mixed supplier mapping",
+            "line": 124,
+            "duration_ms": 11.960855
+          },
+          {
+            "name": "an explicit product type resolves an ambiguous name with compatible supplier context",
+            "line": 125,
+            "duration_ms": 0.697977
+          },
+          {
+            "name": "only a labeled type in a description can resolve ambiguous armor naming",
+            "line": 126,
+            "duration_ms": 0.584405
+          },
+          {
+            "name": "conflicting type specifications and explicit contradictory source categories still require review",
+            "line": 127,
+            "duration_ms": 0.653409
+          },
+          {
+            "name": "accessory words inside a mixed helmet kit cannot turn the whole kit into a cover or headphone case",
+            "line": 128,
+            "duration_ms": 0.46249
+          },
+          {
+            "name": "winter hat and buff kit is not silently reduced to a single included garment",
+            "line": 129,
+            "duration_ms": 2.150736
+          },
+          {
+            "name": "typed supplier rules only affect the named whole-item type and never target words",
+            "line": 130,
+            "duration_ms": 1.263924
+          },
+          {
+            "name": "specific supplier type rule has priority over a general mapping and invalid type IDs never execute",
+            "line": 131,
+            "duration_ms": 0.332594
+          },
+          {
+            "name": "supplier-rule preview is non-mutating, shows differing types and blocks a whole mixed section",
+            "line": 133,
+            "duration_ms": 24.194942
+          },
+          {
+            "name": "typed preview narrows a mixed section to matching titles",
+            "line": 134,
+            "duration_ms": 20.438546
+          },
+          {
+            "name": "rule approval rejects a stale preview before it can write or stage a mapping",
+            "line": 135,
+            "duration_ms": 23.749899
+          },
+          {
+            "name": "typed mapping application protects manual decisions and leaves unrelated types unchanged",
+            "line": 136,
+            "duration_ms": 270.282507
+          },
+          {
+            "name": "confidence presentation and report never claim a measured accuracy",
+            "line": 137,
+            "duration_ms": 33.732349
+          },
+          {
+            "name": "a typed mapping does not mark the whole mixed supplier section as already mapped",
+            "line": 138,
+            "duration_ms": 216.991525
+          },
+          {
+            "name": "identical variant source contexts are parsed once without hiding a different supplier conflict",
+            "line": 139,
+            "duration_ms": 33.07937
+          },
+          {
+            "name": "deprecated canonical IDs cannot be selected by an alias, mapping or new manual classification",
+            "line": 140,
+            "duration_ms": 5.669271
+          },
+          {
+            "name": "a mixed bags section cannot turn a generic named bag into a duffel",
+            "line": 141,
+            "duration_ms": 0.434268
+          },
+          {
+            "name": "a mixed supplier section with only one recognized keyword still cannot classify an unknown item",
+            "line": 142,
+            "duration_ms": 0.514168
+          },
+          {
+            "name": "a seat mat name refines a broad camping mat section without needing manual work",
+            "line": 143,
+            "duration_ms": 0.674551
+          },
+          {
+            "name": "source-root evidence supports an explicit compatible item: Бушлат зимовий",
+            "line": 144,
+            "duration_ms": 1.30109
+          },
+          {
+            "name": "source-root evidence supports an explicit compatible item: Анорак Alpha",
+            "line": 144,
+            "duration_ms": 1.233237
+          },
+          {
+            "name": "source-root evidence supports an explicit compatible item: Комплект зимовий Alpha",
+            "line": 144,
+            "duration_ms": 0.639248
+          },
+          {
+            "name": "source-root evidence supports an explicit compatible item: Адаптер GoPro на dovetail",
+            "line": 144,
+            "duration_ms": 0.278942
+          },
+          {
+            "name": "source-root evidence supports an explicit compatible item: Денна кришка для PVS-14",
+            "line": 144,
+            "duration_ms": 0.433837
+          },
+          {
+            "name": "source-root evidence supports an explicit compatible item: Керамічні плити 6 класу NIJ IV",
+            "line": 144,
+            "duration_ms": 0.472064
+          },
+          {
+            "name": "generic kits and caps without an unambiguous supplier root remain unclassified",
+            "line": 145,
+            "duration_ms": 0.311011
+          },
+          {
+            "name": "multiple adjectives before a clothing bundle cannot hide its independent components",
+            "line": 146,
+            "duration_ms": 0.992862
+          },
+          {
+            "name": "size parentheses in a named mixed garment kit do not hide the second garment",
+            "line": 147,
+            "duration_ms": 0.217439
+          },
+          {
+            "name": "a supplier list of intended targets does not make an unambiguous net section into a mixed product group",
+            "line": 148,
+            "duration_ms": 0.313725
+          },
+          {
+            "name": "rifle case keeps its own type under a mixed bag section",
+            "line": 149,
+            "duration_ms": 0.40284
+          }
+        ]
+      },
+      {
+        "file": "content-free.test.cjs",
+        "scope": "Content generation and locked fields",
+        "result": {
+          "tests": 18,
+          "passed": 18,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "extra supplier fields survive alongside familiar facts without publishing purchasing metadata",
+            "line": 5,
+            "duration_ms": 368.06062
+          },
+          {
+            "name": "conflicting extra fields from supplier rows block approval rather than choosing a convenient value",
+            "line": 9,
+            "duration_ms": 27.019044
+          },
+          {
+            "name": "unknown untranslated attribute values cannot be silently lost",
+            "line": 14,
+            "duration_ms": 23.198681
+          },
+          {
+            "name": "degree symbols, decimal weights and dimensions survive encoded supplier prose",
+            "line": 17,
+            "duration_ms": 23.595312
+          },
+          {
+            "name": "escaped supplier scripts do not become preview content",
+            "line": 21,
+            "duration_ms": 18.706202
+          },
+          {
+            "name": "a source sentence containing a link keeps its actual specification",
+            "line": 24,
+            "duration_ms": 19.739446
+          },
+          {
+            "name": "restrictions, omitted plates and separate accessories remain negative after translation and all styles",
+            "line": 27,
+            "duration_ms": 26.602643
+          },
+          {
+            "name": "translation retains mixed-language supplier brands, percentages, NATO standard and model identifiers",
+            "line": 31,
+            "duration_ms": 16.477469
+          },
+          {
+            "name": "custom supplier phrases override local rules, preserve word boundaries and do not cascade",
+            "line": 34,
+            "duration_ms": 24.127517
+          },
+          {
+            "name": "saving a changed glossary invalidates both translations and existing content drafts",
+            "line": 37,
+            "duration_ms": 26.919093
+          },
+          {
+            "name": "glossary rejects changed quantities, units and reversed restrictions",
+            "line": 40,
+            "duration_ms": 17.980973
+          },
+          {
+            "name": "literal glossary terms are not interpreted as regex or applied inside HTML addresses",
+            "line": 43,
+            "duration_ms": 18.495423
+          },
+          {
+            "name": "bad imported glossary cannot break translation or inject markup",
+            "line": 46,
+            "duration_ms": 13.95437
+          },
+          {
+            "name": "a supplier name with unknown Russian text cannot bypass application checks",
+            "line": 49,
+            "duration_ms": 23.880182
+          },
+          {
+            "name": "glossary save failure restores previous rules and reports the failure",
+            "line": 52,
+            "duration_ms": 24.529115
+          },
+          {
+            "name": "glossary is persisted in local storage and included in portable backups",
+            "line": 55,
+            "duration_ms": 44.284204
+          },
+          {
+            "name": "repeated batch preview keeps valid drafts and makes no additional writes to products",
+            "line": 58,
+            "duration_ms": 34.680929
+          },
+          {
+            "name": "cached generated description cannot be poisoned and refreshes when supplier facts change",
+            "line": 61,
+            "duration_ms": 26.084138
+          }
+        ]
+      },
+      {
+        "file": "kits.test.cjs",
+        "scope": "Legacy kit and pricing fixtures",
+        "result": {
+          "tests": 46,
+          "passed": 46,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "complete summer kit has shared sizes, public SKU whitelist and current price",
+            "line": 10,
+            "duration_ms": 3.523843
+          },
+          {
+            "name": "missing required role blocks the whole kit",
+            "line": 11,
+            "duration_ms": 1.108708
+          },
+          {
+            "name": "product disappearing after approval blocks the whole kit",
+            "line": 12,
+            "duration_ms": 0.363811
+          },
+          {
+            "name": "duplicate products and required roles are rejected",
+            "line": 13,
+            "duration_ms": 0.477242
+          },
+          {
+            "name": "selected color must have stock; alternate color cannot rescue it",
+            "line": 14,
+            "duration_ms": 0.2381
+          },
+          {
+            "name": "ambiguous color must be explicitly selected",
+            "line": 15,
+            "duration_ms": 0.375509
+          },
+          {
+            "name": "unavailable variant rejected: {\"availability\":\"backorder\"}",
+            "line": 16,
+            "duration_ms": 0.232231
+          },
+          {
+            "name": "unavailable variant rejected: {\"availability\":\"out_of_stock\"}",
+            "line": 16,
+            "duration_ms": 0.109295
+          },
+          {
+            "name": "unavailable variant rejected: {\"stock\":0}",
+            "line": 16,
+            "duration_ms": 0.205291
+          },
+          {
+            "name": "unavailable variant rejected: {\"stock\":-1}",
+            "line": 16,
+            "duration_ms": 0.284701
+          },
+          {
+            "name": "unavailable variant rejected: {\"stock_stale\":true}",
+            "line": 16,
+            "duration_ms": 0.144198
+          },
+          {
+            "name": "unavailable variant rejected: {\"source_review\":true}",
+            "line": 16,
+            "duration_ms": 0.140322
+          },
+          {
+            "name": "unavailable variant rejected: {\"price\":null}",
+            "line": 16,
+            "duration_ms": 0.135525
+          },
+          {
+            "name": "unavailable variant rejected: {\"price\":0}",
+            "line": 16,
+            "duration_ms": 0.100181
+          },
+          {
+            "name": "unconfirmed sizes cannot count toward common sizes",
+            "line": 17,
+            "duration_ms": 0.235867
+          },
+          {
+            "name": "three sizes on each product are insufficient if intersection is smaller",
+            "line": 18,
+            "duration_ms": 0.241866
+          },
+          {
+            "name": "different height groups block misleading size intersection",
+            "line": 19,
+            "duration_ms": 0.348207
+          },
+          {
+            "name": "unknown height does not invent a conflict with universal garments",
+            "line": 20,
+            "duration_ms": 0.424312
+          },
+          {
+            "name": "SKUs with incompatible height are excluded",
+            "line": 21,
+            "duration_ms": 0.952471
+          },
+          {
+            "name": "all purchasable SKU prices must fit budget, including expensive size variants",
+            "line": 22,
+            "duration_ms": 0.259142
+          },
+          {
+            "name": "budget must be finite, ordered and nonnegative",
+            "line": 23,
+            "duration_ms": 0.822645
+          },
+          {
+            "name": "quantity affects price and stock",
+            "line": 24,
+            "duration_ms": 0.138089
+          },
+          {
+            "name": "noninteger and string quantities are rejected",
+            "line": 25,
+            "duration_ms": 1.298666
+          },
+          {
+            "name": "unknown quantities are warnings, never invented",
+            "line": 26,
+            "duration_ms": 0.374486
+          },
+          {
+            "name": "incorrect season is blocked",
+            "line": 27,
+            "duration_ms": 0.284551
+          },
+          {
+            "name": "pixel and multicam cannot be combined",
+            "line": 28,
+            "duration_ms": 0.228586
+          },
+          {
+            "name": "empty medical pouch is not an IFAK",
+            "line": 29,
+            "duration_ms": 1.498458
+          },
+          {
+            "name": "two single plates with compatible unit-normalized dimensions pass",
+            "line": 30,
+            "duration_ms": 0.551835
+          },
+          {
+            "name": "one single plate cannot protect both carrier pockets",
+            "line": 31,
+            "duration_ms": 0.385594
+          },
+          {
+            "name": "plate pair packaging requires only one package",
+            "line": 32,
+            "duration_ms": 0.27815
+          },
+          {
+            "name": "known dimension mismatch cannot be manually bypassed",
+            "line": 33,
+            "duration_ms": 6.219374
+          },
+          {
+            "name": "unknown dimensions require explicit evidence-bound confirmation",
+            "line": 34,
+            "duration_ms": 4.203201
+          },
+          {
+            "name": "carrier claiming included plates still requires a confirmed pair",
+            "line": 35,
+            "duration_ms": 0.362979
+          },
+          {
+            "name": "replicas are rejected as protection",
+            "line": 36,
+            "duration_ms": 0.333535
+          },
+          {
+            "name": "incompatible plate SKU is excluded even when another size fits",
+            "line": 37,
+            "duration_ms": 0.436971
+          },
+          {
+            "name": "auto planner is deterministic and never mutates catalog or inputs",
+            "line": 38,
+            "duration_ms": 2.191522
+          },
+          {
+            "name": "auto planner preserves a locked manual kit",
+            "line": 39,
+            "duration_ms": 0.202296
+          },
+          {
+            "name": "auto planner does not return partial kit when role is missing",
+            "line": 40,
+            "duration_ms": 0.188345
+          },
+          {
+            "name": "virtual kits may share products; each remains complete",
+            "line": 41,
+            "duration_ms": 1.207768
+          },
+          {
+            "name": "auto planner supplies two plates and compatible clothing sizes",
+            "line": 42,
+            "duration_ms": 0.489771
+          },
+          {
+            "name": "confirmed production within three days can complete a kit without stock",
+            "line": 43,
+            "duration_ms": 1.023509
+          },
+          {
+            "name": "missing production confirmation or unknown delivery time cannot become three-day promise",
+            "line": 44,
+            "duration_ms": 0.481508
+          },
+          {
+            "name": "stock-only kit never includes preorder variants",
+            "line": 45,
+            "duration_ms": 0.138159
+          },
+          {
+            "name": "lead time uses upper bound of production range",
+            "line": 46,
+            "duration_ms": 0.160182
+          },
+          {
+            "name": "different oversized sizes must not become one shared 3XL+ bucket",
+            "line": 47,
+            "duration_ms": 0.262617
+          },
+          {
+            "name": "pouch-only contents do not become a filled medical kit",
+            "line": 48,
+            "duration_ms": 0.31055
+          }
+        ]
+      },
+      {
+        "file": "model-colors.test.cjs",
+        "scope": "Legacy colors and variant preservation",
+        "result": {
+          "tests": 17,
+          "passed": 17,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "explicit manual legacy merge preserves three colors and six SKUs; inference never auto-applies",
+            "line": 3,
+            "duration_ms": 119.486733
+          },
+          {
+            "name": "matching rich titles and full descriptions never authorize an automatic merge",
+            "line": 4,
+            "duration_ms": 40.274075
+          },
+          {
+            "name": "generic similar names are one optional family question and never automatic joins",
+            "line": 5,
+            "duration_ms": 25.440389
+          },
+          {
+            "name": "different explicit model codes are never merged",
+            "line": 6,
+            "duration_ms": 22.770263
+          },
+          {
+            "name": "different category, technical specification and manual descriptions preserve separate products",
+            "line": 7,
+            "duration_ms": 22.968963
+          },
+          {
+            "name": "same color and size in different source products are never collapsed by accident",
+            "line": 8,
+            "duration_ms": 21.797791
+          },
+          {
+            "name": "changing color changes gallery and available sizes; changing size chooses exact SKU",
+            "line": 9,
+            "duration_ms": 29.732761
+          },
+          {
+            "name": "ambiguous multi-color master photos are never assigned to every color",
+            "line": 10,
+            "duration_ms": 17.473101
+          },
+          {
+            "name": "model feed has stable colors and color-specific photos through legacy publication adapter",
+            "line": 11,
+            "duration_ms": 244.321932
+          },
+          {
+            "name": "merged cards are explicitly hidden without local publication hashes and not hidden again after acknowledgement",
+            "line": 12,
+            "duration_ms": 75.640011
+          },
+          {
+            "name": "SIMPLE apply retains separate source cards and rollback restores original records",
+            "line": 13,
+            "duration_ms": 102.226019
+          },
+          {
+            "name": "repeated migration changes neither variant counts nor source color galleries",
+            "line": 14,
+            "duration_ms": 24.027375
+          },
+          {
+            "name": "shop without model color capability is blocked before POST",
+            "line": 15,
+            "duration_ms": 33.791233
+          },
+          {
+            "name": "supplier SKU, title, price and camouflage attributes do not pretend to be physical model differences",
+            "line": 16,
+            "duration_ms": 20.708282
+          },
+          {
+            "name": "clear specification conflict does not ask the owner to approve an impossible merge",
+            "line": 17,
+            "duration_ms": 36.130118
+          },
+          {
+            "name": "manual product photo choices are not replaced by supplier galleries",
+            "line": 18,
+            "duration_ms": 22.977496
+          },
+          {
+            "name": "manual grouping locks prevent rejoining separated products",
+            "line": 19,
+            "duration_ms": 23.23745
+          }
+        ]
+      },
+      {
+        "file": "model-contract-v2.test.cjs",
+        "scope": "Explicit MODEL/COLOR/SKU contract, losses, photo ownership, privacy and synthetic scale",
+        "result": {
+          "tests": 22,
+          "passed": 22,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "explicit mapping builds one MODEL / three COLOR / six exact SKU without mutating sources",
+            "line": 4,
+            "duration_ms": 11.873842
+          },
+          {
+            "name": "similar titles create separate UNKNOWN drafts and never infer colors or photo ownership",
+            "line": 12,
+            "duration_ms": 1.100656
+          },
+          {
+            "name": "unknown photos remain archived with null color and never reach public gallery",
+            "line": 13,
+            "duration_ms": 1.263262
+          },
+          {
+            "name": "UNKNOWN photo with a guessed color is rejected",
+            "line": 14,
+            "duration_ms": 0.992492
+          },
+          {
+            "name": "missing SKU, variant, price, stock and provider lineage block migration with losses",
+            "line": 15,
+            "duration_ms": 0.974374
+          },
+          {
+            "name": "missing photo mapping reports a real lost reference",
+            "line": 16,
+            "duration_ms": 0.524524
+          },
+          {
+            "name": "duplicate target SKU/variant IDs never collapse into a single record",
+            "line": 17,
+            "duration_ms": 0.542151
+          },
+          {
+            "name": "two SKUs of the same color and size require review instead of duplicate size buttons",
+            "line": 18,
+            "duration_ms": 0.536062
+          },
+          {
+            "name": "canonical ID changes, category parents and cycles block exports",
+            "line": 19,
+            "duration_ms": 0.69369
+          },
+          {
+            "name": "grouping locks survive the new registry",
+            "line": 20,
+            "duration_ms": 0.644916
+          },
+          {
+            "name": "confirmed identities cannot move after import",
+            "line": 21,
+            "duration_ms": 0.702404
+          },
+          {
+            "name": "required empty size blocks active availability, never inventing one size",
+            "line": 22,
+            "duration_ms": 0.44907
+          },
+          {
+            "name": "unconfirmed preorder, stale/unknown inventory and request deadlines are rejected",
+            "line": 23,
+            "duration_ms": 1.571147
+          },
+          {
+            "name": "all six availability states stay separate and nullable stock remains unknown",
+            "line": 24,
+            "duration_ms": 0.538175
+          },
+          {
+            "name": "private exports retain supplier links while public exports exclude them and costs",
+            "line": 25,
+            "duration_ms": 0.632447
+          },
+          {
+            "name": "public color with no confirmed gallery cannot publish",
+            "line": 26,
+            "duration_ms": 0.411803
+          },
+          {
+            "name": "old URLs yield explicit redirects and unknown URLs block site migration",
+            "line": 27,
+            "duration_ms": 0.695363
+          },
+          {
+            "name": "external redirect paths and unsafe photo schemes are rejected",
+            "line": 28,
+            "duration_ms": 0.418784
+          },
+          {
+            "name": "repeated export is deterministic; malformed schema is blocked",
+            "line": 29,
+            "duration_ms": 3.221736
+          },
+          {
+            "name": "photo identity survives reorder and cannot silently point to a replacement URL",
+            "line": 30,
+            "duration_ms": 0.572416
+          },
+          {
+            "name": "invalid exports cannot produce a public catalog and arbitrary private attributes are omitted",
+            "line": 31,
+            "duration_ms": 0.653489
+          },
+          {
+            "name": "complete 10000-model / 20000-SKU mapping preserves every value and gallery",
+            "line": 32,
+            "duration_ms": 690.21351
+          }
+        ]
+      },
+      {
+        "file": "model-v2-server.test.cjs",
+        "scope": "Authenticated atomic PIM API, idempotency, revision conflicts and restart",
+        "result": {
+          "tests": 7,
+          "passed": 7,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "durable API validates source, commits one batch atomically, survives restart and retries safely",
+            "line": 5,
+            "duration_ms": 82.660076
+          },
+          {
+            "name": "unauthorized, browser-origin and large/malformed requests never mutate state",
+            "line": 14,
+            "duration_ms": 13.2209
+          },
+          {
+            "name": "two competing publishes cannot acknowledge two revisions from the same base",
+            "line": 15,
+            "duration_ms": 16.519573
+          },
+          {
+            "name": "missing mapping aborts entire batch and produces no active export",
+            "line": 16,
+            "duration_ms": 14.863386
+          },
+          {
+            "name": "source change marks previous batch stale and requires a new verified export",
+            "line": 17,
+            "duration_ms": 16.103433
+          },
+          {
+            "name": "single writer lock and outside-web-root restriction protect private state",
+            "line": 18,
+            "duration_ms": 0.881514
+          },
+          {
+            "name": "a refresh cannot delete an existing source SKU or photo lineage",
+            "line": 19,
+            "duration_ms": 7.364496
+          }
+        ]
+      },
+      {
+        "file": "model-v2-ui.test.cjs",
+        "scope": "Registry persistence and rollback, stale offers",
+        "result": {
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "v2 mapping persists in IndexedDB and backup without changing source products or taxonomy",
+            "line": 3,
+            "duration_ms": 124.223247
+          },
+          {
+            "name": "legacy site POST is blocked after v2 activation",
+            "line": 10,
+            "duration_ms": 17.448668
+          },
+          {
+            "name": "new PIM screen exposes source, draft, dry-run, export and rollback",
+            "line": 11,
+            "duration_ms": 20.191841
+          },
+          {
+            "name": "an expired supplier availability stays unverified in v2 instead of proving out of stock",
+            "line": 12,
+            "duration_ms": 16.354803
+          },
+          {
+            "name": "failed persistence rolls registry back and keeps source data",
+            "line": 16,
+            "duration_ms": 30.44544
+          },
+          {
+            "name": "registry rollback never discards later supplier or price updates",
+            "line": 17,
+            "duration_ms": 235.758727
+          }
+        ]
+      },
+      {
+        "file": "product-model.test.cjs",
+        "scope": "Legacy product model behavior",
+        "result": {
+          "tests": 67,
+          "passed": 67,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "color alias black",
+            "line": 2,
+            "duration_ms": 3.387497
+          },
+          {
+            "name": "color alias BLACK",
+            "line": 2,
+            "duration_ms": 0.378904
+          },
+          {
+            "name": "color alias чорний",
+            "line": 2,
+            "duration_ms": 0.287095
+          },
+          {
+            "name": "color alias черный",
+            "line": 2,
+            "duration_ms": 0.358502
+          },
+          {
+            "name": "olive alias olive",
+            "line": 3,
+            "duration_ms": 0.441458
+          },
+          {
+            "name": "olive alias olive drab",
+            "line": 3,
+            "duration_ms": 0.163939
+          },
+          {
+            "name": "olive alias олива",
+            "line": 3,
+            "duration_ms": 0.300865
+          },
+          {
+            "name": "camouflage separate Multicam",
+            "line": 4,
+            "duration_ms": 0.240424
+          },
+          {
+            "name": "camouflage separate мультикам",
+            "line": 4,
+            "duration_ms": 0.236057
+          },
+          {
+            "name": "camouflage separate MULTICAM",
+            "line": 4,
+            "duration_ms": 0.365553
+          },
+          {
+            "name": "pixel remains distinct from MM14 and woodland",
+            "line": 5,
+            "duration_ms": 0.39632
+          },
+          {
+            "name": "one variant can have a color and camouflage",
+            "line": 6,
+            "duration_ms": 0.221495
+          },
+          {
+            "name": "unknown patterns retained for review, not coerced",
+            "line": 7,
+            "duration_ms": 0.249618
+          },
+          {
+            "name": "structured fields convert numbers and retain false",
+            "line": 8,
+            "duration_ms": 0.608451
+          },
+          {
+            "name": "contradictory aliases are omitted rather than arbitrarily chosen",
+            "line": 9,
+            "duration_ms": 1.232295
+          },
+          {
+            "name": "manual structured attributes win over supplier updates",
+            "line": 10,
+            "duration_ms": 0.177609
+          },
+          {
+            "name": "size XXL combat_shirt",
+            "line": 11,
+            "duration_ms": 0.448949
+          },
+          {
+            "name": "size M/L gloves",
+            "line": 11,
+            "duration_ms": 0.255196
+          },
+          {
+            "name": "size 42 boots",
+            "line": 11,
+            "duration_ms": 0.076066
+          },
+          {
+            "name": "size 48-50 pants",
+            "line": 11,
+            "duration_ms": 0.065729
+          },
+          {
+            "name": "size 56-58 см helmet",
+            "line": 11,
+            "duration_ms": 0.207324
+          },
+          {
+            "name": "missing or fake one-size blocked for pants",
+            "line": 12,
+            "duration_ms": 0.095925
+          },
+          {
+            "name": "missing or fake one-size blocked for boots",
+            "line": 12,
+            "duration_ms": 0.089195
+          },
+          {
+            "name": "missing or fake one-size blocked for combat_shirt",
+            "line": 12,
+            "duration_ms": 0.038889
+          },
+          {
+            "name": "missing or fake one-size blocked for helmet",
+            "line": 12,
+            "duration_ms": 0.035754
+          },
+          {
+            "name": "missing or fake one-size blocked for gloves",
+            "line": 12,
+            "duration_ms": 0.030086
+          },
+          {
+            "name": "small accessories do not invent sizes",
+            "line": 13,
+            "duration_ms": 0.132009
+          },
+          {
+            "name": "manual incompatibility dominates positive and dimensional matches",
+            "line": 14,
+            "duration_ms": 0.326665
+          },
+          {
+            "name": "dimensional comparison handles cm and mm and reversible orientation",
+            "line": 15,
+            "duration_ms": 0.631867
+          },
+          {
+            "name": "missing compatibility data is unknown, never positive",
+            "line": 16,
+            "duration_ms": 0.123677
+          },
+          {
+            "name": "radio connector mismatch detected",
+            "line": 17,
+            "duration_ms": 0.153252
+          },
+          {
+            "name": "quality is completeness, independent from classifier confidence",
+            "line": 18,
+            "duration_ms": 0.776395
+          },
+          {
+            "name": "critical field photos blocks publication",
+            "line": 19,
+            "duration_ms": 0.25054
+          },
+          {
+            "name": "critical field canonical_category_id blocks publication",
+            "line": 19,
+            "duration_ms": 0.12605
+          },
+          {
+            "name": "critical field name blocks publication",
+            "line": 19,
+            "duration_ms": 0.199582
+          },
+          {
+            "name": "all unavailable variants block readiness without creating preorder",
+            "line": 20,
+            "duration_ms": 0.248245
+          },
+          {
+            "name": "category review with last confirmed category can remain publishable",
+            "line": 21,
+            "duration_ms": 0.17808
+          },
+          {
+            "name": "duplicate detector only proposes; never combines variants",
+            "line": 22,
+            "duration_ms": 0.346204
+          },
+          {
+            "name": "taxonomy never turns color or brand into a category",
+            "line": 23,
+            "duration_ms": 0.170018
+          },
+          {
+            "name": "model preview does not mutate a single product or config",
+            "line": 26,
+            "duration_ms": 147.550959
+          },
+          {
+            "name": "normalization preserves raw, prices, stock, photos, IDs and can be restored",
+            "line": 27,
+            "duration_ms": 208.715081
+          },
+          {
+            "name": "stale preview cannot be applied after manual changes",
+            "line": 28,
+            "duration_ms": 50.780217
+          },
+          {
+            "name": "failed persistence restores catalog and model configuration",
+            "line": 29,
+            "duration_ms": 54.8794
+          },
+          {
+            "name": "explicit category lock survives supplier update and stores suggestion",
+            "line": 30,
+            "duration_ms": 166.643025
+          },
+          {
+            "name": "exact SKU rule stays scoped and below supplier mapping priority",
+            "line": 31,
+            "duration_ms": 10.373701
+          },
+          {
+            "name": "repeat import preserves all manual normalized fields and relations",
+            "line": 32,
+            "duration_ms": 164.107267
+          },
+          {
+            "name": "supplier raw text is retained on the offer and source description",
+            "line": 33,
+            "duration_ms": 40.106571
+          },
+          {
+            "name": "negative stock is recorded as invalid instead of becoming preorder",
+            "line": 34,
+            "duration_ms": 37.094773
+          },
+          {
+            "name": "supplier price history records changes but repeated identical import is idempotent",
+            "line": 35,
+            "duration_ms": 38.181518
+          },
+          {
+            "name": "manager archive survives reimport",
+            "line": 36,
+            "duration_ms": 34.48929
+          },
+          {
+            "name": "supplier inactivity archive recovers when offer returns",
+            "line": 37,
+            "duration_ms": 35.840274
+          },
+          {
+            "name": "one name alone cannot combine unrelated cards",
+            "line": 38,
+            "duration_ms": 34.346895
+          },
+          {
+            "name": "verified model plus matching name keeps variants in one group despite raw category change",
+            "line": 39,
+            "duration_ms": 24.383525
+          },
+          {
+            "name": "new SKU appends to an existing verified model, never creates a new card",
+            "line": 40,
+            "duration_ms": 45.995834
+          },
+          {
+            "name": "more than 50 new variants are parked without losing rows or making a giant card",
+            "line": 41,
+            "duration_ms": 87.252126
+          },
+          {
+            "name": "feed sends authoritative fields while supplier raw and costs remain private",
+            "line": 42,
+            "duration_ms": 19.971377
+          },
+          {
+            "name": "strict publication blocks fictitious clothing size and stock zero",
+            "line": 43,
+            "duration_ms": 16.149172
+          },
+          {
+            "name": "site publication requires normalized model support before any POST",
+            "line": 44,
+            "duration_ms": 13.78301
+          },
+          {
+            "name": "manual relation IDs reject missing products, self-links and contradictory relations",
+            "line": 45,
+            "duration_ms": 15.455002
+          },
+          {
+            "name": "new data view renders capped examples and actionable reasons",
+            "line": 46,
+            "duration_ms": 40.219503
+          },
+          {
+            "name": "unitless plate dimensions do not prove compatibility",
+            "line": 48,
+            "duration_ms": 0.130889
+          },
+          {
+            "name": "numeric glove sizes are supported",
+            "line": 49,
+            "duration_ms": 0.114243
+          },
+          {
+            "name": "card cache invalidates when stock, manual priority or marketing name changes",
+            "line": 51,
+            "duration_ms": 17.791277
+          },
+          {
+            "name": "undoing manual category change restores the automatic lock state",
+            "line": 53,
+            "duration_ms": 18.468182
+          },
+          {
+            "name": "source fit and clothing height are retained without inventing universal sizes",
+            "line": 55,
+            "duration_ms": 0.202907
+          },
+          {
+            "name": "supplier named camouflage variants stay distinct",
+            "line": 56,
+            "duration_ms": 0.419194
+          },
+          {
+            "name": "review filter matches dashboard and excludes stock-only blockers",
+            "line": 59,
+            "duration_ms": 16.177455
+          }
+        ]
+      },
+      {
+        "file": "recheck.test.cjs",
+        "scope": "Supplier rechecks and availability",
+        "result": {
+          "tests": 23,
+          "passed": 23,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "shared supplier article preserves distinct size during merge",
+            "line": 4,
+            "duration_ms": 116.631753
+          },
+          {
+            "name": "shared supplier article preserves distinct height during merge",
+            "line": 4,
+            "duration_ms": 16.78223
+          },
+          {
+            "name": "same shared variant still merges and retains SKU alias",
+            "line": 5,
+            "duration_ms": 19.417859
+          },
+          {
+            "name": "automatic price ending in nine meets minimum margin and remains publishable",
+            "line": 6,
+            "duration_ms": 176.789132
+          },
+          {
+            "name": "price rounding never crosses mandatory RRP floor",
+            "line": 7,
+            "duration_ms": 21.499219
+          },
+          {
+            "name": "quote accounts for order fixed expenses once and meets real net margin",
+            "line": 8,
+            "duration_ms": 22.577861
+          },
+          {
+            "name": "quote cannot discount below mandatory RRP",
+            "line": 9,
+            "duration_ms": 24.88277
+          },
+          {
+            "name": "quote uses progressive donation settings and verifies margin after donation",
+            "line": 10,
+            "duration_ms": 19.567025
+          },
+          {
+            "name": "unachievable quote margin disables client copy and explains reason",
+            "line": 11,
+            "duration_ms": 21.60601
+          },
+          {
+            "name": "shared article is ambiguous in quote; primary RUB SKU resolves exact size",
+            "line": 12,
+            "duration_ms": 16.054148
+          },
+          {
+            "name": "edit made while Supabase batch is prepared remains pending",
+            "line": 13,
+            "duration_ms": 23.140243
+          },
+          {
+            "name": "missing document bytes prevent a supposedly complete downloaded backup",
+            "line": 14,
+            "duration_ms": 20.354446
+          },
+          {
+            "name": "missing document bytes prevent a supposedly complete Drive backup before network",
+            "line": 15,
+            "duration_ms": 14.563011
+          },
+          {
+            "name": "custom dictionary takes precedence over built-in supplier title",
+            "line": 16,
+            "duration_ms": 90.702619
+          },
+          {
+            "name": "shared stock pool is counted once while separate pool rows are added",
+            "line": 17,
+            "duration_ms": 13.210424
+          },
+          {
+            "name": "failed save preserves editor and original product for retry",
+            "line": 18,
+            "duration_ms": 30.569101
+          },
+          {
+            "name": "same size and colour in different cards is allowed without a collision",
+            "line": 20,
+            "duration_ms": 21.041476
+          },
+          {
+            "name": "matching options inside one card are informational and both SKU are published",
+            "line": 21,
+            "duration_ms": 24.936361
+          },
+          {
+            "name": "legacy duplicate_source flags alone no longer block publication or kit catalog",
+            "line": 22,
+            "duration_ms": 16.600334
+          },
+          {
+            "name": "independent unconfirmed source review still blocks publication",
+            "line": 23,
+            "duration_ms": 14.64769
+          },
+          {
+            "name": "informational section is collapsed, non-error and explicitly limited to one card",
+            "line": 24,
+            "duration_ms": 22.183885
+          },
+          {
+            "name": "price import keeps distinct articles without automatically requesting source review",
+            "line": 25,
+            "duration_ms": 118.312957
+          },
+          {
+            "name": "price import does not overwrite an independent source review reason",
+            "line": 26,
+            "duration_ms": 31.196005
+          }
+        ]
+      },
+      {
+        "file": "regression.test.cjs",
+        "scope": "Legacy data and UI regressions",
+        "result": {
+          "tests": 41,
+          "passed": 41,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "source load limit and removable frame are retained and translated",
+            "line": 5,
+            "duration_ms": 397.093372
+          },
+          {
+            "name": "unknown Russian product sentence produces warning and blocks apply",
+            "line": 6,
+            "duration_ms": 22.171437
+          },
+          {
+            "name": "contradictory supplier capacity cannot reappear in generated prose",
+            "line": 7,
+            "duration_ms": 21.658219
+          },
+          {
+            "name": "all twenty source sentences survive; no arbitrary line or character truncation",
+            "line": 8,
+            "duration_ms": 55.585339
+          },
+          {
+            "name": "manual description remains protected during generation and application",
+            "line": 9,
+            "duration_ms": 18.99576
+          },
+          {
+            "name": "translation preserves URLs and HTML attributes exactly",
+            "line": 10,
+            "duration_ms": 12.960776
+          },
+          {
+            "name": "Russian without distinctive Cyrillic markers is detected and translated",
+            "line": 11,
+            "duration_ms": 14.1395
+          },
+          {
+            "name": "generated styles offer different layouts while preserving all factual sentences",
+            "line": 12,
+            "duration_ms": 35.780403
+          },
+          {
+            "name": "price formats use the full number; malformed and infinite values are rejected",
+            "line": 13,
+            "duration_ms": 20.062505
+          },
+          {
+            "name": "import price increase is counted after cache invalidation",
+            "line": 14,
+            "duration_ms": 111.991489
+          },
+          {
+            "name": "pending supplier price jump cannot sell with obsolete purchase price",
+            "line": 15,
+            "duration_ms": 41.156621
+          },
+          {
+            "name": "stale supplier stock is not live and is excluded from hidden-unavailable feed",
+            "line": 16,
+            "duration_ms": 15.080093
+          },
+          {
+            "name": "supplier selection uses actual payout rather than advertised cost",
+            "line": 17,
+            "duration_ms": 13.43888
+          },
+          {
+            "name": "removed shared-SKU size is zeroed while remaining sizes stay live",
+            "line": 18,
+            "duration_ms": 33.945446
+          },
+          {
+            "name": "all variant rows contribute to supplier description of one model",
+            "line": 19,
+            "duration_ms": 173.954201
+          },
+          {
+            "name": "clean start does not throw after clearing the catalog",
+            "line": 20,
+            "duration_ms": 20.441808
+          },
+          {
+            "name": "automatic backup includes document bytes and restores them on another store",
+            "line": 21,
+            "duration_ms": 57.024116
+          },
+          {
+            "name": "storage failure rolls back kit changes and reports failure",
+            "line": 22,
+            "duration_ms": 17.544463
+          },
+          {
+            "name": "missing required kit product never yields a partial publication payload",
+            "line": 23,
+            "duration_ms": 16.54497
+          },
+          {
+            "name": "public feed contains no supplier purchase prices or document bytes",
+            "line": 24,
+            "duration_ms": 24.616683
+          },
+          {
+            "name": "catalog transaction rejects stale revision without partial writes",
+            "line": 25,
+            "duration_ms": 16.377086
+          },
+          {
+            "name": "every view, including kits, renders without real networking",
+            "line": 26,
+            "duration_ms": 123.684563
+          },
+          {
+            "name": "unavailable products stay visible by default with honest out-of-stock status",
+            "line": 27,
+            "duration_ms": 20.360278
+          },
+          {
+            "name": "confirmed supplier manufacturing policy publishes three-day preorder",
+            "line": 28,
+            "duration_ms": 22.216783
+          },
+          {
+            "name": "unconfirmed production does not invent three days or stock",
+            "line": 29,
+            "duration_ms": 25.683436
+          },
+          {
+            "name": "stock freshness changes feed after elapsed time even without a catalog edit",
+            "line": 30,
+            "duration_ms": 29.105777
+          },
+          {
+            "name": "cached extraction detects source changes and cannot be poisoned by a caller",
+            "line": 31,
+            "duration_ms": 17.07191
+          },
+          {
+            "name": "unsupported shop cannot silently ignore kit quantities and SKU restrictions",
+            "line": 32,
+            "duration_ms": 39.31525
+          },
+          {
+            "name": "missing shop acknowledgement cannot mark kits as saved",
+            "line": 33,
+            "duration_ms": 36.5112
+          },
+          {
+            "name": "shop acknowledgement is required before storing kit hash",
+            "line": 34,
+            "duration_ms": 53.23535
+          },
+          {
+            "name": "full remote replacement deletes local-only catalog buckets and preserves local backups",
+            "line": 35,
+            "duration_ms": 18.309694
+          },
+          {
+            "name": "incomplete server response leaves local database unchanged",
+            "line": 36,
+            "duration_ms": 34.574724
+          },
+          {
+            "name": "local revisions changed while pulling cannot be overwritten",
+            "line": 37,
+            "duration_ms": 17.323341
+          },
+          {
+            "name": "full replacement refuses pending local changes",
+            "line": 38,
+            "duration_ms": 14.978092
+          },
+          {
+            "name": "shop credentials are kept locally and removed from sync payload",
+            "line": 39,
+            "duration_ms": 15.583097
+          },
+          {
+            "name": "incoming config uses only local credentials bound to matching shop URL",
+            "line": 40,
+            "duration_ms": 17.064119
+          },
+          {
+            "name": "translation preserves email and a greater-than sign inside quoted markup",
+            "line": 41,
+            "duration_ms": 16.17915
+          },
+          {
+            "name": "pending content counter identifies supplier descriptions awaiting approval",
+            "line": 42,
+            "duration_ms": 13.033708
+          },
+          {
+            "name": "overlapping kit actions cannot overwrite an operation that is saving",
+            "line": 43,
+            "duration_ms": 15.345568
+          },
+          {
+            "name": "value fingerprint includes descriptions and purchase prices while legacy identity remains compatible",
+            "line": 44,
+            "duration_ms": 28.029297
+          },
+          {
+            "name": "committed-state verification detects changed values even with identical IDs and counts",
+            "line": 45,
+            "duration_ms": 160.541094
+          }
+        ]
+      },
+      {
+        "file": "simple.test.cjs",
+        "scope": "SIMPLE policy workflow",
+        "result": {
+          "tests": 29,
+          "passed": 29,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "simple navigation exposes seven main sections and keeps advanced tools",
+            "line": 3,
+            "duration_ms": 125.516027
+          },
+          {
+            "name": "stock zero becomes an owner-authorized request, not guaranteed manufacturing",
+            "line": 4,
+            "duration_ms": 210.523328
+          },
+          {
+            "name": "old price lists remain testable without inventing fresh stock",
+            "line": 5,
+            "duration_ms": 25.424284
+          },
+          {
+            "name": "request excludes missing",
+            "line": 6,
+            "duration_ms": 22.049736
+          },
+          {
+            "name": "request excludes discontinued",
+            "line": 6,
+            "duration_ms": 17.420729
+          },
+          {
+            "name": "request excludes invalid_stock",
+            "line": 6,
+            "duration_ms": 19.227404
+          },
+          {
+            "name": "request excludes priceAlert",
+            "line": 6,
+            "duration_ms": 17.122057
+          },
+          {
+            "name": "explicit manual refusal of preorder stays protected",
+            "line": 7,
+            "duration_ms": 21.115662
+          },
+          {
+            "name": "backpack and flashlight do not require clothing sizes",
+            "line": 8,
+            "duration_ms": 17.470354
+          },
+          {
+            "name": "pants require a real size and do not get a fake universal variant",
+            "line": 9,
+            "duration_ms": 16.04748
+          },
+          {
+            "name": "one valid photo is sufficient; invalid schemes are unusable",
+            "line": 10,
+            "duration_ms": 14.417213
+          },
+          {
+            "name": "missing description is not disguised by generated title and brand",
+            "line": 11,
+            "duration_ms": 15.192406
+          },
+          {
+            "name": "manual description is preserved; supplier information is not shortened to five lines",
+            "line": 12,
+            "duration_ms": 16.660899
+          },
+          {
+            "name": "missing content auto-archives without deleting SKU and restores only its own archive",
+            "line": 13,
+            "duration_ms": 17.177932
+          },
+          {
+            "name": "manual publication refusal is respected",
+            "line": 14,
+            "duration_ms": 23.852879
+          },
+          {
+            "name": "unknown alias creates one decision for multiple products",
+            "line": 15,
+            "duration_ms": 51.485321
+          },
+          {
+            "name": "no documents or missing optional attributes enter simple gate",
+            "line": 16,
+            "duration_ms": 23.498358
+          },
+          {
+            "name": "confirmed payload checkpoint survives a later packet failure",
+            "line": 17,
+            "duration_ms": 38.900181
+          },
+          {
+            "name": "hide requires specific acknowledgements before recording hidden",
+            "line": 18,
+            "duration_ms": 19.902135
+          },
+          {
+            "name": "request mode is blocked before POST on an unsupported store",
+            "line": 19,
+            "duration_ms": 25.463703
+          },
+          {
+            "name": "missing-photo hide overrides category-retained fallback",
+            "line": 20,
+            "duration_ms": 21.645874
+          },
+          {
+            "name": "policy apply makes a complete backup and preserves prices, offers and taxonomy",
+            "line": 21,
+            "duration_ms": 60.944244
+          },
+          {
+            "name": "real multi-packet publication checkpoints successful products and retries only failed packet",
+            "line": 22,
+            "duration_ms": 66.666079
+          },
+          {
+            "name": "repeated automatic exclusion is idempotent",
+            "line": 31,
+            "duration_ms": 20.611008
+          },
+          {
+            "name": "balaclavas, buffs and ponchos do not inherit a generic clothing size requirement",
+            "line": 32,
+            "duration_ms": 13.06085
+          },
+          {
+            "name": "final shop payload preserves approved colors and structured attributes through legacy adapters",
+            "line": 33,
+            "duration_ms": 107.197875
+          },
+          {
+            "name": "simple feed uses confirmed canonical fallback without changing manual category",
+            "line": 34,
+            "duration_ms": 40.367372
+          },
+          {
+            "name": "one card gets one primary question even with multiple blocking causes",
+            "line": 35,
+            "duration_ms": 17.832021
+          },
+          {
+            "name": "missing-content hide is explicit even without local publication hashes and stops after acknowledgement",
+            "line": 36,
+            "duration_ms": 47.321623
+          }
+        ]
+      },
+      {
+        "file": "site-reconciliation-v2.test.cjs",
+        "scope": "Full fingerprints, stock unknown, union, canonical IDs and photo owners",
+        "result": {
+          "tests": 9,
+          "passed": 9,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "exact SKU and product identity recover site URLs and canonical IDs without title inference",
+            "line": 11,
+            "duration_ms": 4.060717
+          },
+          {
+            "name": "visible-only API reading is marked partial; owner mismatch and price differences are explicit",
+            "line": 12,
+            "duration_ms": 1.701886
+          },
+          {
+            "name": "equal missing quantities remain unknown rather than successful stock verification",
+            "line": 13,
+            "duration_ms": 1.611589
+          },
+          {
+            "name": "financial formatting differences preserve exact prices and measured stock",
+            "line": 17,
+            "duration_ms": 0.939012
+          },
+          {
+            "name": "source preparation rejects a stale or tampered table fingerprint",
+            "line": 21,
+            "duration_ms": 1.311886
+          },
+          {
+            "name": "union retains unmatched records, raw offers, current taxonomy and every photo without grouping",
+            "line": 24,
+            "duration_ms": 3.814313
+          },
+          {
+            "name": "a matching URL on a different product never assigns photo or color ownership",
+            "line": 33,
+            "duration_ms": 0.90537
+          },
+          {
+            "name": "unverified public catalog and explicit category conflicts cannot prepare a migration source",
+            "line": 36,
+            "duration_ms": 1.124482
+          },
+          {
+            "name": "internal taxonomy records are preserved as source but cannot publish a confirmed model",
+            "line": 40,
+            "duration_ms": 3.353236
+          }
+        ]
+      },
+      {
+        "file": "supplier-reconciliation-v2.test.cjs",
+        "scope": "Exact supplier SKU and safe XML/XLSX parser (6 Python checks inside one Node test)",
+        "result": {
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "confirmed supplier links use exact scoped primary SKU and preserve source prices and quantities",
+            "line": 5,
+            "duration_ms": 3.681422
+          },
+          {
+            "name": "unrelated offer IDs and duplicate primary supplier SKU never resolve an ambiguous link",
+            "line": 9,
+            "duration_ms": 1.24181
+          },
+          {
+            "name": "manufacturer groups crossing categories and old cards spanning groups remain review cases",
+            "line": 13,
+            "duration_ms": 3.166683
+          },
+          {
+            "name": "even unique site article and exact photo observations remain UNKNOWN candidates",
+            "line": 16,
+            "duration_ms": 0.577634
+          },
+          {
+            "name": "ungrouped offers with the same title never become a source MODEL group",
+            "line": 20,
+            "duration_ms": 1.528263
+          },
+          {
+            "name": "supplier parser rejects entities, preserves grouping provenance, and reads XLSX without executing formulas",
+            "line": 23,
+            "duration_ms": 280.967166
+          }
+        ]
+      },
+      {
+        "file": "workflow.test.cjs",
+        "scope": "Import profiles, supplier binding and safe workflow",
+        "result": {
+          "tests": 27,
+          "passed": 27,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "success toast waits for actual commit and overlapping writes are refused",
+            "line": 6,
+            "duration_ms": 241.11918
+          },
+          {
+            "name": "failed write shows pending memory state, retains old persisted cost and can retry",
+            "line": 7,
+            "duration_ms": 32.427624
+          },
+          {
+            "name": "an action with a missing target explains that no data changed",
+            "line": 8,
+            "duration_ms": 13.163485
+          },
+          {
+            "name": "matching sizes and colors are absent from the unified problem queue",
+            "line": 9,
+            "duration_ms": 41.048183
+          },
+          {
+            "name": "one pending price change is actionable and not duplicated as missing price",
+            "line": 10,
+            "duration_ms": 24.508156
+          },
+          {
+            "name": "stale stock is grouped once per supplier",
+            "line": 11,
+            "duration_ms": 18.621677
+          },
+          {
+            "name": "confirmed manual manufacture supplies a real lead time; discontinued offer is unavailable",
+            "line": 12,
+            "duration_ms": 17.406637
+          },
+          {
+            "name": "removing one discontinued supplier preserves a different live offer",
+            "line": 13,
+            "duration_ms": 13.053959
+          },
+          {
+            "name": "source link validation rejects passwords, insecure and non-HTTP links",
+            "line": 14,
+            "duration_ms": 15.226557
+          },
+          {
+            "name": "HTML, empty and oversized responses never become import files",
+            "line": 15,
+            "duration_ms": 18.001037
+          },
+          {
+            "name": "source download first stages a preview without changing the catalog",
+            "line": 16,
+            "duration_ms": 104.433065
+          },
+          {
+            "name": "reviewed source automatically updates and verifies storage without browser downloads",
+            "line": 17,
+            "duration_ms": 427.883782
+          },
+          {
+            "name": "changed source headers require review even when automatic application is enabled",
+            "line": 18,
+            "duration_ms": 23.72455
+          },
+          {
+            "name": "network failure leaves catalog untouched and adds an actionable source problem",
+            "line": 19,
+            "duration_ms": 23.487692
+          },
+          {
+            "name": "automatic refresh does not interrupt an open editor",
+            "line": 20,
+            "duration_ms": 27.733529
+          },
+          {
+            "name": "final import draft is generated from normalized values and manual text stays protected",
+            "line": 21,
+            "duration_ms": 12.729918
+          },
+          {
+            "name": "confirmed manual manufacture remains available after stock data expires",
+            "line": 22,
+            "duration_ms": 18.510128
+          },
+          {
+            "name": "explicit stock-only exception overrides supplier preorder",
+            "line": 23,
+            "duration_ms": 13.737194
+          },
+          {
+            "name": "a stale subset is not hidden by one fresh row of the same supplier",
+            "line": 24,
+            "duration_ms": 18.933478
+          },
+          {
+            "name": "CSV decoding preserves UTF-8 Cyrillic product names",
+            "line": 25,
+            "duration_ms": 20.553671
+          },
+          {
+            "name": "source download status is not success when a supplier file is missing",
+            "line": 26,
+            "duration_ms": 22.054833
+          },
+          {
+            "name": "manual review records the selected Excel sheet and actual header row",
+            "line": 27,
+            "duration_ms": 13.328856
+          },
+          {
+            "name": "automatic parsing uses the reviewed Excel sheet instead of the first sheet",
+            "line": 28,
+            "duration_ms": 13.46463
+          },
+          {
+            "name": "changing the supplier during manual review never confirms the original source profile",
+            "line": 29,
+            "duration_ms": 13.273482
+          },
+          {
+            "name": "enabled content automation refreshes approved generated text after supplier facts change",
+            "line": 30,
+            "duration_ms": 27.889905
+          },
+          {
+            "name": "draft-only automation leaves approved generated text unchanged",
+            "line": 31,
+            "duration_ms": 33.071148
+          },
+          {
+            "name": "brief notifications replace prior messages instead of covering the page with a stack",
+            "line": 32,
+            "duration_ms": 14.289389
+          }
+        ]
+      }
+    ]
+  },
+  "new_review_tests": {
+    "total": {
+      "tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "success": true
+    },
+    "files": [
+      {
+        "file": "conflict-triage-v2.test.cjs",
+        "scope": "Independent identity evidence, seasons, categories, suppliers, SKU collisions and no title-only SAFE_AUTO",
+        "result": {
+          "tests": 10,
+          "passed": 10,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "verified primary SKU family plus independent fields qualifies only as offline SAFE_AUTO",
+            "line": 5,
+            "duration_ms": 8.117167
+          },
+          {
+            "name": "same title, brand and category without family or technical characteristics never qualifies SAFE_AUTO",
+            "line": 6,
+            "duration_ms": 1.918434
+          },
+          {
+            "name": "contradictory season blocks consolidation even with identical titles and SKU family",
+            "line": 7,
+            "duration_ms": 0.768513
+          },
+          {
+            "name": "source or canonical category contradictions override matching family",
+            "line": 8,
+            "duration_ms": 0.788073
+          },
+          {
+            "name": "multiple suppliers never collapse into a confirmed family",
+            "line": 9,
+            "duration_ms": 0.656994
+          },
+          {
+            "name": "conflicting colors and duplicate color-size SKU both prevent SAFE_AUTO without deleting a variant",
+            "line": 10,
+            "duration_ms": 3.807984
+          },
+          {
+            "name": "size removal preserves brand, manufacturer model code and model-generation differences",
+            "line": 11,
+            "duration_ms": 4.883552
+          },
+          {
+            "name": "SKU stripping requires an explicitly observed variant suffix and cannot erase an arbitrary code",
+            "line": 12,
+            "duration_ms": 0.190659
+          },
+          {
+            "name": "substantial exact technical text requires three full matching characteristics and all other guards",
+            "line": 13,
+            "duration_ms": 0.826481
+          },
+          {
+            "name": "PIM-only conflicts are not miscounted as live shop cards",
+            "line": 14,
+            "duration_ms": 0.533638
+          }
+        ]
+      },
+      {
+        "file": "review-evidence-v2.test.cjs",
+        "scope": "Full SKU review projection without secrets and CSV formula injection",
+        "result": {
+          "tests": 2,
+          "passed": 2,
+          "failed": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "success": true
+        },
+        "checks": [
+          {
+            "name": "review export contains every SKU and UNKNOWN target ID without archive, secrets or procurement",
+            "line": 4,
+            "duration_ms": 9.352257
+          },
+          {
+            "name": "CSV values cannot execute a formula when opened in a spreadsheet",
+            "line": 5,
+            "duration_ms": 0.331983
+          }
+        ]
+      }
+    ]
+  },
+  "live_shop_load_test": false,
+  "live_checkout_verified": false,
+  "production_modified": false,
+  "real_catalog_grouping_confirmed_by_these_tests": false,
+  "python_parser_tests_inside_baseline": 6,
+  "code_sha256": {
+    "app/lib/conflict-triage-v2.cjs": "fc412543a13713a2e5f167d4238bf6bd593a3a618a86fef724ffc9682fe94aef",
+    "app/tools/export-review-evidence-v2.cjs": "1a22a2e4ae5ae5ee0579e2b86825771d0c8c323b6d6f2232218e9aa42656a305",
+    "app/lib/model-contract-v2.js": "057a7ef6de1ffd824d743fe1ae4e62ca73e36105e6f64e942c579f509f75fb56"
+  }
+}

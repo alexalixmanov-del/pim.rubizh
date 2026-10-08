@@ -1,0 +1,48 @@
+{
+  "files": {
+    "AMBIGUOUS.csv": {
+      "sha256": "1ea2aeca047df1d869c90d1db4b0c556a8d012f39c964c084fc3fe358f5227ff",
+      "bytes": 51063
+    },
+    "LIKELY.csv": {
+      "sha256": "ecd6f879e79bbf81d4826f0a6d6b97edec08e975e5d5757b09bdfe67cbd928f2",
+      "bytes": 73885
+    },
+    "README.md": {
+      "sha256": "bbb7452e9b9d3c071c0f45b649a49df1c6042954af5c9d7628cd82556ada8ac9",
+      "bytes": 9428
+    },
+    "SAFE_AUTO.csv": {
+      "sha256": "19caf5da66558cd2ad5b10e0b91b603f3bb322b8826f1b829f63672c13e71d42",
+      "bytes": 6061
+    },
+    "confirmed-supplier-skus.json": {
+      "sha256": "29a71fd082d31d98993511046ff8b07235d36c6704ee67eefbf786b9ee470459",
+      "bytes": 9458528
+    },
+    "conflict-cards.json": {
+      "sha256": "073311fd906d1438846de74b209853b5a8b2274a971ab8b2c37cba9ca6d571e4",
+      "bytes": 964237
+    },
+    "final-summary.json": {
+      "sha256": "451fdf3813a3a9d324ad6c2d1604f039222d835089c7141911eb4e0fab2405b4",
+      "bytes": 1569
+    },
+    "legacy-mapping-review.json": {
+      "sha256": "40e4145176d2d5efa5414ee63872ec32af07a9f1f0317237dcfc796885cd04d0",
+      "bytes": 5812555
+    },
+    "model-color-sku-dry-run.json": {
+      "sha256": "f069940c93b18e7938d3c3a80bd8e152acdca8c1129456a0e5f7fcf68d549fef",
+      "bytes": 7664118
+    },
+    "site-only-skus.json": {
+      "sha256": "ec0c05381d7bc5f6aa0304ad1f15fe0181031b83d6e1b48d35e1faaa25446f19",
+      "bytes": 9195374
+    },
+    "tests-report.json": {
+      "sha256": "2e297bce5ba11a21f98e053310569300e325a7b2388dfd35481847766d8045d4",
+      "bytes": 97492
+    }
+  }
+}
