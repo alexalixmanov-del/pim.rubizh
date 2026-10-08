@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "realCatalogAccuracy": false,
+  "products": 10000,
+  "variants": 10000,
+  "coldMs": 7130,
+  "unchangedReadMs": 0,
+  "singleEditMs": 628,
+  "errors": 0,
+  "productionWrites": false
+}

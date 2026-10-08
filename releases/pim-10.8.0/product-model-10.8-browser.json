@@ -1,0 +1,396 @@
+{
+  "realNetwork": false,
+  "productionWrites": false,
+  "errors": [],
+  "layouts": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "dataModel",
+      "scrollWidth": 1440,
+      "title": "Якість і дані товарів"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "today",
+      "scrollWidth": 1440,
+      "title": "Главная"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "queue",
+      "scrollWidth": 1440,
+      "title": "Проблемы"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "products",
+      "scrollWidth": 1440,
+      "title": "Товары"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "categorization",
+      "scrollWidth": 1440,
+      "title": "Категоризація"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "settings",
+      "scrollWidth": 1440,
+      "title": "Настройки"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "kits",
+      "scrollWidth": 1440,
+      "title": "Комплекти"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "export",
+      "scrollWidth": 1440,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "backup",
+      "scrollWidth": 1440,
+      "title": "Резервная копия"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "dataModel",
+      "scrollWidth": 768,
+      "title": "Якість і дані товарів"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "today",
+      "scrollWidth": 768,
+      "title": "Главная"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "queue",
+      "scrollWidth": 768,
+      "title": "Проблемы"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "products",
+      "scrollWidth": 768,
+      "title": "Товары"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "categorization",
+      "scrollWidth": 768,
+      "title": "Категоризація"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "settings",
+      "scrollWidth": 768,
+      "title": "Настройки"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "kits",
+      "scrollWidth": 768,
+      "title": "Комплекти"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "export",
+      "scrollWidth": 768,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "backup",
+      "scrollWidth": 768,
+      "title": "Резервная копия"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "dataModel",
+      "scrollWidth": 390,
+      "title": "Якість і дані товарів"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "today",
+      "scrollWidth": 390,
+      "title": "Главная"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "queue",
+      "scrollWidth": 390,
+      "title": "Проблемы"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "products",
+      "scrollWidth": 390,
+      "title": "Товары"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "categorization",
+      "scrollWidth": 390,
+      "title": "Категоризація"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "settings",
+      "scrollWidth": 390,
+      "title": "Настройки"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "kits",
+      "scrollWidth": 390,
+      "title": "Комплекти"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "export",
+      "scrollWidth": 390,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "backup",
+      "scrollWidth": 390,
+      "title": "Резервная копия"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "dataModel",
+      "scrollWidth": 1440,
+      "title": "Якість і дані товарів"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "today",
+      "scrollWidth": 1440,
+      "title": "Главная"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "queue",
+      "scrollWidth": 1440,
+      "title": "Проблемы"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "products",
+      "scrollWidth": 1440,
+      "title": "Товары"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "categorization",
+      "scrollWidth": 1440,
+      "title": "Категоризація"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "settings",
+      "scrollWidth": 1440,
+      "title": "Настройки"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "kits",
+      "scrollWidth": 1440,
+      "title": "Комплекти"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "export",
+      "scrollWidth": 1440,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "backup",
+      "scrollWidth": 1440,
+      "title": "Резервная копия"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "dataModel",
+      "scrollWidth": 768,
+      "title": "Якість і дані товарів"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "today",
+      "scrollWidth": 768,
+      "title": "Главная"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "queue",
+      "scrollWidth": 768,
+      "title": "Проблемы"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "products",
+      "scrollWidth": 768,
+      "title": "Товары"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "categorization",
+      "scrollWidth": 768,
+      "title": "Категоризація"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "settings",
+      "scrollWidth": 768,
+      "title": "Настройки"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "kits",
+      "scrollWidth": 768,
+      "title": "Комплекти"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "export",
+      "scrollWidth": 768,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "backup",
+      "scrollWidth": 768,
+      "title": "Резервная копия"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "dataModel",
+      "scrollWidth": 390,
+      "title": "Якість і дані товарів"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "today",
+      "scrollWidth": 390,
+      "title": "Главная"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "queue",
+      "scrollWidth": 390,
+      "title": "Проблемы"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "products",
+      "scrollWidth": 390,
+      "title": "Товары"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "categorization",
+      "scrollWidth": 390,
+      "title": "Категоризація"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "settings",
+      "scrollWidth": 390,
+      "title": "Настройки"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "kits",
+      "scrollWidth": 390,
+      "title": "Комплекти"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "export",
+      "scrollWidth": 390,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "backup",
+      "scrollWidth": 390,
+      "title": "Резервная копия"
+    }
+  ],
+  "checks": [
+    "PREVIEW non-mutating",
+    "APPLY backup and verified persistence",
+    "manual marketing name, compatibility, recommendations and priority saved through real controls",
+    "reload preserves manual fields",
+    "public payload has structured fields and omits supplier cost",
+    "bulk dialog previews two selected products; CANCEL preserves flags; APPLY persists across reload",
+    "manual locked filter works",
+    "rollback restores original catalog",
+    "light and dark themes fit desktop/tablet/mobile"
+  ]
+}

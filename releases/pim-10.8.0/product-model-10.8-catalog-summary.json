@@ -1,0 +1,37 @@
+{
+  "productionWrites": false,
+  "input": "uploaded backup from 2026-10-05; stock age evaluated at audit time",
+  "products": 3113,
+  "variants": 8734,
+  "photos": 19132,
+  "protectedPricesStocksRawVariantsPhotosNamesAndPublicationFlagsUnchanged": true,
+  "persistenceVerified": true,
+  "previewMs": 39264,
+  "applyMs": 184872,
+  "counts": {
+    "products": 3113,
+    "synced": 0,
+    "review": 1463,
+    "conflicts": 69,
+    "duplicates": 0,
+    "low_quality": 138,
+    "no_photo": 4,
+    "no_price": 0,
+    "no_category": 333
+  },
+  "ready": {
+    "READY": 0,
+    "READY_WITH_WARNINGS": 0,
+    "BLOCKED": 3113
+  },
+  "critical": {
+    "missing_availability": 3113,
+    "missing_size": 387,
+    "missing_category": 333,
+    "margin_below_minimum": 199,
+    "variant_grouping": 1,
+    "missing_photos": 4,
+    "language": 7
+  },
+  "privateCatalogIncludedInRelease": false
+}
