@@ -1,0 +1,508 @@
+[
+  {
+    "id": "symbols",
+    "name": "Символіка",
+    "parent_id": null,
+    "aliases": [],
+    "counts": {
+      "SAFE_AUTO": 0,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 0,
+    "examples": [],
+    "supplier_rules": []
+  },
+  {
+    "id": "armor_ballistic_blankets",
+    "name": "Балістичні ковдри",
+    "parent_id": "armor",
+    "aliases": [
+      "бронековдра",
+      "баллистическое одеяло"
+    ],
+    "counts": {
+      "SAFE_AUTO": 2,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 2,
+    "examples": [
+      {
+        "id": "pawfufct2m7b",
+        "name": "Бронековдра KIBORG з балістичним захистом 2 класу від Militex у кольорі"
+      },
+      {
+        "id": "pfu25c7n2m7a",
+        "name": "Бронековдра KIBORG з балістичним захистом 1 класу від Militex у кольорі"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "2 клас захисту",
+        "product_ids": [
+          "pawfufct2m7b"
+        ],
+        "target_category_id": "armor_ballistic_blankets",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "1 клас захисту",
+        "product_ids": [
+          "pfu25c7n2m7a"
+        ],
+        "target_category_id": "armor_ballistic_blankets",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "clothing_insulated_vests",
+    "name": "Утеплені жилети",
+    "parent_id": "clothing",
+    "aliases": [
+      "утеплена жилетка",
+      "жилетка утеплена",
+      "утепленный жилет"
+    ],
+    "counts": {
+      "SAFE_AUTO": 2,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 2,
+    "examples": [
+      {
+        "id": "pu8imo0cnqad",
+        "name": "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)"
+      },
+      {
+        "id": "plzx1qgaogob",
+        "name": "Зимова тактична жилетка, безрукавка на флісі та синтепоні"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s2hjvaqgnp29",
+        "supplier_name": "армолайн",
+        "supplier_category": "Жилетки утеплені",
+        "product_ids": [
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad"
+        ],
+        "target_category_id": "clothing_insulated_vests",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Voennaya forma",
+        "product_ids": [
+          "plzx1qgaogob"
+        ],
+        "target_category_id": "clothing_insulated_vests",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "footwear_care",
+    "name": "Догляд за взуттям",
+    "parent_id": "footwear",
+    "aliases": [
+      "спрей для взуття",
+      "догляд за взуттям",
+      "крем для обуви"
+    ],
+    "counts": {
+      "SAFE_AUTO": 2,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 2,
+    "examples": [
+      {
+        "id": "pdsz5i2pogo8",
+        "name": "Водовідштовхуючий спрей для шкіри і текстилю Nasse Blocker"
+      },
+      {
+        "id": "pngjvydiogqv",
+        "name": "Спрей для замші і нубука Rauleder Pflege 300мл"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Krem dlya obuvi",
+        "product_ids": [
+          "pdsz5i2pogo8"
+        ],
+        "target_category_id": "footwear_care",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Zaschitnye pokrytiya",
+        "product_ids": [
+          "pngjvydiogqv"
+        ],
+        "target_category_id": "footwear_care",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "footwear_shoes",
+    "name": "Туфлі та лофери",
+    "parent_id": "footwear",
+    "aliases": [
+      "лофери",
+      "лоферы",
+      "туфлі",
+      "туфли"
+    ],
+    "counts": {
+      "SAFE_AUTO": 1,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 1,
+    "examples": [
+      {
+        "id": "p5ye3ot9ogub",
+        "name": "Чоловічі лофери з натуральної замші сірі"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Tufli",
+        "product_ids": [
+          "p5ye3ot9ogub"
+        ],
+        "target_category_id": "footwear_shoes",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "communications_earplugs",
+    "name": "Пасивні беруші",
+    "parent_id": "communications",
+    "aliases": [
+      "пасивні беруші",
+      "беруші багаторазові",
+      "беруши пассивные"
+    ],
+    "counts": {
+      "SAFE_AUTO": 1,
+      "LIKELY": 1,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 2,
+    "examples": [
+      {
+        "id": "pacqk51xn13m",
+        "name": "Беруші EARMOR М-02"
+      },
+      {
+        "id": "pl49m6rtn13l",
+        "name": "Беруші універсальні багаторазові в кейсі"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Навушники , беруши",
+        "product_ids": [
+          "pacqk51xn13m",
+          "pl49m6rtn13l"
+        ],
+        "target_category_id": "communications_earplugs",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "electronics_rf_detectors",
+    "name": "Детектори радіосигналів та РЕР",
+    "parent_id": "electronics",
+    "aliases": [
+      "пристрій радіоелектронної розвідки",
+      "детектор радіосигналів",
+      "детектор fpv"
+    ],
+    "counts": {
+      "SAFE_AUTO": 1,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 1,
+    "examples": [
+      {
+        "id": "p35rksvh2mha",
+        "name": "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+        "product_ids": [
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha"
+        ],
+        "target_category_id": "electronics_rf_detectors",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "symbols_flags",
+    "name": "Прапори",
+    "parent_id": "symbols",
+    "aliases": [
+      "прапор України",
+      "флаг Украины"
+    ],
+    "counts": {
+      "SAFE_AUTO": 8,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 8,
+    "examples": [
+      {
+        "id": "p9dt3vcen19k",
+        "name": "Прапор України 90х60см"
+      },
+      {
+        "id": "plofe5m4ehw8",
+        "name": "Прапор України 70×105 см — під древко. M-WIN"
+      },
+      {
+        "id": "pr8xsqe7ehw8",
+        "name": "Прапор України 90×135 см — з люверсами. M-WIN"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "ПРАПОРА",
+        "product_ids": [
+          "p9dt3vcen19k",
+          "ppihe03mn19k"
+        ],
+        "target_category_id": "symbols_flags",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "sf0t3l7jegf9",
+        "supplier_name": "м вин",
+        "supplier_category": "Державні прапори України",
+        "product_ids": [
+          "plofe5m4ehw8",
+          "pr8xsqe7ehw8",
+          "p4qcrbkwehw7",
+          "p83fbijzehw8",
+          "pn1leleqehw7",
+          "p96h3jomehw7"
+        ],
+        "target_category_id": "symbols_flags",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  },
+  {
+    "id": "field_watches",
+    "name": "Польові та тактичні годинники",
+    "parent_id": "field_gear",
+    "aliases": [
+      "годинник наручний",
+      "наручний годинник",
+      "тактичний годинник",
+      "наручные часы",
+      "wristwatch"
+    ],
+    "counts": {
+      "SAFE_AUTO": 27,
+      "LIKELY": 0,
+      "AMBIGUOUS": 0
+    },
+    "products_count": 27,
+    "examples": [
+      {
+        "id": "pvacomppn13u",
+        "name": "Годинник наручний SKMEI 1251AG"
+      },
+      {
+        "id": "puw4du66n13u",
+        "name": "Годинник наручний SKMEI 1845AG"
+      },
+      {
+        "id": "puzzz4n3n13y",
+        "name": "Годинник Glock Automatic GW-14-1-24"
+      }
+    ],
+    "supplier_rules": [
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Тактичні годинники",
+        "product_ids": [
+          "pvacomppn13u",
+          "puw4du66n13u",
+          "powmye9on172",
+          "pyufngh0n13v",
+          "p001j2won1b9",
+          "pkkhv3f8n1dh",
+          "pabqwtgun1dh",
+          "p2qe2yn1n13v",
+          "prv9eowrn13t",
+          "pnv8lcyun19n",
+          "pnv8lcyun19n",
+          "pnv8lcyun19n"
+        ],
+        "target_category_id": "field_watches",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Годинники GLOCK",
+        "product_ids": [
+          "puzzz4n3n13y",
+          "p1ym9zern142",
+          "phigb1ykn142",
+          "pvn442jbn13w",
+          "p2yg6iben143",
+          "pm0mgrbin141",
+          "p8iagcspn145",
+          "puqjdz6dn13z",
+          "plitlmf1n13w",
+          "pk2irpzpn13z",
+          "p925ftghn144",
+          "prw40kcyn141",
+          "p49xbefxn144",
+          "ptcb3deqn13x",
+          "pdbqzcbkn13y",
+          "p3ssz6wsn146",
+          "pcvqjx7dn140"
+        ],
+        "target_category_id": "field_watches",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ]
+  }
+]

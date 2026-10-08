@@ -1,0 +1,189 @@
+[
+  {
+    "group_id": "point-sling-insufficient-evidence|укр тек",
+    "tier": "LIKELY",
+    "category": "weapon_slings",
+    "suppliers": [
+      "укр тек"
+    ],
+    "reason": "Точечный ремень и оружейная supplier group согласуются, но SKU-level описание крайне короткое; одного раздела поставщика недостаточно.",
+    "products": [
+      {
+        "id": "pszaygyzogqh",
+        "name": "Ремінь двоточковий",
+        "warnings": []
+      },
+      {
+        "id": "p83ds88cogqi",
+        "name": "Ремінь одноточковий",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "watch-fallback-policy|тактикал белт",
+    "tier": "LIKELY",
+    "category": "field_other",
+    "suppliers": [
+      "тактикал белт"
+    ],
+    "reason": "В taxonomy есть общий полевой раздел. Нужно одно решение о допустимости такого раздела для часов, включая городские модели; это не доказанный пробел.",
+    "products": [
+      {
+        "id": "p8yeolcrn1ak",
+        "name": "Секундомір тактичний",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "headwear-kit-policy|м вин",
+    "tier": "LIKELY",
+    "category": "clothing_headwear",
+    "suppliers": [
+      "м вин"
+    ],
+    "reason": "Комплект шапка+баф: обе существующие категории подходят компонентам. Утвердить основную категорию комплекта один раз.",
+    "products": [
+      {
+        "id": "p2sesp6iehne",
+        "name": "Зимовий флісовий комплект M-WIN. Шапка (розмір)+баф. Олива.",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "existing-profile-category:communications_earplugs|тактикал белт",
+    "tier": "LIKELY",
+    "category": "communications_earplugs",
+    "suppliers": [
+      "тактикал белт"
+    ],
+    "reason": "Пассивные беруши определены, но EARMOR в исходном названии и MaxDefense в описании не согласованы; исключение не закрывается принудительно.",
+    "products": [
+      {
+        "id": "pacqk51xn13m",
+        "name": "Беруші EARMOR М-02",
+        "warnings": [
+          "SOURCE_MODEL_MISMATCH: EARMOR vs MaxDefense"
+        ]
+      }
+    ]
+  },
+  {
+    "group_id": "generic-belt-policy|укр тек",
+    "tier": "LIKELY",
+    "category": "clothing_belts",
+    "suppliers": [
+      "укр тек"
+    ],
+    "reason": "Недостаточно конструкции, чтобы исключить разгрузочный пояс; поставщик использует общее название.",
+    "products": [
+      {
+        "id": "p8y4wvozogqk",
+        "name": "Ремінь тактичний",
+        "warnings": []
+      },
+      {
+        "id": "pfjoujuyogqk",
+        "name": "Ремінь тактичний зі швидкою застібкою Cobra",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "pest-trap-policy|тактикал белт",
+    "tier": "LIKELY",
+    "category": "field_other",
+    "suppliers": [
+      "тактикал белт"
+    ],
+    "reason": "Изделие определено как ловушка. Общий полевой раздел возможен, но описание говорит о помещениях; требуется одно решение о пределах общего раздела.",
+    "products": [
+      {
+        "id": "pmobqi9in15b",
+        "name": "Клейова пастка мишоловка для гризунів книжка 24х16,5 см",
+        "warnings": []
+      },
+      {
+        "id": "pjcmb7crn15a",
+        "name": "Клейова пастка мишоловка для гризунів 120x28 см",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "helmet-marker-policy|киборг",
+    "tier": "LIKELY",
+    "category": "helmets_accessories",
+    "suppliers": [
+      "киборг"
+    ],
+    "reason": "IFF-маячок крепится не только к шлему; согласовать шлемный аксессуар или общий световой прибор.",
+    "products": [
+      {
+        "id": "ppi3e6fw2mir",
+        "name": "Стробоскопічний маркер (маячок) Hel-Star 6 GEN III (R) для шолому",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "sleeping-bag-poncho|киборг",
+    "tier": "LIKELY",
+    "category": "field_sleeping_bags",
+    "suppliers": [
+      "киборг"
+    ],
+    "reason": "Многофункциональный мишок-пончо: реальные функции сна и одежды конкурируют. Достаточно одного решения для семейства.",
+    "products": [
+      {
+        "id": "pozmndn22mio",
+        "name": "Спальний мішок-пончо 6в1 Multishelter Kiborg утеплений",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "armor-cover-or-complete|киборг",
+    "tier": "AMBIGUOUS",
+    "category": "armor_accessories",
+    "suppliers": [
+      "киборг"
+    ],
+    "reason": "Название: комплект с защитой. Описание: чехол под пакет/возможность покупки отдельно. Нет однозначного SKU-level состава.",
+    "products": [
+      {
+        "id": "p5ix1bpe2mbp",
+        "name": "Комплект (захист живота Kiborg + балістичний захист 2 класу Militex) GEN.2",
+        "warnings": []
+      },
+      {
+        "id": "p4r6qyk52mbp",
+        "name": "Комплект (захист живота Kiborg + балістичний захист 1 клас Militex) GEN.2",
+        "warnings": []
+      },
+      {
+        "id": "pm14gpca2mbq",
+        "name": "Комплект (захист живота Kiborg + балістичний захист2 класу Militex) GEN.2",
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "group_id": "headwear-kit-policy|армолайн",
+    "tier": "LIKELY",
+    "category": "clothing_headwear",
+    "suppliers": [
+      "армолайн"
+    ],
+    "reason": "Комплект шапка+баф: обе существующие категории подходят компонентам. Утвердить основную категорию комплекта один раз.",
+    "products": [
+      {
+        "id": "pw3o02jtnqb4",
+        "name": "Теплий Комплект Шапка + Баф (Фліс)",
+        "warnings": []
+      }
+    ]
+  }
+]
