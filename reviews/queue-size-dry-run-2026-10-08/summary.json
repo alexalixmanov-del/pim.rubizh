@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-10-08T20:11:01.852Z",
+  "mode": "ISOLATED_DRY_RUN",
+  "production_applied": false,
+  "baseline_sha256": "9ee5645236db92e5373dea1a875a83d821ec86bab64f4acc1e4316b7183ee5f3",
+  "source_sha256": "8b3689d2c96a1de90d639b5e508bdff34a42fc0a48dafe80566f365df49d34f6",
+  "size_engine_sha256": "ecc3adfdeb98321d36fe3f87227719303c46c247f9c58a7a88abec01e4d3fb85",
+  "taxonomy_sha256": "90b9a640379e05eb31493a100ee9322d83cb3ad496c964c27eac63c6a6cdef2c",
+  "baseline_tasks": 671,
+  "summary": {
+    "CATEGORY": {
+      "SAFE_AUTO": 134,
+      "LIKELY": 58,
+      "AMBIGUOUS": 124
+    },
+    "SIZE": {
+      "SAFE_AUTO": 194,
+      "LIKELY": 0,
+      "AMBIGUOUS": 101
+    },
+    "COLOR": {
+      "SAFE_AUTO": 7,
+      "LIKELY": 1,
+      "AMBIGUOUS": 3
+    },
+    "MODEL_GROUP": {
+      "SAFE_AUTO": 20,
+      "LIKELY": 19,
+      "AMBIGUOUS": 10
+    }
+  },
+  "sizeSummary": {
+    "questions_before": 295,
+    "questions_closed_safe_auto": 194,
+    "questions_likely": 0,
+    "questions_ambiguous": 101,
+    "exact_sku_sizes_in_original_queue": 56,
+    "one_size_in_original_queue": 9,
+    "no_size_required_in_original_queue": 6,
+    "only_size_ranges_skus": 107,
+    "only_size_lists_skus": 67,
+    "active_catalogue_statuses": {
+      "NO_SIZE_REQUIRED": 3432,
+      "EXACT_SIZE": 4070,
+      "SIZE_RANGE": 119,
+      "SIZE_LIST": 466,
+      "SIZE_CONFIRMATION_REQUIRED": 636,
+      "ONE_SIZE": 10
+    },
+    "ranges_expanded_products": 111,
+    "lists_normalized_products": 126,
+    "unknown_stock_size_options": 1067,
+    "no_size_required_products": 2102,
+    "one_size_skus": 10,
+    "size_mappings_unchanged": true
+  },
+  "detailCounts": {
+    "size": {
+      "SAFE_AUTO": 243,
+      "LIKELY": 0,
+      "AMBIGUOUS": 183
+    },
+    "color": {
+      "SAFE_AUTO": 50,
+      "LIKELY": 1,
+      "AMBIGUOUS": 58
+    }
+  },
+  "changes": {
+    "categories": 134,
+    "sizes": 243,
+    "colors": 50,
+    "models": 20,
+    "model_cards": 21
+  },
+  "business": {
+    "archived_photo": 0,
+    "restored_description": 19,
+    "descriptions_from_attributes": 0,
+    "content_exceptions": 19,
+    "zero_photo_products": 1,
+    "photo_urls_unverified": 49468,
+    "published_zero_photos_before": 0,
+    "confirmed_preorder_skus": 1,
+    "size_confirmation_skus": 1221,
+    "out_without_preorder_skus": 2182,
+    "potentially_publishable_products": 0,
+    "not_network_verified": true,
+    "stale_stock_skus": 0,
+    "historical_stock_simulation": true,
+    "actual_stale_source_skus": 8734,
+    "content_and_variant_ready_products": 1894
+  },
+  "lost": {
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "LOST_CATEGORIES": 0
+  },
+  "invariants": {
+    "supplier_offers_and_original_variants_equal": true,
+    "derived_prices_equal": true,
+    "cfg_aliases_supplier_mappings_equal": true,
+    "taxonomy_equal": true,
+    "manual_locks_and_manual_values_equal": true,
+    "original_category_values_retained": true
+  },
+  "supplier_requests": [
+    {
+      "supplier_id": "s2akya7xoafn",
+      "name": "укр тек",
+      "sku_count": 859
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "name": "киборг",
+      "sku_count": 238
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "name": "тактикал белт",
+      "sku_count": 90
+    },
+    {
+      "supplier_id": "sf0t3l7jegf9",
+      "name": "м вин",
+      "sku_count": 30
+    },
+    {
+      "supplier_id": "s2hjvaqgnp29",
+      "name": "армолайн",
+      "sku_count": 4
+    }
+  ]
+}
