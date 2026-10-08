@@ -1,0 +1,27 @@
+{
+  "version": "10.9.2",
+  "productionWrites": false,
+  "privateCatalogRewritten": false,
+  "products": 3113,
+  "variants": 8734,
+  "supplierOffersAndManualPricesPreserved": true,
+  "pricing": {
+    "automaticChanges": 8693,
+    "manualChanges": 0,
+    "wholesalePrices": 17026,
+    "cappedPrices": 8449,
+    "unsafeWholesale": 0,
+    "kitPrices": 8734,
+    "unsafeKits": 0
+  },
+  "remainingQuestions": {
+    "total": 671,
+    "counts": {
+      "size": 295,
+      "color": 11,
+      "category": 316,
+      "grouping": 1,
+      "model": 48
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "version": "10.9.2",
+  "productionWrites": false,
+  "externalRequestsBlocked": true,
+  "errors": [],
+  "layouts": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "prices",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "quote",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "simplePublication",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "kits",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "prices",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "quote",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "simplePublication",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "kits",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "prices",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "quote",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "simplePublication",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "kits",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "prices",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "quote",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "simplePublication",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "kits",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "prices",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "quote",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "simplePublication",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "kits",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "prices",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "quote",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "simplePublication",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "kits",
+      "scrollWidth": 390
+    }
+  ],
+  "checks": [
+    "startup automatically migrates old 24/15/15 settings to authorized 30/25/20",
+    "original settings and 3 cards have durable backup",
+    "manual price preserved; ordinary and expensive prices recalculate",
+    "pricing settings fields display actual rules",
+    "real input and save preserve additional expense across reload",
+    "quote clamps legacy target to 15 and includes donation",
+    "below-floor manual price disables copying",
+    "repeat startup does not overwrite backup or later settings",
+    "four financial/publication views fit three widths and two themes"
+  ]
+}

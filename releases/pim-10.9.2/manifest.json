@@ -1,0 +1,11 @@
+{
+  "version": "10.9.2",
+  "zip": "rubizh-pim-10.9.2.zip",
+  "sha256": "79192085e5af67f845de0e3599792a8e4b207d47a436ea8cbef71e6d48994934",
+  "bytes": 3959026,
+  "tests": 486,
+  "paidAIRequired": false,
+  "productionDeployed": false,
+  "catalogProductsChecked": 3113,
+  "catalogVariantsChecked": 8734
+}
