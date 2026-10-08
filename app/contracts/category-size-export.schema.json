@@ -1,0 +1,395 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:rubizh:pim:category-size:1",
+  "type": "object",
+  "required": [
+    "id",
+    "model_id",
+    "classification_version",
+    "size_catalog_version",
+    "canonical_category_id",
+    "size_catalogs",
+    "size_options",
+    "variants",
+    "colors"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "classification_version": {
+      "const": 1
+    },
+    "size_catalog_version": {
+      "const": 1
+    },
+    "canonical_category_id": {
+      "enum": [
+        "clothing",
+        "clothing_suits",
+        "clothing_combat_shirts",
+        "clothing_pants",
+        "clothing_jackets",
+        "clothing_fleece",
+        "clothing_tshirts",
+        "clothing_thermal",
+        "clothing_shorts",
+        "clothing_rainwear",
+        "clothing_gloves",
+        "clothing_headwear",
+        "clothing_balaclavas",
+        "clothing_belts",
+        "footwear",
+        "footwear_boots",
+        "footwear_tactical_boots",
+        "footwear_sneakers",
+        "footwear_socks",
+        "footwear_gaiters",
+        "footwear_insoles",
+        "armor",
+        "armor_plate_carriers",
+        "armor_vests",
+        "armor_plates",
+        "armor_soft",
+        "armor_sets",
+        "armor_accessories",
+        "helmets",
+        "helmets_ballistic",
+        "helmets_covers",
+        "helmets_padding",
+        "helmets_rails",
+        "helmets_mounts",
+        "helmets_accessories",
+        "communications",
+        "communications_headsets",
+        "communications_radios",
+        "communications_ptt",
+        "communications_antennas",
+        "communications_accessories",
+        "bags",
+        "bags_backpacks",
+        "bags_assault_backpacks",
+        "bags_hydration",
+        "bags_duffels",
+        "bags_tactical",
+        "bags_waist",
+        "bags_shoulder",
+        "bags_organizers",
+        "pouches",
+        "pouches_magazine",
+        "pouches_grenade",
+        "pouches_tourniquet",
+        "pouches_medical",
+        "pouches_radio",
+        "pouches_phone",
+        "pouches_utility",
+        "pouches_dump",
+        "pouches_dangler",
+        "pouches_panels",
+        "pouches_other",
+        "load_bearing",
+        "load_bearing_rps",
+        "load_bearing_belts",
+        "load_bearing_systems",
+        "load_bearing_harness",
+        "load_bearing_accessories",
+        "protection_knee_elbow",
+        "protection_knee",
+        "protection_elbow",
+        "protection_kits",
+        "medical",
+        "medical_tourniquets",
+        "medical_hemostatic",
+        "medical_bandages",
+        "medical_ifak",
+        "medical_scissors",
+        "medical_occlusive",
+        "medical_other",
+        "medical_training",
+        "camouflage",
+        "camouflage_nets",
+        "camouflage_antidrone",
+        "camouflage_suits",
+        "camouflage_materials",
+        "field_gear",
+        "field_sleeping_bags",
+        "field_mats",
+        "field_seats",
+        "field_thermal_blankets",
+        "field_cookware",
+        "field_thermos",
+        "field_burners",
+        "field_carabiners",
+        "field_hygiene",
+        "field_other",
+        "electronics",
+        "electronics_action_cameras",
+        "electronics_monoculars",
+        "electronics_mounts",
+        "electronics_memory",
+        "electronics_accessories",
+        "lighting",
+        "lighting_handheld",
+        "lighting_headlamps",
+        "lighting_tactical",
+        "lighting_accessories",
+        "power",
+        "power_banks",
+        "power_stations",
+        "power_solar",
+        "power_batteries",
+        "power_cables",
+        "power_accessories",
+        "weapon_accessories",
+        "weapon_slings",
+        "weapon_magazines",
+        "weapon_grips",
+        "weapon_stocks",
+        "weapon_bipods",
+        "weapon_holsters",
+        "weapon_cases",
+        "weapon_cleaning",
+        "weapon_other",
+        "eye_face",
+        "eye_glasses",
+        "eye_masks",
+        "eye_accessories",
+        "tools",
+        "tools_knives",
+        "tools_multitools",
+        "tools_other",
+        "tools_accessories",
+        "symbols",
+        "armor_ballistic_blankets",
+        "clothing_insulated_vests",
+        "footwear_care",
+        "footwear_shoes",
+        "communications_earplugs",
+        "electronics_rf_detectors",
+        "symbols_flags",
+        "field_watches",
+        null
+      ]
+    },
+    "size_catalogs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "catalog_id",
+          "scope",
+          "allowed_sizes",
+          "size_system"
+        ],
+        "properties": {
+          "catalog_id": {
+            "type": "string"
+          },
+          "scope": {
+            "enum": [
+              "MODEL",
+              "COLOR"
+            ]
+          },
+          "color_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "size_system": {
+            "type": "string"
+          },
+          "allowed_sizes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "size_options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "option_id",
+          "size",
+          "variant_sku",
+          "supplier_sku",
+          "stock",
+          "stock_status",
+          "availability",
+          "checkout_allowed",
+          "scope"
+        ],
+        "properties": {
+          "option_id": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string"
+          },
+          "variant_sku": {
+            "const": null
+          },
+          "supplier_sku": {
+            "const": null
+          },
+          "stock": {
+            "const": null
+          },
+          "stock_status": {
+            "const": "UNKNOWN"
+          },
+          "availability": {
+            "const": "SIZE_CONFIRMATION_REQUIRED"
+          },
+          "checkout_allowed": {
+            "const": false
+          },
+          "scope": {
+            "enum": [
+              "MODEL",
+              "COLOR"
+            ]
+          },
+          "color_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sku",
+          "size_status",
+          "stock",
+          "stock_status",
+          "availability",
+          "checkout_allowed",
+          "color_id",
+          "photos"
+        ],
+        "properties": {
+          "sku": {
+            "type": "string",
+            "minLength": 1
+          },
+          "size_status": {
+            "enum": [
+              "EXACT_SIZE",
+              "ONE_SIZE",
+              "NO_SIZE_REQUIRED",
+              "SIZE_CONFIRMATION_REQUIRED"
+            ]
+          },
+          "size_confidence_tier": {
+            "enum": [
+              "SAFE_AUTO",
+              "LIKELY",
+              "AMBIGUOUS"
+            ]
+          },
+          "stock": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "stock_status": {
+            "enum": [
+              "CONFIRMED",
+              "UNKNOWN"
+            ]
+          },
+          "availability": {
+            "enum": [
+              "IN_STOCK",
+              "OUT_OF_STOCK",
+              "PREORDER",
+              "UNKNOWN",
+              "SIZE_CONFIRMATION_REQUIRED"
+            ]
+          },
+          "checkout_allowed": {
+            "type": "boolean"
+          },
+          "color_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "photos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "lead_time_days": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "stock_status": {
+                  "const": "UNKNOWN"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "stock": {
+                  "const": null
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "availability": {
+                  "enum": [
+                    "UNKNOWN",
+                    "SIZE_CONFIRMATION_REQUIRED",
+                    "OUT_OF_STOCK"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "checkout_allowed": {
+                  "const": false
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "colors": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+clothing|Одяг та форма
+clothing_suits|Костюми та комплекти|тактичний костюм;формений комплект;костюм;комплект форми;форма мм14;suit;uniform set
+clothing_combat_shirts|Убакси та бойові сорочки|убакс;убакси;ubacs;combat shirt;бойова сорочка;боевая рубашка;тактична сорочка;тактическая рубашка
+clothing_pants|Штани|штани;брюки;pants;trousers;tactical pants
+clothing_jackets|Куртки|куртка;куртки;куртки та вітровки;вітровка;ветровка;jacket;куртки тактические;зимняя куртка;зимова куртка
+clothing_fleece|Фліс та кофти|флісова кофта;флисовая кофта;флісова куртка;флисовая куртка;фліс, кофти та худі;флиска;худі;толстовка;fleece;фліс;флис
+clothing_tshirts|Футболки та поло|футболка;футболки;поло;майка;тільняшка;t-shirt;tshirt;polo
+clothing_thermal|Термобілизна|термобілизна;термобелье;термобельё;термокофта;термоштани;thermal underwear
+clothing_shorts|Шорти|шорти;шорты;shorts
+clothing_rainwear|Дощовики та пончо|дощовик;дождевик;пончо;poncho;rainwear;raincoat
+clothing_gloves|Рукавички|рукавички;рукавичка;рукавиці;перчатки;gloves
+clothing_headwear|Головні убори|кепка;кепки;панама;панами;бейсболка;шапка;шапки;головні убори;cap;beanie
+clothing_balaclavas|Балаклави та бафи|балаклава;балаклави;баф;бафф;балаклави та бафи;балаклавы;balaclava
+clothing_belts|Ремені одягу|ремінь для штанів;ремень для брюк;тактичний ремінь;тактичні ремені;тактический ремень;ремені та портупеї;clothing belt
+footwear|Взуття
+footwear_boots|Берці|берці;берцы;combat boots;bertsy;берци
+footwear_tactical_boots|Тактичні черевики|черевики;черевик;ботинки;ботинок;тактичне взуття;tactical boots;взуття
+footwear_sneakers|Кросівки|кросівки;кроссовки;кросівка;sneakers
+footwear_socks|Шкарпетки|шкарпетки;термошкарпетки;носки;socks
+footwear_gaiters|Гамаші та бахіли|гамаші;гамаши;бахіли;бахилы;gaiters
+footwear_insoles|Устілки|устілки;стельки;insoles
+armor|Бронезахист
+armor_plate_carriers|Плитоноски|плитоноска;плитоноски;plate carrier;platecarrier;plitonoska
+armor_vests|Бронежилети|бронежилет;бронежилети;бронежилеты;body armor vest
+armor_plates|Бронеплити|бронеплита;бронеплити;бронеплиты;armor plate;ballistic plate;broneplita
+armor_soft|М'які балістичні пакети|бронепакет;балістичний пакет;баллистический пакет;м'які балістичні пакети;soft armor
+armor_sets|Бронекомплекти|бронекомплект;бронекомплекти;комплект бронезахисту;armor set
+armor_accessories|Аксесуари бронезахисту|аксесуари для плитоносок;аксесуари бронезахисту;ремінь для плитоноски;ремень для плитоноски;камербанд;кумербанд;cummerbund
+helmets|Шоломи та захист голови
+helmets_ballistic|Балістичні шоломи|балістичний шолом;баллистический шлем;шолом;шоломи;шлем;ballistic helmet
+helmets_covers|Кавери на шоломи|кавер на шолом;кавер на шлем;кавер;чохол на шолом;чехол на шлем;helmet cover
+helmets_padding|Подушки та підвісні системи|подушки для шолома;подушки для шлема;підвісна система шолома;підвісні системи та подушки;helmet padding;helmet pads
+helmets_rails|Рейки для шоломів|рейки для шолома;рейки для шлема;helmet rails
+helmets_mounts|Кріплення для шоломів|кріплення для навушників;кріплення на шолом;крепление на шлем;helmet mount
+helmets_accessories|Аксесуари шоломів|аксесуари для шоломів;аксессуары для шлемов;helmet accessories
+communications|Тактичний зв'язок та слух
+communications_headsets|Навушники|активні навушники;активные наушники;навушники;наушники;headset;headphones
+communications_radios|Рації|рація;рації;рация;рации;радіостанція;радиостанция;walkie talkie;radio
+communications_ptt|Кнопки PTT|ptt;кнопка тангента;тангента
+communications_antennas|Антени|антена;антенна;antenna
+communications_accessories|Аксесуари зв'язку|аксесуари для рацій;аксессуары для раций;radio accessories
+bags|Рюкзаки, сумки та баули
+bags_backpacks|Рюкзаки|рюкзак;рюкзаки;backpack;ryukzak
+bags_assault_backpacks|Штурмові рюкзаки|штурмовий рюкзак;штурмові рюкзаки;штурмовой рюкзак;assault backpack
+bags_hydration|Гідратори|гідратор;гідратори;гидратор;hydration;hydrator
+bags_duffels|Баули та транспортні сумки|баул;баули;транспортна сумка;транспортні сумки;duffel;duffle
+bags_tactical|Тактичні сумки|тактична сумка;тактическая сумка;сумка для шолома;сумка для шлема;сумка;tactical bag
+bags_waist|Поясні сумки|поясна сумка;поясні сумки;поясная сумка;бананка;waist bag
+bags_shoulder|Сумки через плече|сумка через плече;сумка через плечо;shoulder bag
+bags_organizers|Сумки-органайзери|сумка органайзер;сумки органайзери;сумки-органайзери;bag organizer
+pouches|Підсумки
+pouches_magazine|Для магазинів|підсумок для магазину;підсумок під магазин;подсумок под магазин;подсумок для магазина;підсум магазину;mag pouch;magazine pouch;для магазинів
+pouches_grenade|Для гранат|підсумок для гранати;підсумок під гранату;подсумок для гранаты;подсумок под гранату;для гранат;grenade pouch
+pouches_tourniquet|Для турнікетів|підсумок для турнікета;підсумок для турнікету;подсумок для турникета;для турнікету;tourniquet pouch
+pouches_medical|Медичні підсумки|підсумок для аптечки;подсумок для аптечки;медичний підсумок;медицинский подсумок;сумка для аптечки;medical pouch;ifak pouch
+pouches_radio|Для рацій|підсумок для рації;подсумок для рации;подсумок под рацию;для рацій;radio pouch
+pouches_phone|Для телефонів|підсумок для телефону;подсумок для телефона;для телефону;phone pouch
+pouches_utility|Утилітарні підсумки|утилітарний підсумок;утилітарні підсумки;утилитарный подсумок;utility pouch
+pouches_dump|Скидання магазинів|скидання магазинів;сумка скиду;сумка сброса;подсумок сброса;dump pouch
+pouches_dangler|Напашні підсумки|напашник;напашна сумка;напашні сумки;dangler
+pouches_panels|Панелі підсумків|панель підсумків;панель подсумков;placard;панель molle
+pouches_other|Інші підсумки|інші підсумки;підсумок для навушників;підсумок для планшета;other pouches
+load_bearing|РПС та розвантаження
+load_bearing_rps|Ремінно-плечові системи|рпс;ремінно плечова система;ремінно-плечові системи;ременно плечевая система;рпс розвантаження
+load_bearing_belts|Розвантажувальні пояси|розвантажувальний пояс;розвантажувальні ремені;бойовий пояс;боевой пояс;battle belt;war belt
+load_bearing_systems|Розвантажувальні системи|розвантажувальна система;разгрузочная система;разгрузочный жилет;chest rig
+load_bearing_harness|Плечові лямки|плечові лямки;плечевые лямки;плечова система;harness
+load_bearing_accessories|Аксесуари розвантаження|аксесуари рпс;аксесуари розвантаження;load bearing accessories
+protection_knee_elbow|Захист колін та ліктів
+protection_knee|Наколінники|наколінники;наколенники;knee pads
+protection_elbow|Налокітники|налокітники;налокотники;elbow pads
+protection_kits|Комплекти захисту|наколінники + налокітники;комплект наколінників;комплект защиты коленей;knee elbow kit
+medical|Тактична медицина
+medical_tourniquets|Турнікети та джгути|турнікет;турникет;джгут;жгут;tourniquet
+medical_hemostatic|Гемостатичні засоби|гемостатик;гемостатична губка;гемостатична марля;hemostatic
+medical_bandages|Бандажі та бинти|бандаж;бандажі;бинт;bandage
+medical_ifak|Укомплектовані аптечки IFAK|аптечка;аптечки;ifak;first aid kit
+medical_scissors|Медичні ножиці|медичні ножиці;медицинские ножницы;trauma scissors
+medical_occlusive|Оклюзійні наліпки|оклюзійна наліпка;окклюзионная наклейка;chest seal
+medical_other|Інші медичні засоби|інші медичні засоби;інше медичне обладнання;medical supplies
+medical_training|Навчальні медичні засоби|тренувальний турнікет;навчальний турнікет;учебный турникет;training tourniquet
+camouflage|Маскування
+camouflage_nets|Маскувальні сітки|маскувальна сітка;маскувальні сітки;маскировочная сеть;маскировочная сетка;camouflage net
+camouflage_antidrone|Антидронові сітки|антидронова сітка;антидронові сітки;антидроновая сетка;anti drone net;anti-drone net
+camouflage_suits|Маскувальні костюми|маскувальний костюм;маскувальні костюми;маскировочный костюм;кікімора;кикимора;ghillie suit
+camouflage_materials|Матеріали маскування|маскувальна стрічка;маскувальна тканина;маскировочная ткань;camouflage material
+field_gear|Туризм та польове спорядження
+field_sleeping_bags|Спальні мішки|спальний мішок;спальні мішки;спальный мешок;sleeping bag
+field_mats|Каремати|каремат;каремати;килимок туристичний;туристичні каремати;camping mat
+field_seats|Сидушки|сидушка;сидушки;тактична сидушка;seat pad
+field_thermal_blankets|Термоковдри|термоковдра;термоковдри;термоодеяло;thermal blanket
+field_cookware|Польовий посуд|польовий посуд;казанок;котелок;ложка;кружка;mess kit
+field_thermos|Термоси|термос;термоси;thermos
+field_burners|Пальники|пальник;пальники;горелка;горелки;camping stove
+field_carabiners|Карабіни та кріплення|карабін;карабіни;карабин;carabiner
+field_hygiene|Гігієна|гігієна;гигиена;засоби гігієни;hygiene
+field_other|Інше польове спорядження|польове спорядження;інше спорядження;field gear
+ electronics|Електроніка та спостереження
+ electronics_action_cameras|Екшн-камери|екшн камера;екшн-камери;экшн камера;action camera;helmet camera
+ electronics_monoculars|Монокуляри|монокуляр;монокуляри;monocular
+ electronics_mounts|Кріплення електроніки|кріплення для пнб;кріплення для тепловізора;крепление для пнв;night vision mount
+ electronics_memory|Карти пам'яті|карта пам'яті;карта памяти;memory card;micro sd;microsd
+ electronics_accessories|Аксесуари електроніки|аксесуари електроніки;аксессуары электроники;electronics accessories
+lighting|Освітлення
+lighting_handheld|Ручні ліхтарі|ручний ліхтар;ручні ліхтарі;ручной фонарь;ліхтар;фонарик;flashlight
+lighting_headlamps|Налобні ліхтарі|налобний ліхтар;налобні ліхтарі;налобный фонарь;headlamp
+lighting_tactical|Тактичні ліхтарі|тактичний ліхтар;тактический фонарь;підствольний ліхтар;weapon light
+lighting_accessories|Аксесуари освітлення|аксесуари ліхтарів;аксессуары фонарей;flashlight accessories
+power|Автономне живлення
+power_banks|Павербанки|павербанк;powerbank;power bank
+power_stations|Зарядні станції|зарядна станція;зарядні станції;зарядная станция;power station
+power_solar|Сонячні панелі|сонячна панель;солнечная панель;solar panel
+power_batteries|Акумулятори та батарейки|акумулятор;акумулятори;батарейка;батарейки;battery
+power_cables|Кабелі живлення|кабель живлення;кабель питания;usb кабель;charging cable
+power_accessories|Аксесуари живлення|аксесуари живлення;аксессуары питания;power accessories
+weapon_accessories|Збройові аксесуари
+weapon_slings|Ремені для зброї|ремінь для зброї;ремень для оружия;збройовий ремінь;двоточковий ремінь;двоточкові ремені;одноточковий ремінь;трьохточковий ремінь;weapon sling
+weapon_magazines|Магазини для зброї|магазин ак;магазин ar;магазини ак;магазини для зброї;магазини ак та ar15;weapon magazine
+weapon_grips|Руків'я та упори|руків'я та упори;руків'я для зброї;рукоятка для оружия;тактична рукоятка;weapon grip
+weapon_stocks|Приклади та щоки|приклад;приклади;приклади та щоки;weapon stock
+weapon_bipods|Сошки|сошки;сошка;bipod
+weapon_holsters|Кобури|кобура;кобури;кобуры;holster
+weapon_cases|Чохли для зброї|чохол для зброї;чохли для зброї;чехол для оружия;weapon case;rifle case
+weapon_cleaning|Догляд за зброєю|набір для чищення;набор для чистки;набори для чищення;мастило для зброї;weapon cleaning
+weapon_other|Інші збройові аксесуари|інші збройові аксесуари;weapon accessories
+ eye_face|Захист очей та обличчя
+ eye_glasses|Окуляри|тактичні окуляри;тактические очки;окуляри;glasses
+ eye_masks|Маски|захисна маска;захисні маски;баллистическая маска;ballistic mask;face mask
+ eye_accessories|Аксесуари окулярів|чохол для окулярів;чехол для очков;ремінець окулярів;glasses accessories
+ tools|Інструменти та ножі
+ tools_knives|Ножі|ніж;ножі;нож;ножи;knife
+ tools_multitools|Мультитули|мультитул;мультитули;multitool
+ tools_other|Інші інструменти|сокира;топор;лопата;інструмент;tools
+ tools_accessories|Аксесуари інструментів|чохол для ножа;чехол для ножа;точило;ножеточка;knife sheath

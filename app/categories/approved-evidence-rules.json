@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "canonical_category_ids": [
+    "symbols",
+    "armor_ballistic_blankets",
+    "clothing_insulated_vests",
+    "footwear_care",
+    "footwear_shoes",
+    "communications_earplugs",
+    "electronics_rf_detectors",
+    "symbols_flags",
+    "field_watches"
+  ],
+  "supplier_rules": [
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "supplier_category": "2 клас захисту",
+      "target_category_id": "armor_ballistic_blankets",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "supplier_category": "1 клас захисту",
+      "target_category_id": "armor_ballistic_blankets",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2hjvaqgnp29",
+      "supplier_name": "армолайн",
+      "supplier_category": "Жилетки утеплені",
+      "target_category_id": "clothing_insulated_vests",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Voennaya forma",
+      "target_category_id": "clothing_insulated_vests",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Krem dlya obuvi",
+      "target_category_id": "footwear_care",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Zaschitnye pokrytiya",
+      "target_category_id": "footwear_care",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Tufli",
+      "target_category_id": "footwear_shoes",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "Навушники , беруши",
+      "target_category_id": "communications_earplugs",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+      "target_category_id": "electronics_rf_detectors",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "ПРАПОРА",
+      "target_category_id": "symbols_flags",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "sf0t3l7jegf9",
+      "supplier_name": "м вин",
+      "supplier_category": "Державні прапори України",
+      "target_category_id": "symbols_flags",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "Тактичні годинники",
+      "target_category_id": "field_watches",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "Годинники GLOCK",
+      "target_category_id": "field_watches",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    }
+  ]
+}
