@@ -1,0 +1,19 @@
+{
+  "command": "npm ci --ignore-scripts && npm run build && npm test",
+  "tests": 486,
+  "passed": 486,
+  "failed": 0,
+  "skipped": 0,
+  "synthetic_scale": {
+    "models": 10000,
+    "variants": 20000,
+    "is_live_load_test": false
+  },
+  "schema_validation": "JSON Schema 2020-12 export fixture passed",
+  "php_cli_export_fixture": {
+    "products": 2457,
+    "variants": 7336,
+    "photos": 15037,
+    "is_current_production": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "rubizh-pim-verification",
+  "version": "10.10.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/kits.test.cjs tests/regression.test.cjs tests/content-free.test.cjs tests/recheck.test.cjs tests/workflow.test.cjs tests/categories.test.cjs tests/product-model.test.cjs tests/simple.test.cjs tests/model-colors.test.cjs tests/model-contract-v2.test.cjs tests/model-v2-ui.test.cjs tests/model-v2-server.test.cjs tests/site-reconciliation-v2.test.cjs",
+    "test:legacy": "node tests/test.cjs",
+    "serve": "python3 -m http.server 8765 --bind 0.0.0.0",
+    "build": "node tools/build.cjs",
+    "serve:v2": "node server/model-v2-server.cjs"
+  },
+  "dependencies": {
+    "fake-indexeddb": "6.2.5",
+    "linkedom": "0.18.13"
+  }
+}

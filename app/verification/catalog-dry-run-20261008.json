@@ -1,0 +1,30 @@
+{
+  "backup_sha256": "eb3604fd349bc062a920127649beb6f9d52d4ab5335040a993487ae8978bc5be",
+  "pim_code_baseline": "10.9.0 SIMPLE; explicit schema 2.0",
+  "counts": {
+    "source_products": 3113,
+    "source_variants": 8734,
+    "source_photos": 82328,
+    "models": 3113,
+    "colors": 0
+  },
+  "summary": {
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "LOST_CANONICAL_CATEGORIES": 0,
+    "LOST_SUPPLIER_LINKS": 0
+  },
+  "errors": 0,
+  "unconfirmed_mappings": 14960,
+  "ready_for_migration": false,
+  "canonical_ids_present": 0,
+  "legacy_variant_ids_present": 0,
+  "legacy_urls_present": 0,
+  "elapsed_ms": 4727,
+  "source_bytes": 120526941,
+  "mapping_bytes": 48839334,
+  "production_modified": false
+}

@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rubizh:pim:models:2.0",
+  "title": "Authenticated PIM full-model export 2.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "models",
+    "legacy_mapping",
+    "categories",
+    "source_archive",
+    "report"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0"
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/model"
+      }
+    },
+    "legacy_mapping": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "product_mappings",
+        "variant_mappings",
+        "photo_mappings"
+      ]
+    },
+    "categories": {
+      "type": "array"
+    },
+    "source_archive": {
+      "type": "object"
+    },
+    "report": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "size": {
+      "type": "object",
+      "properties": {
+        "raw": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "normalized": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "raw",
+        "normalized"
+      ],
+      "additionalProperties": false
+    },
+    "photo": {
+      "type": "object",
+      "properties": {
+        "photo_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "sort": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "legacy_photo_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_product_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "color_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mapping_status": {
+          "enum": [
+            "CONFIRMED",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "photo_id",
+        "url",
+        "sort",
+        "legacy_photo_id",
+        "legacy_product_id",
+        "model_id",
+        "color_id",
+        "mapping_status"
+      ],
+      "additionalProperties": false
+    },
+    "variant": {
+      "type": "object",
+      "properties": {
+        "variant_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sku": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supplier_sku": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size": {
+          "$ref": "#/$defs/size"
+        },
+        "price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "stock": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "availability": {
+          "enum": [
+            "IN_STOCK",
+            "PREORDER",
+            "ORDER_ON_REQUEST",
+            "SIZE_CONFIRMATION_REQUIRED",
+            "OUT_OF_STOCK",
+            "HIDDEN"
+          ]
+        },
+        "availability_unknown": {
+          "type": "boolean"
+        },
+        "lead_time_days": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "preorder_confirmed": {
+          "type": "boolean"
+        },
+        "stock_stale": {
+          "type": "boolean"
+        },
+        "supplier_links": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "legacy_product_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_variant_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "variant_id",
+        "sku",
+        "size",
+        "price",
+        "stock",
+        "availability",
+        "supplier_links",
+        "legacy_product_id",
+        "legacy_variant_id"
+      ],
+      "additionalProperties": false
+    },
+    "color": {
+      "type": "object",
+      "properties": {
+        "color_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "color": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "camouflage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "legacy_product_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/photo"
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/variant"
+          }
+        }
+      },
+      "required": [
+        "color_id",
+        "color",
+        "camouflage",
+        "legacy_product_ids",
+        "photos",
+        "variants"
+      ],
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "marketing_name_uk": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonical_category_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "slug": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size_policy": {
+          "enum": [
+            "NONE",
+            "OPTIONAL",
+            "REQUIRED",
+            null
+          ]
+        },
+        "publication_status": {
+          "enum": [
+            "PUBLISHED",
+            "UNPUBLISHED"
+          ]
+        },
+        "mapping_status": {
+          "enum": [
+            "CONFIRMED",
+            "UNKNOWN"
+          ]
+        },
+        "attributes": {
+          "type": "object"
+        },
+        "legacy_product_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "colors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/color"
+          }
+        },
+        "unassigned_photos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/photo"
+          }
+        }
+      },
+      "required": [
+        "model_id",
+        "marketing_name_uk",
+        "canonical_category_id",
+        "description",
+        "slug",
+        "size_policy",
+        "publication_status",
+        "mapping_status",
+        "legacy_product_ids",
+        "colors",
+        "unassigned_photos"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

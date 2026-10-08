@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "mode": "read-only-reconciliation",
+  "production_modified": false,
+  "full_site_snapshot": false,
+  "ready_for_migration": false,
+  "summary": {
+    "pim_skus": 8734,
+    "site_skus": 7079,
+    "matched_skus": 3608,
+    "site_only_skus": 3471,
+    "pim_only_skus": 5126,
+    "product_owner_conflicts": 0,
+    "price_differences": 0,
+    "stock_differences": 0
+  },
+  "required_next_steps": [
+    "Resolve unmatched SKU and price/stock differences without overwriting either source",
+    "Use exact site canonical IDs and preserve alias/rule/lock metadata",
+    "Confirm model/color/SKU/photo registry in PIM",
+    "Run full migration validator before any shop APPLY"
+  ]
+}
