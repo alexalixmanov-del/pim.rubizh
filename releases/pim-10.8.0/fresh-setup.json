@@ -1,0 +1,13 @@
+{
+  "version": "10.8.0",
+  "publishedArchiveDownloaded": true,
+  "sha256Verified": true,
+  "frozenInstall": true,
+  "buildMatchesTestedRuntime": true,
+  "tests": 404,
+  "failed": 0,
+  "skipped": 0,
+  "httpReadinessAndRuntimeAssetsVerified": true,
+  "productionWrites": false,
+  "freshTaskRestorationTested": false
+}
