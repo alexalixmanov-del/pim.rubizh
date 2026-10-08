@@ -1,0 +1,11 @@
+{
+  "package_checksums": "passed",
+  "staging_install": "passed",
+  "rollback_restored_previous_runtime": "passed",
+  "new_file_removed_on_rollback": true,
+  "private_data_in_package": false,
+  "entry_redirect": "passed",
+  "browser_contract_loaded": true,
+  "javascript_errors": 0,
+  "production_deployed": false
+}

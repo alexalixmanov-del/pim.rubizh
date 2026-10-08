@@ -13,19 +13,19 @@ backup_root=${PIM_BACKUP_ROOT:-/home/xk589064/.pim-deploy-backups}
 [[ "$backup_root" != "$target" && "$backup_root" != "$target/"* ]] || { echo 'Backup directory must be outside the website.' >&2; exit 1; }
 mkdir -p "$backup_root"
 chmod 700 "$backup_root"
-backup=$(mktemp -d "$backup_root/10.9.0-$(date -u +%Y%m%dT%H%M%SZ)-XXXXXX")
+backup=$(mktemp -d "$backup_root/10.10.0-$(date -u +%Y%m%dT%H%M%SZ)-XXXXXX")
 stage="$backup/stage"
 mkdir "$stage" "$backup/previous"
-unzip -q "$archive" -d "$stage"
-files=(rubizh_pim.html lib/kits.js lib/categories.js lib/product-model.js lib/ui.css vendor/xlsx-0.20.3.min.js vendor/LICENSE np-origins.json index.html)
+files=(rubizh_pim.html lib/kits.js lib/categories.js lib/product-model.js lib/model-contract-v2.js lib/ui.css vendor/xlsx-0.20.3.min.js vendor/LICENSE np-origins.json index.html)
+unzip -q "$archive" "${files[@]}" SHA256SUMS -d "$stage"
 for file in "${files[@]}"; do
  [[ -f "$stage/$file" && ! -L "$stage/$file" ]] || { echo "Missing release file: $file" >&2; exit 1; }
  [[ ! -L "$target/$file" ]] || { echo "Refusing to replace a symbolic link: $file" >&2; exit 1; }
  parent=$(dirname "$file")
  [[ "$parent" == '.' || ! -L "$target/$parent" ]] || { echo "Refusing symbolic-link directory: $parent" >&2; exit 1; }
  done
-cmp "$stage/index.html" "$stage/rubizh_pim.html"
-grep -q 'v10.9.0 Content Engine' "$stage/index.html" || { echo 'Wrong PIM version in archive.' >&2; exit 1; }
+[[ -f "$stage/SHA256SUMS" && ! -L "$stage/SHA256SUMS" ]] || exit 1
+grep -q 'const PIM_VERSION = "10.10.0"' "$stage/rubizh_pim.html" || { echo 'Wrong PIM version in archive.' >&2; exit 1; }
 (cd "$stage" && sha256sum -c SHA256SUMS)
 : > "$backup/previous-files"
 : > "$backup/new-files"
@@ -73,6 +73,6 @@ trap - ERR INT TERM
 # An uploaded release contains source and audit files: remove it from the public directory.
 if [[ "$archive" == "$target/"* ]]; then rm -f "$archive"; fi
 rm -rf "$stage"
-echo 'PIM 10.9.0 installed. Browser catalog remains on the same site origin.'
+echo 'PIM 10.10.0 installed. Browser catalog remains on the same site origin.'
 printf 'Backup: %s\nRollback: bash %q\n' "$backup" "$backup/rollback.sh"
 echo 'Reload https://pim.rubizh.shop/ with Ctrl+F5 and check the version and catalog.'
