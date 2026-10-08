@@ -1,0 +1,12 @@
+{
+  "version": "10.7.0",
+  "productionWrites": false,
+  "freshSourceDirectory": true,
+  "sourceFromPinnedArchive": true,
+  "archiveSha256": "8586c8d142f7ca194b136df9bfa670ae1be0de603422ed69b675d9db990c67e8",
+  "frozenDependenciesInstalled": true,
+  "buildSucceeded": true,
+  "testsPassed": 242,
+  "testsFailed": 0,
+  "configurationPublicationClaimed": false
+}
