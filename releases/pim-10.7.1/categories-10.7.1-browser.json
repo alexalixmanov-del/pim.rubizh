@@ -1,0 +1,179 @@
+{
+  "realNetwork": false,
+  "productionWrites": false,
+  "errors": [],
+  "fixtureProducts": 3,
+  "xmlCheck": {
+    "id": "offer-123",
+    "path": "Мужская одежда / Куртки / Зимние",
+    "raw": "Зимние",
+    "subcategory": "Зимние",
+    "category": "clothing_jackets",
+    "attributes": {
+      "gender": "male",
+      "season": "winter"
+    }
+  },
+  "layouts": [
+    {
+      "width": 1440,
+      "view": "categorization",
+      "pageWidth": 1440,
+      "title": "Категоризація"
+    },
+    {
+      "width": 1440,
+      "view": "today",
+      "pageWidth": 1440,
+      "title": "Главная"
+    },
+    {
+      "width": 1440,
+      "view": "queue",
+      "pageWidth": 1440,
+      "title": "Проблемы"
+    },
+    {
+      "width": 1440,
+      "view": "products",
+      "pageWidth": 1440,
+      "title": "Товары"
+    },
+    {
+      "width": 1440,
+      "view": "cats",
+      "pageWidth": 1440,
+      "title": "Категоризація"
+    },
+    {
+      "width": 1440,
+      "view": "table",
+      "pageWidth": 1440,
+      "title": "Таблица"
+    },
+    {
+      "width": 1440,
+      "view": "export",
+      "pageWidth": 1440,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "width": 1440,
+      "view": "kits",
+      "pageWidth": 1440,
+      "title": "Комплекти"
+    },
+    {
+      "width": 768,
+      "view": "categorization",
+      "pageWidth": 768,
+      "title": "Категоризація"
+    },
+    {
+      "width": 768,
+      "view": "today",
+      "pageWidth": 768,
+      "title": "Главная"
+    },
+    {
+      "width": 768,
+      "view": "queue",
+      "pageWidth": 768,
+      "title": "Проблемы"
+    },
+    {
+      "width": 768,
+      "view": "products",
+      "pageWidth": 768,
+      "title": "Товары"
+    },
+    {
+      "width": 768,
+      "view": "cats",
+      "pageWidth": 768,
+      "title": "Категоризація"
+    },
+    {
+      "width": 768,
+      "view": "table",
+      "pageWidth": 768,
+      "title": "Таблица"
+    },
+    {
+      "width": 768,
+      "view": "export",
+      "pageWidth": 768,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "width": 768,
+      "view": "kits",
+      "pageWidth": 768,
+      "title": "Комплекти"
+    },
+    {
+      "width": 390,
+      "view": "categorization",
+      "pageWidth": 390,
+      "title": "Категоризація"
+    },
+    {
+      "width": 390,
+      "view": "today",
+      "pageWidth": 390,
+      "title": "Главная"
+    },
+    {
+      "width": 390,
+      "view": "queue",
+      "pageWidth": 390,
+      "title": "Проблемы"
+    },
+    {
+      "width": 390,
+      "view": "products",
+      "pageWidth": 390,
+      "title": "Товары"
+    },
+    {
+      "width": 390,
+      "view": "cats",
+      "pageWidth": 390,
+      "title": "Категоризація"
+    },
+    {
+      "width": 390,
+      "view": "table",
+      "pageWidth": 390,
+      "title": "Таблица"
+    },
+    {
+      "width": 390,
+      "view": "export",
+      "pageWidth": 390,
+      "title": "Выгрузка на сайт"
+    },
+    {
+      "width": 390,
+      "view": "kits",
+      "pageWidth": 390,
+      "title": "Комплекти"
+    }
+  ],
+  "checks": [
+    "dry run through real buttons leaves catalog unchanged",
+    "manual review resolves unknown within migration plan",
+    "supplier-scoped bulk mapping resolves a conflict without immediate write",
+    "migration persists the staged mapping and manual choice",
+    "independent storage validation succeeds",
+    "card category button focuses the editable field",
+    "card supplier rule button saves product and mapping",
+    "reload preserves canonical IDs, mappings and manual decisions",
+    "XML hierarchy, leaf category and stable offer ID survive parsing",
+    "all review filters and confirmed rows render",
+    "new and related views fit desktop/tablet/mobile",
+    "mapping creation requires a non-mutating impact preview",
+    "mixed supplier sections block whole-section rules",
+    "typed rule applies only to matching items"
+  ]
+}

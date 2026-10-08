@@ -1,0 +1,9 @@
+{
+  "synthetic": true,
+  "measuredRealCatalogAccuracy": false,
+  "rows": 10000,
+  "expectedAssignments": 10000,
+  "errors": 0,
+  "durationMs": 2095,
+  "rulesetVersion": 2
+}

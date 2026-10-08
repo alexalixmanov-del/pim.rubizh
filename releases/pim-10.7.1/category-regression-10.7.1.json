@@ -1,0 +1,110 @@
+{
+  "productionWrites": false,
+  "before": {
+    "autoConfirmed": 2593,
+    "conflicts": 260,
+    "insufficientData": 260,
+    "reviewTotal": 520
+  },
+  "after": {
+    "autoConfirmed": 2780,
+    "conflicts": 69,
+    "insufficientData": 264,
+    "reviewTotal": 333
+  },
+  "previousConflicts": {
+    "automaticallyResolved": 192,
+    "stillConflict": 64,
+    "insufficientData": 4
+  },
+  "previousAutoAssignmentsChanged": 35,
+  "assignmentChangesByCategory": [
+    {
+      "before": "clothing_balaclavas",
+      "after": null,
+      "count": 1
+    },
+    {
+      "before": "armor_plate_carriers",
+      "after": "armor_plates",
+      "count": 2
+    },
+    {
+      "before": "field_mats",
+      "after": "field_seats",
+      "count": 3
+    },
+    {
+      "before": "field_burners",
+      "after": null,
+      "count": 1
+    },
+    {
+      "before": "communications_headsets",
+      "after": null,
+      "count": 2
+    },
+    {
+      "before": "bags_tactical",
+      "after": "weapon_cases",
+      "count": 2
+    },
+    {
+      "before": "field_carabiners",
+      "after": null,
+      "count": 1
+    },
+    {
+      "before": "tools_other",
+      "after": null,
+      "count": 2
+    },
+    {
+      "before": "footwear_tactical_boots",
+      "after": null,
+      "count": 1
+    },
+    {
+      "before": "clothing_suits",
+      "after": "clothing_jackets",
+      "count": 6
+    },
+    {
+      "before": "pouches_dump",
+      "after": "armor_plate_carriers",
+      "count": 1
+    },
+    {
+      "before": "electronics_mounts",
+      "after": "electronics_accessories",
+      "count": 6
+    },
+    {
+      "before": "power_batteries",
+      "after": null,
+      "count": 1
+    },
+    {
+      "before": "helmets_covers",
+      "after": null,
+      "count": 1
+    },
+    {
+      "before": "pouches_dangler",
+      "after": null,
+      "count": 2
+    },
+    {
+      "before": "communications_radios",
+      "after": "communications_accessories",
+      "count": 1
+    },
+    {
+      "before": "bags_tactical",
+      "after": "pouches_dangler",
+      "count": 2
+    }
+  ],
+  "measuredAccuracy": false,
+  "privateProductsIncludedInRelease": false
+}

@@ -1,0 +1,47 @@
+{
+  "productionWrites": false,
+  "inputProducts": 3113,
+  "inputVariants": 8734,
+  "outputProducts": 3113,
+  "outputVariants": 8734,
+  "summary": {
+    "products": 3113,
+    "variants": 8734,
+    "moved": 2740,
+    "unchanged": 40,
+    "unknown": 264,
+    "conflicts": 69,
+    "potential_duplicates": 0,
+    "lost_products": 0,
+    "lost_variants": 0,
+    "unexpected_duplicates": 0
+  },
+  "validation": {
+    "ok": true,
+    "lost_products": 0,
+    "lost_variants": 0,
+    "unexpected_duplicates": 0,
+    "protected_changes": [],
+    "price_changes": 0,
+    "stock_changes": 0
+  },
+  "before": {
+    "products": 3113,
+    "variants": 8734,
+    "published": 3089,
+    "photos": 19132
+  },
+  "after": {
+    "products": 3113,
+    "variants": 8734,
+    "published": 3089,
+    "photos": 19132
+  },
+  "canonicalCategories": 134,
+  "oldCategoryMappings": 342,
+  "unknown": 264,
+  "conflicts": 69,
+  "manual": 0,
+  "newSupplierCategories": 257,
+  "privateReportIncludedInRelease": false
+}
