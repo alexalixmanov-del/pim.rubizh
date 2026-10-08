@@ -1,0 +1,101 @@
+{
+  "productionWrites": false,
+  "originalSupplierFilesTested": false,
+  "suppliers": [
+    {
+      "supplier": "м вин",
+      "originalSupplierFile": false,
+      "inputProducts": 6,
+      "inputRows": 56,
+      "repeatedImportCreatesDuplicates": false,
+      "cases": [
+        "initial import into existing backup fixture",
+        "same file imported twice",
+        "price change retained with history",
+        "stock change",
+        "renamed known SKU does not create another product",
+        "new photo retained on source offer",
+        "category change respects lock",
+        "new variant retained in card or review queue",
+        "removed source variant marked inactive, retained",
+        "fresh empty-catalog import and its repeat preserve product and variant counts"
+      ]
+    },
+    {
+      "supplier": "тактикал белт",
+      "originalSupplierFile": false,
+      "inputProducts": 6,
+      "inputRows": 8,
+      "repeatedImportCreatesDuplicates": false,
+      "cases": [
+        "initial import into existing backup fixture",
+        "same file imported twice",
+        "price change retained with history",
+        "stock change",
+        "renamed known SKU does not create another product",
+        "new photo retained on source offer",
+        "category change respects lock",
+        "new variant retained in card or review queue",
+        "removed source variant marked inactive, retained",
+        "fresh empty-catalog import and its repeat preserve product and variant counts"
+      ]
+    },
+    {
+      "supplier": "армолайн",
+      "originalSupplierFile": false,
+      "inputProducts": 6,
+      "inputRows": 76,
+      "repeatedImportCreatesDuplicates": false,
+      "cases": [
+        "initial import into existing backup fixture",
+        "same file imported twice",
+        "price change retained with history",
+        "stock change",
+        "renamed known SKU does not create another product",
+        "new photo retained on source offer",
+        "category change respects lock",
+        "new variant retained in card or review queue",
+        "removed source variant marked inactive, retained",
+        "fresh empty-catalog import and its repeat preserve product and variant counts"
+      ]
+    },
+    {
+      "supplier": "укр тек",
+      "originalSupplierFile": false,
+      "inputProducts": 6,
+      "inputRows": 11,
+      "repeatedImportCreatesDuplicates": false,
+      "cases": [
+        "initial import into existing backup fixture",
+        "same file imported twice",
+        "price change retained with history",
+        "stock change",
+        "renamed known SKU does not create another product",
+        "new photo retained on source offer",
+        "category change respects lock",
+        "new variant retained in card or review queue",
+        "removed source variant marked inactive, retained",
+        "fresh empty-catalog import and its repeat preserve product and variant counts"
+      ]
+    },
+    {
+      "supplier": "киборг",
+      "originalSupplierFile": false,
+      "inputProducts": 6,
+      "inputRows": 15,
+      "repeatedImportCreatesDuplicates": false,
+      "cases": [
+        "initial import into existing backup fixture",
+        "same file imported twice",
+        "price change retained with history",
+        "stock change",
+        "renamed known SKU does not create another product",
+        "new photo retained on source offer",
+        "category change respects lock",
+        "new variant retained in card or review queue",
+        "removed source variant marked inactive, retained",
+        "fresh empty-catalog import and its repeat preserve product and variant counts"
+      ]
+    }
+  ]
+}

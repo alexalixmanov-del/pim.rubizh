@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "productionWrites": false,
+  "realCatalogAccuracy": false,
+  "sourceCards": 10000,
+  "models": 2500,
+  "variants": 10000,
+  "colorAssociations": 10000,
+  "coldGroupingMs": 12188,
+  "cachedGroupingMs": 1,
+  "migrationMs": 10976,
+  "fullPublicationNotBenchmarked": true
+}

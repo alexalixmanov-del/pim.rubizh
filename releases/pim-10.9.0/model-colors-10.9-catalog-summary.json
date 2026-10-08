@@ -1,0 +1,46 @@
+{
+  "version": "10.9.0",
+  "productionWrites": false,
+  "privateBackupRewritten": false,
+  "originalProducts": 3113,
+  "originalVariants": 8734,
+  "mergedGroups": 3,
+  "mergedCards": 4,
+  "manualModelGroups": 48,
+  "allSkuPricesStocksOffersUnchanged": true,
+  "rawProductNamesPhotosDescriptionsCategoriesLinksAndLocksUnchanged": true,
+  "taxonomyUnchanged": true,
+  "husky": {
+    "activeCards": 1,
+    "colors": [
+      {
+        "color": "\u0425\u0430\u043a\u0456",
+        "camouflage": null,
+        "photos": 10,
+        "sizes": 6
+      },
+      {
+        "color": "\u041a\u043e\u0439\u043e\u0442",
+        "camouflage": null,
+        "photos": 10,
+        "sizes": 5
+      },
+      {
+        "color": "\u0427\u043e\u0440\u043d\u0438\u0439",
+        "camouflage": null,
+        "photos": 10,
+        "sizes": 6
+      }
+    ],
+    "variants": 17,
+    "photos": 30
+  },
+  "readyProducts": 2289,
+  "readyVariants": 7045,
+  "orderOnRequestVariants": 7045,
+  "decisionCount": 884,
+  "colorQuestions": 42,
+  "modelQuestions": 48,
+  "excludedMissingContent": 20,
+  "modelGroupingDiagnostics": 215
+}

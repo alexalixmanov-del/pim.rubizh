@@ -1,0 +1,29 @@
+{
+  "productionWrites": false,
+  "currentBackupTested": true,
+  "originalSupplierFiles": false,
+  "products": 3113,
+  "variants": 8734,
+  "protectedTaxonomyPricesStocksRawPhotosDescriptionsLinksLocksUnchanged": true,
+  "automaticExclusion": "reversible archive, not physical deletion",
+  "archived": 20,
+  "readyProducts": 2292,
+  "readyVariants": 7045,
+  "orderOnRequestVariants": 7045,
+  "individualDecisionCount": 795,
+  "colorMappingDecisions": 42,
+  "colorProductsCovered": 220,
+  "decisionReasons": {
+    "size": 316,
+    "color": 42,
+    "category": 317,
+    "price": 161,
+    "grouping": 1
+  },
+  "archiveReasons": {
+    "photo": 1,
+    "description": 19
+  },
+  "elapsedMs": 120138,
+  "persistedFullCatalogRewritten": false
+}

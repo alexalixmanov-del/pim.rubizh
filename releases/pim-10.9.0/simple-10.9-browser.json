@@ -1,0 +1,273 @@
+{
+  "productionWrites": false,
+  "realExternalNetwork": false,
+  "errors": [],
+  "layouts": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "simplePublication",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "products",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "import",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "simpleTaxonomy",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "suppliers",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "backup",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "view": "simpleSettings",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "simplePublication",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "products",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "import",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "simpleTaxonomy",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "suppliers",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "backup",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "view": "simpleSettings",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "simplePublication",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "products",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "import",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "simpleTaxonomy",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "suppliers",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "backup",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "view": "simpleSettings",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "simplePublication",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "products",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "import",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "simpleTaxonomy",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "suppliers",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "backup",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "view": "simpleSettings",
+      "scrollWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "simplePublication",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "products",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "import",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "simpleTaxonomy",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "suppliers",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "backup",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "view": "simpleSettings",
+      "scrollWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "simplePublication",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "products",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "import",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "simpleTaxonomy",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "suppliers",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "backup",
+      "scrollWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "view": "simpleSettings",
+      "scrollWidth": 390
+    }
+  ],
+  "checks": [
+    "seven main sections; publication starts first",
+    "PREVIEW is non-mutating",
+    "APPLY auto-archives missing description and preserves SKU/taxonomy",
+    "owner request status has zero stock and unknown term",
+    "one color mapping resolves the whole group through real controls",
+    "reload preserves settings and archive",
+    "rollback restores original flags and variants",
+    "two themes at desktop/tablet/mobile widths",
+    "three source color cards automatically become one model; six SKUs kept",
+    "real color control switches gallery and filters sizes; size chooses exact SKU",
+    "color selector preserves unsaved editor inputs",
+    "full rollback restores separate model color cards"
+  ]
+}
