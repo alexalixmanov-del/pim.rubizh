@@ -1,0 +1,12 @@
+{
+  "version": "10.9.0",
+  "freshDirectory": true,
+  "checksumVerified": true,
+  "frozenDependenciesInstalled": true,
+  "tests": 450,
+  "failed": 0,
+  "buildRepeatByteIdentical": true,
+  "httpAndAllRuntimeAssetsVerified": true,
+  "productionWrites": false,
+  "repositoryWorktreeCreated": false
+}
