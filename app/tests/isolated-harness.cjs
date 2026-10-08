@@ -40,14 +40,14 @@ function createHarness({runtime=false}={}) {
   new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/kits.js'),'utf8')).runInContext(ctx);
   new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/categories.js'),'utf8')).runInContext(ctx);
   new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/product-model.js'),'utf8')).runInContext(ctx);
-  for(const name of ['category-evidence','size-evidence'])new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/'+name+'.js'),'utf8')).runInContext(ctx);
+  for(const name of ['category-evidence','size-evidence','inventory-policy'])new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/'+name+'.js'),'utf8')).runInContext(ctx);
   const js=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1].split('/* ===================== старт ===================== */')[0];
   new vm.Script(js,{filename:'uploaded-pim.js'}).runInContext(ctx);
   const run=s=>vm.runInContext(s,ctx);
   // Legacy suites exercise the pre-integration path; runtime suites use the shipped review boundary.
   if(!runtime)run(`runImport=classificationImport;doImport=classificationPreview;applyImport=classificationApplyImport;classificationReviewMode=()=>false;sitePublish=classificationSitePublish;simpleApplyPolicy=classificationSimplePolicy;sbCfg=classificationSB;window.fetch=classificationNetwork;`);
   run(`S.cfg=structuredClone(DEFAULT_CFG);S.cfg.autoTranslateNames=true;S.cfg.siteUrl='https://rubizh.shop';
-    S.cfg.suppliers=[{id:'supplier-a',name:'Тестовий постачальник',auto:false,priority:0,terms:{priceType:'cost',preorderDefault:'no',preorderConfirmed:true}}];
+    S.cfg.suppliers=[{id:'supplier-a',name:'Тестовий постачальник',auto:false,priority:0,inventory_policy:{id:'test-quantity-v1',mode:'QUANTITY',confirmed:true,source_column:'Stock'},terms:{priceType:'cost',preorderDefault:'no',preorderConfirmed:true}}];
     S.products=new Map();S.queue=new Map();S.content=new Map();S.logs=[];S.docs=new Map();rebuildIndex();bumpData();`);
   ctx.downloadCapture=(name,blob)=>{downloads.push({name,blob});return true;};
   run('offerDownload=async(name,blob)=>downloadCapture(name,blob);');

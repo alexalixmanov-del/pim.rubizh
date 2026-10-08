@@ -1,0 +1,102 @@
+[
+  {
+    "supplier_id": "sf0t3l7jegf9",
+    "file": null,
+    "url": null,
+    "real_supplier_source": true,
+    "profile_confirmed": false,
+    "sheet": null,
+    "header_row": null,
+    "mapping": {
+      "sku": "<реальный заголовок SKU>",
+      "name": "<название>",
+      "cost": "<цена поставщика>",
+      "stock": "Наличие",
+      "size": "<размер SKU/диапазон>",
+      "color": "<цвет>",
+      "stockObservedAt": "<если источник даёт время наблюдения; иначе удалить mapping>",
+      "preorder": "<если есть отдельное поле; иначе удалить mapping>",
+      "orderOnRequest": "<заявка на запрос>"
+    }
+  },
+  {
+    "supplier_id": "s4p9slmnn0ki",
+    "file": null,
+    "url": null,
+    "real_supplier_source": true,
+    "profile_confirmed": false,
+    "sheet": null,
+    "header_row": null,
+    "mapping": {
+      "sku": "<реальный заголовок SKU>",
+      "name": "<название>",
+      "cost": "<цена поставщика>",
+      "stock": "Наличие",
+      "size": "<размер SKU/диапазон>",
+      "color": "<цвет>",
+      "stockObservedAt": "<если источник даёт время наблюдения; иначе удалить mapping>",
+      "preorder": "<если есть отдельное поле; иначе удалить mapping>",
+      "orderOnRequest": "<заявка на запрос>"
+    }
+  },
+  {
+    "supplier_id": "s2akya7xoafn",
+    "file": null,
+    "url": null,
+    "real_supplier_source": true,
+    "profile_confirmed": false,
+    "sheet": null,
+    "header_row": null,
+    "mapping": {
+      "sku": "<реальный заголовок SKU>",
+      "name": "<название>",
+      "cost": "<цена поставщика>",
+      "stock": "Наявність",
+      "size": "<размер SKU/диапазон>",
+      "color": "<цвет>",
+      "stockObservedAt": "<если источник даёт время наблюдения; иначе удалить mapping>",
+      "preorder": "<если есть отдельное поле; иначе удалить mapping>",
+      "orderOnRequest": "<заявка на запрос>"
+    }
+  },
+  {
+    "supplier_id": "s2bggyi42dhh",
+    "file": null,
+    "url": null,
+    "real_supplier_source": true,
+    "profile_confirmed": false,
+    "sheet": null,
+    "header_row": null,
+    "mapping": {
+      "sku": "<реальный заголовок SKU>",
+      "name": "<название>",
+      "cost": "<цена поставщика>",
+      "stock": "Наличие",
+      "size": "<размер SKU/диапазон>",
+      "color": "<цвет>",
+      "stockObservedAt": "<если источник даёт время наблюдения; иначе удалить mapping>",
+      "preorder": "<если есть отдельное поле; иначе удалить mapping>",
+      "orderOnRequest": "<заявка на запрос>"
+    }
+  },
+  {
+    "supplier_id": "s2hjvaqgnp29",
+    "file": null,
+    "url": null,
+    "real_supplier_source": true,
+    "profile_confirmed": false,
+    "sheet": null,
+    "header_row": null,
+    "mapping": {
+      "sku": "<реальный заголовок SKU>",
+      "name": "<название>",
+      "cost": "<цена поставщика>",
+      "stock": "Наличие",
+      "size": "<размер SKU/диапазон>",
+      "color": "<цвет>",
+      "stockObservedAt": "<если источник даёт время наблюдения; иначе удалить mapping>",
+      "preorder": "<если есть отдельное поле; иначе удалить mapping>",
+      "orderOnRequest": "<заявка на запрос>"
+    }
+  }
+]

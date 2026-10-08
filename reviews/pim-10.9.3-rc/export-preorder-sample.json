@@ -1,0 +1,94 @@
+{
+  "synthetic_test_fixture": true,
+  "raw_prom_availability": "3",
+  "normalized_export": {
+    "id": "p-a",
+    "model_id": "p-a",
+    "classification_version": 1,
+    "size_catalog_version": 1,
+    "canonical_category_id": "clothing_pants",
+    "availability": "PREORDER",
+    "order_policy_version": 1,
+    "inventory_policy_version": 1,
+    "order_submission_allowed": true,
+    "payment_allowed": false,
+    "requires_order_confirmation": true,
+    "size_catalogs": [],
+    "size_options": [],
+    "colors": [
+      {
+        "id": "clr-6b7f5cf49de7e040",
+        "key": "олива|",
+        "color": "Олива",
+        "camouflage": null,
+        "photos": [
+          "https://rubizh.shop/media/test.webp"
+        ],
+        "variant_skus": [
+          "RUB-00001"
+        ],
+        "sources": [
+          {
+            "kind": "offer",
+            "supplier_id": "supplier-a",
+            "supplier_sku": "feed-a",
+            "sku": "RUB-00001"
+          },
+          {
+            "kind": "single_color_product",
+            "product_id": "p-a"
+          }
+        ],
+        "photo_assignment": "source_associated"
+      }
+    ],
+    "variants": [
+      {
+        "sku": "RUB-00001",
+        "color_id": "clr-6b7f5cf49de7e040",
+        "color": "Олива",
+        "camouflage": null,
+        "photos": [
+          "https://rubizh.shop/media/test.webp"
+        ],
+        "size": "48",
+        "size_raw": "48",
+        "size_display": "48",
+        "size_normalized": "48",
+        "size_system": "clothing_numeric",
+        "size_status": "EXACT_SIZE",
+        "size_confidence_tier": "SAFE_AUTO",
+        "size_unconfirmed": false,
+        "required": true,
+        "source_binding_status": "CONFIRMED",
+        "price": 1590,
+        "availability": "PREORDER",
+        "stock": null,
+        "stock_quantity": null,
+        "stock_status": "CONFIRMED_BY_STATUS",
+        "availability_status": "PREORDER",
+        "availability_source": "STATUS",
+        "availability_confirmation": "CONFIRMED",
+        "inventory_mode": "STATUS",
+        "inventory_policy_id": "ukr-tec-prom-status-v1",
+        "inventory_policy_version": 1,
+        "inventory_policy_confirmed": true,
+        "delivery_lead_time_days": 3,
+        "ready_to_dispatch": false,
+        "price_ready": true,
+        "binding_confirmation_required": false,
+        "size_confirmation_required": false,
+        "stock_observed_at": 1791503348708,
+        "source_updated_at": null,
+        "stock_data_age_hours": 0.000005,
+        "stale_source": false,
+        "stock_warning_hours": 36,
+        "expires_at": null,
+        "order_submission_allowed": true,
+        "payment_allowed": false,
+        "requires_order_confirmation": true,
+        "lead_time_days": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "REAL_SOURCE_COMPATIBILITY": "BLOCKED",
+  "production_autoprices_allowed": false,
+  "real_source_gate_passed": false,
+  "production_writes": 0,
+  "note": "This prerequisite never enables automation or /pim/sync; a separate release approval and shop contract support are still required.",
+  "results": [
+    {
+      "supplier_id": "sf0t3l7jegf9",
+      "supplier_name": "м вин",
+      "status": "BLOCKED_REAL_SOURCE_MISSING",
+      "checks_executed": false
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "status": "BLOCKED_REAL_SOURCE_MISSING",
+      "checks_executed": false
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "status": "BLOCKED_REAL_SOURCE_MISSING",
+      "checks_executed": false
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "status": "BLOCKED_REAL_SOURCE_MISSING",
+      "checks_executed": false
+    },
+    {
+      "supplier_id": "s2hjvaqgnp29",
+      "supplier_name": "армолайн",
+      "status": "BLOCKED_REAL_SOURCE_MISSING",
+      "checks_executed": false
+    }
+  ]
+}

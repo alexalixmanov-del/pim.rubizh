@@ -6,16 +6,16 @@ import sys
 import zipfile
 
 root = Path(__file__).resolve().parents[1]
-out = Path(sys.argv[1]) if len(sys.argv) > 1 else root.parent / 'reviews/category-size-runtime-2026-10-09/rubizh-pim-10.9.3-review.zip'
+out = Path(sys.argv[1]) if len(sys.argv) > 1 else root.parent / 'reviews/pim-10.9.3-rc/rubizh-pim-10.9.3-rc.zip'
 files = [
     'rubizh_pim.html', 'README.md', 'server-contract.md',
     'lib/kits.js', 'lib/categories.js', 'lib/product-model.js',
-    'lib/category-evidence.js', 'lib/size-evidence.js', 'lib/ui.css',
+    'lib/category-evidence.js', 'lib/size-evidence.js', 'lib/inventory-policy.js', 'lib/ui.css',
     'vendor/xlsx-0.20.3.min.js', 'vendor/LICENSE',
     'categories/canonical-categories.json', 'categories/approved-evidence-rules.json',
     'contracts/category-size-export.schema.json',
 ]
-manifest = {'version': '10.9.3-review', 'review_only': True, 'files': {}}
+manifest = {'version': '10.9.3-rc', 'review_only': True, 'files': {}}
 out.parent.mkdir(parents=True, exist_ok=True)
 with zipfile.ZipFile(out, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
     for name in files:

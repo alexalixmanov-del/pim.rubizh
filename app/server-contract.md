@@ -1,20 +1,50 @@
-# Review contract: categories + sizes, v2
+# RC contract: categories + sizes + order policy, v3
 
 This review build does not connect to the shop, call `/pim/sync`, or publish/archive/hide products. It uses its own IndexedDB namespace. The candidate catalog and supplier bindings stay local.
 
 ## Capabilities for a future shop integration
 
-The shop must acknowledge `category_catalog_version: 2`, the exact 143 canonical IDs, and `size_catalog_version: 1` before any release can send this format. Existing category IDs, names and parents are retained; the nine approved additions are in `categories/canonical-categories.json`. The accompanying `contracts/category-size-export.schema.json` validates normalized products. Unknown IDs must be rejected, never mapped silently.
+The shop must acknowledge `contract_version: 3`, `order_policy_version: 1`, `category_catalog_version: 2`, the exact 143 canonical IDs, and `size_catalog_version: 1` before any release can send this format. Existing category IDs, names and parents are retained; the nine approved additions are in `categories/canonical-categories.json`. The accompanying `contracts/category-size-export.schema.json` validates normalized products. Unknown IDs must be rejected, never mapped silently.
 
 `MODEL → COLOR → SIZE/SKU`: colors have stable IDs and their own galleries. Each real variant retains its existing PIM SKU and supplier bindings. Public export excludes supplier bindings and raw source evidence. Authenticated fulfillment export includes original supplier IDs/SKUs; they must not be sent to the public storefront.
 
-`size_catalogs` is model/color assortment evidence, not inventory. `size_options` without a real variant have `variant_sku: null`, `supplier_sku: null`, `stock: null`, `stock_status: UNKNOWN`, `availability: SIZE_CONFIRMATION_REQUIRED`, `checkout_allowed: false`. A MODEL-scoped option does not prove availability for every color. The storefront only displays these normalized options; it must not parse or expand source ranges.
+`size_catalogs` is model/color assortment evidence, not inventory. `size_options` without a real variant have `variant_sku: null`, `supplier_sku: null`, `stock: null`, `stock_status: UNKNOWN`, `availability: SIZE_CONFIRMATION_REQUIRED`, `order_submission_allowed: true`, `payment_allowed: false`, `requires_order_confirmation: true`. A MODEL-scoped option does not prove availability for every color. The storefront only displays these normalized options; it must not parse or expand source ranges.
 
-Only a confirmed SKU-size binding and fresh positive stock can be `IN_STOCK`. Zero is `OUT_OF_STOCK`. Stale or unconfirmed inventory is `UNKNOWN`; missing required size is `SIZE_CONFIRMATION_REQUIRED`. `PREORDER` requires independent explicit supplier confirmation. A missing production term stays null: no automatic three-day promise. These statuses are uppercase in the v2 export.
+A confirmed SKU-size binding and confirmed supplier availability policy can be `IN_STOCK`. In QUANTITY mode positive stock is IN_STOCK and zero is OUT_OF_STOCK; in STATUS mode a confirmed in/out status requires no numeric quantity. Missing/invalid stock or unconfirmed bindings are `UNKNOWN`; missing required size is `SIZE_CONFIRMATION_REQUIRED`. `PREORDER` requires independent explicit supplier confirmation. A missing production term stays null: no automatic three-day promise. These statuses are uppercase in the v3 export.
 
-Checkout must revalidate the selected model ID, color ID, real SKU, size, source binding, current price and inventory on the server. UNKNOWN and SIZE_CONFIRMATION_REQUIRED can create a confirmation request, never a paid confirmed order or stock reservation. Confirmed preorder uses a separate request/order path and a supplier-confirmed term when available. Stock reservations must be atomic, including quantities of components of kits.
+Checkout must revalidate the selected model ID, color ID, real SKU, size, source binding, current price and inventory on the server. SIZE_CONFIRMATION_REQUIRED and ORDER_ON_REQUEST can create a confirmation request, never a paid confirmed order or stock reservation. Confirmed preorder uses a separate request/order path and a supplier-confirmed term when available. Stock reservations must be atomic, including quantities of components of kits.
 
 Products with zero usable photos are excluded from the export; this review run does not execute hide/archive commands. Missing description can be restored from factual supplier attributes, without inventing material, certification, protection rating, compatibility or contents.
+
+
+## Order submission and payment are separate
+
+`checkout_allowed` is removed from normalized exports and rejected by the schema. The selected real SKU or selected model option is authoritative; product-level flags only summarize the assortment and never authorize payment for a different selection.
+
+| availability | order_submission_allowed | payment_allowed | requires_order_confirmation |
+|---|---|---|---|
+| IN_STOCK, confirmed stock and SKU/size | true | true | false |
+| PREORDER, explicit supplier confirmation | true | false | true |
+| ORDER_ON_REQUEST, explicit request availability | true | false | true |
+| SIZE_CONFIRMATION_REQUIRED | true | false | true |
+| UNKNOWN | false | false | true |
+| OUT_OF_STOCK | false | false | false |
+
+PREORDER and ORDER_ON_REQUEST create pending requests/orders; only a separate authenticated manager confirmation may unlock payment. Revalidate selected SKU/size/color, current price and source evidence; model size options require resolution to a real SKU. Never trust flags supplied by the buyer. The mock API is in-memory only; it verifies schema, manager gating and stock expiry without connecting to the shop.
+
+## Supplier stock observations and warning metadata
+
+Supplier feeds can update irregularly. Failure to receive a new file is not a stock event. The last valid supplier observation remains active until a newer valid observation or a manual correction. No global TTL, stock age, missing observation timestamp or warning threshold changes availability or blocks payment.
+
+In confirmed QUANTITY policy: `stock > 0` + confirmed SKU/size/binding → IN_STOCK; `stock = 0` → OUT_OF_STOCK. In confirmed STATUS policy, the mapped in/out status determines availability with `stock_quantity=null`. IN_STOCK plus confirmed size/binding and valid price/margin permits payment. Missing/invalid policy signal without a prior valid observation, conflicting bindings or unconfirmed size → UNKNOWN/SIZE_CONFIRMATION_REQUIRED. PREORDER requires explicit supplier order evidence; ORDER_ON_REQUEST remains a separate pending request.
+
+Exports carry metadata `stock_observed_at`, `source_updated_at`, `stock_data_age_hours`, `stale_source`. Supplier `stock_freshness_hours` is a warning threshold only (legacy name retained); default warning threshold is 36 hours, never a business expiry. Changing it affects monitoring only. Runtime offer selection also ignores legacy `cfg.freshHours` as an inventory gate.
+
+`imported_at` never becomes `stock_observed_at`. Missing or suspicious copied observation times leave metadata unknown, without invalidating a numerical confirmed stock. Empty/invalid incoming stock and explicitly older/equal conflicting observations do not overwrite the previous valid stock. Manual stock locks win. `last_valid_stock_observation` preserves the effective quantity/SKU/time and fingerprint; rejected incoming rows add a warning. Without supplier observation/version timestamps, changed valid stock is accepted as the latest submitted record, and identical stock repeats preserve its previous observation metadata.
+
+Only explicit supplier `expires_at` may impose a business expiration. No deadline is generated from the warning threshold. The importer supports mapped stockObservedAt/sourceUpdatedAt/stockExpiresAt, and XML equivalents. Available=true alone never invents numeric stock.
+
+RC uses its own storage namespace and blocks all network/sync. Real-source compatibility is an independent prerequisite for production autoprices; replay and parser fixtures do not replace supplier originals.
 
 ## Remaining shop inputs
 
@@ -104,7 +134,7 @@ One product ID is one model. `colors[]` contains stable color IDs, separate colo
 
 `source_product_ids` plus archived aliases identify old color cards. Save aliases and redirects to the surviving model atomically before acknowledging the merge; preserve old carts and supplier fulfillment by SKU. `hide_ids` hides obsolete cards and missing-content cards even if a client had no publication hashes. Acknowledgement `hidden_ids` must list exactly the requested distinct IDs. A numeric hidden count alone is insufficient.
 
-Owner-authorized requests: `order_on_request:true`, `requires_order_confirmation:true`, `stock:0`, `availability:"preorder"`, label `Під замовлення`, `preorder_confirmed:false`, `lead_time_days:null`. Do not invent a manufacture deadline or treat these as stocked goods. Checkout must require manager confirmation and never reserve nonexistent stock. Explicit supplier-confirmed preorder remains a separate case with its confirmed term. Stale stock must not be advertised as newly confirmed stock.
+Superseded legacy example. In RC use `availability: "ORDER_ON_REQUEST"`, `stock: null`, `stock_status: "UNKNOWN"`, `order_submission_allowed: true`, `payment_allowed: false`, `requires_order_confirmation: true`, `lead_time_days: null`. Never encode an unconfirmed request as PREORDER. Do not invent a manufacture deadline or treat these as stocked goods. Checkout must require manager confirmation and never reserve nonexistent stock. Explicit supplier-confirmed preorder remains a separate case with its confirmed term. Stale stock must not be advertised as newly confirmed stock.
 
 Confirmed payload/hash checkpoints and publish batch journals are stored by the PIM after every accepted packet. This does not implement server revision locks, concurrent-edit conflict handling, full-operation rollback, order confirmation or stock reservations; implement those in the shop backend. These server changes are prerequisites for production end-to-end acceptance and were not deployed in this release.
 
@@ -112,3 +142,15 @@ Confirmed payload/hash checkpoints and publish batch journals are stored by the 
 ## Защита скидок v1 (PIM 10.9.2)
 
 См. [полное ТЗ магазина](SHOP-PRICING-TZ.md). PIM применяет согласованные 30% / 25% / 20%, передаёт допустимые оптовые цены, `kit_price` и `minimum_sale_price`, с защитой остатка 15% после доната и указанных расходов. Магазин не должен самостоятельно вычитать 12%/18% или складывать скидки. Перед синхронизацией необходима `capabilities.pricing_policy_version >= 1`, каждый успешный результат дополнительно подтверждает `pricing_policy_version: 1`. Поддержку объявлять только после серверной проверки корзины и заказа. Исходники магазина отсутствуют; эти серверные изменения и продакшен-проверка здесь не выполнены.
+
+## Supplier inventory contract (review RC)
+
+`inventory_policy_version: 1` is required. Each real variant carries supplier `availability_status` independently from its SKU-level `availability` and payment eligibility. `stock_quantity` and legacy `stock` are nullable and agree. `stock_status` is CONFIRMED for a real quantity, CONFIRMED_BY_STATUS / CONFIRMED_BY_PRESENCE for non-quantitative evidence, or UNKNOWN. No default quantity is created. `availability_source` is QUANTITY / STATUS / FEED_PRESENCE / MANUAL; `availability_confirmation`, policy ID/version and `inventory_policy_confirmed` qualify the evidence. Null quantity never blocks a confirmed STATUS sale by itself.
+
+Approved review defaults are scoped to the five existing supplier IDs: M-WIN, Kiborg, Armoline use exact `есть/нет`; UKR-TEC uses the user-confirmed Prom format (`+` and `!` IN_STOCK, `-` OUT_OF_STOCK, positive integer PREORDER delivery days). `!` sets `ready_to_dispatch=true`. `delivery_lead_time_days=3` from raw `3` is a delivery term, not manufacturing time; legacy `lead_time_days` stays null for this rule. Tactical Belt has an unconfirmed QUANTITY candidate and one supplier-level exception; its numbers are not converted to stock. Unknown suppliers have NO_AVAILABILITY_SIGNAL until a policy is explicitly confirmed. FEED_PRESENCE requires both a confirmed supplier rule and an observed valid source row.
+
+Policies are seeded only by the control-copy import; startup cannot migrate/publish. Confirmed existing inventory_policy configs have priority over defaults. Explicit manual quantity/availability and locks have priority over supplier observations. Rejected unknown, empty, wrong-column or older updates retain the last valid state, quantity and observation times on the same supplier SKU/policy. Price and photos may update independently. Changed policy signatures invalidate cached observations; they cannot be reused across supplier SKU.
+
+Import normalizes a quantity column according to its confirmed policy, not generic header guessing. Source column changes require confirmed aliases/profile updates. Unconfirmed supplier policies group once per supplier; unknown values group by supplier/pattern. They do not create thousands of persistent duplicate exceptions.
+
+`binding_confirmation_required`, `size_confirmation_required` and `price_ready` form a second layer. Payment requires confirmed source IN_STOCK, confirmed real SKU and applicable size, valid price/margin, and no explicit expiry. Model options never become fake SKU. Source availability is preserved even when SKU availability is UNKNOWN or SIZE_CONFIRMATION_REQUIRED. Mock endpoints exercise these rules locally; real shop sync/checkout remain blocked until the actual shop implements this contract.
