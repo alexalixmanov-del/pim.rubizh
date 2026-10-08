@@ -21,8 +21,9 @@ patterns = [
     '*.html', '*.md', 'package*.json', 'deploy-adm-tools.sh',
     'supabase-audit-readonly.sql', 'np-origins.json',
     'categories/*.json', 'categories/*.txt', 'categories/*.js',
-    'lib/*.js', 'lib/*.css', 'tests/*.cjs', 'tests/fixtures/*.cjs',
-    'tools/*.cjs', 'tools/*.php', 'tools/package.py',
+    'lib/*.js', 'lib/*.cjs', 'lib/*.css', 'tests/*.cjs', 'tests/fixtures/*.cjs',
+    'tools/*.cjs', 'tools/*.php', 'tools/*.py', 'tools/requirements*.txt',
+    'tests/*.py',
     'server/*.cjs', 'server/*.py', 'server/*.md',
     'docs/*.md', 'docs/*.json', 'verification/*.json', 'vendor/*'
 ]

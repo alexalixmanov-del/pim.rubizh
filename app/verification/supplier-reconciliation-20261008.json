@@ -1,0 +1,90 @@
+{
+  "mode": "OFFLINE_EXPLICIT_SUPPLIER_RECONCILIATION",
+  "production_modified": false,
+  "ready_for_migration": false,
+  "freshness_verified": false,
+  "summary": {
+    "source_variants": 12618,
+    "legacy_supplier_links": 8734,
+    "confirmed_supplier_links": 8734,
+    "ambiguous_supplier_links": 0,
+    "missing_supplier_links": 0,
+    "variants_without_supplier_links": 3884,
+    "matched_with_model_group": 7517,
+    "matched_without_model_group": 1217,
+    "source_model_groups": 2752,
+    "product_group_conflicts": 447,
+    "model_category_conflicts": 3,
+    "models_with_unclassified_products": 1933,
+    "site_only_unique_article_candidates": 43,
+    "site_only_ambiguous_articles": 0,
+    "site_only_unique_photo_group_candidates": 1204
+  },
+  "feed_summaries": [
+    {
+      "supplier_key": "mvin",
+      "source_sha256": "786a52829fefabc459f8ecce5853a15905c06e41f1d7d88ee827b104dcda7884",
+      "generated_at_raw": "2026-04-08 14:45",
+      "offers": 924,
+      "explicit_model_groups": 199,
+      "grouped_offers": 924,
+      "offers_without_group": 0,
+      "quantity_observations": 0,
+      "conflicting_colors": 3,
+      "errors": 0
+    },
+    {
+      "supplier_key": "belt",
+      "source_sha256": "93e52881c8944b5183698c0ec969893c02c2a5b5952393ca582d5b680475a233",
+      "generated_at_raw": "2026-10-01 12:15",
+      "offers": 1512,
+      "explicit_model_groups": 298,
+      "grouped_offers": 1274,
+      "offers_without_group": 238,
+      "quantity_observations": 1512,
+      "conflicting_colors": 0,
+      "errors": 0
+    },
+    {
+      "supplier_key": "armoline",
+      "source_sha256": "cd3be8859c300537a6b88fe4c43c2cf3b6c4391dd779f5b514cec01a92d1797a",
+      "generated_at_raw": "2026-09-24 03:40",
+      "offers": 1405,
+      "explicit_model_groups": 320,
+      "grouped_offers": 1405,
+      "offers_without_group": 0,
+      "quantity_observations": 0,
+      "conflicting_colors": 0,
+      "errors": 0
+    },
+    {
+      "supplier_key": "ukrtek",
+      "source_sha256": "65f56d13417270a4cc1cf86bab56a19950f10bbf8809728a57cb8c9888479d3d",
+      "generated_at_raw": null,
+      "offers": 447,
+      "explicit_model_groups": 0,
+      "grouped_offers": 0,
+      "offers_without_group": 447,
+      "quantity_observations": 2,
+      "conflicting_colors": 0,
+      "errors": 0
+    },
+    {
+      "supplier_key": "kiborg",
+      "source_sha256": "5c013e08591ab093df25c8eb22951db42dfbb58de66a058f09fbe332b227c296",
+      "generated_at_raw": "2026-10-01 03:42",
+      "offers": 3914,
+      "explicit_model_groups": 1935,
+      "grouped_offers": 3914,
+      "offers_without_group": 0,
+      "quantity_observations": 0,
+      "conflicting_colors": 385,
+      "errors": 0
+    }
+  ],
+  "errors": 0,
+  "article_and_photo_candidate_agreement": 43,
+  "article_and_photo_candidate_disagreement": 0,
+  "source_groups_are_confirmed_marketing_models": false,
+  "private_supplier_rows_in_repository": false
+}

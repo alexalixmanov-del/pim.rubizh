@@ -23,8 +23,8 @@
   "canonical_ids_present": 0,
   "legacy_variant_ids_present": 0,
   "legacy_urls_present": 0,
-  "elapsed_ms": 4727,
-  "source_bytes": 120526941,
+  "elapsed_ms": 3897,
+  "source_bytes": 120518208,
   "mapping_bytes": 48839334,
   "production_modified": false
 }

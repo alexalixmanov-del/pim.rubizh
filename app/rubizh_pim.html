@@ -9918,7 +9918,7 @@ function v2Source(){
   const request=v.order_on_request===true||c.avail==='out'&&S.cfg.simple_policy?.unavailable==='owner_order_on_request'&&!!o&&!o.missing&&!o.discontinued&&!o.invalid_stock&&!o.priceAlert&&c.price>0;
   let availability=c.avail==='in'?'IN_STOCK':c.avail==='order'&&days>0?'PREORDER':request?'ORDER_ON_REQUEST':c.avail==='out'?'OUT_OF_STOCK':'HIDDEN';
   if(p.archived||p.pub===false)availability='HIDDEN';
-  return {price:c.price,stock:stock??null,availability,availability_unknown:!o,lead_time_days:availability==='PREORDER'?days:null,preorder_confirmed:availability==='PREORDER',stock_stale:!!o?.stock_stale,supplier_id:o?.sid||null};
+  return {price:c.price,stock:stock??null,availability,availability_unknown:!o||!!o.stock_stale,lead_time_days:availability==='PREORDER'?days:null,preorder_confirmed:availability==='PREORDER',stock_stale:!!o?.stock_stale,supplier_id:o?.sid||null};
  });
 }
 function v2Bundle(registry=S.cfg.model_registry_v2){if(!registry)throw Error('Спочатку завантажте та підтвердьте mapping v2.');return RubizhContractV2.build(v2Source(),registry);}

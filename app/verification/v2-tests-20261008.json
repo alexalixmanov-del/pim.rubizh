@@ -1,7 +1,7 @@
 {
   "command": "npm ci --ignore-scripts && npm run build && npm test",
-  "tests": 486,
-  "passed": 486,
+  "tests": 500,
+  "passed": 500,
   "failed": 0,
   "skipped": 0,
   "synthetic_scale": {
@@ -15,5 +15,8 @@
     "variants": 7336,
     "photos": 15037,
     "is_current_production": false
-  }
+  },
+  "full_site_reconciliation": "Verified 9 table fingerprints; union retained both sources; stock quantity verification remains unavailable",
+  "python_supplier_parser_tests": 6,
+  "supplier_reconciliation": "All five supplied feeds parsed; 8734 exact primary supplier-SKU links; site-only candidates remain UNKNOWN"
 }

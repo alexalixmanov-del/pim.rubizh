@@ -7,5 +7,9 @@
   "entry_redirect": "passed",
   "browser_contract_loaded": true,
   "javascript_errors": 0,
-  "production_deployed": false
+  "production_deployed": false,
+  "packaged_site_cli_on_full_snapshot": "passed",
+  "packaged_supplier_cli_on_five_feeds": "passed",
+  "packaged_supplier_exact_links": 8734,
+  "private_local_staging_settings_preserved": true
 }

@@ -57,6 +57,7 @@ function build(s,r,{previous=null}={}){
   if(m.mapping_status==='CONFIRMED'){
    if(!m.marketing_name_uk?.trim())error('MODEL_NAME',m.model_id,null);
    if(!cats.has(m.canonical_category_id)||parents.has(m.canonical_category_id))error('CATEGORY_NOT_LEAF',m.model_id,m.canonical_category_id);
+   if(m.publication_status==='PUBLISHED'&&cats.get(m.canonical_category_id)?.status&&cats.get(m.canonical_category_id).status!=='active')error('CATEGORY_NOT_PUBLIC',m.model_id,m.canonical_category_id);
    if(!['NONE','OPTIONAL','REQUIRED'].includes(m.size_policy))error('SIZE_POLICY',m.model_id,m.size_policy);
    if(!m.slug||!pathOK('/product/'+m.slug))error('MODEL_SLUG',m.model_id,m.slug);
   }

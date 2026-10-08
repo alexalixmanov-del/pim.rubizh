@@ -1,0 +1,112 @@
+{
+  "schema_version": "2.0",
+  "mode": "read-only-reconciliation",
+  "production_modified": false,
+  "full_site_snapshot": true,
+  "ready_for_migration": false,
+  "integrity": {
+    "fingerprints_present": true,
+    "verified_tables": 9,
+    "all_verified": true
+  },
+  "summary": {
+    "pim_products": 3113,
+    "site_products": 3103,
+    "matched_products": 1899,
+    "site_only_products": 1204,
+    "pim_only_products": 1214,
+    "pim_skus": 8734,
+    "site_skus": 8682,
+    "matched_skus": 4798,
+    "site_only_skus": 3884,
+    "pim_only_skus": 3936,
+    "product_owner_conflicts": 0,
+    "price_differences": 0,
+    "stock_differences": 0,
+    "price_compared": 4798,
+    "stock_compared": 0,
+    "stock_unknown_both": 4798,
+    "stock_unknown_one_side": 0,
+    "size_differences": 246,
+    "color_differences": 0,
+    "barcode_differences": 0,
+    "raw_availability_compared": 4798,
+    "raw_availability_differences": 0,
+    "internal_category_products": 58
+  },
+  "photo_summary": {
+    "site_rows": 19025,
+    "exact_product_url_matches": 10756,
+    "site_only_references": 8269,
+    "states": {
+      "ok": 75,
+      "pending": 18948,
+      "error": 2
+    },
+    "processed_files_reported": 75,
+    "usable_file_ids_reported": 75,
+    "products_with_processed_photos": 75
+  },
+  "warnings": [
+    {
+      "code": "QUANTITY_UNKNOWN",
+      "variants": 4798,
+      "detail": "Equal null values do not verify stock quantities."
+    },
+    {
+      "code": "CATALOGS_DIVERGED",
+      "detail": "Preserve both sources; absence is not a delete instruction."
+    },
+    {
+      "code": "SITE_PHOTO_QUEUE_PENDING",
+      "photos": 18948
+    },
+    {
+      "code": "INTERNAL_CATEGORY_REQUIRES_REVIEW",
+      "products": 58
+    }
+  ],
+  "required_next_steps": [
+    "Preserve unmatched products/SKU in quarantine; never overwrite the site from the older backup",
+    "Keep exact site canonical IDs, URLs, alias/rule/lock metadata and original photo IDs",
+    "Refresh explicit supplier quantities without inventing stock from availability labels",
+    "Confirm model/color/SKU/photo registry in PIM",
+    "Run full migration validator before any shop APPLY"
+  ],
+  "site_source_sha256": "3698266ba71ce0fa8e9b687aa0b755326aea9ef1a2380a0357d7abac4aa9c4a6",
+  "site_export_created_at": "2026-10-08T18:15:55+00:00",
+  "site_taxonomy": {
+    "active_categories": 136,
+    "internal_categories": 1,
+    "product_category_relations": 3103,
+    "legacy_aliases": 348,
+    "matches_shop_repository_assets": true,
+    "absent_tables": [
+      "rubizh_category_decisions",
+      "rubizh_supplier_category_rules"
+    ]
+  },
+  "prepared_source": {
+    "mode": "UNION_WITH_QUARANTINE",
+    "counts": {
+      "source_products": 4317,
+      "source_variants": 12618,
+      "source_photos": 101353,
+      "models": 4317,
+      "colors": 0
+    },
+    "loss_counters": {
+      "LOST_SKU": 0,
+      "LOST_VARIANTS": 0,
+      "LOST_PHOTOS": 0,
+      "LOST_PRICES": 0,
+      "LOST_STOCK": 0,
+      "LOST_CANONICAL_CATEGORIES": 0,
+      "LOST_SUPPLIER_LINKS": 0
+    },
+    "errors": 0,
+    "unconfirmed_mappings": 21252,
+    "ready_for_migration": false,
+    "supplier_links_missing_for_site_only_skus": 3884
+  }
+}
