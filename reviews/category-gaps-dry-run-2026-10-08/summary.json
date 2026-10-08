@@ -1,0 +1,327 @@
+{
+  "scope": "124 original CATEGORY_AMBIGUOUS; no data edits or category moves",
+  "status": "DRY_RUN_PROPOSALS_ONLY",
+  "baseline_category_questions": 316,
+  "reviewed_original_ambiguous": 124,
+  "original_124": {
+    "SAFE_AUTO": 70,
+    "LIKELY": 33,
+    "AMBIGUOUS": 21
+  },
+  "partition_of_original_124": {
+    "EXISTING_CATEGORY_AMBIGUOUS": 106,
+    "TAXONOMY_GAP": 18
+  },
+  "existing_partition_tiers": {
+    "SAFE_AUTO": 70,
+    "LIKELY": 33,
+    "AMBIGUOUS": 3
+  },
+  "final_category_queue_counts": {
+    "CATEGORY_SAFE_AUTO": 204,
+    "CATEGORY_LIKELY": 91,
+    "CATEGORY_AMBIGUOUS": 21,
+    "EXISTING_CATEGORY_AMBIGUOUS": 106,
+    "TAXONOMY_GAP": 18,
+    "PROPOSED_NEW_CATEGORIES": 8
+  },
+  "unresolved_existing_groups": 9,
+  "gap_leaf_proposals": 7,
+  "new_root_proposals": 1,
+  "integrity": {
+    "LOST_CATEGORIES": 0,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "products_before": 3113,
+    "products_after": 3113,
+    "variants_before": 8734,
+    "variants_after": 8734,
+    "sku_entries_before": 8734,
+    "sku_entries_after": 8734,
+    "canonical_ids_unchanged": true,
+    "manual_locks_unchanged": true,
+    "supplier_mappings_unchanged": true,
+    "aliases_unchanged": true,
+    "entire_products_and_config_unchanged": true,
+    "hashes": {
+      "products": "6f01b7ab0d2ab0a2b3969baf788c8bd77b6342c099289a8091417544bf89a4eb",
+      "cfg": "0f93e47bee15dcc051265ec5ad5ae38422ba9edf7b2834131873ba1b2fd170d3",
+      "taxonomy": "87363c03af8c577ce0a7dacae60715a1dce505dc479fccd74b0029fed90836c3",
+      "file": "9ee5645236db92e5373dea1a875a83d821ec86bab64f4acc1e4316b7183ee5f3"
+    }
+  },
+  "taxonomy_diff": {
+    "categories_before": 134,
+    "categories_after": 134,
+    "new_category_ids": [],
+    "removed_category_ids": [],
+    "renamed_category_ids": [],
+    "moved_category_ids": [],
+    "alias_changes": [],
+    "supplier_mapping_changes": []
+  },
+  "proposed_taxonomy_diff_if_approved": {
+    "categories_before": 134,
+    "categories_after": 142,
+    "new_category_ids": [
+      "symbols",
+      "armor_ballistic_blankets",
+      "clothing_insulated_vests",
+      "footwear_care",
+      "footwear_loafers",
+      "communications_earplugs",
+      "electronics_rf_detectors",
+      "symbols_flags"
+    ],
+    "removed_category_ids": [],
+    "renamed_category_ids": [],
+    "moved_category_ids": [],
+    "alias_changes": [
+      {
+        "category_id": "armor_ballistic_blankets",
+        "add": [
+          "бронековдра",
+          "баллистическое одеяло"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "add": [
+          "утеплена жилетка",
+          "жилетка утеплена",
+          "утепленный жилет"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "footwear_care",
+        "add": [
+          "спрей для взуття",
+          "догляд за взуттям",
+          "крем для обуви"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "footwear_loafers",
+        "add": [
+          "лофери",
+          "лоферы"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "communications_earplugs",
+        "add": [
+          "пасивні беруші",
+          "беруші багаторазові",
+          "беруши пассивные"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "electronics_rf_detectors",
+        "add": [
+          "пристрій радіоелектронної розвідки",
+          "детектор радіосигналів",
+          "детектор fpv"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "symbols_flags",
+        "add": [
+          "прапор України",
+          "флаг Украины"
+        ],
+        "remove": []
+      }
+    ],
+    "supplier_mapping_changes": [
+      {
+        "category_id": "armor_ballistic_blankets",
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "2 клас захисту",
+        "examples": [
+          "Бронековдра KIBORG з балістичним захистом 2 класу від Militex у кольорі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:armor_ballistic_blankets",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "armor_ballistic_blankets",
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "1 клас захисту",
+        "examples": [
+          "Бронековдра KIBORG з балістичним захистом 1 класу від Militex у кольорі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:armor_ballistic_blankets",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "supplier_id": "s2hjvaqgnp29",
+        "supplier_name": "армолайн",
+        "supplier_category": "Жилетки утеплені",
+        "examples": [
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)",
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)",
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:clothing_insulated_vests",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Voennaya forma",
+        "examples": [
+          "Зимова тактична жилетка, безрукавка на флісі та синтепоні"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:clothing_insulated_vests",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "footwear_care",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Krem dlya obuvi",
+        "examples": [
+          "Водовідштовхуючий спрей для шкіри і текстилю Nasse Blocker"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_care",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "footwear_care",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Zaschitnye pokrytiya",
+        "examples": [
+          "Спрей для замші і нубука Rauleder Pflege 300мл"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_care",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "footwear_loafers",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Tufli",
+        "examples": [
+          "Чоловічі лофери з натуральної замші сірі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_loafers",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "communications_earplugs",
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Навушники , беруши",
+        "examples": [
+          "Беруші EARMOR М-02",
+          "Беруші універсальні багаторазові в кейсі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:communications_earplugs",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "electronics_rf_detectors",
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+        "examples": [
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:electronics_rf_detectors",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "symbols_flags",
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "ПРАПОРА",
+        "examples": [
+          "Прапор України 90х60см",
+          "Прапор України"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:symbols_flags",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "symbols_flags",
+        "supplier_id": "sf0t3l7jegf9",
+        "supplier_name": "м вин",
+        "supplier_category": "Державні прапори України",
+        "examples": [
+          "Прапор України 70×105 см — під древко. M-WIN",
+          "Прапор України 90×135 см — з люверсами. M-WIN",
+          "Прапор України 100×150 см — під древко. M-WIN"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:symbols_flags",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "applied": false,
+    "approval_required": true
+  },
+  "production_changed": false,
+  "previous_134_SAFE_AUTO_and_58_LIKELY_reaudited": false,
+  "verification_limit": "No categories or product moves have been applied. Integrity proves a read-only planning run, not a completed future migration.",
+  "tests": {
+    "new_category_reason_tests": {
+      "passed": 59,
+      "failed": 0
+    },
+    "existing_category_model_queue_tests": {
+      "passed": 261,
+      "failed": 0
+    }
+  },
+  "source_sha256": {
+    "category-reasons.cjs": "222254b7bbfa3c6c6f2e8261ecab3ed331967c7f2e31816e629a74a82d28dd57",
+    "category-audit.cjs": "fb526c0af6f8beab57b8cd7ccb2efb8cac4041439a2ae1aa8431305e12f551a0",
+    "category-reasons.test.cjs": "9678279c7806e8db3d4054004b1ba1ad5f4ba2e50d8638b136342a42ed7d4f9c",
+    "taxonomy-before.json": "90b9a640379e05eb31493a100ee9322d83cb3ad496c964c27eac63c6a6cdef2c"
+  }
+}

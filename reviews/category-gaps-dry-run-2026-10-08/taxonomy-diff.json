@@ -1,0 +1,257 @@
+{
+  "actual": {
+    "categories_before": 134,
+    "categories_after": 134,
+    "new_category_ids": [],
+    "removed_category_ids": [],
+    "renamed_category_ids": [],
+    "moved_category_ids": [],
+    "alias_changes": [],
+    "supplier_mapping_changes": []
+  },
+  "proposed_if_approved": {
+    "categories_before": 134,
+    "categories_after": 142,
+    "new_category_ids": [
+      "symbols",
+      "armor_ballistic_blankets",
+      "clothing_insulated_vests",
+      "footwear_care",
+      "footwear_loafers",
+      "communications_earplugs",
+      "electronics_rf_detectors",
+      "symbols_flags"
+    ],
+    "removed_category_ids": [],
+    "renamed_category_ids": [],
+    "moved_category_ids": [],
+    "alias_changes": [
+      {
+        "category_id": "armor_ballistic_blankets",
+        "add": [
+          "бронековдра",
+          "баллистическое одеяло"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "add": [
+          "утеплена жилетка",
+          "жилетка утеплена",
+          "утепленный жилет"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "footwear_care",
+        "add": [
+          "спрей для взуття",
+          "догляд за взуттям",
+          "крем для обуви"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "footwear_loafers",
+        "add": [
+          "лофери",
+          "лоферы"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "communications_earplugs",
+        "add": [
+          "пасивні беруші",
+          "беруші багаторазові",
+          "беруши пассивные"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "electronics_rf_detectors",
+        "add": [
+          "пристрій радіоелектронної розвідки",
+          "детектор радіосигналів",
+          "детектор fpv"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "symbols_flags",
+        "add": [
+          "прапор України",
+          "флаг Украины"
+        ],
+        "remove": []
+      }
+    ],
+    "supplier_mapping_changes": [
+      {
+        "category_id": "armor_ballistic_blankets",
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "2 клас захисту",
+        "examples": [
+          "Бронековдра KIBORG з балістичним захистом 2 класу від Militex у кольорі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:armor_ballistic_blankets",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "armor_ballistic_blankets",
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "1 клас захисту",
+        "examples": [
+          "Бронековдра KIBORG з балістичним захистом 1 класу від Militex у кольорі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:armor_ballistic_blankets",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "supplier_id": "s2hjvaqgnp29",
+        "supplier_name": "армолайн",
+        "supplier_category": "Жилетки утеплені",
+        "examples": [
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)",
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)",
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:clothing_insulated_vests",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Voennaya forma",
+        "examples": [
+          "Зимова тактична жилетка, безрукавка на флісі та синтепоні"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:clothing_insulated_vests",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "footwear_care",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Krem dlya obuvi",
+        "examples": [
+          "Водовідштовхуючий спрей для шкіри і текстилю Nasse Blocker"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_care",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "footwear_care",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Zaschitnye pokrytiya",
+        "examples": [
+          "Спрей для замші і нубука Rauleder Pflege 300мл"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_care",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "footwear_loafers",
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Tufli",
+        "examples": [
+          "Чоловічі лофери з натуральної замші сірі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_loafers",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "communications_earplugs",
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Навушники , беруши",
+        "examples": [
+          "Беруші EARMOR М-02",
+          "Беруші універсальні багаторазові в кейсі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:communications_earplugs",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "electronics_rf_detectors",
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+        "examples": [
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:electronics_rf_detectors",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "symbols_flags",
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "ПРАПОРА",
+        "examples": [
+          "Прапор України 90х60см",
+          "Прапор України"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:symbols_flags",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "category_id": "symbols_flags",
+        "supplier_id": "sf0t3l7jegf9",
+        "supplier_name": "м вин",
+        "supplier_category": "Державні прапори України",
+        "examples": [
+          "Прапор України 70×105 см — під древко. M-WIN",
+          "Прапор України 90×135 см — з люверсами. M-WIN",
+          "Прапор України 100×150 см — під древко. M-WIN"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:symbols_flags",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "applied": false,
+    "approval_required": true
+  }
+}
