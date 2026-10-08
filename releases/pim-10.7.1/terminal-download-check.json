@@ -1,0 +1,18 @@
+{
+  "version": "10.7.1",
+  "productionWrites": false,
+  "productionDeployed": false,
+  "installerCommit": "f45430d507ccfafcad758a6d520607f51be0168f",
+  "archiveSha256": "3a5b7d24fb24ebf3eed03fe18b40cf8fb729e76e1805b3dc029662fe1429c34e",
+  "checks": [
+    "published installer URL returns exact prepared script",
+    "archive URL downloads successfully",
+    "published archive SHA-256 matches release manifest",
+    "terminal installer completes on isolated target",
+    "assembled runtime installed",
+    "existing server preserved",
+    "development and server preparation files remain outside public site",
+    "downloaded release rollback restores old files"
+  ],
+  "passed": 8
+}
