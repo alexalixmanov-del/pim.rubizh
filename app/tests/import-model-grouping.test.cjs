@@ -43,3 +43,13 @@ test('Prom size selector param is the offer size; descriptive size attributes ar
  const {rows}=h.run('parseYml(text)'),i=rows[0].indexOf('Размер'),a=rows[0].indexOf('Характеристики');
  assert.deepEqual(JSON.parse(JSON.stringify(rows.slice(1).map(r=>r[i]))),['2х3','','S']);assert.doesNotMatch(String(rows[1][a]),/ОБЕРІТЬ/);
 });
+test('MODEL → COLOR on import: colours that exist only in the names, one supplier model code → one model; merged cards stay archived',async()=>{
+ const h=createHarness({runtime:true});h.run('render=()=>{}');await h.run('Store.init()');h.run('S.cfg.suppliers[0].auto=true;S.cfg.model_colors_version=MC_VERSION');
+ h.ctx.rows=[['SKU','Name','Model','Category','Photo','Stock','Cost'],
+  ['G-MC','Рукавиці тактичні Protect Armor Caoutch Multicam','114272129','Рукавиці','https://rubizh.shop/media/g1.webp',3,300],
+  ['G-OL','Рукавиці тактичні Protect Armor Caoutch Olive','114272129','Рукавиці','https://rubizh.shop/media/g2.webp',3,300]];
+ h.run('S.imp={sup:"supplier-a",file:"g.csv",rows,hdr:0,map:{sku:0,name:1,model:2,category:3,photos:4,stock:5,cost:6}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
+ const all=JSON.parse(h.run('JSON.stringify([...S.products.values()].map(p=>({archived:!!p.archived,merged:p.merged_into||null,variants:p.variants.length,colors:mcColors(p).length})))'));
+ const active=all.filter(p=>!p.archived);assert.equal(active.length,1,JSON.stringify(all));assert.equal(active[0].variants,2);assert.equal(active[0].colors,2);
+ assert.ok(all.filter(p=>p.merged).every(p=>p.archived&&p.variants===0));
+});

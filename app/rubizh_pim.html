@@ -10306,7 +10306,8 @@ runImport=function(sup,rows,hdr,map,opts={}){
  try{S._classificationSupplier=sup;result=classificationImport(sup,rows,hdr,map,{...opts,zeroMissing:classificationEnabled()?false:opts.zeroMissing});}finally{S._classificationSupplier=previousSupplier;}
  const touched=[...S.products.values()].filter(p=>p.variants.some(v=>v.offers?.[sup.id]?.at===result.at));
  for(const p of touched){if(contentBefore?.has(p.id)){const old=contentBefore.get(p.id);for(const k of ['name','desc','attrs','photos','photoMeta','fieldMeta','translated_description_uk','source_description'])if(Object.hasOwn(old,k))p[k]=old[k];else delete p[k];}classificationApplyProduct(p);}
- for(const p of S.products.values()){const old=publication.get(p.id);if(!old){p.pub=false;p.archived=false;continue;}for(const k of ['pub','archived','archiveReason','archivePrevPub','syncStatus','simple_excluded_reason']){if(Object.hasOwn(old,k))p[k]=old[k];else delete p[k];}}
+ // Cards merged into a model during this import stay archived; restoring their pre-import flags would revive empty cards.
+ for(const p of S.products.values()){if(p.merged_into)continue;const old=publication.get(p.id);if(!old){p.pub=false;p.archived=false;continue;}for(const k of ['pub','archived','archiveReason','archivePrevPub','syncStatus','simple_excluded_reason']){if(Object.hasOwn(old,k))p[k]=old[k];else delete p[k];}}
  bumpData();result.classification_report=classificationSummary(touched);return result;
 };
 function classificationSummary(products=[...S.products.values()]){const out={SAFE_AUTO:0,LIKELY:0,AMBIGUOUS:0,exact_sku_sizes:0,allowed_sizes_without_sku:0,SIZE_CONFIRMATION_REQUIRED:0,UNKNOWN_stock:0,NO_SIZE_REQUIRED:0,ONE_SIZE:0};for(const p of products){out[p.category_confidence_tier||'AMBIGUOUS']++;out.allowed_sizes_without_sku+=classificationOptions(p).length;for(const v of p.variants){out[v.size_confidence_tier||'AMBIGUOUS']++;if(v.size_status==='EXACT_SIZE')out.exact_sku_sizes++;if(v.size_status==='SIZE_CONFIRMATION_REQUIRED')out.SIZE_CONFIRMATION_REQUIRED++;if(v.size_status==='NO_SIZE_REQUIRED')out.NO_SIZE_REQUIRED++;if(v.size_status==='ONE_SIZE')out.ONE_SIZE++;if(classificationAvailability(p,v).stock_quantity==null)out.UNKNOWN_stock++;}}return out;}
@@ -10838,7 +10839,7 @@ function finalCatalogResetPreview(){
  const skus=[...S.products.values()].reduce((n,p)=>n+(p.variants||[]).length,0);
  return {signature:simpleFingerprint(),at:Date.now(),remove:{products:S.products.size,skus,queue:S.queue.size,content:S.content.size,import_logs:(S.logs||[]).length},
   keep:{categories:(S.cfg.canonical_categories||[]).length,suppliers:(S.cfg.suppliers||[]).length,category_rules:Object.keys(S.cfg.catMap||{}).length+(S.cfg.catRules||[]).length,
-   pricing_policy_version:S.cfg.pricing_policy_version??null,margins:[S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version??null,next_sku:S.cfg.nextSku}};
+   pricing_policy_version:S.cfg.pricing_policy_version??null,margins:[S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version??null,next_sku:S.cfg.nextSku},enable:{model_colors_version:MC_VERSION}};
 }
 async function finalCatalogReset(plan,confirmation){
  if(confirmation!==FINAL_RESET_CONFIRM)throw Error('Для сброса введите: '+FINAL_RESET_CONFIRM);
@@ -10852,6 +10853,9 @@ async function finalCatalogReset(plan,confirmation){
  try{
   S.products.clear();S.queue.clear();S.content.clear();S.logs=[];S.lastUndo=null;S.lastUndoLogs=[];rebuildIndex();
   for(const k of FINAL_RESET_CFG_KEYS){if(Object.hasOwn(DEFAULT_CFG,k))S.cfg[k]=structuredClone(DEFAULT_CFG[k]);else delete S.cfg[k];}
+  // The new catalog runs the whole MODEL → COLOR → SIZE/SKU pipeline: with nothing to migrate, the model-colour
+  // stage (same approved rules, automatic merges only on strong evidence) is switched on for every import.
+  S.cfg.model_colors_version=MC_VERSION;
   S.cfgDirty=true;markAllDirty();bumpData();
   if(!await persist())throw Error('Сброс не сохранён.');
   await Store.del('site/v3/published');await Store.del('site/v3/hashes');

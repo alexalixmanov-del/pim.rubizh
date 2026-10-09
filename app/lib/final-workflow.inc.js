@@ -354,7 +354,7 @@ function finalCatalogResetPreview(){
  const skus=[...S.products.values()].reduce((n,p)=>n+(p.variants||[]).length,0);
  return {signature:simpleFingerprint(),at:Date.now(),remove:{products:S.products.size,skus,queue:S.queue.size,content:S.content.size,import_logs:(S.logs||[]).length},
   keep:{categories:(S.cfg.canonical_categories||[]).length,suppliers:(S.cfg.suppliers||[]).length,category_rules:Object.keys(S.cfg.catMap||{}).length+(S.cfg.catRules||[]).length,
-   pricing_policy_version:S.cfg.pricing_policy_version??null,margins:[S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version??null,next_sku:S.cfg.nextSku}};
+   pricing_policy_version:S.cfg.pricing_policy_version??null,margins:[S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version??null,next_sku:S.cfg.nextSku},enable:{model_colors_version:MC_VERSION}};
 }
 async function finalCatalogReset(plan,confirmation){
  if(confirmation!==FINAL_RESET_CONFIRM)throw Error('Для сброса введите: '+FINAL_RESET_CONFIRM);
@@ -368,6 +368,9 @@ async function finalCatalogReset(plan,confirmation){
  try{
   S.products.clear();S.queue.clear();S.content.clear();S.logs=[];S.lastUndo=null;S.lastUndoLogs=[];rebuildIndex();
   for(const k of FINAL_RESET_CFG_KEYS){if(Object.hasOwn(DEFAULT_CFG,k))S.cfg[k]=structuredClone(DEFAULT_CFG[k]);else delete S.cfg[k];}
+  // The new catalog runs the whole MODEL → COLOR → SIZE/SKU pipeline: with nothing to migrate, the model-colour
+  // stage (same approved rules, automatic merges only on strong evidence) is switched on for every import.
+  S.cfg.model_colors_version=MC_VERSION;
   S.cfgDirty=true;markAllDirty();bumpData();
   if(!await persist())throw Error('Сброс не сохранён.');
   await Store.del('site/v3/published');await Store.del('site/v3/hashes');

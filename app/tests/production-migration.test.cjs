@@ -74,7 +74,7 @@ test('full catalog reset: verified backup first, PRODUCTS=0 and SKU=0, taxonomy/
  const r=await h.run('finalCatalogReset(plan,"СБРОСИТЬ КАТАЛОГ")');assert.ok(r.backup.sha256);assert.ok(h.downloads.length>downloadsBefore,'external full backup offered before reset');
  await h.run('productionLoad()');
  assert.equal(h.run('S.products.size'),0);assert.equal(h.run('[...S.products.values()].reduce((n,p)=>n+p.variants.length,0)'),0);assert.equal(h.run('S.queue.size'),0);assert.equal(h.run('S.content.size'),0);
- assert.deepEqual(keep(),before,'taxonomy, rules, suppliers, dictionaries, pricing, inventory and SKU counter kept');
+ assert.deepEqual(keep(),before,'taxonomy, rules, suppliers, dictionaries, pricing, inventory and SKU counter kept');assert.equal(h.run('mcEnabled()'),true,'MODEL → COLOR stage active for the new catalog');
  assert.equal(await h.run('Store.get("site/v3/published")')??null,null);assert.equal(await h.run('Store.get("site/v3/hashes")')??null,null);
  h.ctx.rows=[['SKU','Name','Size','Stock','Cost','Photo'],['fresh-1','Штани Fresh','48',3,1000,'https://rubizh.shop/media/fresh.webp']];
  h.run('S.cfg.suppliers[0].auto=true;S.imp={sup:"supplier-a",file:"fresh.csv",rows,hdr:0,map:{sku:0,name:1,size:2,stock:3,cost:4,photos:5}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
