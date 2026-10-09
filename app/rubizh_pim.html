@@ -5043,7 +5043,7 @@ function parseYml(text){
     }
     const attrLines = [];
     for (const k of pnames){
-      if (skipParams.has(k) || xmlAttrSkip.has(k) || /^(?:оберіть|виберіть|оберите|выберите)\s+(?:розмір|размер)/u.test(k)) continue;
+      if (skipParams.has(k) || xmlAttrSkip.has(k)) continue;
       const nm = xmlAttrUa[k] || params[k].nm;
       let val = params[k].val.replace(/\|/g, ", ");
       for (const [re,to] of xmlValUa) val = val.replace(re,to);
@@ -5052,9 +5052,6 @@ function parseYml(text){
       attrLines.push(line);
     }
     const pv = (...ns) => { for (const n of ns) if (params[n]) return params[n].val; return ""; };
-    // Prom variant selector («ОБЕРІТЬ РОЗМІР СІТКИ:» = 2х3) is the offer's size when no plain size param exists;
-    // descriptive «Розмір …» attributes (bag dimensions, waist) are not variant sizes.
-    const sizeSelector = pnames.find(k => /^(?:оберіть|виберіть|оберите|выберите)\s+(?:розмір|размер)/u.test(k));
     // v9.9.9: остаток передаётся числом, а не «есть/нет» — PIM и так понимает число (0 = нет).
     const qty = kid(o, "quantity_in_stock") || kid(o, "stock_quantity") || kid(o, "quantity") || kid(o, "stock");
     // v9.9.9: available="" (пусто) — это НЕ «в наличии». Раньше «есть» ставилось всему, кроме available="false".
@@ -5077,7 +5074,7 @@ function parseYml(text){
       kid(o, "rrp") || kid(o, "price_rrc") || kid(o, "recommended_price") || "",
       avail, qty,
       v, kid(o, "barcode"),
-      ymlSize(pv("розміри","розмір","размер","размеры","size")||(sizeSelector?params[sizeSelector].val:"")), uaColor(pv("колір","цвет","цвета","color","колір/камуфляж")),
+      ymlSize(pv("розміри","розмір","размер","размеры","size")), uaColor(pv("колір","цвет","цвета","color","колір/камуфляж")),
       cats[kid(o, "categoryId")] || "", o.getAttribute("group_id") || kid(o, "group_id") || "",
       pics.join("\n"), kid(o, "description_ua") || kid(o, "description"), o.getAttribute("id") || "", kid(o, "url"), attrLines.join("\n"),catPaths[kid(o,"categoryId")]||"",cats[kid(o,"categoryId")]||"",kid(o,"stock_observed_at")||kid(o,"stock_updated_at")||pv("stock_observed_at","stock_updated_at"),kid(o,"preorder")||pv("preorder"),kid(o,"order_on_request")||pv("order_on_request"),kid(o,"source_updated_at")||pv("source_updated_at"),kid(o,"expires_at")||pv("expires_at"),avAttr===null?"":"available="+avRaw,availParam
     ]);

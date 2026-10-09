@@ -34,15 +34,6 @@ test('different supplier group_ids never merge by this rule',async()=>{
   ['C-L','Футболка Test Олива','L','Олива','200','Футболки','https://rubizh.shop/media/c.webp',3,300]]);
  assert.equal(products(h).length,2);
 });
-test('Prom size selector param is the offer size; descriptive size attributes are not',()=>{
- const h=createHarness({runtime:true});h.ctx.DOMParser=appRequire('linkedom').DOMParser;
- h.ctx.text='<?xml version="1.0"?><yml_catalog><shop><offers>'+
-  '<offer id="1" group_id="9" available="true"><vendorCode>ZL-2x3</vendorCode><name>Сітка 2х3</name><price>1</price><param name="ОБЕРІТЬ РОЗМІР СІТКИ:">2х3</param></offer>'+
-  '<offer id="2" group_id="8" available="true"><vendorCode>BAG</vendorCode><name>Сумка</name><price>1</price><param name="Розмір в сумці">35х49х12 см</param></offer>'+
-  '<offer id="3" group_id="7" available="true"><vendorCode>T-S</vendorCode><name>Футболка</name><price>1</price><param name="Розмір">S</param><param name="ОБЕРІТЬ РОЗМІР СІТКИ:">X</param></offer></offers></shop></yml_catalog>';
- const {rows}=h.run('parseYml(text)'),i=rows[0].indexOf('Размер'),a=rows[0].indexOf('Характеристики');
- assert.deepEqual(JSON.parse(JSON.stringify(rows.slice(1).map(r=>r[i]))),['2х3','','S']);assert.doesNotMatch(String(rows[1][a]),/ОБЕРІТЬ/);
-});
 test('MODEL → COLOR on import: colours that exist only in the names, one supplier model code → one model; merged cards stay archived',async()=>{
  const h=createHarness({runtime:true});h.run('render=()=>{}');await h.run('Store.init()');h.run('S.cfg.suppliers[0].auto=true;S.cfg.model_colors_version=MC_VERSION');
  h.ctx.rows=[['SKU','Name','Model','Category','Photo','Stock','Cost'],
