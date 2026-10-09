@@ -1,0 +1,43 @@
+{
+  "full_bootstrap": true,
+  "runtime_stubs": false,
+  "external_network_calls": 0,
+  "intercepted_external_requests": 16,
+  "errors": [],
+  "console_errors": [],
+  "network_errors": [],
+  "checks": [
+    "original full backup seeded into isolated IndexedDB",
+    "full startup and repeated render preserve shell and search",
+    "native preview → actual backup download → confirmation → atomic apply",
+    "search and 6 main pages at desktop/mobile widths",
+    "restart and identical second migration is a no-op",
+    "native rollback and rescue backup preserve protected catalog hash"
+  ],
+  "products": 3113,
+  "rollback_protected_sha256": "eb1fdbb9b6792e7eb6c0df610e9c78007175472783ad3eb4708d9ba441551a61",
+  "status": "PASS",
+  "preview": {
+    "products": 3113,
+    "variants": 8734,
+    "categories_before": 0,
+    "categories_after": 143,
+    "manual_lock_products": 8,
+    "SYNC_ENABLED": false,
+    "AUTOPRICES_ENABLED": false,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "LOST_CATEGORIES": 0
+  },
+  "apply": {
+    "PERSISTED_VERIFIED": true,
+    "LOCAL_MIGRATION_TRANSACTIONS": 1,
+    "SHOP_WRITES": 0
+  },
+  "second_identical_migration": {
+    "ALREADY_MIGRATED": true
+  }
+}

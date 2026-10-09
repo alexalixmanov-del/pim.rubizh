@@ -3,13 +3,15 @@ from pathlib import Path
 from hashlib import sha256
 ROOT=Path(__file__).resolve().parents[2]
 SCRIPT=ROOT/'app/tools/install-production.py'
-ARCHIVE=ROOT/'releases/pim-10.9.3/rubizh-pim-10.9.3-production.zip'
+ARCHIVE=Path(os.environ.get('PIM_TEST_ARCHIVE',str(ROOT/'releases/pim-10.9.3/rubizh-pim-10.9.3-production.zip')))
 class Installer(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name);self.target=self.root/'public';self.target.mkdir();(self.target/'index.html').write_text('previous PIM 10.9.0 rubizh_pim_v7_launch');(self.target/'custom.txt').write_text('unchanged');self.data=self.root/'full.json';self.data.write_text(json.dumps({'format':'rubizh-pim-backup','cfg':{'owner':'test'},'products':[{'id':'p1','variants':[]}]}));self.backups=self.root/'private-backups'
  def tearDown(self):self.tmp.cleanup()
  def install(self,archive=ARCHIVE,env=None,backup_root=None):
   return subprocess.run(['python3',str(SCRIPT),'install','--archive',str(archive),'--target',str(self.target),'--data-backup',str(self.data),'--backup-root',str(backup_root or self.backups)],capture_output=True,text=True,env=env)
+ def test_action_is_still_required(self):
+  r=subprocess.run(['python3',str(SCRIPT)],capture_output=True,text=True);self.assertEqual(r.returncode,2);self.assertIn('required',r.stderr)
  def test_install_and_complete_code_rollback(self):
   before=(self.target/'index.html').read_bytes();r=self.install();self.assertEqual(r.returncode,0,r.stderr);report=json.loads(r.stdout);b=Path(report['BACKUP_PATH']);self.assertFalse(report['SYNC_ENABLED']);self.assertFalse(report['AUTOPRICES_ENABLED']);self.assertEqual((b/'data-backup.bin').read_bytes(),self.data.read_bytes());self.assertEqual(os.stat(b).st_mode&0o777,0o700);self.assertEqual((self.target/'custom.txt').read_text(),'unchanged');self.assertNotEqual((self.target/'index.html').read_bytes(),before);rb=subprocess.run(['python3',str(b/'install-production.py'),'rollback','--backup',str(b)],capture_output=True,text=True);self.assertEqual(rb.returncode,0,rb.stderr);self.assertEqual((self.target/'index.html').read_bytes(),before);self.assertFalse((self.target/'lib/release-storage.js').exists());self.assertEqual((self.target/'custom.txt').read_text(),'unchanged')
  def test_checksum_failure_no_changes_or_backup(self):

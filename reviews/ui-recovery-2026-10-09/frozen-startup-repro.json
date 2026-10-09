@@ -1,0 +1,10 @@
+{
+  "full_bootstrap": true,
+  "runtime_stubs": false,
+  "external_network_calls": 0,
+  "errors": [
+    "Cannot set properties of null (setting 'innerHTML')"
+  ],
+  "checks": [],
+  "expected_failure_reproduced": true
+}

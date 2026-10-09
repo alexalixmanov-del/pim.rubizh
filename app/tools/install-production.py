@@ -80,7 +80,7 @@ def install(archive,target,data_backup,backup_root):
         rollback(backup);raise
     return {'FILES_INSTALLED':len(runtime),'BACKUP_PATH':str(backup),'BACKUP_FORMAT':'previous runtime files + installation.json + full data-backup.bin','SYNC_ENABLED':False,'AUTOPRICES_ENABLED':False,'DATA_MIGRATION':'PENDING_BROWSER_DRY_RUN','PRODUCTION_API_CALLS':0}
 def main():
-    p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action',required=True)
+    p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action');sub.required=True # Python 3.6 compatibility, action stays mandatory
     s=sub.add_parser('install');s.add_argument('--archive',required=True);s.add_argument('--target',required=True);s.add_argument('--data-backup',required=True);s.add_argument('--backup-root',required=True)
     s=sub.add_parser('rollback');s.add_argument('--backup',required=True)
     a=p.parse_args();print(json.dumps(install(a.archive,a.target,a.data_backup,a.backup_root) if a.action=='install' else rollback(a.backup),ensure_ascii=False,indent=2))
