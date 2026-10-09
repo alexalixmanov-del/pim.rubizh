@@ -4985,10 +4985,22 @@ async function readFile(file){
     render();
   } catch (e) { toast("Не удалось прочитать файл: " + (e.message || e)); }
 }
+// Owner-approved exception: only the standard YML prolog header <!DOCTYPE yml_catalog SYSTEM "shops.dtd"> is
+// accepted. It is removed before parsing and never fetched. Any other DOCTYPE (PUBLIC, internal subset, other
+// root or system id) and every ENTITY/ELEMENT/ATTLIST/NOTATION declaration stay refused (fail-closed, no XXE).
+const YML_DTD_ERROR="XML с DTD или сущностями не поддерживается. Используйте обычный YML.";
+function ymlStripStandardDoctype(text){
+  text=String(text??"");
+  const m=/^(\uFEFF?[ \t\r\n]*(?:<\?xml[^>]*\?>)?[ \t\r\n]*)<!DOCTYPE[ \t\r\n]+yml_catalog[ \t\r\n]+SYSTEM[ \t\r\n]+"shops\.dtd"[ \t\r\n]*>/.exec(text);
+  const rest=m?m[1]+text.slice(m[0].length):text;
+  if(/<!(?:DOCTYPE|ENTITY|ELEMENT|ATTLIST|NOTATION)\b|<!\[[ \t\r\n]*(?:INCLUDE|IGNORE|%)/i.test(rest))throw new Error(YML_DTD_ERROR);
+  return {text:rest,doctype:!!m};
+}
 function parseYml(text){
-  if(/<!DOCTYPE|<!ENTITY/i.test(text))throw new Error("XML с DTD или сущностями не поддерживается. Используйте обычный YML.");
-  const doc = new DOMParser().parseFromString(text, "application/xml");
+  const prolog=ymlStripStandardDoctype(text);
+  const doc = new DOMParser().parseFromString(prolog.text, "application/xml");
   if (doc.getElementsByTagName("parsererror").length) throw new Error("XML повреждён или файл скачан не полностью");
+  if (prolog.doctype && doc.documentElement?.tagName !== "yml_catalog") throw new Error(YML_DTD_ERROR);
   const catName = {}, catParent = {}, cats = {};
   for (const c of doc.getElementsByTagName("category")){ const id = c.getAttribute("id"); catName[id] = c.textContent.trim(); catParent[id] = c.getAttribute("parentId") || ""; }
   // v10: «Родитель / Подкатегория» вместо одного листа — иначе соответствия категорий поставщика не срабатывают
@@ -4998,7 +5010,7 @@ function parseYml(text){
   const offers = doc.getElementsByTagName("offer");
   if (!offers.length) throw new Error("в файле нет товаров (тегов offer)");
   const kid = (o, tag) => { for (const e of o.children) if (e.tagName === tag) return e.textContent.trim(); return ""; };
-  const rows = [["Артикул","Название","Цена","РРЦ","Stock","Бренд","Штрихкод","Размер","Цвет","Категория","Модель","Фото","Описание","ID предложения","Ссылка","Характеристики","Шлях категорії постачальника","Підкатегорія постачальника","stock_observed_at","preorder","order_on_request","source_updated_at","expires_at"]];
+  const rows = [["Артикул","Название","Цена","РРЦ","Наличие","Stock","Бренд","Штрихкод","Размер","Цвет","Категория","Модель","Фото","Описание","ID предложения","Ссылка","Характеристики","Шлях категорії постачальника","Підкатегорія постачальника","stock_observed_at","preorder","order_on_request","source_updated_at","expires_at","offer@available (сирий)","Параметр наявності (сирий)"]];
   const skipParams = new Set(["розміри","розмір","размер","размеры","size","цвет","колір","цвета","color","колір/камуфляж"]);
   // v9.9.9: «Піксель,Піксель» → «Піксель»; повтор значения в одном параметре не должен давать второй вариант.
   const dedupeList = s => { s=String(s||""); const parts=s.split(/\s*[,|]\s*/).filter(Boolean); const seen=new Set(), out=[]; for(const x of parts){ const k=norm(x); if(!seen.has(k)){ seen.add(k); out.push(x); } } return out.length<parts.length ? out.join(", ") : s; };
@@ -5044,8 +5056,13 @@ function parseYml(text){
     const qty = kid(o, "quantity_in_stock") || kid(o, "stock_quantity") || kid(o, "quantity") || kid(o, "stock");
     // v9.9.9: available="" (пусто) — это НЕ «в наличии». Раньше «есть» ставилось всему, кроме available="false".
     // Нет атрибута вообще — по стандарту YML товар доступен.
-    const avAttr = o.getAttribute("available");
-    const avail = avAttr === null ? "есть" : (/^(true|1|yes)$/i.test(avAttr.trim()) ? "есть" : "нет");
+    // Separate raw signals, no universal interpretation: «Наличие» = offer@available only, as есть/нет — the column
+    // and values the STATUS policies were approved on (available="" is нет, as the feeds' own Наличие/Наявність
+    // params confirm); no attribute or an unrecognised value is no signal (UNKNOWN), never «есть».
+    // «Stock» = quantity tag only, never derived from available. Supplier policy chooses its column.
+    const avAttr = o.getAttribute("available"), avRaw = avAttr === null ? "" : avAttr.trim();
+    const avail = avAttr === null ? "" : /^(true|1|yes)$/i.test(avRaw) ? "есть" : /^(false|0|no|)$/i.test(avRaw) ? "нет" : "";
+    const availParam = pv("наличие","наявність");
     const pics = [...o.children].filter(e => e.tagName === "picture").map(e => e.textContent.trim()).filter(Boolean);
     const v = kid(o, "vendor"); if (!vendor && v) vendor = v;
     rows.push([
@@ -5055,11 +5072,11 @@ function parseYml(text){
       kid(o, "price"),
       // v9.9.9: oldprice — зачёркнутая цена поставщика, а не РРЦ. Как РРЦ она блокировала бы продажу ниже старой цены.
       kid(o, "rrp") || kid(o, "price_rrc") || kid(o, "recommended_price") || "",
-      qty !== "" ? qty : avail,
+      avail, qty,
       v, kid(o, "barcode"),
       ymlSize(pv("розміри","розмір","размер","размеры","size")), uaColor(pv("колір","цвет","цвета","color","колір/камуфляж")),
       cats[kid(o, "categoryId")] || "", o.getAttribute("group_id") || kid(o, "group_id") || "",
-      pics.join("\n"), kid(o, "description_ua") || kid(o, "description"), o.getAttribute("id") || "", kid(o, "url"), attrLines.join("\n"),catPaths[kid(o,"categoryId")]||"",cats[kid(o,"categoryId")]||"",kid(o,"stock_observed_at")||kid(o,"stock_updated_at")||pv("stock_observed_at","stock_updated_at"),kid(o,"preorder")||pv("preorder"),kid(o,"order_on_request")||pv("order_on_request"),kid(o,"source_updated_at")||pv("source_updated_at"),kid(o,"expires_at")||pv("expires_at")
+      pics.join("\n"), kid(o, "description_ua") || kid(o, "description"), o.getAttribute("id") || "", kid(o, "url"), attrLines.join("\n"),catPaths[kid(o,"categoryId")]||"",cats[kid(o,"categoryId")]||"",kid(o,"stock_observed_at")||kid(o,"stock_updated_at")||pv("stock_observed_at","stock_updated_at"),kid(o,"preorder")||pv("preorder"),kid(o,"order_on_request")||pv("order_on_request"),kid(o,"source_updated_at")||pv("source_updated_at"),kid(o,"expires_at")||pv("expires_at"),avAttr===null?"":"available="+avRaw,availParam
     ]);
   }
   return {rows, vendor, droppedAttrs};
