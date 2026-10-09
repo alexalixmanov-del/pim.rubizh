@@ -1,51 +1,90 @@
-# PIM 10.9.3 final workflow: report (09.10.2026)
+# PIM 10.9.3 final workflow — отчёт (09.10.2026)
 
-Status: **prepared and tested. Not deployed (PRODUCTION_WRITES = 0).** It installs only after
-a separate OWNER PRODUCTION GO, using the commands in SITE `docs/PIM-V3-RELEASE-REPORT-20261009.md`.
+Статус: **подготовлено и проверено на реальном backup PIM, реальных фидах поставщиков и staging-копии
+production SITE. Не установлено (PRODUCTION_WRITES = 0).** Установка — после OWNER PRODUCTION GO,
+команды — в SITE `docs/PIM-V3-RELEASE-REPORT-20261009.md`.
 
-Archive: `rubizh-pim-10.9.3-final-workflow.zip`, SHA256
-`3351991f6ae6918bc4f8041e3221504bb0821ddaf382676fc99e4c4a1690adfd`. The build is reproducible:
-two builds produce identical bytes.
+Архив: `rubizh-pim-10.9.3-final-workflow.zip`, SHA256
+`00edd2e1e2ba93d03d405a5c69810d36b8c01f554d2e676ba66a2df716fbfadb` (воспроизводимая сборка).
 
-## Changes
+## Реальный backup PIM
 
-- **G02.** The exporter composes pricing v1 for every real SKU: `site_price`, `wholesale`,
-  `pricing_policy_version`, `discount_margin_floor_pct`, `minimum_sale_price` and `kit_price`.
-  Classification no longer drops `barcode` or the private fulfillment fields.
-- **Exact wire contract 3.** `pimSiteWire()` produces `products[]` with all the versions,
-  `catalog_revision`, `category_catalog_hash`, 143 categories and explicit `hide_ids`.
-  The fixture is byte-for-byte exporter output and a test checks it.
-- **MODEL → COLOR → real SKU.** There are no Cartesian SKUs: a size without a SKU is a
-  request-only size option.
-- **Decision.** Each product gets READY, MODERATION or REJECTED, with codes and evidence.
-  Inventory never blocks READY.
-- **5 screens:** НА САЙТ, МОДЕРАЦИЯ, НЕ ПРОХОДИТ, ИМПОРТ, BACKUP. There is no developer menu.
-- **Publisher.**
-  - Sends in packages of 100 models with batch_id `PB-<rev>-<hash>`.
-  - Requires an exact ACK `COMMITTED`.
-  - Refuses to send without a SITE capability that matches contract 3.
-  - Hides only explicitly.
-  - Auto-sync is off.
-- **Import.** A new supplier item without photos does not create a product: it is recorded
-  as «не проходит: нет фото».
-- **Products without photos.** Cleanup goes preview → signature → backup → archive.
-  Nothing is deleted.
-- **Inventory policies.**
-  - M-WIN, Киборг and Армолайн use STATUS.
-  - UKR-TEC uses Prom `+`, `-`, `!` and day counts.
-  - Tactical Belt stays UNKNOWN.
+SOURCE_BACKUP_SHA256 `6311d34d9f89f5ba1066cb925883213a765cb1f57febab29357d869cc7c7792a` (PIM 10.9.0,
+86 921 911 байт; хранится только приватно). Контрольная миграция: 3113 товаров · 8734 SKU · 143 категории;
+LOST_CATEGORIES/SKU/VARIANTS/PHOTOS/PRICES/STOCK = 0; повтор — ALREADY_MIGRATED; откат данных проверен.
 
-## Tests
+| Решение публикации | READY | МОДЕРАЦИЯ | НЕ ПРОХОДИТ |
+|---|---|---|---|
+| Как в backup (цены ещё на прежних настройках 24 / 15 / 15) | 1918 | 964 | 231 |
+| После утверждённой политики 30 / 25 / 20 · пол 15% | **2071** | **1006** | **36** |
 
-- 634/634 unit tests.
-- 12/12 installer tests.
-- 49/49 dry-run tests.
-- UI in Chromium at 390, 768 and 1440 px, light and dark: no JS errors, no overflow.
+НЕ ПРОХОДИТ (после цен): RESTRICTED 16, NO_DESCRIPTION 19, NO_PHOTOS 1. МОДЕРАЦИЯ: grouping 530,
+category 380, binding 88, color 56, photo_ownership 1. Экспорт: 2071 модель · 5938 SKU · 143 категории.
 
-## Blockers
+## Цены: 24 / 15 / 15 против 30 / 25 / 20
 
-- **The current PIM backup (Drive, 87 MB) could not be downloaded into the isolated
-  environment.** There is therefore no SOURCE_BACKUP_SHA256, no control migration of the
-  real data, no real READY/MODERATION/REJECTED counts and no startup timings. The previous
-  review counted 3113 products, 8734 SKU, 143 categories and 8 manual locks.
-- **No original supplier price lists.** Autoprices stay off.
+- `minMargin` 24 — обычные товары; `bigPriceMargin` 15 — выплата поставщику от `bigPriceFrom` 10 000 грн;
+  `kitMargin` 15 — цена позиции комплекта. Это **текущие (legacy) настройки из backup**;
+  `discountMarginFloor` в backup нет.
+- Утверждённая политика — `OWNER_PRICE_POLICY`: 30 / 25 / 20, пол скидок 15% после доната.
+- Production-старт и миграция данных цены **никогда** не меняют. Утверждённая политика применяется только
+  действием владельца «Проверить правила цен → Применить» после миграции, по логике 10.9.2 (полная копия,
+  `safety/before_pricing_30_25_20`, проверка записи, последующие правки владельца не сбрасываются).
+  Раньше production-обёртка делала это действие пустым — экспорт v3 был бы навсегда заблокирован
+  `PRICING_POLICY_V1_REQUIRED`. Исправлено.
+- Результат на изолированной копии: изменились 8693 из 8734 цен SKU, все вверх (например RUB-00461
+  3660 → 4000, RUB-05564 1400 → 1530); safety-копия создана.
+
+## Реальные фиды поставщиков
+
+| Поставщик | Файл (SHA256) | Строк | Наличие (политика) |
+|---|---|---|---|
+| M-WIN | `786a5282…7884` | 924 | IN 923 · OUT 1 (STATUS) |
+| Тактикал Белт | `93e52881…475a233` | 1512 | UNKNOWN 1512 (QUANTITY не подтверждено) |
+| УКР-ТЕК | `65f56d13…479d3d` | 447 | IN 442 · OUT 4 · PREORDER 1 (Prom, без изменений) |
+| Киборг | `5c013e08…c296` | 3914 | IN 3135 · OUT 779 (STATUS) |
+| Армолайн | `cd3be885…797a` | 1405 | IN 1155 · OUT 250 (STATUS) |
+
+- **YML DOCTYPE.** Принимается только стандартный заголовок `<!DOCTYPE yml_catalog SYSTEM "shops.dtd">`
+  в прологе: удаляется до разбора, никогда не загружается, корень обязан быть `yml_catalog`. Любой
+  другой DOCTYPE, PUBLIC, internal subset, `<!ENTITY>`, parameter entities, ELEMENT/ATTLIST/NOTATION —
+  отказ. Security-тесты: 15 вредоносных вариантов (XXE, internal subset, parameter entity, PUBLIC и др.).
+- **Наличие в XML.** Регрессия `440aa60`: колонку статуса переименовали в `Stock`, а утверждённые
+  политики M-WIN / Киборг / Армолайн читают `Наличие` (`есть`/`нет`) — всё уходило в UNKNOWN.
+  Теперь `Наличие` = только `offer@available` (`true` → есть, `""` → нет; без атрибута или неизвестное
+  значение → нет сигнала), `Stock` = только тег количества; сырые `offer@available` и параметр
+  `Наличие/Наявність` — отдельные evidence-колонки, политикой не используются. Без новой трактовки.
+- **Сверка с данными PIM.** Новый парсер совпадает с сохранёнными в backup наблюдениями для всех SKU:
+  M-WIN 924/924, Киборг 3914/3914, Армолайн 1405/1405. Параметр наличия нигде не противоречит атрибуту.
+  Армолайн: `00305000S0000000` (available=true → есть → IN_STOCK, в PIM RUB-07465 `есть/in`),
+  `0021500000000000` (available="" → нет → OUT_OF_STOCK, в PIM RUB-07101 `нет/out`).
+- **Gate:** все 5 источников прочитаны, ошибок данных нет; статус каждого — `NEEDS_PROFILE_CONFIRMATION`
+  (подтверждение профиля — действие владельца). REAL_SOURCE_COMPATIBILITY = BLOCKED только по этому
+  пункту → **автопрайсы OFF**. Подробно: `real-sources/`.
+
+## Экраны на реальном каталоге (3113 товаров)
+
+Без изменения бизнес-логики (проверено равенство с прежним кодом на реальном backup: 0 расхождений):
+
+| | Было | Стало |
+|---|---|---|
+| НЕ ПРОХОДИТ | 151 s | 0.01 s |
+| МОДЕРАЦИЯ | 90 s | 0.2 s |
+| НА САЙТ (после сброса кэша) | 108 s | 7.9 s |
+| Все решения после перезапуска | 25 s | 4.6 s |
+| Экспорт contract 3 | 57 s | 9.5 s |
+
+Причины: кэш перевода на 4096 строк постоянно вытеснялся; словари цветов/атрибутов нормализовались
+заново на каждый поиск. Описания запоминаются по хэшу всех входов, кэш хранится в отдельной IndexedDB
+(не синхронизируется, не входит в backup). Ограничение: раз в минуту вычисления пересчитываются
+(устаревание предложений зависит от времени), первый экран после этого ≈ 5–8 s.
+
+## Экспорт → SITE
+
+Реальный экспорт сначала был отклонён SITE целиком: 34 модели отправляли `size_normalized` числом.
+Экспорт теперь отдаёт метаданные размера текстом (`41` → `"41"`), данные PIM не меняются. После этого
+2071 модель записана на staging-копии SITE (`COMMITTED`), E2E и браузерные проверки — в отчёте SITE.
+
+## Тесты
+
+642/642 unit · 12/12 installer · проверки на реальном backup: миграция, решения, цены, экспорт, кэш.
