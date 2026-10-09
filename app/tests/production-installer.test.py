@@ -3,7 +3,7 @@ from pathlib import Path
 from hashlib import sha256
 ROOT=Path(__file__).resolve().parents[2]
 SCRIPT=ROOT/'app/tools/install-production.py'
-ARCHIVE=Path(os.environ.get('PIM_TEST_ARCHIVE',str(ROOT/'releases/pim-10.9.3/rubizh-pim-10.9.3-production.zip')))
+ARCHIVE=Path(os.environ.get('PIM_TEST_ARCHIVE',str(ROOT/'releases/pim-10.9.3/rubizh-pim-10.9.3-final-workflow.zip')))
 class Installer(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name);self.target=self.root/'public';self.target.mkdir();(self.target/'index.html').write_text('previous PIM 10.9.0 rubizh_pim_v7_launch');(self.target/'custom.txt').write_text('unchanged');self.data=self.root/'full.json';self.data.write_text(json.dumps({'format':'rubizh-pim-backup','cfg':{'owner':'test'},'products':[{'id':'p1','variants':[]}]}));self.backups=self.root/'private-backups'

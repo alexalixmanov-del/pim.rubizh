@@ -49,7 +49,7 @@ def install(archive,target,data_backup,backup_root):
         names=z.namelist()
         if len(names)!=len(set(names)) or any(n.startswith('/') or '..' in Path(n).parts or '\\' in n for n in names):raise ValueError('UNSAFE_ARCHIVE')
         m=json.loads(z.read('PRODUCTION-MANIFEST.json'))
-        if m.get('version')!='10.9.3' or m.get('sync_enabled') is not False or m.get('autoprices_enabled') is not False:raise ValueError('INVALID_RELEASE')
+        if m.get('version')!='10.9.3' or m.get('sync_enabled') not in (False,'requires_site_contract_v3') or m.get('autoprices_enabled') is not False:raise ValueError('INVALID_RELEASE')
         if set(names)!=set(m['files'])|{'PRODUCTION-MANIFEST.json'}:raise ValueError('UNLISTED_ARCHIVE_FILES')
         for n,expected in m['files'].items():
             if sha(z.read(n))!=expected:raise ValueError('RELEASE_CHECKSUM_FAILED: '+n)

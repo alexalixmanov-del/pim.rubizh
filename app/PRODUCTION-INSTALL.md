@@ -4,7 +4,16 @@
 `rubizh_pim_v7_launch`, настройки подключения PIM и session keys. Python 3
 нужен только терминальному установщику; runtime работает в браузере с IndexedDB.
 Все проверки миграции проходят локально до отправки изменений на сервер PIM.
-Shop sync contract v3 и автоматическая загрузка прайсов заблокированы кодом.
+Автоматическая загрузка прайсов заблокирована кодом. Передача на сайт —
+только contract v3 (`products[]`, пакеты по 100 моделей, ACK COMMITTED):
+PIM отказывается отправлять, пока `GET /api/pim/status` сайта не подтвердит
+все версии contract v3, т.е. пока на сайте не применён `install-pim-v3.sh`
+и владелец отдельно не включил `'pim_v3_sync'=>true`.
+
+Интерфейс — ровно 5 экранов: НА САЙТ, МОДЕРАЦИЯ, НЕ ПРОХОДИТ, ИМПОРТ, BACKUP.
+Новые позиции поставщика без фото при импорте не создают товар (запись
+«не проходит: нет фото»). Очистка товаров без фото — только preview →
+подтверждение → backup → архив; ничего не удаляется.
 
 ## Перед установкой
 
@@ -19,7 +28,7 @@ Shop sync contract v3 и автоматическая загрузка прай�
 
 ```bash
 python3 /PRIVATE_RELEASE/tools/install-production.py install \
-  --archive /PRIVATE_RELEASE/rubizh-pim-10.9.3-production.zip \
+  --archive /PRIVATE_RELEASE/rubizh-pim-10.9.3-final-workflow.zip \
   --target /home/xk589064/rubizh.shop/pim \
   --data-backup /PRIVATE_BACKUPS/current-full-backup.json.gz \
   --backup-root /home/xk589064/.pim-deploy-backups
