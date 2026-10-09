@@ -3,7 +3,7 @@
   "version": "10.9.3",
   "private": true,
   "scripts": {
-    "test": "node --test tests/kits.test.cjs tests/regression.test.cjs tests/content-free.test.cjs tests/recheck.test.cjs tests/workflow.test.cjs tests/categories.test.cjs tests/product-model.test.cjs tests/simple.test.cjs tests/model-colors.test.cjs tests/queue-reduction.test.cjs tests/pricing-policy.test.cjs tests/category-size-integration.test.cjs tests/category-size-export.test.cjs tests/order-policy.test.cjs tests/real-source-compatibility.test.cjs tests/inventory-policy.test.cjs tests/production-migration.test.cjs tests/production-recovery.test.cjs tests/production-ui.test.cjs",
+    "test": "node --test tests/kits.test.cjs tests/regression.test.cjs tests/content-free.test.cjs tests/recheck.test.cjs tests/workflow.test.cjs tests/categories.test.cjs tests/product-model.test.cjs tests/simple.test.cjs tests/model-colors.test.cjs tests/queue-reduction.test.cjs tests/pricing-policy.test.cjs tests/category-size-integration.test.cjs tests/category-size-export.test.cjs tests/order-policy.test.cjs tests/real-source-compatibility.test.cjs tests/inventory-policy.test.cjs tests/production-migration.test.cjs tests/production-recovery.test.cjs tests/production-ui.test.cjs tests/snapshot-memory.test.cjs",
     "serve": "python3 -m http.server 8765 --bind 0.0.0.0",
     "build": "node tools/build.cjs",
     "test:dry-run": "node --test tests/size-evidence.test.cjs tests/dry-run-business.test.cjs",

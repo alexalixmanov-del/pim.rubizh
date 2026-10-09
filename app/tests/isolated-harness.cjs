@@ -25,7 +25,7 @@ function createHarness({runtime=false,production=false}={}) {
   const ctx = {
     console: {log(){},warn(...args){warnings.push(args.map(String).join(' '));},error(...args){warnings.push(args.map(String).join(' '));}},
     performance,Blob,Response,Request,Headers,URL,URLSearchParams,TextEncoder,TextDecoder,
-    CompressionStream,DecompressionStream,AbortController,structuredClone,crypto:require('node:crypto').webcrypto,
+    ReadableStream,TextDecoderStream,CompressionStream,DecompressionStream,AbortController,structuredClone,crypto:require('node:crypto').webcrypto,
     document,localStorage,indexedDB:new IDBFactory(),IDBKeyRange,
     navigator:{},location:{search:'',href:'http://audit.invalid/',protocol:'http:',reload(){}},
     setTimeout(fn,ms){return runtime&&ms===0?setTimeout(fn,0):undefined;},clearTimeout(id){if(id)clearTimeout(id);},setInterval(){},clearInterval(){},

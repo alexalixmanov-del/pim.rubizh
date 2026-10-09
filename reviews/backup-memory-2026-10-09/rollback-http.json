@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-09T02:59:33.062748+00:00",
+  "http_status": 200,
+  "index_sha256": "9ad5e483465ce1e1878bf433d50ee5ae9606e60be4cfcacac64a559db27d64ef",
+  "previous_10_9_0_sha256": "9ad5e483465ce1e1878bf433d50ee5ae9606e60be4cfcacac64a559db27d64ef",
+  "code_rollback_verified": true,
+  "browser_data_verified_after_rollback": false,
+  "main_migration_apply_reached": false,
+  "evidence_for_no_main_migration_write": "Owner confirmed no backup download or continuation dialog appeared; main migration write follows both."
+}

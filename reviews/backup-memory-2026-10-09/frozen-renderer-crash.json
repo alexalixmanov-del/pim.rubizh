@@ -1,0 +1,83 @@
+{
+  "memory_limit_v8_old_space_mb": 768,
+  "history_fixture_count": 14,
+  "full_bootstrap": true,
+  "runtime_stubs": false,
+  "external_network_calls": 0,
+  "errors": [],
+  "console_errors": [],
+  "network_errors": [],
+  "intercepted_external_requests": 1,
+  "checks": [
+    "full portable source + 14 full-catalog automatic backup blobs seeded into isolated IndexedDB",
+    "full startup and repeated render preserve shell and search"
+  ],
+  "stages": [
+    {
+      "stage": "before apply",
+      "at_ms": 45949,
+      "heap_mb": 634
+    }
+  ],
+  "functions": [],
+  "products": 3113,
+  "preview": {
+    "version": "10.9.3",
+    "rc_commit": "440aa60ee42795ba8bf5167d8121470a5a56aab3",
+    "source_sha256": "f048f5db58effcf8c15f1d051e29109fcbe00cbf237429aceaf3d9b7b5a3982d",
+    "products": 3113,
+    "variants": 8734,
+    "bindings": 8734,
+    "categories_before": 0,
+    "categories_after": 143,
+    "builtin_categories": 143,
+    "category": {
+      "SAFE_AUTO": 2712,
+      "LIKELY": 194,
+      "AMBIGUOUS": 207,
+      "UNTOUCHED": 0
+    },
+    "size": {
+      "SAFE_AUTO": 7709,
+      "LIKELY": 1,
+      "AMBIGUOUS": 1024
+    },
+    "runtime": {
+      "SAFE_AUTO": 10421,
+      "LIKELY": 195,
+      "AMBIGUOUS": 1231,
+      "exact_sku_sizes": 4262,
+      "allowed_sizes_without_sku": 1141,
+      "SIZE_CONFIRMATION_REQUIRED": 1604,
+      "UNKNOWN_stock": 8734,
+      "NO_SIZE_REQUIRED": 2845,
+      "ONE_SIZE": 23
+    },
+    "supplier_availability": {
+      "IN_STOCK": 6187,
+      "OUT_OF_STOCK": 1034,
+      "PREORDER": 1,
+      "UNKNOWN": 1512,
+      "ORDER_ON_REQUEST": 0
+    },
+    "PAYMENT_READY": 4563,
+    "manual_lock_products": 8,
+    "LOST_CATEGORIES": 0,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "IDS_UNCHANGED": true,
+    "MANUAL_LOCKS_UNCHANGED": true,
+    "PRICES_UNCHANGED": true,
+    "STOCK_UNCHANGED": true,
+    "PUBLICATION_UNCHANGED": true,
+    "SYNC_ENABLED": false,
+    "AUTOPRICES_ENABLED": false,
+    "PRODUCTION_WRITES": 0
+  },
+  "crashed": true,
+  "expected_failure_reproduced": true,
+  "status": "EXPECTED_RENDERER_CRASH"
+}

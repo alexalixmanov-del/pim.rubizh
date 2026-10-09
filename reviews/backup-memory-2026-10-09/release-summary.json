@@ -1,0 +1,25 @@
+{
+  "base_commit": "f85fe54697b12ddb20b0e0cb6bd0eda41c5a65e8",
+  "new_archive": "releases/pim-10.9.3/rubizh-pim-10.9.3-backup-memory.zip",
+  "sha256": "d52f315a5a735ba72847a25dd4cc8310f536a70ce353a09cac5b918f111b45ab",
+  "bytes": 852364,
+  "runtime_files": 15,
+  "changed_runtime_files": [
+    "index.html",
+    "release-recovery.html",
+    "lib/release-storage.js"
+  ],
+  "unchanged_runtime_files": 12,
+  "installer_unchanged": true,
+  "approved_archive_unchanged": true,
+  "reproducible_package": true,
+  "SYNC_ENABLED": false,
+  "AUTOPRICES_ENABLED": false,
+  "PRODUCTION_WRITES": 0,
+  "tests": {
+    "node": 617,
+    "size_business": 49,
+    "installer": 12,
+    "all_pass": true
+  }
+}
