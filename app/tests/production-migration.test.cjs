@@ -61,3 +61,22 @@ test('derived description cache survives restart, never enters data rows, and re
  const fresh=h.run('finalUncachedSimpleDescription(S.products.get("p-a"))');assert.equal(h.run('finalDescription(S.products.get("p-a"))'),fresh,'memo always equals the uncached generator');
  const before=h.run('FINAL_DESCRIPTION_MEMO.get("p-a").key');h.run('S.cfg.translationGlossary=[{from:"опис",to:"опис"}]');h.run('finalDescription(S.products.get("p-a"))');assert.notEqual(h.run('FINAL_DESCRIPTION_MEMO.get("p-a").key'),before,'glossary change invalidates');
 });
+test('full catalog reset: verified backup first, PRODUCTS=0 and SKU=0, taxonomy/suppliers/pricing/inventory kept, new import starts clean',async()=>{
+ const h=await fixture({manual:false});await migrated(h);
+ h.run('SIMPLE_UI.pricePreview=simplePricePolicyPreview()');await h.run('simpleApplyPricePolicy()');
+ await h.run('Store.set("site/v3/published",{"p-a":{confirmed_at:1}});Store.set("site/v3/hashes",{"p-a":"x"})');
+ const keep=()=>JSON.parse(h.run('JSON.stringify({cats:S.cfg.canonical_categories.length,suppliers:S.cfg.suppliers,catMap:S.cfg.catMap,colorMap:S.cfg.colorMap,sizeMap:S.cfg.sizeMap,margins:[S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor,S.cfg.pricing_policy_version],inv:S.cfg.inventory_policy_version,next:S.cfg.nextSku})'));
+ const before=keep();assert.equal(before.cats,143);assert.ok(h.run('S.products.size')>0);
+ const plan=h.run('finalCatalogResetPreview()');assert.equal(plan.remove.products,1);
+ await assert.rejects(h.run('finalCatalogReset(finalCatalogResetPreview(),"да")'),/СБРОСИТЬ КАТАЛОГ/);
+ h.ctx.plan=plan;h.run('S.products.get("p-a").name="Змінено"');await assert.rejects(h.run('finalCatalogReset(plan,"СБРОСИТЬ КАТАЛОГ")'),/STALE_PREVIEW/);
+ const downloadsBefore=h.downloads.length;h.ctx.plan=h.run('finalCatalogResetPreview()');
+ const r=await h.run('finalCatalogReset(plan,"СБРОСИТЬ КАТАЛОГ")');assert.ok(r.backup.sha256);assert.ok(h.downloads.length>downloadsBefore,'external full backup offered before reset');
+ await h.run('productionLoad()');
+ assert.equal(h.run('S.products.size'),0);assert.equal(h.run('[...S.products.values()].reduce((n,p)=>n+p.variants.length,0)'),0);assert.equal(h.run('S.queue.size'),0);assert.equal(h.run('S.content.size'),0);
+ assert.deepEqual(keep(),before,'taxonomy, rules, suppliers, dictionaries, pricing, inventory and SKU counter kept');
+ assert.equal(await h.run('Store.get("site/v3/published")')??null,null);assert.equal(await h.run('Store.get("site/v3/hashes")')??null,null);
+ h.ctx.rows=[['SKU','Name','Size','Stock','Cost','Photo'],['fresh-1','Штани Fresh','48',3,1000,'https://rubizh.shop/media/fresh.webp']];
+ h.run('S.cfg.suppliers[0].auto=true;S.imp={sup:"supplier-a",file:"fresh.csv",rows,hdr:0,map:{sku:0,name:1,size:2,stock:3,cost:4,photos:5}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
+ assert.equal(h.run('S.products.size'),1);const sku=h.run('[...S.products.values()][0].variants[0].sku');assert.ok(sku>='RUB-'+String(before.next).padStart(5,'0')||!/^RUB-/.test(sku),'old SKU numbers are not reused');
+});

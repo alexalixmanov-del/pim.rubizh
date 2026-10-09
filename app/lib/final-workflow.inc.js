@@ -278,16 +278,33 @@ document.addEventListener('click',async e=>{
 // New supplier positions: no usable photo → minimal rejected-import record (NO_PHOTOS); no photo, title and
 // description → GARBAGE. Neither creates a ProductModel. The queue item itself is the raw preserved record.
 function finalGroupEvidence(gr){
- const ph=[],d=[];for(const k of gr.contentKeys||[gr.contentKey||gr.key]){const c=S.content.get(k);if(c){ph.push(...(c.ph||[]));if(c.d)d.push(String(c.d));}}
+ // Photos come from the offers themselves as well: content keys strip sizes differently from group keys, and a
+ // content-only lookup reported real photos as missing.
+ const ph=gr.items.flatMap(it=>it.photos||[]),d=[];for(const k of gr.contentKeys||[gr.contentKey||gr.key]){const c=S.content.get(k);if(c){ph.push(...(c.ph||[]));if(c.d)d.push(String(c.d));}}
  const photos=ph.filter(url=>{try{return ['http:','https:'].includes(new URL(url).protocol);}catch{return false;}});
  const title=String(gr.items[0]?.n||gr.name||'').trim(),desc=d.join(' ').replace(/<[^>]*>/g,' ').trim();
  return {photos,title,desc,reason:photos.length?null:!title&&!desc?'GARBAGE':'NO_PHOTOS'};
+}
+// Supplier group_id (YML: variants of one product) is the MODEL boundary inside one supplier: groups of the same
+// supplier, group_id and supplier category merge only while every offer stays a distinct colour/size cell; any clash
+// keeps them apart (no guessing). Colours spread over different group_ids still go to the model-colour review.
+function finalMergeSupplierModels(groups){
+ const cell=it=>norm(it.rc||it.c||'')+'|'+norm(it.rz||it.sz||''),by=new Map(),out=[];
+ for(const gr of groups){
+  const f=gr.items[0],model=norm(f?.m||'');if(!model){out.push(gr);continue;}
+  const key=JSON.stringify([f.sup,model,norm(f.rcat||'')]),dst=by.get(key);
+  if(!dst){by.set(key,gr);out.push(gr);continue;}
+  const cells=new Set(dst.items.map(cell)),own=gr.items.map(cell);
+  if(own.some(c=>cells.has(c))||new Set(own).size!==own.length){out.push(gr);continue;}
+  dst.items.push(...gr.items);dst.contentKeys=[...(dst.contentKeys||[dst.contentKey]),...(gr.contentKeys||[gr.contentKey])];
+ }
+ return out;
 }
 const finalBuildGroups=buildGroups;
 buildGroups=function(items){
  if(!FINAL_UI.importing)return finalBuildGroups(items);
  const out=[];
- for(const g of finalBuildGroups(items)){const e=finalGroupEvidence(g);
+ for(const g of finalMergeSupplierModels(finalBuildGroups(items))){const e=finalGroupEvidence(g);
   for(const it of g.items){const was=it.rejected_import?.reason||null;if(was!==e.reason){touchQ(it.k);if(e.reason)it.rejected_import={reason:e.reason,at:Date.now()};else delete it.rejected_import;markQueue(it.k);}}
   if(!e.reason)out.push(g);}
  return out;
@@ -326,3 +343,50 @@ document.addEventListener('click',async e=>{
 // Only automatic product creation during a supplier import applies the rule; grouping screens are unchanged.
 const finalRunImport=runImport;
 runImport=function(...args){FINAL_UI.importing=true;try{return finalRunImport(...args);}finally{FINAL_UI.importing=false;}};
+// Full catalog reset (owner, BACKUP screen): removes catalog data only — products/models/colours/SKU with their
+// supplier offers and bindings, photos and size data, product content, import queue and import history, product
+// manual locks and the site publication state. Kept: taxonomy and category rules/mappings, suppliers with parser
+// profiles, colour/size/brand dictionaries, pricing and inventory policies, SKU counter (old SKU are never reused),
+// documents, backups and all code. A verified full backup (with an external file in production) comes first.
+const FINAL_RESET_CONFIRM='СБРОСИТЬ КАТАЛОГ';
+const FINAL_RESET_CFG_KEYS=['siteSync','siteCatHash','siteV3CatHash','undoBySupplier'];
+function finalCatalogResetPreview(){
+ const skus=[...S.products.values()].reduce((n,p)=>n+(p.variants||[]).length,0);
+ return {signature:simpleFingerprint(),at:Date.now(),remove:{products:S.products.size,skus,queue:S.queue.size,content:S.content.size,import_logs:(S.logs||[]).length},
+  keep:{categories:(S.cfg.canonical_categories||[]).length,suppliers:(S.cfg.suppliers||[]).length,category_rules:Object.keys(S.cfg.catMap||{}).length+(S.cfg.catRules||[]).length,
+   pricing_policy_version:S.cfg.pricing_policy_version??null,margins:[S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version??null,next_sku:S.cfg.nextSku}};
+}
+async function finalCatalogReset(plan,confirmation){
+ if(confirmation!==FINAL_RESET_CONFIRM)throw Error('Для сброса введите: '+FINAL_RESET_CONFIRM);
+ if(S.snap||S.edit||S.imp?.rows)throw Error('Сначала завершите или отмените импорт и редактирование.');
+ if(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')throw Error('MIGRATION_PENDING: сначала завершите migration');
+ if(!plan||plan.signature!==simpleFingerprint())throw Error('STALE_PREVIEW: каталог изменился, повторите предпросмотр');
+ let backupInfo;
+ if(productionMode()){const backup=await productionBackup(await productionCapture(),'Перед полным сбросом каталога');if(!await productionSaveExternal(backup))throw Error('EXTERNAL_BACKUP_REQUIRED: сброс не выполнен');backupInfo={id:backup.id,sha256:backup.sha256};}
+ else backupInfo=await requireBatchBackup('Перед полным сбросом каталога');
+ const before=fullStateData('До полного сброса каталога');
+ try{
+  S.products.clear();S.queue.clear();S.content.clear();S.logs=[];S.lastUndo=null;S.lastUndoLogs=[];rebuildIndex();
+  for(const k of FINAL_RESET_CFG_KEYS){if(Object.hasOwn(DEFAULT_CFG,k))S.cfg[k]=structuredClone(DEFAULT_CFG[k]);else delete S.cfg[k];}
+  S.cfgDirty=true;markAllDirty();bumpData();
+  if(!await persist())throw Error('Сброс не сохранён.');
+  await Store.del('site/v3/published');await Store.del('site/v3/hashes');
+ }catch(error){loadStateData(before);markAllDirty();await persist();throw error;}
+ FINAL_DESCRIPTION_MEMO.clear();FINAL_UI.hashes=null;FINAL_UI.resetPlan=null;await finalDerivedCacheSave();
+ return {...finalCatalogResetPreview(),backup:backupInfo,removed:plan.remove};
+}
+function finalResetPanel(){
+ const p=FINAL_UI.resetPlan;
+ return '<section class="panel"><h2>Полный сброс каталога</h2><p class="small">Удаляет все товары, модели, цвета, SKU, привязки поставщиков, фото, размеры, очередь и историю импорта, ручные блокировки товаров и состояние публикации. Остаются: 143 категории и правила категорий, поставщики и правила разбора, словари цветов/размеров/брендов, цены 30 / 25 / 20 и пол 15%, политики наличия, документы, резервные копии. Перед сбросом — полная копия базы.</p>'
+  +(p?'<p>Будет удалено: товаров <b>'+p.remove.products+'</b>, SKU <b>'+p.remove.skus+'</b>, очередь '+p.remove.queue+', контент '+p.remove.content+'. Останется: категорий '+p.keep.categories+', поставщиков '+p.keep.suppliers+'.</p><label class="f">Введите «'+FINAL_RESET_CONFIRM+'»<input id="finalResetConfirm" autocomplete="off"></label><button class="btn danger" data-final="resetApply">Сбросить каталог</button><button class="btn" data-final="resetCancel">Отмена</button>':'<button class="btn" data-final="resetPreview">Предпросмотр сброса</button>')+'</section>';
+}
+const finalResetRender=render;
+render=function(){const r=finalResetRender(...arguments);if(S.view==='backup'&&!(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')){const view=$('#view');if(view&&!view.querySelector('[data-final="resetPreview"],[data-final="resetApply"]'))view.insertAdjacentHTML('beforeend',finalResetPanel());}return r;};
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-final^="reset"]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();
+ try{const a=b.dataset.final;
+  if(a==='resetPreview')FINAL_UI.resetPlan=finalCatalogResetPreview();
+  if(a==='resetCancel')FINAL_UI.resetPlan=null;
+  if(a==='resetApply'){const r=await finalCatalogReset(FINAL_UI.resetPlan,($('#finalResetConfirm')?.value||'').trim());toast('Каталог очищен: товаров '+r.remove.products+', SKU '+r.remove.skus);}
+ }catch(error){toast(error.message||String(error));}finally{render();}
+},true);
