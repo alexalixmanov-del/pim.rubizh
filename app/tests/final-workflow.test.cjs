@@ -124,3 +124,9 @@ test('existing zero-photo cleanup: read-only preview, stale protection, archive 
  h.ctx.plan=h.run('finalZeroPhotoPreview()');assert.equal(await h.run('finalZeroPhotoArchive(plan)'),1);
  assert.equal(h.run('S.products.get("p-a").archived'),true);assert.equal(h.run('S.products.has("p-a")'),true);assert.equal(h.run('S.products.get("p-a").variants.length'),2);
 });
+test('wire carries size metadata as text: a classifier-normalised numeric size (41) is exported as "41"',()=>{
+ const h=setup();h.run('const p=S.products.get("p-a");Object.assign(p.variants[0],{size:"41",size_raw:"41",size_display:"41",size_normalized:41,size_system:"EU",size_status:"EXACT_SIZE"});bumpData()');
+ const v=wire(h).products[0].variants.find(x=>x.sku===h.run('S.products.get("p-a").variants[0].sku'));
+ assert.equal(v.size_normalized,'41');for(const f of ['size_raw','size_display','size_normalized','size_system','size_type','size_alpha','size_fit','size_height'])assert.ok(v[f]==null||typeof v[f]==='string',f);
+ assert.equal(h.run('S.products.get("p-a").variants[0].size_normalized'),41,'stored PIM data unchanged');
+});

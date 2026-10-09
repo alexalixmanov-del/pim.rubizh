@@ -97,6 +97,7 @@ const finalSummary=memoProd('final-summary',function(p){
 // Observation age is derived from stock_observed_at at read time; it must not make an unchanged model look changed.
 function finalModelHash(model){return fnvHash(stableValue105({...model,variants:model.variants.map(v=>{const x={...v};delete x.stock_data_age_hours;delete x.stale_source;return x;})}));}
 const FINAL_COLOR_FIELDS=['id','color','camouflage','photos','variant_skus','photo_assignment'];
+const FINAL_SIZE_TEXT_FIELDS=['size_raw','size_display','size_normalized','size_system','size_type','size_alpha','size_fit','size_height'];
 function finalWireProduct(p){
  const out=simpleProductPayload(simpleAssess(p)),photos=finalUsablePhotos(p);
  out.colors=(out.colors||[]).map(c=>Object.fromEntries(FINAL_COLOR_FIELDS.filter(k=>Object.hasOwn(c,k)).map(k=>[k,structuredClone(c[k])])));
@@ -105,6 +106,8 @@ function finalWireProduct(p){
  out.category=canonicalPath(out.canonical_category_id);out.category_path=out.category.split(' / ');
  out.publication_state='ACTIVE';out.publication={state:'READY',decision_version:FINAL_WORKFLOW_VERSION};
  out.pricing_policy_version=1;
+ // Contract 3 carries size metadata as text (null allowed): numeric sizes parsed by the classifier (41) travel as "41".
+ for(const v of out.variants)for(const f of FINAL_SIZE_TEXT_FIELDS)if(typeof v[f]==='number'&&Number.isFinite(v[f]))v[f]=String(v[f]);
  for(const v of out.variants){v.photos=out.colors.find(c=>c.id===v.color_id)?.photos||[];
   // Private shipment routing for the SITE server (never public): the offer that prices this SKU.
   const local=p.variants.find(x=>x.sku===v.sku),c=local?calc(p,local):null,o=c?.o||c?.ref,sid=o?.sid||'';
