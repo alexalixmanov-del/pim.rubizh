@@ -78,7 +78,10 @@ function finalWireProduct(p){
  out.category=canonicalPath(out.canonical_category_id);out.category_path=out.category.split(' / ');
  out.publication_state='ACTIVE';out.publication={state:'READY',decision_version:FINAL_WORKFLOW_VERSION};
  out.pricing_policy_version=1;
- for(const v of out.variants)v.photos=out.colors.find(c=>c.id===v.color_id)?.photos||[];
+ for(const v of out.variants){v.photos=out.colors.find(c=>c.id===v.color_id)?.photos||[];
+  // Private shipment routing for the SITE server (never public): the offer that prices this SKU.
+  const local=p.variants.find(x=>x.sku===v.sku),c=local?calc(p,local):null,o=c?.o||c?.ref,sid=o?.sid||'';
+  v.fulfillment_supplier_id=sid;v.fulfillment_supplier=sid?supName(sid):'';v.fulfillment_supplier_sku=String(o?.s||'');}
  for(const k of ['availability_label','legacy_attributes','quality_score'])delete out[k];
  return out;
 }

@@ -22,7 +22,7 @@ test('G02: every real SKU in the exact wire keeps pricing v1 fields from the sam
   assert.deepEqual(v.wholesale,JSON.parse(JSON.stringify(h.run('(()=>{const p=S.products.get("p-a"),x=p.variants.find(v=>v.sku===sku);return tierPrices(calc(p,x).price,S.cfg,p,x);})()'))));
   assert.equal(v.minimum_sale_price,h.run('(()=>{const p=S.products.get("p-a");return discountedPriceFloor(p,p.variants.find(v=>v.sku===sku));})()'));
   assert.equal(v.kit_price,h.run('(()=>{const p=S.products.get("p-a");return kitFloor(p,p.variants.find(v=>v.sku===sku));})()'));
-  assert.equal(v.site_price,v.price);
+  assert.equal(v.site_price,v.price);assert.equal(v.fulfillment_supplier,'Тестовий постачальник');assert.ok(v.fulfillment_supplier_sku);
  }
  assert.equal(model.pricing_policy_version,1);
  assert.equal(model.variants.find(v=>v.sku==='RUB-00002').availability,'OUT_OF_STOCK');
