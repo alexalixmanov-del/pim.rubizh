@@ -53,3 +53,16 @@
 @media(max-width:780px){.simple-summaries{grid-template-columns:repeat(2,minmax(0,1fr))}.simple-summary{padding:14px}.simple-task input{width:100%}}
 
 .mc-gallery{display:flex;gap:12px;overflow:auto;max-width:100%;padding:12px 0}.mc-gallery img{width:160px;height:180px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+
+/* Final owner screens: НА САЙТ / МОДЕРАЦИЯ / НЕ ПРОХОДИТ */
+.final-actions,.final-filters{flex-wrap:wrap;gap:10px;align-items:center}
+.final-filters input,.final-filters select{min-width:0;flex:1 1 200px}
+.final-cover{width:64px}.final-cover img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--surface2)}
+.final-table td{vertical-align:middle}
+.final-task-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:8px}
+.final-task-grid h3{font-size:13px;color:var(--muted);margin:0 0 4px;text-transform:uppercase;letter-spacing:.04em}
+.final-task .row{flex-wrap:wrap;gap:8px}.final-task{overflow-wrap:anywhere}
+.final-pager{gap:12px;align-items:center;margin:12px 0}
+@media(max-width:780px){.final-task-grid{grid-template-columns:1fr}}
+@media(max-width:600px){#view .btn{white-space:normal!important;max-width:100%;text-align:left}}
+@media(max-width:780px){.navlist{display:flex;flex-wrap:wrap;gap:6px}.navlist .navbtn{white-space:nowrap;word-break:keep-all;flex:0 1 auto;width:auto}.navlist .badge{white-space:nowrap}}
