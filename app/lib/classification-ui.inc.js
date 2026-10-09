@@ -1,14 +1,15 @@
 // Classification pipeline: review-safe evidence and normalized size catalogs.
 const CLASSIFICATION_VERSION=1;
-// This artifact is deliberately a review build. Removing this boundary requires a release review.
-function classificationReviewMode(){return true;}
+// Release channel changes only operational boundaries; accepted RC evidence rules are unchanged.
+const PIM_RELEASE_CHANNEL="production";
+function classificationReviewMode(){return PIM_RELEASE_CHANNEL==="review";}
 const classificationNetwork=window.fetch;
-window.fetch=async function(){throw Error('REVIEW_ONLY: network disabled; production writes forbidden');};
-const classificationSB=sbCfg;sbCfg=function(){return null;};
+window.fetch=async function(...args){if(classificationReviewMode())throw Error('REVIEW_ONLY: network disabled; production writes forbidden');const raw=typeof args[0]==='string'||args[0] instanceof URL?String(args[0]):args[0]?.url;let path='';try{path=decodeURIComponent(new URL(raw,location.href).pathname);}catch{}if(/\/pim\/sync\/?$/i.test(path))throw Error('SYNC_DISABLED: магазин ще не підтримує contract v3');return classificationNetwork(...args);};
+const classificationSB=sbCfg;sbCfg=function(){return classificationReviewMode()?null:classificationSB();};
 const classificationSitePublish=sitePublish;
-sitePublish=async function(){throw Error('REVIEW_ONLY: publication and /pim/sync disabled');};
+sitePublish=async function(){throw Error(classificationReviewMode()?'REVIEW_ONLY: publication and /pim/sync disabled':'SYNC_DISABLED: contract v3 не підключено до магазину');};
 const classificationSimplePolicy=simpleApplyPolicy;
-simpleApplyPolicy=async function(){throw Error('REVIEW_ONLY: automatic publication/archive policy disabled');};
+simpleApplyPolicy=async function(){throw Error(classificationReviewMode()?'REVIEW_ONLY: automatic publication/archive policy disabled':'PUBLICATION_DISABLED: масова публікація/архівування не входять у migration');};
 const classificationRefreshDescription=refreshGeneratedDescription;
 refreshGeneratedDescription=function(){return classificationReviewMode()?false:classificationRefreshDescription(...arguments);};
 const classificationRepair=repairDuplicateSupplierLinksSafe;
@@ -287,7 +288,7 @@ buildFeed=function(){
  if(!classificationEnabled()||classificationReviewMode()&&S.cfg.inventory_policy_version!==1)return classificationReviewMode()?{version:3,review_only:true,classification_pending:true,order_policy_version:1,inventory_policy_version:1,category_catalog_version:2,size_catalog_version:1,categories:categoryPublicCatalogue(),products:[]}:classificationBuildFeed();
  // Review export includes unconfirmed selectable options, but never permits their checkout.
  const products=[...S.products.values()].filter(p=>p.pub&&!p.archived&&p.canonical_category_id&&simplePhotos(p).length&&classificationDescription(p)).map(p=>({...classificationExport(p,{publicOnly:true}),name:p.marketing_name_uk||p.model_name||p.name,photos:simplePhotos(p),description:classificationDescription(p),category:canonicalPath(p.canonical_category_id),category_path:canonicalPath(p.canonical_category_id).split(' / ')}));
- return {version:3,review_only:true,order_policy_version:1,inventory_policy_version:1,category_catalog_version:2,size_catalog_version:1,categories:categoryPublicCatalogue(),products};
+ return {version:3,review_only:classificationReviewMode(),sync_enabled:false,order_policy_version:1,inventory_policy_version:1,category_catalog_version:2,size_catalog_version:1,categories:categoryPublicCatalogue(),products};
 };
 const classificationPreviewHtml=mcPreviewHtml;
 mcPreviewHtml=function(p){const html=classificationPreviewHtml(p);if(!classificationEnabled())return html;const options=classificationOptions(p).filter(o=>o.scope==='MODEL');return html+(options.length?'<section class="panel"><h3>Асортимент розмірів моделі</h3><p>'+options.map(o=>esc(o.size)).join(' · ')+'</p><p class="small">Ці опції не мають підтвердженого SKU, кольору або залишку. Потрібні дані постачальника; можна подати заявку; оплата до підтвердження заборонена.</p></section>':'');};

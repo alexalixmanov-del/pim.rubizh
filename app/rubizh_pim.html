@@ -16,6 +16,7 @@
 <script src="lib/category-evidence.js"></script>
 <script src="lib/size-evidence.js"></script>
 <script src="lib/inventory-policy.js"></script>
+<script src="lib/release-storage.js"></script>
 <style>
 :root{
   --bg:#E4E8DF; --surface:#F5F7F2; --surface2:#ECEFE7; --ink:#1B221C; --muted:#5B675C; --line:#C7CFC1;
@@ -459,13 +460,13 @@ function availabilityLabel(st,lead){ return st==="in"?"В наличии":st==="
 
 /* ===================== хранилище ===================== */
 const Store = {
-  db:null, mode:"indexeddb", fallbackPrefix:"rubizh_pim_category_size_rc_review_v1:",
+  db:null, mode:"indexeddb", fallbackPrefix:"rubizh_pim_v7_launch:",
   async init(){
     if(this.db)return;
     if (!('indexedDB' in window)){ this.mode='local'; return; }
     try{
       this.db = await new Promise((resolve,reject)=>{
-        const req=indexedDB.open('rubizh_pim_category_size_rc_review_v1',1);
+        const req=indexedDB.open('rubizh_pim_v7_launch',1);
         req.onupgradeneeded=()=>{ const db=req.result; if(!db.objectStoreNames.contains('kv')) db.createObjectStore('kv',{keyPath:'key'}); };
         req.onsuccess=()=>resolve(req.result); req.onerror=()=>reject(req.error);
       });
@@ -7468,7 +7469,7 @@ $("#drawer").addEventListener("click", e => { if (e.target.id === "drawer"){ S.e
 document.addEventListener("click", e => { if (!e.target.closest(".sugg")) $$(".sugg-list").forEach(b => b.hidden = true); if (!e.target.closest("#topbar")) hideSearch(); }, true);
 
 /* ===================== v10.0.0 · 1А: надёжное хранение ===================== */
-const PIM_VERSION = "10.9.3-rc";
+const PIM_VERSION = "10.9.3";
 const AUTOBAK_KEEP = 14, AUTOBAK_KEEP_DAILY = 5, AUTOBAK_MIN_GAP = 10 * 60e3, DAY = 864e5;
 const DRIVE_FOLDER = "RUBIZH PIM backups";
 // Действия, перед которыми PIM сама делает копию (не чаще раза в 10 минут).
@@ -8121,7 +8122,7 @@ function v10CheckSections(){
 // Данные — в таблице pim_kv (те же ключи, что в браузере), файлы документов — в приватном хранилище pim-docs,
 // сайт читает site_catalog / site_products только на чтение. Браузер остаётся кэшем и работает без интернета.
 const SB_LOCAL_ONLY = /^(autobak\/|autobak_meta\/|safety\/|docfile\/|sync\/|auth\/)/;
-const SB_LS = {cfg:"rubizh_rc_review_sb", session:"rubizh_rc_review_sb_session", pending:"rubizh_rc_review_sb_pending", known:"rubizh_rc_review_sb_known"};
+const SB_LS = {cfg:"rubizh_sb", session:"rubizh_sb_session", pending:"rubizh_sb_pending", known:"rubizh_sb_known"};
 const lsGet = (k, d) => { try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } };
 const lsSet = (k, v) => { try{ v == null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); }catch(e){} };
 const SB = {status:"off", msg:"", lastSync:0, lastSite:0, err:"", ver:{}};
@@ -10028,15 +10029,16 @@ const mcOldSplit=splitVariants;splitVariants=async function(){const original=S.e
 
 // Classification pipeline: review-safe evidence and normalized size catalogs.
 const CLASSIFICATION_VERSION=1;
-// This artifact is deliberately a review build. Removing this boundary requires a release review.
-function classificationReviewMode(){return true;}
+// Release channel changes only operational boundaries; accepted RC evidence rules are unchanged.
+const PIM_RELEASE_CHANNEL="production";
+function classificationReviewMode(){return PIM_RELEASE_CHANNEL==="review";}
 const classificationNetwork=window.fetch;
-window.fetch=async function(){throw Error('REVIEW_ONLY: network disabled; production writes forbidden');};
-const classificationSB=sbCfg;sbCfg=function(){return null;};
+window.fetch=async function(...args){if(classificationReviewMode())throw Error('REVIEW_ONLY: network disabled; production writes forbidden');const raw=typeof args[0]==='string'||args[0] instanceof URL?String(args[0]):args[0]?.url;let path='';try{path=decodeURIComponent(new URL(raw,location.href).pathname);}catch{}if(/\/pim\/sync\/?$/i.test(path))throw Error('SYNC_DISABLED: магазин ще не підтримує contract v3');return classificationNetwork(...args);};
+const classificationSB=sbCfg;sbCfg=function(){return classificationReviewMode()?null:classificationSB();};
 const classificationSitePublish=sitePublish;
-sitePublish=async function(){throw Error('REVIEW_ONLY: publication and /pim/sync disabled');};
+sitePublish=async function(){throw Error(classificationReviewMode()?'REVIEW_ONLY: publication and /pim/sync disabled':'SYNC_DISABLED: contract v3 не підключено до магазину');};
 const classificationSimplePolicy=simpleApplyPolicy;
-simpleApplyPolicy=async function(){throw Error('REVIEW_ONLY: automatic publication/archive policy disabled');};
+simpleApplyPolicy=async function(){throw Error(classificationReviewMode()?'REVIEW_ONLY: automatic publication/archive policy disabled':'PUBLICATION_DISABLED: масова публікація/архівування не входять у migration');};
 const classificationRefreshDescription=refreshGeneratedDescription;
 refreshGeneratedDescription=function(){return classificationReviewMode()?false:classificationRefreshDescription(...arguments);};
 const classificationRepair=repairDuplicateSupplierLinksSafe;
@@ -10315,7 +10317,7 @@ buildFeed=function(){
  if(!classificationEnabled()||classificationReviewMode()&&S.cfg.inventory_policy_version!==1)return classificationReviewMode()?{version:3,review_only:true,classification_pending:true,order_policy_version:1,inventory_policy_version:1,category_catalog_version:2,size_catalog_version:1,categories:categoryPublicCatalogue(),products:[]}:classificationBuildFeed();
  // Review export includes unconfirmed selectable options, but never permits their checkout.
  const products=[...S.products.values()].filter(p=>p.pub&&!p.archived&&p.canonical_category_id&&simplePhotos(p).length&&classificationDescription(p)).map(p=>({...classificationExport(p,{publicOnly:true}),name:p.marketing_name_uk||p.model_name||p.name,photos:simplePhotos(p),description:classificationDescription(p),category:canonicalPath(p.canonical_category_id),category_path:canonicalPath(p.canonical_category_id).split(' / ')}));
- return {version:3,review_only:true,order_policy_version:1,inventory_policy_version:1,category_catalog_version:2,size_catalog_version:1,categories:categoryPublicCatalogue(),products};
+ return {version:3,review_only:classificationReviewMode(),sync_enabled:false,order_policy_version:1,inventory_policy_version:1,category_catalog_version:2,size_catalog_version:1,categories:categoryPublicCatalogue(),products};
 };
 const classificationPreviewHtml=mcPreviewHtml;
 mcPreviewHtml=function(p){const html=classificationPreviewHtml(p);if(!classificationEnabled())return html;const options=classificationOptions(p).filter(o=>o.scope==='MODEL');return html+(options.length?'<section class="panel"><h3>Асортимент розмірів моделі</h3><p>'+options.map(o=>esc(o.size)).join(' · ')+'</p><p class="small">Ці опції не мають підтвердженого SKU, кольору або залишку. Потрібні дані постачальника; можна подати заявку; оплата до підтвердження заборонена.</p></section>':'');};
@@ -10327,6 +10329,121 @@ applyImport=async function(options={}){if(classificationEnabled()&&S.imp?.previe
 const classificationPriceScope=categoryPriceScope;categoryPriceScope=function(p,rule){return classificationPriceScope(p.pricing_canonical_category_id?{...p,canonical_category_id:p.pricing_canonical_category_id,last_confirmed_category_id:p.pricing_canonical_category_id}:p,rule);};
 
 const classificationSupplierView=vSupplier;vSupplier=function(id){const supplier=S.cfg.suppliers.find(s=>s.id===id),policy=RubizhInventory.policy(supplier);return '<section class="panel"><h3>Правило доступності</h3><p>'+esc(policy.mode)+' · '+(policy.confirmed?'Підтверджено':'Потребує підтвердження постачальника')+'</p><p class="small">'+esc(policy.source_column||'Сигнал не визначено')+'. Кількість не створюється зі статусу. Давність дає лише попередження.</p></section>'+classificationSupplierView(id).replace('<label class="f">Приоритет',`<label class="f">Попередження про давність, годин<input type="number" min="0.1" step="0.1" data-sf="stock_freshness_hours" value="${esc(S.cfg.suppliers.find(s=>s.id===id)?.stock_freshness_hours??'')}" placeholder="${STOCK_WARNING_DEFAULT_HOURS}"></label><label class="f">Приоритет`);};
+
+// Production release: controlled migration on the existing production store.
+const PRODUCTION_RELEASE_VERSION='10.9.3',PRODUCTION_RC_COMMIT='440aa60ee42795ba8bf5167d8121470a5a56aab3';
+const PRODUCTION_SYNC_ENABLED=false,PRODUCTION_AUTOPRICES_ENABLED=false;
+const PRODUCTION_MIGRATION={state:'loading',plan:null,lastReport:null,error:'',backupId:null};
+const releaseStorage=RubizhReleaseStorage;
+function productionMode(){return PIM_RELEASE_CHANNEL==='production';}
+function productionRowsData(rows){
+ const cfg=rows.find(x=>x.key==='meta/config')?.data;
+ const collect=(prefix,field,key)=>{const list=[],ids=new Set();for(const r of rows.filter(x=>x.key.startsWith(prefix+'/')))for(const x of Object.values(r.data?.[field]||{})){if(!x[key]||ids.has(x[key]))throw Error('INVALID_EXISTING_ID: '+prefix+' '+(x[key]||''));ids.add(x[key]);list.push(structuredClone(x));}return list;};
+ return {cfg:structuredClone(cfg||{}),products:collect('cat','products','id'),queue:collect('queue','items','k'),content:collect('content','items','k'),logs:rows.filter(x=>x.key.startsWith('logs/')).map(x=>structuredClone(x.data)),docs:structuredClone(rows.find(x=>x.key==='docs/index')?.data||[])};
+}
+function productionHydrate(data){
+ S.cfg=Object.assign(structuredClone(DEFAULT_CFG),structuredClone(data.cfg));S.products=new Map(data.products.map(p=>[p.id,structuredClone(p)]));S.queue=new Map(data.queue.map(x=>[x.k,structuredClone(x)]));S.content=new Map(data.content.map(x=>[x.k,structuredClone(x)]));S.logs=structuredClone(data.logs);S.docs=new Map((data.docs||[]).map(x=>[x.id,structuredClone(x)]));
+ S.snap=null;S.imp=null;S.lastUndo=null;S.cfgDirty=false;S.dirtyCat=new Set();S.dirtyQ=new Set();S.dirtyC=new Set();rebuildIndex();bumpData();
+}
+function productionProtected(data){
+ const manual=x=>({category_locked:x.category_locked,category_source:x.category_source==='manual'?x.category_source:undefined,catSource:x.catSource==='manual'?x.catSource:undefined,manual_locks:x.manual_locks,manualFields:x.manualFields,manual_values:Object.fromEntries([...new Set([...Object.keys(x.manual_locks||{}),...Object.keys(x.manualFields||{}),...Object.keys(x.fieldMeta||{})])].filter(k=>x.manual_locks?.[k]||x.manualFields?.[k]||x.fieldMeta?.[k]?.source==='manual').map(k=>[k,x[k]])),locked_category:x.category_locked?{id:x.canonical_category_id,path:x.category}:undefined,fieldMeta:Object.fromEntries(Object.entries(x.fieldMeta||{}).filter(([,v])=>v.source==='manual'))});
+ return [...data.products].sort((a,b)=>a.id.localeCompare(b.id)).map(p=>({id:p.id,name:p.name,brand:p.brand,desc:p.desc,attrs:p.attrs,photos:p.photos,photoMeta:p.photoMeta,colors:p.colors,color_galleries:p.color_galleries,publication:{pub:p.pub,ads:p.ads,archived:p.archived,archiveReason:p.archiveReason,archivePrevPub:p.archivePrevPub,syncStatus:p.syncStatus,simple_excluded_reason:p.simple_excluded_reason},manual:manual(p),variants:(p.variants||[]).map(v=>({sku:v.sku,price:v.price,color:v.color,photos:v.photos,barcode:v.barcode,manual:manual(v),offers:Object.entries(v.offers||{}).map(([sid,o])=>({sid,fields:Object.fromEntries(Object.entries(o).filter(([k])=>k!=='last_valid_inventory_observation'))}))}))}));
+}
+function productionPrices(){return [...S.products.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(p=>[p.id,p.variants.map(v=>[v.sku,calc(p,v).price])]);}
+function productionAssertPreserved(before,after,pricesBefore,pricesAfter){
+ if(stableValue105(productionProtected(before))!==stableValue105(productionProtected(after)))throw Error('MIGRATION_PROTECTED_DATA_CHANGED');
+ if(stableValue105(pricesBefore)!==stableValue105(pricesAfter))throw Error('MIGRATION_CALCULATED_PRICES_CHANGED');
+ for(const c of before.cfg.canonical_categories||[])if(stableValue105(c)!==stableValue105(after.cfg.canonical_categories.find(x=>x.id===c.id)))throw Error('MIGRATION_CATEGORY_CHANGED: '+c.id);
+ for(const k of ['supplier_category_mapping','confirmed_supplier_size_rules','aliases','category_aliases','kits','kit_presets'])if(stableValue105(before.cfg[k]??null)!==stableValue105(after.cfg[k]??null))throw Error('MIGRATION_CONFIG_CHANGED: '+k);
+ for(const p of before.products){const q=after.products.find(x=>x.id===p.id);for(const k of ['size_catalogs','size_catalog_candidates'])if(p[k]&&stableValue105(p[k])!==stableValue105(q[k]))throw Error('MIGRATION_EXISTING_SIZE_CATALOG_CHANGED: '+p.id);for(const e of p.classification_exceptions||[])if(!q.classification_exceptions?.some(x=>stableValue105(x)===stableValue105(e)))throw Error('MIGRATION_EXISTING_EXCEPTION_CHANGED: '+p.id);}
+ return {LOST_CATEGORIES:0,LOST_SKU:0,LOST_VARIANTS:0,LOST_PHOTOS:0,LOST_PRICES:0,LOST_STOCK:0,IDS_UNCHANGED:true,MANUAL_LOCKS_UNCHANGED:true,PRICES_UNCHANGED:true,STOCK_UNCHANGED:true,PUBLICATION_UNCHANGED:true};
+}
+function productionCandidateRows(rows,data){
+ const out=structuredClone(rows),config=out.find(x=>x.key==='meta/config');if(config)config.data=structuredClone(data.cfg);else out.push({key:'meta/config',data:structuredClone(data.cfg)});
+ const byBucket=new Map();for(const p of data.products){const key='cat/'+bucketOf(p.id,NB);if(!byBucket.has(key))byBucket.set(key,{});byBucket.get(key)[p.id]=p;}
+ for(const r of out.filter(x=>x.key.startsWith('cat/')))r.data={...r.data,products:structuredClone(byBucket.get(r.key)||{})};
+ for(const [key,products] of byBucket)if(!out.some(x=>x.key===key))out.push({key,data:{products:structuredClone(products)}});
+ return out;
+}
+async function productionPlan(rows){
+ const source=productionRowsData(rows);if(!source.products.length)throw Error('EXISTING_DATABASE_EMPTY: відновіть існуючу базу, порожня migration заборонена');
+ const saved={...S};let candidate,pricesBefore,pricesAfter,report;
+ try{
+  productionHydrate(source);pricesBefore=productionPrices();classificationEnable();releaseStorage.gates(S.cfg);S.cfg.storageBucketVersion=2;
+  const tactical=S.cfg.suppliers.find(s=>s.id==='s4p9slmnn0ki');if(tactical?.inventory_policy?.confirmed)throw Error('TACTICAL_QUANTITY_CONFIRMATION_REQUIRED: policy не може бути активована без підтвердження');
+  let n=0;for(const p of S.products.values()){
+   if(p.archived&&p.variants.length===0)continue; // Historical merged-model aliases are not active classification records.
+   // Existing normalized RC records are carried over verbatim. Old records use exactly the accepted RC pipeline.
+   if(!p.category_confidence_tier||p.variants.some(v=>!v.size_status||!v.size_confidence_tier||!v.source_binding_status)){const publicationKeys=['pub','ads','archived','archiveReason','archivePrevPub','syncStatus','simple_excluded_reason'],original=structuredClone(p);classificationApplyProduct(p);for(const k of publicationKeys)if(Object.hasOwn(original,k))p[k]=original[k];else delete p[k];}
+   for(const v of p.variants)for(const [sid,o] of Object.entries(v.offers||{}))if(!o.last_valid_inventory_observation){const inv=classificationInventory({sid,...o},v);if(inv.availability_confirmation==='CONFIRMED')o.last_valid_inventory_observation={...inv,supplier_sku:o.s};}
+   if(++n%100===0)await workflowYield();
+  }
+  candidate={cfg:structuredClone(S.cfg),products:structuredClone([...S.products.values()]),queue:structuredClone(source.queue),content:structuredClone(source.content),logs:structuredClone(source.logs),docs:structuredClone(source.docs)};pricesAfter=productionPrices();
+  const preservation=productionAssertPreserved(source,candidate,pricesBefore,pricesAfter),counts={products:source.products.length,variants:source.products.reduce((n,p)=>n+p.variants.length,0),bindings:source.products.reduce((n,p)=>n+p.variants.reduce((m,v)=>m+Object.keys(v.offers||{}).length,0),0)};
+  const category={SAFE_AUTO:0,LIKELY:0,AMBIGUOUS:0,UNTOUCHED:0},size={SAFE_AUTO:0,LIKELY:0,AMBIGUOUS:0},availability={IN_STOCK:0,OUT_OF_STOCK:0,PREORDER:0,UNKNOWN:0,ORDER_ON_REQUEST:0};let payment=0;
+  for(const p of S.products.values()){category[p.category_confidence_tier||'UNTOUCHED']++;for(const v of p.variants){size[v.size_confidence_tier]++;if(classificationAvailability(p,v).payment_allowed)payment++;for(const [sid,o] of Object.entries(v.offers||{}))availability[classificationInventory({sid,...o},v).availability_status]++;}}
+  report={version:PRODUCTION_RELEASE_VERSION,rc_commit:PRODUCTION_RC_COMMIT,source_sha256:await releaseStorage.digest(releaseStorage.rowText(rows)),...counts,categories_before:(source.cfg.canonical_categories||[]).length,categories_after:candidate.cfg.canonical_categories.length,builtin_categories:RubizhCategories.catalogue().length,category,size,runtime:classificationSummary(),supplier_availability:availability,PAYMENT_READY:payment,manual_lock_products:source.products.filter(p=>p.category_locked||Object.values(p.manual_locks||{}).some(Boolean)||Object.values(p.fieldMeta||{}).some(m=>m.source==='manual')).length,...preservation,SYNC_ENABLED:false,AUTOPRICES_ENABLED:false,PRODUCTION_WRITES:0};
+ }finally{for(const k of Object.keys(S))if(!Object.hasOwn(saved,k))delete S[k];Object.assign(S,saved);rebuildIndex();bumpData();}
+ return {source,candidate,rows:productionCandidateRows(rows,candidate),sourceRows:rows,report};
+}
+async function productionCapture(){if(!Store.db||Store.mode!=='indexeddb')throw Error('ATOMIC_STORAGE_REQUIRED: використайте браузер з IndexedDB; старі дані не змінені');return releaseStorage.capture(Store.db);}
+function productionLocalSnapshot(){return Object.fromEntries(Array.from({length:localStorage.length},(_,i)=>localStorage.key(i)).filter(Boolean).map(k=>[k,localStorage.getItem(k)]));}
+async function productionEnsureDocuments(){for(const d of S.docs?.values()||[]){const row=await Store._get0('docfile/'+d.id);if(!row?.blob&&!await sbDocBlob(d.id))throw Error('FULL_DOCUMENT_BACKUP_REQUIRED: '+d.id);}}
+async function productionPreview(){await productionEnsureDocuments();const rows=await productionCapture();const plan=await productionPlan(rows);PRODUCTION_MIGRATION.plan=plan;PRODUCTION_MIGRATION.lastReport=plan.report;PRODUCTION_MIGRATION.state='preview';return plan.report;}
+async function productionBackup(rows,label){
+ const id='10.9.3-'+Date.now()+'-'+uid('backup'),source_sha256=await releaseStorage.digest(releaseStorage.rowText(rows));
+ const text=await releaseStorage.encode(rows,productionLocalSnapshot(),{release:PRODUCTION_RELEASE_VERSION,rc_commit:PRODUCTION_RC_COMMIT,label,source_sha256}),{blob,gz}=await gzipBlob(text),backup={id,blob,gz,sha256:await releaseStorage.digest(await blob.arrayBuffer()),source_sha256,at:Date.now(),filename:'rubizh-pim-'+id+'.json'+(gz?'.gz':'')};
+ await releaseStorage.saveBackup(backup);const checked=await releaseStorage.readBackup(backup);if(releaseStorage.rowText(checked.rows)!==releaseStorage.rowText(rows))throw Error('BACKUP_VALUES_READBACK_FAILED');return backup;
+}
+async function productionSaveExternal(backup){if(!await offerDownload(backup.filename,backup.blob))return false;return confirm('Переконайтеся, що повний backup '+backup.filename+' збережено на диск. SHA256: '+backup.sha256+'. Продовжити?');}
+async function productionApply(){
+ const plan=PRODUCTION_MIGRATION.plan;if(!plan)throw Error('MIGRATION_PREVIEW_REQUIRED');
+ const current=await productionCapture();if(current.some(r=>r.key==='meta/production_release_10_9_3'&&r.data.version===PRODUCTION_RELEASE_VERSION)){await productionLoad();PRODUCTION_MIGRATION.plan=null;return {...plan.report,ALREADY_MIGRATED:true};}if(releaseStorage.rowText(current)!==releaseStorage.rowText(plan.sourceRows))throw Error('STALE_MIGRATION: повторіть dry-run');
+ PRODUCTION_MIGRATION.state='backing-up';const backup=await productionBackup(current,'Перед production migration 10.9.3');PRODUCTION_MIGRATION.backupId=backup.id;
+ if(!await productionSaveExternal(backup)){PRODUCTION_MIGRATION.state='preview';throw Error('EXTERNAL_BACKUP_REQUIRED: migration не застосована');}
+ const revision=current.find(x=>x.key==='sync/local_revision')?.data||0,rows=structuredClone(plan.rows),put=(key,data)=>{const row=rows.find(x=>x.key===key);if(row)row.data=data;else rows.push({key,data});};
+ put('sync/local_revision',revision+1);put('meta/production_release_10_9_3',{version:PRODUCTION_RELEASE_VERSION,rc_commit:PRODUCTION_RC_COMMIT,backup_id:backup.id,backup_sha256:backup.sha256,source_sha256:plan.report.source_sha256,at:Date.now(),sync_enabled:false,autoprices_enabled:false});
+ PRODUCTION_MIGRATION.state='applying';await releaseStorage.write(Store.db,current,rows);
+ try{
+  const stored=await productionCapture(),got=productionRowsData(stored);productionHydrate(got);S.storageRevision=revision+1;
+  const prices=productionPrices();productionAssertPreserved(plan.source,got,productionPriceFrom(plan.source),prices);
+  if(stableValue105([...got.products].sort((a,b)=>a.id.localeCompare(b.id)))!==stableValue105([...plan.candidate.products].sort((a,b)=>a.id.localeCompare(b.id)))||stableValue105(got.cfg)!==stableValue105(plan.candidate.cfg))throw Error('MIGRATION_READBACK_FAILED');
+ }catch(error){await releaseStorage.rollback(Store.db,await releaseStorage.readBackup(backup),{operationalGates:false,bumpRevision:false});await productionLoad();PRODUCTION_MIGRATION.state='blocked';throw error;}
+ PRODUCTION_MIGRATION.state='ready';PRODUCTION_MIGRATION.lastReport={...plan.report,BACKUP_PATH:releaseStorage.BACKUP_DATABASE+'/backups/'+backup.id,BACKUP_FORMAT:releaseStorage.FORMAT,BACKUP_SHA256:backup.sha256,PERSISTED_VERIFIED:true,EXTERNAL_BACKUP_USER_CONFIRMED:true,LOCAL_MIGRATION_TRANSACTIONS:1,SHOP_WRITES:0};delete PRODUCTION_MIGRATION.lastReport.PRODUCTION_WRITES;PRODUCTION_MIGRATION.plan=null;
+ for(const r of rows)if(!/^(autobak\/|autobak_meta\/|safety\/|docfile\/|sync\/|auth\/)/.test(r.key))sbMark(r.key);
+ return PRODUCTION_MIGRATION.lastReport;
+}
+function productionPriceFrom(data){const saved={...S};try{productionHydrate(data);return productionPrices();}finally{Object.assign(S,saved);rebuildIndex();bumpData();}}
+async function productionLoad(){
+ await Store.init();if(!Store.db){const rows=[];for(const k of await Store.keys())rows.push({key:k,data:await Store._get0(k)});productionHydrate(productionRowsData(rows));PRODUCTION_MIGRATION.state='blocked';throw Error('ATOMIC_STORAGE_REQUIRED');}
+ let rows=await productionCapture();if(!rows.some(r=>r.key==='meta/config')){const legacy=[];for(const k of Object.keys(localStorage).filter(k=>k.startsWith(Store.fallbackPrefix))){try{legacy.push({key:k.slice(Store.fallbackPrefix.length),data:JSON.parse(localStorage.getItem(k))});}catch{}}if(legacy.length){productionHydrate(productionRowsData(legacy));PRODUCTION_MIGRATION.state='blocked';throw Error('LEGACY_FALLBACK_RECOVERY_REQUIRED: локальні дані знайдено; спочатку відновіть їх з повної копії, порожня migration заборонена');}}
+ productionHydrate(productionRowsData(rows));S.storageRevision=rows.find(x=>x.key==='sync/local_revision')?.data||0;
+ const marker=rows.find(x=>x.key==='meta/production_release_10_9_3')?.data;
+ PRODUCTION_MIGRATION.state=marker?.version===PRODUCTION_RELEASE_VERSION?'ready':'pending';PRODUCTION_MIGRATION.backupId=marker?.backup_id||null;
+ if(PRODUCTION_MIGRATION.state==='ready'&&(!classificationEnabled()||S.cfg.inventory_policy_version!==1||!RubizhCategories.catalogue().every(c=>S.cfg.canonical_categories?.some(x=>x.id===c.id)))){PRODUCTION_MIGRATION.state='blocked';throw Error('MIGRATION_MARKER_INVALID');}
+}
+async function productionRollback(id=PRODUCTION_MIGRATION.backupId){
+ const backup=await releaseStorage.getBackup(id),snapshot=await releaseStorage.readBackup(backup);PRODUCTION_MIGRATION.state='rolling-back';const rescue=await productionBackup(await productionCapture(),'Перед rollback 10.9.3');if(!await productionSaveExternal(rescue))throw Error('ROLLBACK_RESCUE_BACKUP_REQUIRED');
+ const result=await releaseStorage.rollback(Store.db,snapshot,{localStorage});await productionLoad();PRODUCTION_MIGRATION.state='rolled-back';PRODUCTION_MIGRATION.lastReport={...result,ROLLBACK_BACKUP:id,RESCUE_BACKUP:rescue.id};return result;
+}
+const productionBeforeLoad=sbBeforeLoad;sbBeforeLoad=async function(){if(!productionMode())return productionBeforeLoad(...arguments);if(!sbCfg()){SB.status='off';return true;}await Store.init();for(;;){if(!sbSession())await sbLoginDialog('Увійдіть для доступу до існуючої бази. Migration ще не застосована.');try{await sbToken();SB.status='ok';return true;}catch(e){if(!e.auth&&sbSession()?.expires_at>Date.now()){SB.status='offline';return true;}lsSet(SB_LS.session,null);await sbLoginDialog('Потрібне підтвердження входу.');}}};
+const productionPull=sbPull;sbPull=async function(){if(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')return {changed:0,migration_pending:true};return productionPull(...arguments);};
+const productionPersist=persist;persist=async function(){if(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')throw Error('MIGRATION_PENDING: запис призупинено до перевіреної migration');return productionPersist(...arguments);};
+const productionLegacyLoad=load;load=async function(){return productionMode()?productionLoad():productionLegacyLoad(...arguments);};
+const productionLegacyStartup=startupIntegrityCheck;startupIntegrityCheck=async function(){if(!productionMode())return productionLegacyStartup(...arguments);return {stats:catalogStats(),automatic_repair:false,migration_state:PRODUCTION_MIGRATION.state};};
+const productionLegacyPricing=ensurePricingPolicy;ensurePricingPolicy=async function(){return productionMode()?false:productionLegacyPricing(...arguments);};
+const productionLegacyV10=v10Startup;v10Startup=async function(){if(!productionMode())return productionLegacyV10(...arguments);S.ui.autoIdx=await autoBackupIndex();S.ui.massIdx=await massLogIndex();if(PRODUCTION_MIGRATION.state==='ready'){await dailyBackupTick();setInterval(dailyBackupTick,60*60e3);}return {sync_enabled:false,autoprices_enabled:false};};
+async function productionRestoreServer(){if(S.products.size)throw Error('EXISTING_LOCAL_DATA: синхронізуйте існуючу базу в попередній PIM перед migration');if(!sbCfg())throw Error('EXISTING_SERVER_CONNECTION_REQUIRED');if(sbPending().size)throw Error('PENDING_LOCAL_CHANGES');await productionPull(true);await productionLoad();return {restored:true,products:S.products.size,REMOTE_WRITES:0};}
+const productionSchedulePush=sbSchedulePush;sbSchedulePush=function(){if(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')return;return productionSchedulePush(...arguments);};
+const productionPush=sbPush;sbPush=async function(){if(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')return {migration_pending:true};return productionPush(...arguments);};
+const productionSiteTick=siteAutoTick;siteAutoTick=function(){return productionMode()?false:productionSiteTick(...arguments);};
+const productionScheduler=workflowSchedulerStart;workflowSchedulerStart=function(){return productionMode()?false:productionScheduler(...arguments);};
+for(const name of ['workflowDownloadSource','workflowFetchSource','workflowRefreshSources']){const old=window[name];window[name]=async function(){if(productionMode())throw Error('AUTOPRICES_DISABLED: потрібен REAL_SOURCE_COMPATIBILITY на справжніх файлах');return old(...arguments);};}
+const productionWorkflowAction=workflowAction;workflowAction=async function(action,t){if(productionMode()&&action==='wfSaveSource'){const panel=$(`[data-source-panel="${CSS.escape(t.dataset.sid)}"]`);if(panel?.querySelector('[data-source-enabled]')?.checked||panel?.querySelector('[data-source-apply]')?.checked)throw Error('AUTOPRICES_DISABLED');}return productionWorkflowAction(...arguments);};
+const productionSourcePanel=workflowSourcePanel;workflowSourcePanel=function(s){const html=productionSourcePanel(s);return productionMode()?'<p class="small">Автопрайси вимкнено до REAL_SOURCE_COMPATIBILITY. Локальні файли можна імпортувати через preview.</p>'+html.replace(/(<input[^>]*data-source-(?:enabled|apply)[^>]*)(>)/g,'$1 disabled$2').replace(/(<button[^>]*data-act="wfFetchSource"[^>]*)(>)/g,'$1 disabled$2'):html;};
+const productionRender=render;render=function(){productionRender(...arguments);if(!productionMode())return;const main=$('#main');if(PRODUCTION_MIGRATION.state!=='ready'&&main){const r=PRODUCTION_MIGRATION.lastReport;main.innerHTML='<h1>PIM 10.9.3 — міграція існуючої бази</h1><p>Товари: '+S.products.size+'. Доки міграцію не перевірено, запис і cloud push призупинені. Sync магазину й автопрайси вимкнено.</p>'+(PRODUCTION_MIGRATION.error?'<p>'+esc(PRODUCTION_MIGRATION.error)+'</p>':'')+(!S.products.size&&sbCfg()?'<button class="btn" data-release-action="server-load">Отримати існуючу базу з сервера</button>':'')+'<button class="btn" data-release-action="preview">Показати migration dry-run</button>'+(PRODUCTION_MIGRATION.state==='preview'?'<p>Категорії: '+r.categories_before+' → '+r.categories_after+'. SKU: '+r.variants+'. LOST_* = 0. Ціни, фото, stock і manual locks збережено.</p><button class="btn primary" data-release-action="apply">Повна копія файлом + застосувати</button>':'')+'<p><a href="release-recovery.html">Відновлення повної копії / rollback</a>. Порожня нова база не створюється. Фактичні поточні дані перевіряються перед застосуванням. На час міграції закрийте інші вкладки PIM.</p>';}
+ if(S.view==='backup'&&main&&PRODUCTION_MIGRATION.backupId)main.insertAdjacentHTML('afterbegin','<section class="panel"><h2>Migration 10.9.3</h2><p>SYNC_ENABLED=false · AUTOPRICES_ENABLED=false</p><button class="btn" data-release-action="report">Звіт</button><button class="btn" data-release-action="download">Повна копія до міграції</button><button class="btn danger" data-release-action="rollback">Rollback даних до міграції</button></section>');};
+document.addEventListener('click',async e=>{if(!productionMode())return;const b=e.target.closest('[data-release-action]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();try{PRODUCTION_MIGRATION.error='';const a=b.dataset.releaseAction;if(a==='server-load')await productionRestoreServer();else if(a==='preview')await productionPreview();else if(a==='apply')await productionApply();else if(a==='rollback'){if(!confirm('Відновити всю базу до migration? Пізніші правки також відкотяться; перед цим буде збережено повну rescue-копію.'))return;await productionRollback();}else if(a==='download'){const row=await releaseStorage.getBackup(PRODUCTION_MIGRATION.backupId);await offerDownload(row.filename,row.blob);}else if(a==='report')await offerDownload('rubizh-pim-10.9.3-migration-report.json',new Blob([JSON.stringify(PRODUCTION_MIGRATION.lastReport,null,2)],{type:'application/json'}));}catch(error){PRODUCTION_MIGRATION.error=error.message||String(error);if(PRODUCTION_MIGRATION.state==='applying'||PRODUCTION_MIGRATION.state==='backing-up')PRODUCTION_MIGRATION.state='preview';}finally{render();}},true);
 
 /* ===================== старт ===================== */
 (async () => {

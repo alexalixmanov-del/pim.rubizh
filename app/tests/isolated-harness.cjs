@@ -8,7 +8,7 @@ const appRequire = createRequire(path.join(__dirname, '../package.json'));
 const {parseHTML} = appRequire('linkedom');
 const {IDBFactory, IDBKeyRange} = appRequire('fake-indexeddb');
 
-function createHarness({runtime=false}={}) {
+function createHarness({runtime=false,production=false}={}) {
   const {document} = parseHTML('<html><head></head><body><div id="nav"></div><div id="main"><div id="view"></div></div><div id="drawer" hidden></div><div id="toast"></div><div id="saveState"></div><div id="sbStatus"></div><input id="gs"><div id="gsres"></div></body></html>');
   const local = new Map(), listeners = new Map(), alerts = [], warnings = [], downloads = [];
   document.addEventListener = (type, fn) => {
@@ -40,8 +40,9 @@ function createHarness({runtime=false}={}) {
   new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/kits.js'),'utf8')).runInContext(ctx);
   new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/categories.js'),'utf8')).runInContext(ctx);
   new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/product-model.js'),'utf8')).runInContext(ctx);
-  for(const name of ['category-evidence','size-evidence','inventory-policy'])new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/'+name+'.js'),'utf8')).runInContext(ctx);
-  const js=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1].split('/* ===================== старт ===================== */')[0];
+  for(const name of ['category-evidence','size-evidence','inventory-policy','release-storage'])new vm.Script(fs.readFileSync(path.join(__dirname,'../lib/'+name+'.js'),'utf8')).runInContext(ctx);
+  let js=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1].split('/* ===================== старт ===================== */')[0];
+  if(!production)js=js.replace('const PIM_RELEASE_CHANNEL="production";', 'const PIM_RELEASE_CHANNEL="review";');
   new vm.Script(js,{filename:'uploaded-pim.js'}).runInContext(ctx);
   const run=s=>vm.runInContext(s,ctx);
   // Legacy suites exercise the pre-integration path; runtime suites use the shipped review boundary.

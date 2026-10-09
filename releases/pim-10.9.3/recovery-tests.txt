@@ -1,0 +1,12 @@
+✔ standalone recovery preview is read-only; successful restore saves verified rescue and preserves exact payload (70.022031ms)
+✔ standalone recovery download cancellation leaves database unchanged (10.283171ms)
+✔ standalone recovery rejects a source edit after preview (5.099603ms)
+✔ failed recovery readback automatically restores exact rescue rows (6.866204ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 242.957258

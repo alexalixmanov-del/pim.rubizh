@@ -1,0 +1,66 @@
+
+> rubizh-pim-verification@10.9.3 test:dry-run
+> node --test tests/size-evidence.test.cjs tests/dry-run-business.test.cjs
+
+✔ production cannot invoke safe mutations (229.117388ms)
+✔ stock 0 does not create preorder (39.139327ms)
+✔ stock null does not create preorder (30.392345ms)
+✔ stock -1 does not create preorder (31.062505ms)
+✔ source preorder permits unknown lead time, invents no term (45.057509ms)
+✔ owner default or explicit denial does not masquerade as supplier preorder (21.510055ms)
+✔ size does not change stock or availability (28.972497ms)
+✔ description can be restored from supplier facts without autoarchive (243.932835ms)
+✔ description absence alone is exception, never archive (18.589715ms)
+✔ manual description and category are protected (21.330184ms)
+✔ known broken and placeholder photos are unusable (28.628789ms)
+✔ unknown network photo status is disclosed (45.578853ms)
+✔ similar name alone never sufficient to group (35.395182ms)
+✔ historical stock override is possible only in explicitly isolated audit (54.950793ms)
+✔ manual normalized primary type prevents automatic category changes (22.521418ms)
+✔ clothing range 42-60 (8.209348ms)
+✔ clothing range 42–60 (0.485862ms)
+✔ clothing range 42—60 (0.216055ms)
+✔ footwear range 40...46 (0.235695ms)
+✔ footwear range 40–46 (0.371269ms)
+✔ letter range S-XXL (0.408576ms)
+✔ letter range XS–3XL (0.296347ms)
+✔ numeric list 42,44,46 (2.255778ms)
+✔ numeric list 42 / 44 / 46 (1.481362ms)
+✔ letter list is not a SKU assignment (2.374487ms)
+✔ combined clothing size 46-48 (0.272871ms)
+✔ combined clothing size 46/48 (0.184108ms)
+✔ footwear hyphen interval is not a combined clothing size (0.170066ms)
+✔ explicit universal One Size (9.33937ms)
+✔ explicit universal OS (2.061005ms)
+✔ explicit universal універсальний (0.356367ms)
+✔ no size requirement does not invent One Size (0.120641ms)
+✔ unknown system never guesses numeric step (0.111708ms)
+✔ odd clothing range cannot silently round end (0.088583ms)
+✔ range produces request options without variants or stock (1.16125ms)
+✔ structured 48 wins over weaker variant 50 and model 42–60 (1.145105ms)
+✔ conflicting columns of equal priority are exceptions (4.955435ms)
+✔ confirmed supplier SKU rule works without touching rules (0.415226ms)
+✔ SKU suffix alone requires confirmation (1.651327ms)
+✔ dimensions in descriptions are not sizes (0.152439ms)
+✔ shared supplier SKU cannot create exact sizes from expanded variant rows (2.43648ms)
+✔ blank size is not preorder (0.194934ms)
+✔ singular title label of a single variant is SKU scoped (0.324159ms)
+✔ variant name supplies an exact size with provenance (3.022724ms)
+✔ unconfirmed range is not used with wrong product system (0.129515ms)
+✔ legacy range parser cannot turn 42-60 into exact SKU size (0.299631ms)
+✔ confirmed supplier range step wins over default without fabricating stock (0.55761ms)
+✔ model option with numeric label is not mislabeled as letter clothing (0.101042ms)
+✔ composite height remains part of a model option label (0.11998ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1140.918641
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

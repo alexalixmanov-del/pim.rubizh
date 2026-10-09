@@ -1,0 +1,42 @@
+{
+  "base_commit": "440aa60ee42795ba8bf5167d8121470a5a56aab3",
+  "modified": [
+    "app/lib/classification-ui.inc.js",
+    "app/package-lock.json",
+    "app/package.json",
+    "app/rubizh_pim.html",
+    "app/tests/category-size-integration.test.cjs",
+    "app/tests/isolated-harness.cjs",
+    "app/tests/order-policy.test.cjs",
+    "app/tools/build.cjs"
+  ],
+  "added": [
+    "app/PRODUCTION-INSTALL.md",
+    "app/lib/production-ui.inc.js",
+    "app/lib/release-storage.js",
+    "app/release-recovery.html",
+    "app/tests/production-installer.test.py",
+    "app/tests/production-migration.test.cjs",
+    "app/tests/production-recovery.test.cjs",
+    "app/tools/install-production.py",
+    "app/tools/package-production.py",
+    "audit/production-migration-control.cjs",
+    "releases/pim-10.9.3/MIGRATION-REPORT.md",
+    "releases/pim-10.9.3/category-tests.txt",
+    "releases/pim-10.9.3/files-changed-from-rc.json",
+    "releases/pim-10.9.3/http-package-smoke.json",
+    "releases/pim-10.9.3/installer-tests.txt",
+    "releases/pim-10.9.3/migration-control.json",
+    "releases/pim-10.9.3/migration-control.log",
+    "releases/pim-10.9.3/rc-preservation/migration-control.json",
+    "releases/pim-10.9.3/rc-preservation/migration-control.log",
+    "releases/pim-10.9.3/recovery-tests.txt",
+    "releases/pim-10.9.3/release-verification.json",
+    "releases/pim-10.9.3/rubizh-pim-10.9.3-production.zip",
+    "releases/pim-10.9.3/runtime-tests.txt",
+    "releases/pim-10.9.3/size-tests.txt"
+  ],
+  "excluded_user_changes": [
+    "README.md"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "version": "10.9.3",
+  "rc_commit": "440aa60ee42795ba8bf5167d8121470a5a56aab3",
+  "business_files": [
+    {
+      "file": "app/lib/category-evidence.js",
+      "sha256": "00e25af47806a0bf42f689b1b8ff3257f16a82dcfb01671e5d512a957e6808da",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/lib/size-evidence.js",
+      "sha256": "ec42a434d63173d4d3d0d14a464bf82e05f88aac117930496dbe7abc9d94150f",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/lib/inventory-policy.js",
+      "sha256": "257ba896db880f6b1550ebb456a0eb352090df7faaa5c88a921442e94e7ba897",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/lib/categories.js",
+      "sha256": "e05aec1c2fc6edd48e65ff5a6f1590732f2e18be2d108a509f32eb19a9d705ba",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/lib/product-model.js",
+      "sha256": "1ecf540afa41ed50e3e4542390fb821a32fcc57e6c676e5af4045d06b725f030",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/lib/kits.js",
+      "sha256": "a2227a454f3d0d10724eb06d91648ecc6f7754b138303e142b9057d6dc6829a0",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/lib/pricing.inc.js",
+      "sha256": "52db279b6b62962d2e29d9a9df5d128a56c88e31507157b7fb88ab6b16528598",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/categories/canonical-categories.json",
+      "sha256": "8afe5241ef9a0aae10672a5a96de6432f33ed4b906c116c31f154fd50d8e1ef9",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/categories/approved-evidence-rules.json",
+      "sha256": "f78b66e00d9d310bd8eb5c0f1043a87d1c137861b28eb69d142e911230374ac3",
+      "unchanged_from_rc": true
+    },
+    {
+      "file": "app/contracts/category-size-export.schema.json",
+      "sha256": "12206d40acc471972ab9e67efb796839c5d4bdb1fc557329af49103dd46836e2",
+      "unchanged_from_rc": true
+    }
+  ],
+  "archive_sha256": "fe0a19f719b5dec39bd52deca77c0ccff2634c347b120f6bd343dbb54af51722",
+  "archive_bytes": 848474,
+  "runtime_files": 15,
+  "SYNC_ENABLED": false,
+  "AUTOPRICES_ENABLED": false,
+  "PRODUCTION_WRITES": 0
+}

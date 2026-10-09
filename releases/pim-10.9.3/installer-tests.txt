@@ -1,0 +1,16 @@
+test_archive_traversal_rejected (__main__.Installer.test_archive_traversal_rejected) ... ok
+test_checksum_failure_no_changes_or_backup (__main__.Installer.test_checksum_failure_no_changes_or_backup) ... ok
+test_corrupt_data_backup_blocks_code_rollback (__main__.Installer.test_corrupt_data_backup_blocks_code_rollback) ... ok
+test_corrupt_previous_backup_blocks_rollback_before_any_write (__main__.Installer.test_corrupt_previous_backup_blocks_rollback_before_any_write) ... ok
+test_empty_backup_rejected (__main__.Installer.test_empty_backup_rejected) ... ok
+test_install_and_complete_code_rollback (__main__.Installer.test_install_and_complete_code_rollback) ... ok
+test_missing_binary_document_rejected (__main__.Installer.test_missing_binary_document_rejected) ... ok
+test_partial_install_failure_rolls_back (__main__.Installer.test_partial_install_failure_rolls_back) ... ok
+test_public_backup_directory_rejected (__main__.Installer.test_public_backup_directory_rejected) ... ok
+test_symlink_escape_rejected (__main__.Installer.test_symlink_escape_rejected) ... ok
+test_wrong_storage_namespace_rejected (__main__.Installer.test_wrong_storage_namespace_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.665s
+
+OK
