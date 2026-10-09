@@ -15,7 +15,8 @@ for(const [name,start,end] of [
  ['product-model-ui.inc.js','// Product model: explicit normalization, quality, relations and safe import.', '// Simple workflow: owner-authorized requests, automatic exclusions and publication preview.'],
  ['simple-ui.inc.js','// Simple workflow: owner-authorized requests, automatic exclusions and publication preview.', '// Model colors: explicit galleries, conservative family migration and stable SKU selection.'],
  ['classification-ui.inc.js','// Classification pipeline: review-safe evidence and normalized size catalogs.', '// Production release: controlled migration on the existing production store.'],
- ['production-ui.inc.js','// Production release: controlled migration on the existing production store.', '/* ===================== старт ===================== */'],
+ ['production-ui.inc.js','// Production release: controlled migration on the existing production store.', '// Final workflow: publication decision, exact SITE wire contract and five owner screens.'],
+ ['final-workflow.inc.js','// Final workflow: publication decision, exact SITE wire contract and five owner screens.', '/* ===================== старт ===================== */'],
  ['model-colors-ui.inc.js','// Model colors: explicit galleries, conservative family migration and stable SKU selection.', '// Classification pipeline: review-safe evidence and normalized size catalogs.']
 ]){
  const a=html.indexOf(start),b=html.indexOf(end,a);

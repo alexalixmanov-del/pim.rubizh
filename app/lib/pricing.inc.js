@@ -36,6 +36,10 @@ function variantPricingPayload(p,v,cfg=S.cfg){
  if(!pricingProtected(cfg))return {};
  return {pricing_policy_version:1,discount_margin_floor_pct:discountMarginFloor(cfg),minimum_sale_price:discountedPriceFloor(p,v,cfg)};
 }
+// One per-SKU sale pricing block for every exporter; normalized exports must not drop it (G02).
+function variantSalePricing(p,v,c=calc(p,v)){
+ return {site_price:c.price,wholesale:tierPrices(c.price,S.cfg,p,v),...variantPricingPayload(p,v),kit_price:kitFloor(p,v)};
+}
 async function ensurePricingPolicy(){
  if(pricingProtected()){S.pricingPolicyError='';return false;}
  if(S.snap||S.edit||S.imp?.rows)throw Error('Завершите редактирование или импорт перед изменением правил цен.');

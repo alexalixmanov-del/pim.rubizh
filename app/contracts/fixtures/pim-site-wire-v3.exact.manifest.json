@@ -1,0 +1,31 @@
+{
+  "generator": "app/tools/export-wire-fixture.cjs",
+  "exporter": "pimSiteWire() in app/lib/final-workflow.inc.js",
+  "catalog_input": "SYNTHETIC_REPRESENTATIVE (not owner data)",
+  "envelope": "products",
+  "sha256": "013e58f9ec6320ef7a4316e9a092168b879f069e3000a8d486005c4660bb7eff",
+  "products": 4,
+  "skus": 8,
+  "decisions": [
+    {
+      "id": "m-jacket",
+      "state": "READY",
+      "reasons": []
+    },
+    {
+      "id": "m-pants",
+      "state": "READY",
+      "reasons": []
+    },
+    {
+      "id": "m-pouch",
+      "state": "READY",
+      "reasons": []
+    },
+    {
+      "id": "m-belt",
+      "state": "READY",
+      "reasons": []
+    }
+  ]
+}
