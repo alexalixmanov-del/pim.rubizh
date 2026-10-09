@@ -14,15 +14,26 @@ const TYPE_BY_CATEGORY={clothing_insulated_vests:'clothing',footwear_shoes:'shoe
 const COMPONENTS={combat_shirt:'combat_shirt',pants:'pants',jacket:'outer_layer',fleece:'fleece',base_layer:'base_layer',boots:'footwear',shoes:'footwear',socks:'socks',plate_carrier:'carrier',armor_vest:'carrier',armor_plate:'plates',helmet:'helmet',headset:'hearing',backpack:'backpack',ifak:'ifak',tourniquet:'tourniquet',gloves:'gloves',eye_protection:'eye_protection',battle_belt:'battle_belt',rps:'rps',pouch:'pouch',knee_protection:'knee_protection'};
 const RELATION_TYPES=['compatible','recommended_with','alternative','replacement','bundle','incompatible'];
 const BOOL=new Map([['yes',true],['так',true],['да',true],['true',true],['є',true],['1',true],['ні',false],['нет',false],['no',false],['false',false],['немає',false],['0',false]]);
-function alias(value,dictionary){const n=key(value);return Object.entries(dictionary).find(([canonical,list])=>key(canonical)===n||list.some(v=>key(v)===n))?.[0]||null;}
+// Same first-match-in-order result as scanning the dictionary, via a lazily built index (rebuilt if the dictionary changes).
+const ALIAS_INDEX=new WeakMap();
+function aliasIndex(dictionary){const frozen=Object.isFrozen(dictionary)&&ALIAS_INDEX.get(dictionary);if(frozen)return frozen.map;const entries=Object.entries(dictionary),size=entries.reduce((n,[,list])=>n+1+list.length,0),cached=ALIAS_INDEX.get(dictionary);if(cached&&cached.size===size&&cached.keys===entries.length)return cached.map;const map=new Map();for(const [canonical,list] of entries){const k=key(canonical);for(const n of [k,...list.map(key)])if(!map.has(n))map.set(n,canonical);}ALIAS_INDEX.set(dictionary,{size,keys:entries.length,map});return map;}
+function alias(value,dictionary){return aliasIndex(dictionary).get(key(value))||null;}
 function palette(raw,rawCamouflage=''){
  const values=text(raw).split(/\s*(?:\/|;|\+|,)\s*/).filter(Boolean),colors=[],patterns=[],unknown=[];
  for(const v of [...values,...text(rawCamouflage).split(/\s*[;,]\s*/).filter(Boolean)]){const c=alias(v,COLORS),cam=alias(v,CAMOUFLAGES);if(cam)patterns.push(cam);else if(c)colors.push(c);else unknown.push(v);}
  return {color:unique(colors).join(' / ')||null,camouflage:unique(patterns).join(' / ')||null,unknown:unique(unknown)};
 }
+// Same result as Object.keys(ATTR_KEYS).find(f=>f===rawKey||aliases match): the earliest field wins either way.
+let ATTR_FIELD_INDEX=null;
+function attributeField(rawKey){
+ const fields=Object.keys(ATTR_KEYS),size=fields.reduce((n,f)=>n+ATTR_KEYS[f].length,0);
+ if(!ATTR_FIELD_INDEX||ATTR_FIELD_INDEX.fields!==fields.length||ATTR_FIELD_INDEX.size!==size){const byAlias=new Map(),pos=new Map();fields.forEach((f,i)=>{pos.set(f,i);for(const a of ATTR_KEYS[f]){const k=key(a);if(!byAlias.has(k))byAlias.set(k,i);}});ATTR_FIELD_INDEX={fields:fields.length,size,byAlias,pos,list:fields};}
+ const exact=ATTR_FIELD_INDEX.pos.get(rawKey),byAlias=ATTR_FIELD_INDEX.byAlias.get(key(rawKey)),best=Math.min(exact??Infinity,byAlias??Infinity);
+ return Number.isFinite(best)?ATTR_FIELD_INDEX.list[best]:undefined;
+}
 function attributes(raw={},manual={}){
  const out={},unknown=[],conflicts=[];
- for(const [rawKey,value] of Object.entries(raw)){const field=Object.keys(ATTR_KEYS).find(f=>f===rawKey||ATTR_KEYS[f].some(a=>key(a)===key(rawKey)));if(!field||value==null||value==='')continue;let v=value;
+ for(const [rawKey,value] of Object.entries(raw)){const field=attributeField(rawKey);if(!field||value==null||value==='')continue;let v=value;
   if(field==='season'){const values={winter:['winter','зима','зимовий','зимний'],summer:['summer','літо','лето','літній','летний'],demiseason:['demiseason','демісезон','демисезон'],all_season:['all_season','всесезонний','всесезонный','all season']};v=alias(value,values)||text(value);}
   if(field==='gender'){v=alias(value,{male:['male','чоловічий','мужской'],female:['female','жіночий','женский'],unisex:['unisex','унісекс','унисекс']})||text(value);}
   if(['molle','quick_release','hood','membrane'].includes(field)){v=typeof value==='boolean'?value:BOOL.get(key(value));if(v===undefined){unknown.push({field,raw:value});continue;}}
@@ -87,5 +98,7 @@ function duplicateCandidates(products){
  return [...pairs.values()].map(pair=>{const [a,b]=pair.product_ids.map(id=>byId.get(id));if(a.photos?.some(ph=>b.photos?.includes(ph)))pair.evidence.push('shared_photo');return pair;});
 }
 function filterSchema(category){const base=['brand','color','camouflage'];if(/^clothing_|^footwear_/.test(category))return [...base,'size','season','material','membrane','gender'];if(/^armor_/.test(category))return [...base,'protection_class','plate_size','plate_size_supported','material','quick_release','molle'];if(/^helmets_/.test(category))return [...base,'helmet_size','helmet_rail_type','helmet_shell_type','protection_class'];if(/^communications_/.test(category))return [...base,'connector','radio_connector','ptt_connector','mount_standard'];if(/^bags_/.test(category))return [...base,'volume_l','material','molle'];return [...base,'material'];}
+// Built-in dictionaries are complete here; freezing them lets alias indexes never go stale.
+for(const d of [COLORS,CAMOUFLAGES,ATTR_KEYS]){for(const list of Object.values(d))Object.freeze(list);Object.freeze(d);}
 return {VERSION,COLORS,CAMOUFLAGES,ATTR_KEYS,TYPE_BY_CATEGORY,COMPONENTS,RELATION_TYPES,palette,attributes,size,type,normalized,categoryStatus,quality,compatibility,duplicateCandidates,filterSchema,ids};
 });

@@ -40,3 +40,24 @@ test('empty-device restore reads existing server only on explicit action and doe
 
 test('archived empty model aliases are carried over verbatim without forced categorization',async()=>{const h=await fixture();h.ctx.alias=h.product({id:'merged-alias',archived:true,archiveReason:'MODEL: объединена с p-a',variants:[]});h.run('S.products.set(alias.id,alias);markAllDirty()');await h.run('productionPersist()');await h.run('productionLoad()');const before=h.run('stableValue105(S.products.get("merged-alias"))');await migrated(h);assert.equal(h.run('stableValue105(S.products.get("merged-alias"))'),before);assert.equal(h.run('PRODUCTION_MIGRATION.lastReport.category.UNTOUCHED'),1);});
 test('a second apply click during full backup cannot start another backup or migration',async()=>{const h=await fixture();await h.run('productionPreview()');let release;h.ctx.backupGate=new Promise(r=>release=r);h.run('const realEncodeForClickTest=releaseStorage.encodeBlob;releaseStorage.encodeBlob=async(...args)=>{await backupGate;return realEncodeForClickTest(...args)}');const handler=h.listeners.get('click').find(fn=>fn.toString().includes('data-release-action')),button=h.document.createElement('button');button.dataset.releaseAction='apply';const event={target:button,preventDefault(){},stopImmediatePropagation(){}};const first=handler(event);await handler(event);assert.equal(h.downloads.length,0);assert.equal(h.run('PRODUCTION_MIGRATION.busy'),true);release();await first;assert.equal(h.downloads.length,1);assert.equal(h.run('PRODUCTION_MIGRATION.busy'),false);assert.equal(h.run('PRODUCTION_MIGRATION.state'),'ready');});
+test('approved price policy 30/25/20 is never applied at startup; only owner preview → apply after migration, with safety copy',async()=>{
+ const h=await fixture();h.run('delete S.cfg.pricing_policy_version;delete S.cfg.discountMarginFloor;Object.assign(S.cfg,{minMargin:24,bigPriceMargin:15,kitMargin:15});markAllDirty()');await h.run('productionPersist()');await h.run('productionLoad()');
+ const price=()=>h.run('calc(S.products.get("p-a"),S.products.get("p-a").variants[0]).price'),legacy=price();
+ await h.run('ensurePricingPolicy()');assert.equal(h.run('pricingProtected()'),false,'startup/automatic call never reprices');
+ assert.match(h.run('S.view="ready";vFinalReady()'),/Правила цен не применены[\s\S]*24 \/ 15 \/ 15/);assert.match(h.run('vFinalReady()'),/data-final="publish" disabled/);
+ h.run('SIMPLE_UI.pricePreview=simplePricePolicyPreview()');await assert.rejects(h.run('simpleApplyPricePolicy()'),/migration 10\.9\.3/);assert.equal(h.run('pricingProtected()'),false);
+ await migrated(h);assert.equal(h.run('pricingProtected()'),false,'data migration does not reprice');assert.equal(price(),legacy);
+ h.run('SIMPLE_UI.pricePreview=simplePricePolicyPreview()');await h.run('simpleApplyPricePolicy()');
+ assert.equal(h.run('pricingProtected()'),true);assert.deepEqual(JSON.parse(h.run('JSON.stringify([S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor])')),[30,25,20,15]);
+ assert.ok(await h.run('Store.get("safety/before_pricing_30_25_20")'),'10.9.2 safety copy written before repricing');assert.equal(h.run('FINAL_UI.ownerPriceApply'),false);
+ assert.doesNotMatch(h.run('vFinalReady()'),/Правила цен не применены/);
+ h.run('Object.assign(S.cfg,{minMargin:31})');await h.run('ensurePricingPolicy()');assert.equal(h.run('S.cfg.minMargin'),31,'later owner edits are kept');
+});
+test('derived description cache survives restart, never enters data rows, and recomputes when any input changes',async()=>{
+ const h=await fixture({manual:false});await migrated(h);const first=h.run('finalDescription(S.products.get("p-a"))');
+ assert.ok(await h.run('finalDerivedCacheSave()')>=1);const rowsBefore=await h.run('productionCapture().then(r=>r.map(x=>x.key).join("|"))');assert.doesNotMatch(rowsBefore,/final-descriptions|derived/);
+ h.run('FINAL_DESCRIPTION_MEMO.clear()');assert.ok(await h.run('finalDerivedCacheLoad()')>=1);assert.equal(h.run('finalDescription(S.products.get("p-a"))'),first);
+ h.run('const p=S.products.get("p-a");p.desc="<p>Інший опис постачальника для перевірки</p>";p.source_description="";for(const v of p.variants)for(const o of Object.values(v.offers||{})){o.source_description="";o.description="";}');
+ const fresh=h.run('finalUncachedSimpleDescription(S.products.get("p-a"))');assert.equal(h.run('finalDescription(S.products.get("p-a"))'),fresh,'memo always equals the uncached generator');
+ const before=h.run('FINAL_DESCRIPTION_MEMO.get("p-a").key');h.run('S.cfg.translationGlossary=[{from:"опис",to:"опис"}]');h.run('finalDescription(S.products.get("p-a"))');assert.notEqual(h.run('FINAL_DESCRIPTION_MEMO.get("p-a").key'),before,'glossary change invalidates');
+});

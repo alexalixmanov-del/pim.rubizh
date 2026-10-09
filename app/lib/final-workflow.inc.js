@@ -29,6 +29,33 @@ const FINAL_MODERATION_TEXT={
 };
 function finalUsablePhotos(p){return simplePhotos(p).filter(url=>p.photoMeta?.[url]?.broken!==true&&p.photoMeta?.[url]?.invalid!==true);}
 function finalTitle(p){return String(p.marketing_name_uk||p.model_name||p.name||'').trim();}
+// Performance only: the generated description is a pure function of the chosen source text, the manual flag, the
+// name and the translation glossary. Reuse it while those are identical (a 3 113-product catalog re-translated
+// every render otherwise took minutes).
+// The memo also survives restarts in a separate derived-cache IndexedDB (never synced, never in backups, no
+// business data): entries are keyed by a hash of every input plus the PIM version, so any change recomputes.
+const FINAL_DESCRIPTION_MEMO=new Map(),finalUncachedSimpleDescription=simpleDescription;
+const FINAL_DERIVED_CACHE={db:'rubizh_pim_derived_cache_v1',key:'final-descriptions',dirty:false,timer:null};
+simpleDescription=function(p){
+ const key=fnvHash(PIM_VERSION+'\u0000'+(p.fieldMeta?.desc?.source==='manual'?'M':'A')+'\u0000'+(p.name||'')+'\u0000'+ceTranslationSignature()+'\u0000'+simpleSource(p)),hit=FINAL_DESCRIPTION_MEMO.get(p.id);
+ if(hit&&hit.key===key)return hit.out;
+ const out=finalUncachedSimpleDescription(p);FINAL_DESCRIPTION_MEMO.set(p.id,{key,out});finalDerivedCacheSaveSoon();return out;
+};
+function finalDerivedCacheOpen(){return new Promise((resolve,reject)=>{if(typeof indexedDB==='undefined')return reject(Error('NO_IDB'));const r=indexedDB.open(FINAL_DERIVED_CACHE.db,1);r.onupgradeneeded=()=>r.result.createObjectStore('kv');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+async function finalDerivedCacheLoad(){
+ try{const db=await finalDerivedCacheOpen(),value=await new Promise((resolve,reject)=>{const q=db.transaction('kv').objectStore('kv').get(FINAL_DERIVED_CACHE.key);q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error);});db.close();
+  if(value?.version===PIM_VERSION&&Array.isArray(value.entries))for(const [id,key,out] of value.entries)if(!FINAL_DESCRIPTION_MEMO.has(id))FINAL_DESCRIPTION_MEMO.set(id,{key,out});return FINAL_DESCRIPTION_MEMO.size;}
+ catch{return 0;}
+}
+async function finalDerivedCacheSave(){
+ FINAL_DERIVED_CACHE.dirty=false;
+ try{const entries=[...FINAL_DESCRIPTION_MEMO].filter(([id])=>S.products.has(id)).map(([id,x])=>[id,x.key,x.out]),db=await finalDerivedCacheOpen();
+  await new Promise((resolve,reject)=>{const t=db.transaction('kv','readwrite');t.objectStore('kv').put({version:PIM_VERSION,entries},FINAL_DERIVED_CACHE.key);t.oncomplete=resolve;t.onerror=()=>reject(t.error);});db.close();return entries.length;}
+ catch{return 0;}
+}
+function finalDerivedCacheSaveSoon(){FINAL_DERIVED_CACHE.dirty=true;if(FINAL_DERIVED_CACHE.timer)return;FINAL_DERIVED_CACHE.timer=setTimeout(()=>{FINAL_DERIVED_CACHE.timer=null;if(FINAL_DERIVED_CACHE.dirty)finalDerivedCacheSave();},3000);}
+const finalProductionLoad=productionLoad;
+productionLoad=async function(){const result=await finalProductionLoad(...arguments);await finalDerivedCacheLoad();return result;};
 function finalDescription(p){return classificationEnabled()?classificationDescription(p):simpleDescription(p);}
 const finalSkuCounts=memoByData(function(){const counts=new Map();for(const p of S.products.values())if(!p.archived)for(const v of p.variants||[]){const key=String(v.sku||'').trim().toLowerCase();if(key)counts.set(key,(counts.get(key)||0)+1);}return counts;});
 const finalModelReview=memoByData(function(){try{return new Set(mcPlan().review.flatMap(g=>g.ids));}catch{return new Set();}});
@@ -159,12 +186,27 @@ function finalSyncState(p){const h=FINAL_UI.hashes;if(!h)return '…';if(!h[p.id
 function finalAvailabilityText(a){return [['IN_STOCK','в наличии'],['PREORDER','предзаказ'],['ORDER_ON_REQUEST','под заказ'],['SIZE_CONFIRMATION_REQUIRED','размер по запросу'],['UNKNOWN','неизвестно'],['OUT_OF_STOCK','нет']].filter(([k])=>a[k]).map(([k,l])=>a[k]+' '+l).join(' · ');}
 function finalPager(total,size=50){FINAL_UI.page=Math.min(FINAL_UI.page,Math.max(0,Math.ceil(total/size)-1));return '<div class="row final-pager"><button class="btn" data-final="page" data-d="-1" '+(FINAL_UI.page?'':'disabled')+'>Назад</button><span>'+total+' · стр. '+(FINAL_UI.page+1)+'</span><button class="btn" data-final="page" data-d="1" '+((FINAL_UI.page+1)*size<total?'':'disabled')+'>Далее</button></div>';}
 function finalLoadHashes(){if(FINAL_UI.hashes||FINAL_UI.loading)return;FINAL_UI.loading=true;Store.get('site/v3/hashes').then(h=>{FINAL_UI.hashes=h||{};FINAL_UI.loading=false;if(S.view==='ready')render();}).catch(()=>{FINAL_UI.loading=false;});}
+// Approved price policy (30 / 25 / 20, discount floor 15% — OWNER_PRICE_POLICY) is never applied at startup in
+// production. It is applied only by the owner's explicit preview → apply, after the data migration, through the
+// 10.9.2 logic (full backup, safety/before_pricing_30_25_20, verified write, later owner edits kept).
+function finalOwnerPriceApplyAllowed(){return !productionMode()||FINAL_UI.ownerPriceApply===true&&PRODUCTION_MIGRATION.state==='ready';}
+const finalProductionPricing=ensurePricingPolicy;
+ensurePricingPolicy=async function(){return productionMode()&&finalOwnerPriceApplyAllowed()?productionLegacyPricing(...arguments):finalProductionPricing(...arguments);};
+const finalSimpleApplyPricePolicy=simpleApplyPricePolicy;
+simpleApplyPricePolicy=async function(){
+ if(productionMode()&&PRODUCTION_MIGRATION.state!=='ready')throw Error('Сначала завершите migration 10.9.3, затем примените правила цен.');
+ FINAL_UI.ownerPriceApply=true;try{return await finalSimpleApplyPricePolicy(...arguments);}finally{FINAL_UI.ownerPriceApply=false;}
+};
+function finalPricePolicyNotice(){
+ if(pricingProtected())return '';
+ return '<section class="panel"><h2>Правила цен не применены</h2><p>Передача на сайт требует утверждённых правил: обычные товары 30%, дорогие 25%, комплекты 20%, скидки не ниже 15% после доната. Сейчас действуют прежние настройки: '+esc([S.cfg.minMargin,S.cfg.bigPriceMargin,S.cfg.kitMargin].join(' / '))+'. Цены не меняются, пока вы не проверите и не примените правила.</p><button class="btn primary" data-simple="pricePreview">Проверить правила цен</button></section>'+simplePricePolicyPanel();
+}
 function vFinalReady(){
  finalLoadHashes();
  const q=norm(FINAL_UI.q),tokens=searchTokens(FINAL_UI.q),list=[...S.products.values()].filter(p=>finalDecision(p).state==='READY'&&(!FINAL_UI.category||p.canonical_category_id===FINAL_UI.category)&&(!q||scoreProduct(p,tokens,q))&&(!FINAL_UI.availability||finalSummary(p).availability[FINAL_UI.availability]>0)).sort((a,b)=>pimCompare(finalTitle(a),finalTitle(b)));
  const cats=uniq([...S.products.values()].filter(p=>finalDecision(p).state==='READY').map(p=>p.canonical_category_id)).sort((a,b)=>pimCompare(canonicalPath(a),canonicalPath(b))),s=S.cfg.siteSync||{};
  const rows=list.slice(FINAL_UI.page*50,FINAL_UI.page*50+50).map(p=>{const x=finalSummary(p);return '<tr class="click" data-open="'+esc(p.id)+'"><td class="final-cover">'+(x.cover?'<img loading="lazy" alt="" src="'+esc(x.cover)+'">':'')+'</td><td><b>'+esc(finalTitle(p))+'</b><div class="small muted">'+esc(p.brand||'')+'</div></td><td class="small">'+esc(canonicalPath(p.canonical_category_id))+'</td><td>'+x.colors+'</td><td>'+x.skus+'</td><td>'+(x.min==null?'—':x.min===x.max?money(x.min):money(x.min)+' – '+money(x.max))+'</td><td class="small">'+esc(finalAvailabilityText(x.availability))+'</td><td class="small">'+esc(finalSyncState(p))+'</td></tr>';}).join('');
- return '<h1>На сайт</h1><p class="lead">Модели, готовые к публикации. Наличие влияет на возможность оплаты, а не убирает модель.</p><section class="panel row final-actions"><button class="btn primary" data-final="publish" '+(siteReady()?'':'disabled')+'>Отправить на сайт</button><span class="muted">Готово: '+finalCounts().READY+'</span>'+(s.at?'<span class="small muted">Последняя отправка: '+fmtDate(s.at)+(s.batch_id?' · '+esc(s.batch_id):'')+'</span>':'')+(s.lastError&&(s.lastErrorAt||0)>(s.at||0)?'<span class="small finance-bad">'+esc(s.lastError)+'</span>':'')+'</section><section class="panel row final-filters"><input id="finalQ" type="search" placeholder="Поиск по названию, SKU, бренду" value="'+esc(FINAL_UI.q)+'"><select id="finalCategory"><option value="">Все категории</option>'+cats.map(id=>'<option value="'+esc(id)+'" '+(FINAL_UI.category===id?'selected':'')+'>'+esc(canonicalPath(id))+'</option>').join('')+'</select><select id="finalAvailability"><option value="">Любое наличие</option>'+[['IN_STOCK','В наличии'],['PREORDER','Предзаказ'],['ORDER_ON_REQUEST','Под заказ'],['SIZE_CONFIRMATION_REQUIRED','Размер по запросу'],['UNKNOWN','Неизвестно'],['OUT_OF_STOCK','Нет в наличии']].map(([k,l])=>'<option value="'+k+'" '+(FINAL_UI.availability===k?'selected':'')+'>'+l+'</option>').join('')+'</select></section><div class="tablewrap"><table class="final-table"><thead><tr><th></th><th>Модель</th><th>Категория</th><th>Цвета</th><th>SKU</th><th>Цена</th><th>Наличие</th><th>Сайт</th></tr></thead><tbody>'+(rows||'<tr><td colspan="8">Нет моделей по фильтру.</td></tr>')+'</tbody></table></div>'+finalPager(list.length)+'<details class="panel"><summary>Подключение сайта</summary><div class="grid2"><label class="f">Адрес API сайта<input id="siteApiUrl" value="'+esc(siteCfg().url)+'" placeholder="https://rubizh.shop/api"></label><label class="f">Ключ PIM<input id="siteApiKey" type="password" value="'+esc(siteCfg().key)+'"></label></div><button class="btn" data-final="saveSite">Сохранить</button></details>';
+ return '<h1>На сайт</h1><p class="lead">Модели, готовые к публикации. Наличие влияет на возможность оплаты, а не убирает модель.</p>'+finalPricePolicyNotice()+'<section class="panel row final-actions"><button class="btn primary" data-final="publish" '+(siteReady()&&pricingProtected()?'':'disabled')+'>Отправить на сайт</button><span class="muted">Готово: '+finalCounts().READY+'</span>'+(s.at?'<span class="small muted">Последняя отправка: '+fmtDate(s.at)+(s.batch_id?' · '+esc(s.batch_id):'')+'</span>':'')+(s.lastError&&(s.lastErrorAt||0)>(s.at||0)?'<span class="small finance-bad">'+esc(s.lastError)+'</span>':'')+'</section><section class="panel row final-filters"><input id="finalQ" type="search" placeholder="Поиск по названию, SKU, бренду" value="'+esc(FINAL_UI.q)+'"><select id="finalCategory"><option value="">Все категории</option>'+cats.map(id=>'<option value="'+esc(id)+'" '+(FINAL_UI.category===id?'selected':'')+'>'+esc(canonicalPath(id))+'</option>').join('')+'</select><select id="finalAvailability"><option value="">Любое наличие</option>'+[['IN_STOCK','В наличии'],['PREORDER','Предзаказ'],['ORDER_ON_REQUEST','Под заказ'],['SIZE_CONFIRMATION_REQUIRED','Размер по запросу'],['UNKNOWN','Неизвестно'],['OUT_OF_STOCK','Нет в наличии']].map(([k,l])=>'<option value="'+k+'" '+(FINAL_UI.availability===k?'selected':'')+'>'+l+'</option>').join('')+'</select></section><div class="tablewrap"><table class="final-table"><thead><tr><th></th><th>Модель</th><th>Категория</th><th>Цвета</th><th>SKU</th><th>Цена</th><th>Наличие</th><th>Сайт</th></tr></thead><tbody>'+(rows||'<tr><td colspan="8">Нет моделей по фильтру.</td></tr>')+'</tbody></table></div>'+finalPager(list.length)+'<details class="panel"><summary>Подключение сайта</summary><div class="grid2"><label class="f">Адрес API сайта<input id="siteApiUrl" value="'+esc(siteCfg().url)+'" placeholder="https://rubizh.shop/api"></label><label class="f">Ключ PIM<input id="siteApiKey" type="password" value="'+esc(siteCfg().key)+'"></label></div><button class="btn" data-final="saveSite">Сохранить</button></details>';
 }
 function finalQueue(){
  const items=simpleDecisions().map(t=>({...t,kind:t.kind==='grouping'?'model':t.kind})),covered=new Set(items.flatMap(t=>(t.ids||[]).map(id=>t.kind+':'+id)));

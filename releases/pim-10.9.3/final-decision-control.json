@@ -1,0 +1,186 @@
+{
+  "source": {
+    "sha256": "6311d34d9f89f5ba1066cb925883213a765cb1f57febab29357d869cc7c7792a",
+    "bytes": 86921911,
+    "pimVersion": "10.9.0",
+    "at": 1791508886500
+  },
+  "migration": {
+    "categories_after": 143,
+    "LOST": {
+      "LOST_CATEGORIES": 0,
+      "LOST_SKU": 0,
+      "LOST_VARIANTS": 0,
+      "LOST_PHOTOS": 0,
+      "LOST_PRICES": 0,
+      "LOST_STOCK": 0
+    },
+    "PRODUCTION_WRITES": 0
+  },
+  "products": 3113,
+  "variants": 8734,
+  "READY": 1918,
+  "MODERATION": 964,
+  "REJECTED": 231,
+  "ARCHIVED": 0,
+  "sku_by_state": {
+    "READY": 5673,
+    "MODERATION": 2635,
+    "REJECTED": 426,
+    "ARCHIVED": 0
+  },
+  "rejected_reasons": {
+    "RESTRICTED": 16,
+    "MARGIN_VIOLATION": 199,
+    "NO_DESCRIPTION": 19,
+    "NO_PHOTOS": 1
+  },
+  "moderation_reasons": {
+    "grouping": 522,
+    "color": 53,
+    "binding": 88,
+    "category": 347,
+    "price": 3,
+    "price_policy": 3,
+    "photo_ownership": 1
+  },
+  "wire": {
+    "models": 2071,
+    "variants": 5938,
+    "categories": 143,
+    "hide_ids": 0,
+    "catalog_revision": "8c06d728b66f323c",
+    "category_catalog_hash": "0058a062ebd411c2",
+    "bytes": 45433993,
+    "sha256": "7b46c0fbd97b27b7b0a90ee6a499305cea6843c1e8fc703c19642617a7caeb6a",
+    "availability": {
+      "UNKNOWN": 1193,
+      "IN_STOCK": 3896,
+      "OUT_OF_STOCK": 848,
+      "PREORDER": 1
+    },
+    "envelope": [
+      "contract_version",
+      "version",
+      "pricing_policy_version",
+      "category_catalog_version",
+      "size_catalog_version",
+      "inventory_policy_version",
+      "order_policy_version",
+      "model_colors_version",
+      "pim_version",
+      "currency",
+      "generated_at",
+      "catalog_revision",
+      "category_catalog_hash"
+    ]
+  },
+  "pricing_policy_v1_in_backup": false,
+  "pricing": {
+    "kind": "OWNER_PREVIEW_APPLY_APPROVED_POLICY_ON_ISOLATED_COPY",
+    "legacy_settings_in_backup": {
+      "minMargin": 24,
+      "bigPriceFrom": 10000,
+      "bigPriceMargin": 15,
+      "kitMargin": 15,
+      "discountMarginFloor": 15
+    },
+    "applied": {
+      "minMargin": 30,
+      "bigPriceFrom": 10000,
+      "bigPriceMargin": 25,
+      "kitMargin": 20,
+      "discountMarginFloor": 15,
+      "pricing_policy_version": 1
+    },
+    "preview_rows": 8693,
+    "sku_prices_checked": 8734,
+    "sku_prices_changed": 8693,
+    "sku_prices_up": 8693,
+    "sku_prices_down": 0,
+    "examples": [
+      {
+        "sku": "RUB-00461",
+        "before": 3660,
+        "after": 4000
+      },
+      {
+        "sku": "RUB-00616",
+        "before": 4390,
+        "after": 4800
+      },
+      {
+        "sku": "RUB-05564",
+        "before": 1400,
+        "after": 1530
+      },
+      {
+        "sku": "RUB-05565",
+        "before": 1400,
+        "after": 1530
+      },
+      {
+        "sku": "RUB-05768",
+        "before": 2190,
+        "after": 2400
+      },
+      {
+        "sku": "RUB-06065",
+        "before": 2830,
+        "after": 3100
+      },
+      {
+        "sku": "RUB-06066",
+        "before": 2830,
+        "after": 3100
+      },
+      {
+        "sku": "RUB-08111",
+        "before": 3700,
+        "after": 4050
+      }
+    ],
+    "safety_copy": true,
+    "decisions_after": {
+      "READY": 2071,
+      "MODERATION": 1006,
+      "REJECTED": 36,
+      "ARCHIVED": 0
+    },
+    "reasons_after": {
+      "REJECTED": {
+        "RESTRICTED": 16,
+        "NO_DESCRIPTION": 19,
+        "NO_PHOTOS": 1
+      },
+      "MODERATION": {
+        "grouping": 530,
+        "color": 56,
+        "binding": 88,
+        "category": 380,
+        "photo_ownership": 1
+      }
+    }
+  },
+  "description_memo_mismatches": 0,
+  "timing_ms": {
+    "store_init_ms": 7,
+    "production_load_ms": 1433,
+    "migration_preview_ms": 28022,
+    "migration_apply_ms": 39998,
+    "restart_load_ms": 3264,
+    "decisions_all_products_cold_ms": 25130,
+    "decisions_all_products_warm_ms": 7,
+    "restart_with_derived_cache_load_ms": 3374,
+    "decisions_after_restart_with_cache_ms": 4573,
+    "screen_ready_ms": 7947,
+    "screen_moderation_ms": 218,
+    "screen_rejected_ms": 9,
+    "screen_import_ms": 0,
+    "screen_backup_ms": 0,
+    "price_policy_preview_ms": 3192,
+    "price_policy_apply_ms": 12997,
+    "wire_export_ms": 9470
+  },
+  "network_requests": 0
+}
