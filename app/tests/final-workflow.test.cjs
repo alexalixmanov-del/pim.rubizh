@@ -106,3 +106,21 @@ test('committed exact wire fixture is byte-identical to the shipped exporter out
  assert.equal(fs.readFileSync(tmp,'utf8'),fs.readFileSync(path.join(__dirname,'../contracts/fixtures/pim-site-wire-v3.exact.json'),'utf8'));
  const w=JSON.parse(fs.readFileSync(tmp,'utf8'));assert.equal(validateWire(w),true,JSON.stringify(validateWire.errors));for(const m of w.products)assert.equal(validate(m),true);
 });
+test('new supplier position without photos becomes a rejected-import record, not a product; photos later restore it',()=>{
+ const h=setup();
+ h.run(`S.content.set('ck-x',{k:'ck-x',ph:[],d:'Опис без фото',a:{}});S.queue.set('supplier-a|X1',{k:'supplier-a|X1',sup:'supplier-a',s:'X1',n:'Ліхтар X',m:'',sz:'',c:'',attrs:{}});S.content.set('ck-g',{k:'ck-g',ph:[],d:'',a:{}});S.queue.set('supplier-a|G1',{k:'supplier-a|G1',sup:'supplier-a',s:'G1',n:'',m:'',sz:'',c:'',attrs:{}});`);
+ h.run(`contentKey=function(sup,m,n){return n?'ck-x':'ck-g';};`);
+ assert.equal(h.run('buildGroups([...S.queue.values()]).length'),2,'grouping screens unchanged outside import');
+ h.run('FINAL_UI.importing=true');const groups=h.run('buildGroups([...S.queue.values()]).length');assert.equal(groups,0,'automatic import may not create a product');
+ assert.equal(h.run('S.queue.get("supplier-a|X1").rejected_import.reason'),'NO_PHOTOS');assert.equal(h.run('S.queue.get("supplier-a|G1").rejected_import.reason'),'GARBAGE');
+ const before=h.run('S.products.size');h.run('bumpData()');assert.equal(h.run('S.products.size'),before);
+ h.run(`S.content.get('ck-x').ph=['https://rubizh.shop/media/x.webp']`);assert.equal(h.run('buildGroups([S.queue.get("supplier-a|X1")]).length'),1);h.run('FINAL_UI.importing=false');assert.equal(h.run('S.queue.get("supplier-a|X1").rejected_import'),undefined);
+});
+test('existing zero-photo cleanup: read-only preview, stale protection, archive (never delete) after confirmation',async()=>{
+ const h=setup({production:true});h.run('PRODUCTION_MIGRATION.state="ready";requireBatchBackup=async()=>({local:true});persist=async()=>true;');
+ h.run('const p=S.products.get("p-a");p.photos=[];for(const v of p.variants){v.photos=[];v.offers["supplier-a"].photos=[];}bumpData()');
+ const plan=h.run('finalZeroPhotoPreview()');assert.equal(plan.rows.length,1);assert.deepEqual([...plan.rows[0].skus],['RUB-00001','RUB-00002']);assert.equal(h.run('S.products.get("p-a").archived'),false,'preview is read-only');
+ h.ctx.plan=plan;h.run('S.products.get("p-a").note="changed";bumpData()');await assert.rejects(h.run('finalZeroPhotoArchive(plan)'),/STALE_PREVIEW/);
+ h.ctx.plan=h.run('finalZeroPhotoPreview()');assert.equal(await h.run('finalZeroPhotoArchive(plan)'),1);
+ assert.equal(h.run('S.products.get("p-a").archived'),true);assert.equal(h.run('S.products.has("p-a")'),true);assert.equal(h.run('S.products.get("p-a").variants.length'),2);
+});

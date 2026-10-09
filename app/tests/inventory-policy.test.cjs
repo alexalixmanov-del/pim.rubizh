@@ -30,9 +30,16 @@ test('manual availability override outranks confirmed supplier status',async()=>
 test('manual PREORDER status does not reuse supplier quantity as stock proof',()=>{const h=setup({id:'q',mode:'QUANTITY',confirmed:true,source_column:'Наличие'});h.run('const v=S.products.get("p-a").variants[0];v.offers["supplier-a"].stock=5;v.manualFields={availability:true};v.offers["supplier-a"].availability="order"');const a=available(h);assert.equal(a.availability,'PREORDER');assert.equal(a.stock_quantity,null);assert.equal(a.payment_allowed,false);assert.equal(validate(exported(h)),true,JSON.stringify(validate.errors));});
 test('new queued model retains mapped size, status column and actual observation provenance',async()=>{
  const h=createHarness({runtime:true});h.ctx.policy=status;h.run('S.cfg.suppliers[0].inventory_policy=policy;S.cfg.suppliers[0].auto=true;');await prepare(h);
- h.ctx.rows=[['SKU','Name','Custom size','Наличие','Observed','Cost'],['new-sku','Штани New Model','48','есть','2026-10-01T12:00:00Z',1000]];
- h.run('S.imp={sup:"supplier-a",file:"new.csv",rows,hdr:0,map:{sku:0,name:1,size:2,stock:3,stockObservedAt:4,cost:5}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
+ h.ctx.rows=[['SKU','Name','Custom size','Наличие','Observed','Cost','Фото'],['new-sku','Штани New Model','48','есть','2026-10-01T12:00:00Z',1000,'https://rubizh.shop/media/new.webp']];
+ h.run('S.imp={sup:"supplier-a",file:"new.csv",rows,hdr:0,map:{sku:0,name:1,size:2,stock:3,stockObservedAt:4,cost:5,photos:6}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
  assert.equal(h.run('S.products.size'),1);const p=h.run('[...S.products.values()][0]'),o=p.variants[0].offers['supplier-a'];assert.equal(o.inventory_source_column,'Наличие');assert.equal(o.structured_size,'48');assert.equal(o.size_input_provenance,'DEDICATED_COLUMN');assert.equal(o.stock_observed_at,Date.parse('2026-10-01T12:00:00Z'));assert.notEqual(o.imported_at,o.stock_observed_at);
  assert.equal(h.run('classificationAvailability([...S.products.values()][0],[...S.products.values()][0].variants[0]).payment_allowed'),true);assert.equal(p.variants[0].size,'48');
  h.run('S.cfg.suppliers[0].inventory_policy.source_column="Другой статус"');assert.equal(h.run('classificationAvailability([...S.products.values()][0],[...S.products.values()][0].variants[0]).availability'),'UNKNOWN');
+});
+test('automatic import: a new position without photos is kept as a rejected-import record and creates no product',async()=>{
+ const h=createHarness({runtime:true});h.ctx.policy=status;h.run('S.cfg.suppliers[0].inventory_policy=policy;S.cfg.suppliers[0].auto=true;');await prepare(h);
+ h.ctx.rows=[['SKU','Name','Custom size','Наличие','Observed','Cost'],['nophoto-sku','Штани No Photo','48','есть','2026-10-01T12:00:00Z',1000]];
+ h.run('S.imp={sup:"supplier-a",file:"new.csv",rows,hdr:0,map:{sku:0,name:1,size:2,stock:3,stockObservedAt:4,cost:5}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
+ assert.equal(h.run('S.products.size'),0);assert.equal(h.run('[...S.queue.values()].filter(i=>i.rejected_import?.reason==="NO_PHOTOS").length'),1);
+ h.run('S.imp={sup:"supplier-a",file:"new.csv",rows,hdr:0,map:{sku:0,name:1,size:2,stock:3,stockObservedAt:4,cost:5}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);assert.equal(h.run('S.products.size'),0);assert.equal(h.run('S.queue.size'),1,'repeat import creates no duplicate record');
 });

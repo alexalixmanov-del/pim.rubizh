@@ -230,3 +230,54 @@ document.addEventListener('click',async e=>{
  }
  const v=e.target.closest('[data-view]');if(v&&v.dataset.view!==S.view)FINAL_UI.page=0;
 },true);
+// New supplier positions: no usable photo → minimal rejected-import record (NO_PHOTOS); no photo, title and
+// description → GARBAGE. Neither creates a ProductModel. The queue item itself is the raw preserved record.
+function finalGroupEvidence(gr){
+ const ph=[],d=[];for(const k of gr.contentKeys||[gr.contentKey||gr.key]){const c=S.content.get(k);if(c){ph.push(...(c.ph||[]));if(c.d)d.push(String(c.d));}}
+ const photos=ph.filter(url=>{try{return ['http:','https:'].includes(new URL(url).protocol);}catch{return false;}});
+ const title=String(gr.items[0]?.n||gr.name||'').trim(),desc=d.join(' ').replace(/<[^>]*>/g,' ').trim();
+ return {photos,title,desc,reason:photos.length?null:!title&&!desc?'GARBAGE':'NO_PHOTOS'};
+}
+const finalBuildGroups=buildGroups;
+buildGroups=function(items){
+ if(!FINAL_UI.importing)return finalBuildGroups(items);
+ const out=[];
+ for(const g of finalBuildGroups(items)){const e=finalGroupEvidence(g);
+  for(const it of g.items){const was=it.rejected_import?.reason||null;if(was!==e.reason){touchQ(it.k);if(e.reason)it.rejected_import={reason:e.reason,at:Date.now()};else delete it.rejected_import;markQueue(it.k);}}
+  if(!e.reason)out.push(g);}
+ return out;
+};
+const finalRejectedImports=memoByData(function(){const out=new Map();for(const it of S.queue.values())if(it.rejected_import&&!it.ig){const r=it.rejected_import.reason;if(!out.has(r))out.set(r,[]);out.get(r).push(it);}return out;});
+FINAL_REJECT_TEXT.GARBAGE=['Пустая строка поставщика','Нет фото, названия и описания: товар не создаётся.'];
+FINAL_REJECT_TEXT.IMPORT_NO_PHOTOS=['Новая позиция без фото','Позиция поставщика сохранена только как запись импорта; карточка не создана.'];
+// Existing zero-photo products: SCAN → read-only preview → owner confirmation → archive (never delete identity).
+function finalZeroPhotoPreview(){
+ const rows=[...S.products.values()].filter(p=>!p.archived&&finalDecision(p).reasons.some(r=>r.code==='NO_PHOTOS')).map(p=>({id:p.id,name:finalTitle(p)||p.id,skus:p.variants.map(v=>v.sku),reason:'NO_PHOTOS'}));
+ return {rows,signature:fnvHash(stableValue105(rows.map(r=>[r.id,stableValue105(S.products.get(r.id))]))),at:Date.now()};
+}
+async function finalZeroPhotoArchive(plan){
+ const now=finalZeroPhotoPreview();if(!plan||now.signature!==plan.signature)throw Error('STALE_PREVIEW: каталог изменился, повторите предпросмотр');
+ if(!plan.rows.length)return 0;
+ await requireBatchBackup('Перед архивом товаров без фото');const backup=fullStateData('До архива товаров без фото');
+ try{for(const r of plan.rows){const p=S.products.get(r.id);const was={pub:p.pub,archived:p.archived};touchP(p.id);p.archivePrevPub=p.pub;p.archived=true;p.archiveReason='NO_PHOTOS: подтверждено владельцем';modelAudit(p,was,{pub:p.pub,archived:true},'Архив без фото (подтверждено)');markProduct(p);}
+  rebuildIndex();bumpData();if(!await persist())throw Error('Архив не сохранён.');return plan.rows.length;}
+ catch(error){loadStateData(backup);markAllDirty();await persist();throw error;}
+}
+const finalRejectedView=vFinalRejected;
+vFinalRejected=function(){
+ const imports=finalRejectedImports(),plan=FINAL_UI.zeroPlan;
+ const importHtml=[...imports].map(([reason,list])=>'<section class="panel"><h2>'+esc((reason==='GARBAGE'?FINAL_REJECT_TEXT.GARBAGE:FINAL_REJECT_TEXT.IMPORT_NO_PHOTOS)[0])+' · '+list.length+'</h2><p class="small">'+esc((reason==='GARBAGE'?FINAL_REJECT_TEXT.GARBAGE:FINAL_REJECT_TEXT.IMPORT_NO_PHOTOS)[1])+'</p><p class="small muted">'+list.slice(0,8).map(it=>esc((S.cfg.suppliers.find(s=>s.id===it.sup)?.name||it.sup)+': '+(it.n||it.s||'—'))).join('<br>')+'</p></section>').join('');
+ const cleanup='<section class="panel"><h2>Очистка товаров без фото</h2><p class="small">Сначала предпросмотр: список ID и SKU. Товары архивируются (не удаляются), история и идентичность сохраняются.</p>'+(plan?'<p>К архиву: <b>'+plan.rows.length+'</b></p><details><summary>Список</summary>'+plan.rows.slice(0,200).map(r=>'<p class="small">'+esc(r.id)+' · '+esc(r.name)+' · '+esc(r.skus.join(', '))+'</p>').join('')+'</details><button class="btn danger" data-final="zeroApply" '+(plan.rows.length?'':'disabled')+'>Подтверждаю: архивировать '+plan.rows.length+'</button> <button class="btn" data-final="zeroCancel">Отмена</button>':'<button class="btn" data-final="zeroPreview">Предпросмотр очистки</button>')+'</section>';
+ return finalRejectedView()+cleanup+importHtml;
+};
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-final^="zero"]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();
+ try{const a=b.dataset.final;
+  if(a==='zeroPreview')FINAL_UI.zeroPlan=finalZeroPhotoPreview();
+  if(a==='zeroCancel')FINAL_UI.zeroPlan=null;
+  if(a==='zeroApply'){if(!confirm('Архивировать '+FINAL_UI.zeroPlan.rows.length+' товаров без фото? Копия базы будет сохранена.'))return;const n=await finalZeroPhotoArchive(FINAL_UI.zeroPlan);FINAL_UI.zeroPlan=null;toast('В архив: '+n);}
+ }catch(error){toast(error.message||String(error));}finally{render();}
+},true);
+// Only automatic product creation during a supplier import applies the rule; grouping screens are unchanged.
+const finalRunImport=runImport;
+runImport=function(...args){FINAL_UI.importing=true;try{return finalRunImport(...args);}finally{FINAL_UI.importing=false;}};
