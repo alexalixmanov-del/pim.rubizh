@@ -267,6 +267,9 @@ runImport=function(sup,rows,hdr,map,opts={}){
  try{S._classificationSupplier=sup;result=classificationImport(sup,rows,hdr,map,{...opts,zeroMissing:classificationEnabled()?false:opts.zeroMissing});}finally{S._classificationSupplier=previousSupplier;}
  const touched=[...S.products.values()].filter(p=>p.variants.some(v=>v.offers?.[sup.id]?.at===result.at));
  for(const p of touched){if(contentBefore?.has(p.id)){const old=contentBefore.get(p.id);for(const k of ['name','desc','attrs','photos','photoMeta','fieldMeta','translated_description_uk','source_description'])if(Object.hasOwn(old,k))p[k]=old[k];else delete p[k];}classificationApplyProduct(p);}
+ // MODEL → COLOR after classification: sizes proven only now (e.g. approved net grid W×H) let the size cards of one
+ // supplier model merge in the same import; merged survivors are re-classified.
+ if(typeof mcEnabled==='function'&&mcEnabled()&&!classificationReviewMode()){const ids=new Set(touched.map(p=>p.id));bumpData();for(const r of mcMigrate(mcPlan().automatic.filter(g=>g.ids.some(id=>ids.has(id))))){const survivor=S.products.get(r.id);if(survivor)classificationApplyProduct(survivor);}}
  // Cards merged into a model during this import stay archived; restoring their pre-import flags would revive empty cards.
  for(const p of S.products.values()){if(p.merged_into)continue;const old=publication.get(p.id);if(!old){p.pub=false;p.archived=false;continue;}for(const k of ['pub','archived','archiveReason','archivePrevPub','syncStatus','simple_excluded_reason']){if(Object.hasOwn(old,k))p[k]=old[k];else delete p[k];}}
  bumpData();result.classification_report=classificationSummary(touched);return result;

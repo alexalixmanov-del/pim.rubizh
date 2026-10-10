@@ -223,3 +223,13 @@ test('a READY model never has zero priced variants; one unpriced SKU of a priced
  const bad=JSON.parse(h.run('JSON.stringify(finalWireProduct(S.products.get(pid)))')).variants.find(v=>v.sku==='RUB-G2');
  assert.equal(bad.price,null);assert.equal(bad.price_ready,false);assert.equal(bad.payment_allowed,false);assert.equal(bad.order_submission_allowed,false);
 });
+test('import path: M-WIN net rows of one supplier group become one model with W×H sizes in the same import; the per-m² row stays apart',async()=>{
+ // Production channel: automatic MODEL → COLOR merges run during import (the review channel only proposes them).
+ const h=createHarness({runtime:true,production:true});h.run('render=()=>{}');await h.run('Store.init()');h.run('PRODUCTION_MIGRATION.state="ready"');h.run(`Object.assign(S.cfg,OWNER_PRICE_POLICY);classificationEnable();S.cfg.category_engine={version:RubizhCategories.VERSION,migration_validated:true};S.cfg.simple_mode_version=1;S.cfg.model_colors_version=MC_VERSION;S.cfg.suppliers.push({id:'${MWIN}',name:'M-WIN',auto:true,priority:1,terms:{priceType:'cost'}})`);
+ const T='Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь.',row=(sku,title,sel,cost)=>[sku,title,'37469','Маскувальні сітки','https://rubizh.shop/media/'+sku+'.webp',cost,'Осіннє листя',DESC,'ОБЕРІТЬ РОЗМІР СІТКИ:: '+sel+(/х/.test(sel)?'\nШирина: '+sel.split('х')[0]+' м\nДовжина: '+sel.split('х')[1]+' м':'')];
+ h.ctx.rows=[['Артикул','Название','Модель','Категория','Фото','Цена','Цвет','Описание','Характеристики'],row('LO-2х3',T+' 2х3 м (площа 6 кв.м.)','2х3',252),row('LO-3х4',T+' 3х4 м (площа 12 кв.м.)','3х4',504),row('0000LO',T+' індивідуального розміру (ціна за 1 кв.м.)','Індивідуальний розмір',42)];
+ h.run(`S.imp={sup:'${MWIN}',file:'mwin.xml',rows,hdr:0,map:{sku:0,name:1,model:2,category:3,photos:4,cost:5,color:6,desc:7,attrs:8}}`);await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
+ const models=JSON.parse(h.run('JSON.stringify([...S.products.values()].filter(p=>!p.archived).map(p=>({cat:p.canonical_category_id,v:p.variants.map(v=>[v.sku,v.size_status,v.size||""]).sort()})))'));
+ const net=models.find(m=>m.v.length===2);assert.ok(net,JSON.stringify(models));assert.deepEqual(net.v.map(x=>x[2]).sort(),['2×3 м','3×4 м']);
+ assert.equal(models.filter(m=>m.v.length===1).length,1,'the per-m² row is its own card');assert.equal(h.run('[...S.products.values()].reduce((n,p)=>n+p.variants.length,0)'),3,'no SKU invented');
+});
