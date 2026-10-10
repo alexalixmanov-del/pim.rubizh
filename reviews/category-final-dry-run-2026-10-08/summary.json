@@ -1,0 +1,466 @@
+{
+  "status": "FINAL_DRY_RUN_ONLY",
+  "reviewed_original_ambiguous": 124,
+  "reviewed_original_124_counts": {
+    "SAFE_AUTO": 109,
+    "LIKELY": 12,
+    "AMBIGUOUS": 3
+  },
+  "final_category_queue_counts": {
+    "CATEGORY_SAFE_AUTO": 243,
+    "CATEGORY_LIKELY": 70,
+    "CATEGORY_AMBIGUOUS": 3
+  },
+  "earlier_134_SAFE_AUTO_and_58_LIKELY_carried_forward": true,
+  "scope_note": "All approved category title candidates across the 3113-product snapshot are inside the reviewed 124. Earlier unaffected 134 SAFE_AUTO and 58 LIKELY are carried forward, not reclassified.",
+  "previous_counts_of_124": {
+    "SAFE_AUTO": 70,
+    "LIKELY": 33,
+    "AMBIGUOUS": 21
+  },
+  "new_safe_auto_vs_previous_review": 39,
+  "approved_new_category_ids": [
+    "symbols",
+    "armor_ballistic_blankets",
+    "clothing_insulated_vests",
+    "footwear_care",
+    "footwear_shoes",
+    "communications_earplugs",
+    "electronics_rf_detectors",
+    "symbols_flags",
+    "field_watches"
+  ],
+  "watch_confirmed_SAFE_AUTO": 27,
+  "original_taxonomy_gaps": 18,
+  "remaining_gaps_in_virtual_taxonomy": 0,
+  "exceptions_in_original_124": 15,
+  "grouped_exceptions": 10,
+  "categories_before": 134,
+  "categories_after_simulated": 143,
+  "categories_after_actual": 134,
+  "aliases_added_simulated": 25,
+  "supplier_rules_simulated": 13,
+  "actual_diff": {
+    "categories_before": 134,
+    "categories_after": 134,
+    "new_category_ids": [],
+    "removed_category_ids": [],
+    "renamed_category_ids": [],
+    "moved_category_ids": [],
+    "alias_changes": [],
+    "supplier_mapping_changes": [],
+    "applied": false
+  },
+  "simulated_diff": {
+    "categories_before": 134,
+    "categories_after": 143,
+    "new_category_ids": [
+      "symbols",
+      "armor_ballistic_blankets",
+      "clothing_insulated_vests",
+      "footwear_care",
+      "footwear_shoes",
+      "communications_earplugs",
+      "electronics_rf_detectors",
+      "symbols_flags",
+      "field_watches"
+    ],
+    "removed_category_ids": [],
+    "renamed_category_ids": [],
+    "moved_category_ids": [],
+    "alias_changes": [
+      {
+        "category_id": "armor_ballistic_blankets",
+        "add": [
+          "бронековдра",
+          "баллистическое одеяло"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "clothing_insulated_vests",
+        "add": [
+          "утеплена жилетка",
+          "жилетка утеплена",
+          "утепленный жилет"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "footwear_care",
+        "add": [
+          "спрей для взуття",
+          "догляд за взуттям",
+          "крем для обуви"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "footwear_shoes",
+        "add": [
+          "лофери",
+          "лоферы",
+          "туфлі",
+          "туфли"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "communications_earplugs",
+        "add": [
+          "пасивні беруші",
+          "беруші багаторазові",
+          "беруши пассивные"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "electronics_rf_detectors",
+        "add": [
+          "пристрій радіоелектронної розвідки",
+          "детектор радіосигналів",
+          "детектор fpv"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "symbols_flags",
+        "add": [
+          "прапор України",
+          "флаг Украины"
+        ],
+        "remove": []
+      },
+      {
+        "category_id": "field_watches",
+        "add": [
+          "годинник наручний",
+          "наручний годинник",
+          "тактичний годинник",
+          "наручные часы",
+          "wristwatch"
+        ],
+        "remove": []
+      }
+    ],
+    "supplier_mapping_changes": [
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "2 клас захисту",
+        "product_ids": [
+          "pawfufct2m7b"
+        ],
+        "target_category_id": "armor_ballistic_blankets",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "1 клас захисту",
+        "product_ids": [
+          "pfu25c7n2m7a"
+        ],
+        "target_category_id": "armor_ballistic_blankets",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2hjvaqgnp29",
+        "supplier_name": "армолайн",
+        "supplier_category": "Жилетки утеплені",
+        "product_ids": [
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad",
+          "pu8imo0cnqad"
+        ],
+        "target_category_id": "clothing_insulated_vests",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Voennaya forma",
+        "product_ids": [
+          "plzx1qgaogob"
+        ],
+        "target_category_id": "clothing_insulated_vests",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Krem dlya obuvi",
+        "product_ids": [
+          "pdsz5i2pogo8"
+        ],
+        "target_category_id": "footwear_care",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Zaschitnye pokrytiya",
+        "product_ids": [
+          "pngjvydiogqv"
+        ],
+        "target_category_id": "footwear_care",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Tufli",
+        "product_ids": [
+          "p5ye3ot9ogub"
+        ],
+        "target_category_id": "footwear_shoes",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Навушники , беруши",
+        "product_ids": [
+          "pacqk51xn13m",
+          "pl49m6rtn13l"
+        ],
+        "target_category_id": "communications_earplugs",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+        "product_ids": [
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha",
+          "p35rksvh2mha"
+        ],
+        "target_category_id": "electronics_rf_detectors",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "ПРАПОРА",
+        "product_ids": [
+          "p9dt3vcen19k",
+          "ppihe03mn19k"
+        ],
+        "target_category_id": "symbols_flags",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "sf0t3l7jegf9",
+        "supplier_name": "м вин",
+        "supplier_category": "Державні прапори України",
+        "product_ids": [
+          "plofe5m4ehw8",
+          "pr8xsqe7ehw8",
+          "p4qcrbkwehw7",
+          "p83fbijzehw8",
+          "pn1leleqehw7",
+          "p96h3jomehw7"
+        ],
+        "target_category_id": "symbols_flags",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Тактичні годинники",
+        "product_ids": [
+          "pvacomppn13u",
+          "puw4du66n13u",
+          "powmye9on172",
+          "pyufngh0n13v",
+          "p001j2won1b9",
+          "pkkhv3f8n1dh",
+          "pabqwtgun1dh",
+          "p2qe2yn1n13v",
+          "prv9eowrn13t",
+          "pnv8lcyun19n",
+          "pnv8lcyun19n",
+          "pnv8lcyun19n"
+        ],
+        "target_category_id": "field_watches",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      },
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Годинники GLOCK",
+        "product_ids": [
+          "puzzz4n3n13y",
+          "p1ym9zern142",
+          "phigb1ykn142",
+          "pvn442jbn13w",
+          "p2yg6iben143",
+          "pm0mgrbin141",
+          "p8iagcspn145",
+          "puqjdz6dn13z",
+          "plitlmf1n13w",
+          "pk2irpzpn13z",
+          "p925ftghn144",
+          "prw40kcyn141",
+          "p49xbefxn144",
+          "ptcb3deqn13x",
+          "pdbqzcbkn13y",
+          "p3ssz6wsn146",
+          "pcvqjx7dn140"
+        ],
+        "target_category_id": "field_watches",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "requires_matching_supplier_title": true,
+        "requires_description_evidence": true,
+        "preserve_manual_locks": true,
+        "never_replace_existing_mapping": true,
+        "proposal_only": true,
+        "applied": false
+      }
+    ],
+    "scope": "VIRTUAL_ONLY",
+    "applied": false
+  },
+  "integrity": {
+    "LOST_CATEGORIES": 0,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "products_before": 3113,
+    "products_after": 3113,
+    "variants_before": 8734,
+    "variants_after": 8734,
+    "sku_entries_before": 8734,
+    "sku_entries_after": 8734,
+    "working_taxonomy_unchanged": true,
+    "canonical_ids_unchanged": true,
+    "manual_locks_unchanged": true,
+    "existing_aliases_unchanged": true,
+    "supplier_mappings_unchanged": true,
+    "entire_products_unchanged": true,
+    "entire_cfg_unchanged": true,
+    "original_hashes": {
+      "products": "6f01b7ab0d2ab0a2b3969baf788c8bd77b6342c099289a8091417544bf89a4eb",
+      "cfg": "0f93e47bee15dcc051265ec5ad5ae38422ba9edf7b2834131873ba1b2fd170d3",
+      "taxonomy": "87363c03af8c577ce0a7dacae60715a1dce505dc479fccd74b0029fed90836c3"
+    },
+    "input_file_hashes": {
+      "baseline": "9ee5645236db92e5373dea1a875a83d821ec86bab64f4acc1e4316b7183ee5f3",
+      "cases": "d7819f7604160af5f1313b0ba529ceaf222083798f34e0faa4043a322b8c9d53",
+      "prior": "7f3b30c532f5b237b22169dfe773fdff08b7b3f138ff5cd10c021e1eb6340b13",
+      "previous": "c65a901c11d6f00065ad8c2d4209eb092ac4fd29968e4dd5031ed53f9fe9a55c"
+    }
+  },
+  "production_changed": false,
+  "migration_executed": false,
+  "publication_executed": false,
+  "categories_applied": false,
+  "products_moved": false,
+  "mappings_or_aliases_written_to_working_data": false,
+  "verification_limit": "Read-only simulation; unchanged data hashes do not validate a future applied migration.",
+  "validation": {
+    "new_tests_passed": 78,
+    "existing_tests_passed": 261,
+    "failed_tests": 0,
+    "working_taxonomy_file_sha256": "90b9a640379e05eb31493a100ee9322d83cb3ad496c964c27eac63c6a6cdef2c",
+    "working_taxonomy_matches_previous_snapshot": true
+  },
+  "source_sha256": {
+    "category-reasons.cjs": "21f7e3e90bcd4763afd4d560e552177ef94d8e24b1cdd838d91b8d778b9a9d2f",
+    "category-final-audit.cjs": "1818832b8325fccd8640bdf4e14021a0c964bca18e35b75f456b144bfcf7d2b5",
+    "category-reasons.test.cjs": "cff06eeb6260fea8742cf302d41fb2f5e56ef6a670dd0d8b0390ad99b86edd92"
+  }
+}

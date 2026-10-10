@@ -1,0 +1,673 @@
+{
+  "memory_limit_v8_old_space_mb": 768,
+  "history_fixture_count": 14,
+  "full_bootstrap": true,
+  "runtime_stubs": false,
+  "external_network_calls": 0,
+  "errors": [],
+  "console_errors": [],
+  "network_errors": [],
+  "intercepted_external_requests": 16,
+  "checks": [
+    "full portable source + 14 full-catalog automatic backup blobs seeded into isolated IndexedDB",
+    "full startup and repeated render preserve shell and search",
+    "native preview → actual backup download → confirmation → atomic apply",
+    "search and 6 main pages at desktop/mobile widths",
+    "restart and identical second migration is a no-op",
+    "all 14 automatic backup blob SHA256 values preserved through apply and rollback",
+    "native rollback and rescue backup preserve protected catalog hash"
+  ],
+  "stages": [
+    {
+      "stage": "before apply",
+      "at_ms": 44126,
+      "heap_mb": 396
+    },
+    {
+      "stage": "rowsDigest start",
+      "at_ms": 45121,
+      "heap_mb": 489
+    },
+    {
+      "stage": "rowsDigest end",
+      "at_ms": 49202,
+      "heap_mb": 528
+    },
+    {
+      "stage": "rowsDigest start",
+      "at_ms": 49202,
+      "heap_mb": 528
+    },
+    {
+      "stage": "rowsDigest end",
+      "at_ms": 51670,
+      "heap_mb": 629
+    },
+    {
+      "stage": "encodeBlob start",
+      "at_ms": 51671,
+      "heap_mb": 629
+    },
+    {
+      "stage": "encodeBlob end",
+      "at_ms": 71509,
+      "heap_mb": 485
+    },
+    {
+      "stage": "saveBackup start",
+      "at_ms": 77015,
+      "heap_mb": 412
+    },
+    {
+      "stage": "saveBackup end",
+      "at_ms": 81755,
+      "heap_mb": 463
+    },
+    {
+      "stage": "readBackup start",
+      "at_ms": 81755,
+      "heap_mb": 463
+    },
+    {
+      "stage": "readBackup end",
+      "at_ms": 99889,
+      "heap_mb": 826
+    },
+    {
+      "stage": "rowsDigest start",
+      "at_ms": 99890,
+      "heap_mb": 826
+    },
+    {
+      "stage": "rowsDigest end",
+      "at_ms": 103714,
+      "heap_mb": 589
+    }
+  ],
+  "functions": [
+    {
+      "name": "productionHydrate",
+      "ms": 387,
+      "at_ms": 112651
+    },
+    {
+      "name": "productionHydrate",
+      "ms": 277,
+      "at_ms": 113071
+    },
+    {
+      "name": "productionPriceFrom",
+      "ms": 313,
+      "at_ms": 113070
+    },
+    {
+      "name": "productionAssertPreserved",
+      "ms": 303,
+      "at_ms": 113383
+    },
+    {
+      "name": "vSimplePublication",
+      "ms": 784,
+      "at_ms": 136238
+    },
+    {
+      "name": "render",
+      "ms": 787,
+      "at_ms": 136237
+    },
+    {
+      "name": "render",
+      "ms": 185,
+      "at_ms": 144866
+    }
+  ],
+  "products": 3113,
+  "history_before": [
+    [
+      "autobak/test-0",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-1",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-10",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-11",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-12",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-13",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-2",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-3",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-4",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-5",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-6",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-7",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-8",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-9",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ]
+  ],
+  "preview": {
+    "version": "10.9.3",
+    "rc_commit": "440aa60ee42795ba8bf5167d8121470a5a56aab3",
+    "source_sha256": "8a9750e4c8f32d010df09bd310480a93c6b26c33c46c618122c14ad285b060d1",
+    "products": 3113,
+    "variants": 8734,
+    "bindings": 8734,
+    "categories_before": 0,
+    "categories_after": 143,
+    "builtin_categories": 143,
+    "category": {
+      "SAFE_AUTO": 2712,
+      "LIKELY": 194,
+      "AMBIGUOUS": 207,
+      "UNTOUCHED": 0
+    },
+    "size": {
+      "SAFE_AUTO": 7709,
+      "LIKELY": 1,
+      "AMBIGUOUS": 1024
+    },
+    "runtime": {
+      "SAFE_AUTO": 10421,
+      "LIKELY": 195,
+      "AMBIGUOUS": 1231,
+      "exact_sku_sizes": 4262,
+      "allowed_sizes_without_sku": 1141,
+      "SIZE_CONFIRMATION_REQUIRED": 1604,
+      "UNKNOWN_stock": 8734,
+      "NO_SIZE_REQUIRED": 2845,
+      "ONE_SIZE": 23
+    },
+    "supplier_availability": {
+      "IN_STOCK": 6187,
+      "OUT_OF_STOCK": 1034,
+      "PREORDER": 1,
+      "UNKNOWN": 1512,
+      "ORDER_ON_REQUEST": 0
+    },
+    "PAYMENT_READY": 4563,
+    "manual_lock_products": 8,
+    "LOST_CATEGORIES": 0,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "IDS_UNCHANGED": true,
+    "MANUAL_LOCKS_UNCHANGED": true,
+    "PRICES_UNCHANGED": true,
+    "STOCK_UNCHANGED": true,
+    "PUBLICATION_UNCHANGED": true,
+    "SYNC_ENABLED": false,
+    "AUTOPRICES_ENABLED": false,
+    "PRODUCTION_WRITES": 0
+  },
+  "performance": {
+    "maxLag": 10606.80000000028,
+    "longTasks": [
+      {
+        "ms": 102,
+        "at_ms": 45185
+      },
+      {
+        "ms": 51,
+        "at_ms": 47112
+      },
+      {
+        "ms": 307,
+        "at_ms": 51931
+      },
+      {
+        "ms": 63,
+        "at_ms": 80340
+      },
+      {
+        "ms": 52,
+        "at_ms": 87264
+      },
+      {
+        "ms": 89,
+        "at_ms": 87538
+      },
+      {
+        "ms": 121,
+        "at_ms": 87974
+      },
+      {
+        "ms": 191,
+        "at_ms": 88463
+      },
+      {
+        "ms": 66,
+        "at_ms": 88924
+      },
+      {
+        "ms": 105,
+        "at_ms": 89232
+      },
+      {
+        "ms": 93,
+        "at_ms": 89679
+      },
+      {
+        "ms": 104,
+        "at_ms": 90109
+      },
+      {
+        "ms": 115,
+        "at_ms": 90632
+      },
+      {
+        "ms": 133,
+        "at_ms": 91196
+      },
+      {
+        "ms": 81,
+        "at_ms": 91394
+      },
+      {
+        "ms": 276,
+        "at_ms": 91831
+      },
+      {
+        "ms": 385,
+        "at_ms": 92634
+      },
+      {
+        "ms": 353,
+        "at_ms": 93402
+      },
+      {
+        "ms": 100,
+        "at_ms": 94155
+      },
+      {
+        "ms": 124,
+        "at_ms": 94608
+      },
+      {
+        "ms": 65,
+        "at_ms": 94876
+      },
+      {
+        "ms": 106,
+        "at_ms": 95304
+      },
+      {
+        "ms": 321,
+        "at_ms": 95818
+      },
+      {
+        "ms": 157,
+        "at_ms": 101582
+      },
+      {
+        "ms": 154,
+        "at_ms": 101823
+      },
+      {
+        "ms": 678,
+        "at_ms": 103713
+      },
+      {
+        "ms": 51,
+        "at_ms": 105551
+      },
+      {
+        "ms": 50,
+        "at_ms": 105602
+      },
+      {
+        "ms": 834,
+        "at_ms": 110105
+      },
+      {
+        "ms": 2121,
+        "at_ms": 112291
+      },
+      {
+        "ms": 73,
+        "at_ms": 117419
+      },
+      {
+        "ms": 59,
+        "at_ms": 120068
+      },
+      {
+        "ms": 55,
+        "at_ms": 122756
+      },
+      {
+        "ms": 55,
+        "at_ms": 124063
+      },
+      {
+        "ms": 56,
+        "at_ms": 124570
+      },
+      {
+        "ms": 55,
+        "at_ms": 124831
+      },
+      {
+        "ms": 77,
+        "at_ms": 125905
+      },
+      {
+        "ms": 66,
+        "at_ms": 126927
+      },
+      {
+        "ms": 56,
+        "at_ms": 128362
+      },
+      {
+        "ms": 71,
+        "at_ms": 128443
+      },
+      {
+        "ms": 69,
+        "at_ms": 129665
+      },
+      {
+        "ms": 77,
+        "at_ms": 131480
+      },
+      {
+        "ms": 71,
+        "at_ms": 131562
+      },
+      {
+        "ms": 57,
+        "at_ms": 132047
+      },
+      {
+        "ms": 53,
+        "at_ms": 133021
+      },
+      {
+        "ms": 72,
+        "at_ms": 133629
+      },
+      {
+        "ms": 53,
+        "at_ms": 134586
+      },
+      {
+        "ms": 795,
+        "at_ms": 136228
+      }
+    ]
+  },
+  "applied": {
+    "version": "10.9.3",
+    "rc_commit": "440aa60ee42795ba8bf5167d8121470a5a56aab3",
+    "source_sha256": "8a9750e4c8f32d010df09bd310480a93c6b26c33c46c618122c14ad285b060d1",
+    "products": 3113,
+    "variants": 8734,
+    "bindings": 8734,
+    "categories_before": 0,
+    "categories_after": 143,
+    "builtin_categories": 143,
+    "category": {
+      "SAFE_AUTO": 2712,
+      "LIKELY": 194,
+      "AMBIGUOUS": 207,
+      "UNTOUCHED": 0
+    },
+    "size": {
+      "SAFE_AUTO": 7709,
+      "LIKELY": 1,
+      "AMBIGUOUS": 1024
+    },
+    "runtime": {
+      "SAFE_AUTO": 10421,
+      "LIKELY": 195,
+      "AMBIGUOUS": 1231,
+      "exact_sku_sizes": 4262,
+      "allowed_sizes_without_sku": 1141,
+      "SIZE_CONFIRMATION_REQUIRED": 1604,
+      "UNKNOWN_stock": 8734,
+      "NO_SIZE_REQUIRED": 2845,
+      "ONE_SIZE": 23
+    },
+    "supplier_availability": {
+      "IN_STOCK": 6187,
+      "OUT_OF_STOCK": 1034,
+      "PREORDER": 1,
+      "UNKNOWN": 1512,
+      "ORDER_ON_REQUEST": 0
+    },
+    "PAYMENT_READY": 4563,
+    "manual_lock_products": 8,
+    "LOST_CATEGORIES": 0,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "IDS_UNCHANGED": true,
+    "MANUAL_LOCKS_UNCHANGED": true,
+    "PRICES_UNCHANGED": true,
+    "STOCK_UNCHANGED": true,
+    "PUBLICATION_UNCHANGED": true,
+    "SYNC_ENABLED": false,
+    "AUTOPRICES_ENABLED": false,
+    "BACKUP_PATH": "rubizh_pim_release_backups_v1/backups/10.9.3-1791515547514-backupg3y082j3nga",
+    "BACKUP_FORMAT": "rubizh-pim-production-snapshot",
+    "BACKUP_SHA256": "cb8f508d7e8db4abff76a1680b0a85befd5d0f13bcfa481afc6cbd489fbf0a09",
+    "PERSISTED_VERIFIED": true,
+    "EXTERNAL_BACKUP_USER_CONFIRMED": true,
+    "LOCAL_MIGRATION_TRANSACTIONS": 1,
+    "SHOP_WRITES": 0
+  },
+  "history_after": [
+    [
+      "autobak/test-0",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-1",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-10",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-11",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-12",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-13",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-2",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-3",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-4",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-5",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-6",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-7",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-8",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-9",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ]
+  ],
+  "second": {
+    "version": "10.9.3",
+    "rc_commit": "440aa60ee42795ba8bf5167d8121470a5a56aab3",
+    "source_sha256": "861004884ccd423898dfc169cd616fce75298a697776567e8483fd3e659aaa7c",
+    "products": 3113,
+    "variants": 8734,
+    "bindings": 8734,
+    "categories_before": 143,
+    "categories_after": 143,
+    "builtin_categories": 143,
+    "category": {
+      "SAFE_AUTO": 2712,
+      "LIKELY": 194,
+      "AMBIGUOUS": 207,
+      "UNTOUCHED": 0
+    },
+    "size": {
+      "SAFE_AUTO": 7709,
+      "LIKELY": 1,
+      "AMBIGUOUS": 1024
+    },
+    "runtime": {
+      "SAFE_AUTO": 10421,
+      "LIKELY": 195,
+      "AMBIGUOUS": 1231,
+      "exact_sku_sizes": 4262,
+      "allowed_sizes_without_sku": 1141,
+      "SIZE_CONFIRMATION_REQUIRED": 1604,
+      "UNKNOWN_stock": 8734,
+      "NO_SIZE_REQUIRED": 2845,
+      "ONE_SIZE": 23
+    },
+    "supplier_availability": {
+      "IN_STOCK": 6187,
+      "OUT_OF_STOCK": 1034,
+      "PREORDER": 1,
+      "UNKNOWN": 1512,
+      "ORDER_ON_REQUEST": 0
+    },
+    "PAYMENT_READY": 4563,
+    "manual_lock_products": 8,
+    "LOST_CATEGORIES": 0,
+    "LOST_SKU": 0,
+    "LOST_VARIANTS": 0,
+    "LOST_PHOTOS": 0,
+    "LOST_PRICES": 0,
+    "LOST_STOCK": 0,
+    "IDS_UNCHANGED": true,
+    "MANUAL_LOCKS_UNCHANGED": true,
+    "PRICES_UNCHANGED": true,
+    "STOCK_UNCHANGED": true,
+    "PUBLICATION_UNCHANGED": true,
+    "SYNC_ENABLED": false,
+    "AUTOPRICES_ENABLED": false,
+    "PRODUCTION_WRITES": 0,
+    "ALREADY_MIGRATED": true
+  },
+  "rollback_protected_sha256": "eb1fdbb9b6792e7eb6c0df610e9c78007175472783ad3eb4708d9ba441551a61",
+  "history_rollback": [
+    [
+      "autobak/test-0",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-1",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-10",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-11",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-12",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-13",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-2",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-3",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-4",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-5",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-6",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-7",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-8",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ],
+    [
+      "autobak/test-9",
+      "f2c9a2b785539e849052449cd7f20a5ff6ab3969216cf0a4c85ab02588e9150c"
+    ]
+  ],
+  "status": "PASS"
+}

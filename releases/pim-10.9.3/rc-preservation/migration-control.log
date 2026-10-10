@@ -1,0 +1,6 @@
+Loading supplied snapshot into isolated production runtime; all network disabled.
+Running migration preview.
+Verified full backup → apply → persisted readback.
+Restart and identical second migration.
+Checking full-snapshot data rollback with rescue copy.
+{"CATEGORIES":143,"products":3113,"variants":8734,"inventory":{"IN_STOCK":6187,"OUT_OF_STOCK":1034,"PREORDER":1,"UNKNOWN":1512,"ORDER_ON_REQUEST":0},"payment":4915,"category":{"SAFE_AUTO":2711,"LIKELY":194,"AMBIGUOUS":204,"UNTOUCHED":4},"size":{"SAFE_AUTO":7866,"LIKELY":1,"AMBIGUOUS":867},"LOST_SKU":0,"PRODUCTION_WRITES":0}

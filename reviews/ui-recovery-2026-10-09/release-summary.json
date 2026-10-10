@@ -1,0 +1,82 @@
+{
+  "CATEGORIES": 143,
+  "products": 3113,
+  "variants": 8734,
+  "bindings": 8734,
+  "manual_lock_products": 8,
+  "SYNC_ENABLED": false,
+  "AUTOPRICES_ENABLED": false,
+  "supplier_availability": {
+    "IN_STOCK": 6187,
+    "OUT_OF_STOCK": 1034,
+    "PREORDER": 1,
+    "UNKNOWN": 1512,
+    "ORDER_ON_REQUEST": 0
+  },
+  "PAYMENT_READY": 4563,
+  "category": {
+    "SAFE_AUTO": 2712,
+    "LIKELY": 194,
+    "AMBIGUOUS": 207,
+    "UNTOUCHED": 0
+  },
+  "size": {
+    "SAFE_AUTO": 7709,
+    "LIKELY": 1,
+    "AMBIGUOUS": 1024
+  },
+  "runtime": {
+    "SAFE_AUTO": 10421,
+    "LIKELY": 195,
+    "AMBIGUOUS": 1231,
+    "exact_sku_sizes": 4262,
+    "allowed_sizes_without_sku": 1141,
+    "SIZE_CONFIRMATION_REQUIRED": 1604,
+    "UNKNOWN_stock": 8734,
+    "NO_SIZE_REQUIRED": 2845,
+    "ONE_SIZE": 23
+  },
+  "second_identical_migration": {
+    "ALREADY_MIGRATED": true,
+    "WRITES": 0,
+    "NEW_BACKUPS": 0,
+    "persisted_sha256": "c711079195ec786cca8dfddf2bce84912d804c1d8c0e5384436858961fa49ee1"
+  },
+  "ROLLBACK_VERIFIED": true,
+  "RESCUE_BACKUP_VERIFIED": true,
+  "protected_before_sha256": "eb1fdbb9b6792e7eb6c0df610e9c78007175472783ad3eb4708d9ba441551a61",
+  "protected_after_sha256": "eb1fdbb9b6792e7eb6c0df610e9c78007175472783ad3eb4708d9ba441551a61",
+  "calculated_prices_before_sha256": "5c97c92e9df0ba8541629130cbeac424b0a31f03cbf86bb3a69487d607f7122c",
+  "calculated_prices_after_sha256": "5c97c92e9df0ba8541629130cbeac424b0a31f03cbf86bb3a69487d607f7122c",
+  "LOST_CATEGORIES": 0,
+  "LOST_SKU": 0,
+  "LOST_VARIANTS": 0,
+  "LOST_PHOTOS": 0,
+  "LOST_PRICES": 0,
+  "LOST_STOCK": 0,
+  "DUPLICATE_SKU_CREATED": 0,
+  "DUPLICATE_SIZE_OPTIONS_CREATED": 0,
+  "DUPLICATE_EXCEPTIONS_CREATED": 0,
+  "BASE_COMMIT": "27fb26056563eb1fcf144ffdb2ba9ab264fa9313",
+  "PRODUCTION_WRITES_BY_FIX": 0,
+  "PRODUCTION_API_CALLS": 0,
+  "source": {
+    "sha256": "6311d34d9f89f5ba1066cb925883213a765cb1f57febab29357d869cc7c7792a",
+    "pimVersion": "10.9.0",
+    "at": 1791508886500,
+    "live_database_after_rollback_verified": false
+  },
+  "tests": {
+    "node": 607,
+    "size_business": 49,
+    "installer": 12,
+    "legacy_argparse_installer": 12
+  },
+  "corrected_archive": {
+    "path": "releases/pim-10.9.3/rubizh-pim-10.9.3-ui-recovery.zip",
+    "sha256": "3427986ec42097a03636aa465fa986d9681787d29888752f1dd42afbaa61aac5"
+  },
+  "CURRENT_DEPLOYMENT_STATUS": "FAILED_ROLLED_BACK",
+  "CURRENT_PRODUCTION_VERSION": "10.9.0",
+  "DATA_MIGRATION_ON_PRODUCTION": "NOT_STARTED"
+}

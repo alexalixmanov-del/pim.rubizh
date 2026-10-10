@@ -1,0 +1,22 @@
+{
+  "name": "rubizh-pim-verification",
+  "version": "10.9.3",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/release-archive-safety.test.cjs tests/supplier-profiles.test.cjs tests/autoprices-preview.test.cjs tests/kits.test.cjs tests/regression.test.cjs tests/content-free.test.cjs tests/recheck.test.cjs tests/workflow.test.cjs tests/categories.test.cjs tests/product-model.test.cjs tests/simple.test.cjs tests/model-colors.test.cjs tests/queue-reduction.test.cjs tests/pricing-policy.test.cjs tests/category-size-integration.test.cjs tests/category-size-export.test.cjs tests/order-policy.test.cjs tests/real-source-compatibility.test.cjs tests/inventory-policy.test.cjs tests/production-migration.test.cjs tests/production-recovery.test.cjs tests/production-ui.test.cjs tests/snapshot-memory.test.cjs tests/final-workflow.test.cjs tests/yml-source-security.test.cjs tests/import-model-grouping.test.cjs tests/clean-import-hardening.test.cjs",
+    "serve": "python3 -m http.server 8765 --bind 0.0.0.0",
+    "build": "node tools/build.cjs",
+    "test:dry-run": "node --test tests/size-evidence.test.cjs tests/dry-run-business.test.cjs",
+    "test:control-import": "node --max-old-space-size=6144 ../audit/category-size-control-import.cjs",
+    "test:real-sources": "node ../audit/real-source-compatibility.cjs",
+    "package:production": "python3 tools/package-production.py",
+    "test:production-installer": "npm run package:production && python3 tests/production-installer.test.py",
+    "test:production-migration": "node --max-old-space-size=6144 ../audit/production-migration-control.cjs",
+    "fixture:wire": "node tools/export-wire-fixture.cjs"
+  },
+  "dependencies": {
+    "ajv": "8.17.1",
+    "fake-indexeddb": "6.2.5",
+    "linkedom": "0.18.13"
+  }
+}

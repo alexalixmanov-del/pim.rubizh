@@ -1,0 +1,220 @@
+{
+  "id": "p-a",
+  "model_id": "p-a",
+  "classification_version": 1,
+  "size_catalog_version": 1,
+  "canonical_category_id": "clothing_pants",
+  "availability": "UNKNOWN",
+  "size_catalogs": [
+    {
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size_system": "clothing_numeric",
+      "allowed_sizes": [
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "56",
+        "58",
+        "60"
+      ],
+      "size_range_min": 42,
+      "size_range_max": 60
+    }
+  ],
+  "size_options": [
+    {
+      "option_id": "bfcecce4c4a53f7a:42",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "42",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:44",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "44",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:46",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "46",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:50",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "50",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:52",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "52",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:54",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "54",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:56",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "56",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:58",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "58",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    },
+    {
+      "option_id": "bfcecce4c4a53f7a:60",
+      "catalog_id": "bfcecce4c4a53f7a",
+      "scope": "MODEL",
+      "color_id": null,
+      "size": "60",
+      "size_system": "clothing_numeric",
+      "variant_sku": null,
+      "supplier_sku": null,
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "availability": "SIZE_CONFIRMATION_REQUIRED",
+      "checkout_allowed": false,
+      "selectable_for_request": true
+    }
+  ],
+  "colors": [
+    {
+      "id": "clr-6b7f5cf49de7e040",
+      "key": "олива|",
+      "color": "Олива",
+      "camouflage": null,
+      "photos": [
+        "https://rubizh.shop/media/test.webp"
+      ],
+      "variant_skus": [
+        "RUB-00001"
+      ],
+      "sources": [
+        {
+          "kind": "offer",
+          "supplier_id": "supplier-a",
+          "supplier_sku": "feed-a",
+          "sku": "RUB-00001"
+        },
+        {
+          "kind": "single_color_product",
+          "product_id": "p-a"
+        }
+      ],
+      "photo_assignment": "source_associated"
+    }
+  ],
+  "variants": [
+    {
+      "sku": "RUB-00001",
+      "color_id": "clr-6b7f5cf49de7e040",
+      "color": "Олива",
+      "camouflage": null,
+      "photos": [
+        "https://rubizh.shop/media/test.webp"
+      ],
+      "size": "48",
+      "size_raw": "48",
+      "size_display": "48",
+      "size_normalized": "48",
+      "size_system": "clothing_numeric",
+      "size_status": "EXACT_SIZE",
+      "size_confidence_tier": "SAFE_AUTO",
+      "size_unconfirmed": false,
+      "required": true,
+      "price": 1590,
+      "availability": "UNKNOWN",
+      "stock": null,
+      "stock_status": "UNKNOWN",
+      "checkout_allowed": false,
+      "lead_time_days": null
+    }
+  ]
+}

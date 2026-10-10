@@ -1,0 +1,428 @@
+[
+  {
+    "proposed_category_id": "symbols",
+    "name": "Символіка",
+    "parent_category": null,
+    "parent_name": null,
+    "products_count": 0,
+    "descendant_products_count": 8,
+    "suppliers": [
+      "тактикал белт",
+      "м вин"
+    ],
+    "examples": [
+      {
+        "product_id": "p9dt3vcen19k",
+        "name": "Прапор України 90х60см"
+      },
+      {
+        "product_id": "plofe5m4ehw8",
+        "name": "Прапор України 70×105 см — під древко. M-WIN"
+      },
+      {
+        "product_id": "pr8xsqe7ehw8",
+        "name": "Прапор України 90×135 см — з люверсами. M-WIN"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "Для государственных флагов требуется профильный родитель: существующие корни одежды, маскировки и полевого оснащения не описывают символику.",
+    "considered_category_ids": [
+      "camouflage",
+      "field_gear"
+    ],
+    "proposed_aliases": [],
+    "supplier_categories": [],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "armor_ballistic_blankets",
+    "name": "Балістичні ковдри",
+    "parent_category": "armor",
+    "parent_name": "Бронезахист",
+    "products_count": 2,
+    "suppliers": [
+      "киборг"
+    ],
+    "examples": [
+      {
+        "product_id": "pawfufct2m7b",
+        "name": "Бронековдра KIBORG з балістичним захистом 2 класу від Militex у кольорі"
+      },
+      {
+        "product_id": "pfu25c7n2m7a",
+        "name": "Бронековдра KIBORG з балістичним захистом 1 класу від Militex у кольорі"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "armor_soft — отдельные вкладыши, armor_accessories — аксессуары носимой защиты; field_thermal_blankets — теплоизоляция. Бронековдра является самостоятельным переносным укрытием.",
+    "considered_category_ids": [
+      "armor_soft",
+      "armor_accessories",
+      "field_thermal_blankets"
+    ],
+    "proposed_aliases": [
+      "бронековдра",
+      "баллистическое одеяло"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "2 клас захисту",
+        "examples": [
+          "Бронековдра KIBORG з балістичним захистом 2 класу від Militex у кольорі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:armor_ballistic_blankets",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "1 клас захисту",
+        "examples": [
+          "Бронековдра KIBORG з балістичним захистом 1 класу від Militex у кольорі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:armor_ballistic_blankets",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "clothing_insulated_vests",
+    "name": "Утеплені жилети",
+    "parent_category": "clothing",
+    "parent_name": "Одяг та форма",
+    "products_count": 2,
+    "suppliers": [
+      "армолайн",
+      "укр тек"
+    ],
+    "examples": [
+      {
+        "product_id": "pu8imo0cnqad",
+        "name": "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)"
+      },
+      {
+        "product_id": "plzx1qgaogob",
+        "name": "Зимова тактична жилетка, безрукавка на флісі та синтепоні"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "clothing_jackets — куртки, clothing_fleece — кофты; armor_vests и load_bearing_systems — защита/разгрузка. Обычный утеплённый жилет без рукавов не является ни одним из них.",
+    "considered_category_ids": [
+      "clothing_jackets",
+      "clothing_fleece",
+      "armor_vests",
+      "load_bearing_systems"
+    ],
+    "proposed_aliases": [
+      "утеплена жилетка",
+      "жилетка утеплена",
+      "утепленный жилет"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s2hjvaqgnp29",
+        "supplier_name": "армолайн",
+        "supplier_category": "Жилетки утеплені",
+        "examples": [
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)",
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)",
+          "Жилетка утеплена, з капюшоном \"ANTITERROR II\" (мембрана + синтепон)"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:clothing_insulated_vests",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Voennaya forma",
+        "examples": [
+          "Зимова тактична жилетка, безрукавка на флісі та синтепоні"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:clothing_insulated_vests",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "footwear_care",
+    "name": "Догляд за взуттям",
+    "parent_category": "footwear",
+    "parent_name": "Взуття",
+    "products_count": 2,
+    "suppliers": [
+      "укр тек"
+    ],
+    "examples": [
+      {
+        "product_id": "pdsz5i2pogo8",
+        "name": "Водовідштовхуючий спрей для шкіри і текстилю Nasse Blocker"
+      },
+      {
+        "product_id": "pngjvydiogqv",
+        "name": "Спрей для замші і нубука Rauleder Pflege 300мл"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "Существующие листья footwear описывают обувь и носимые принадлежности. Спрей/пропитка — средство ухода, не обувь, не стельки и не личная полевая гигиена.",
+    "considered_category_ids": [
+      "footwear_tactical_boots",
+      "footwear_insoles",
+      "field_hygiene"
+    ],
+    "proposed_aliases": [
+      "спрей для взуття",
+      "догляд за взуттям",
+      "крем для обуви"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Krem dlya obuvi",
+        "examples": [
+          "Водовідштовхуючий спрей для шкіри і текстилю Nasse Blocker"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_care",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Zaschitnye pokrytiya",
+        "examples": [
+          "Спрей для замші і нубука Rauleder Pflege 300мл"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_care",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "footwear_loafers",
+    "name": "Лофери та туфлі",
+    "parent_category": "footwear",
+    "parent_name": "Взуття",
+    "products_count": 1,
+    "suppliers": [
+      "укр тек"
+    ],
+    "examples": [
+      {
+        "product_id": "p5ye3ot9ogub",
+        "name": "Чоловічі лофери з натуральної замші сірі"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "footwear_boots/footwear_tactical_boots — берцы/ботинки, footwear_sneakers — кроссовки. Классические низкие лоферы не соответствуют этим типам.",
+    "considered_category_ids": [
+      "footwear_boots",
+      "footwear_tactical_boots",
+      "footwear_sneakers"
+    ],
+    "proposed_aliases": [
+      "лофери",
+      "лоферы"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s2akya7xoafn",
+        "supplier_name": "укр тек",
+        "supplier_category": "Tufli",
+        "examples": [
+          "Чоловічі лофери з натуральної замші сірі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:footwear_loafers",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "communications_earplugs",
+    "name": "Пасивні беруші",
+    "parent_category": "communications",
+    "parent_name": "Тактичний зв'язок та слух",
+    "products_count": 2,
+    "suppliers": [
+      "тактикал белт"
+    ],
+    "examples": [
+      {
+        "product_id": "pacqk51xn13m",
+        "name": "Беруші EARMOR М-02"
+      },
+      {
+        "product_id": "pl49m6rtn13l",
+        "name": "Беруші універсальні багаторазові в кейсі"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "headsets — наушники. Пассивные заглушки без воспроизведения/электроники не являются наушниками. Активные EARMOR M20T остаются кандидатом headsets.",
+    "considered_category_ids": [
+      "communications_headsets",
+      "communications_accessories"
+    ],
+    "proposed_aliases": [
+      "пасивні беруші",
+      "беруші багаторазові",
+      "беруши пассивные"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "Навушники , беруши",
+        "examples": [
+          "Беруші EARMOR М-02",
+          "Беруші універсальні багаторазові в кейсі"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:communications_earplugs",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [
+      "SOURCE_MODEL_MISMATCH: EARMOR в названии, MaxDefense в описании. Категория пассивных берушей ясна, идентичность модели требует проверки."
+    ],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "electronics_rf_detectors",
+    "name": "Детектори радіосигналів та РЕР",
+    "parent_category": "electronics",
+    "parent_name": "Електроніка та спостереження",
+    "products_count": 1,
+    "suppliers": [
+      "киборг"
+    ],
+    "examples": [
+      {
+        "product_id": "p35rksvh2mha",
+        "name": "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "radios — радиостанции связи, electronics_monoculars — оптическое наблюдение, electronics_accessories — вспомогательные принадлежности. РЕР-сканер — самостоятельное устройство радионаблюдения.",
+    "considered_category_ids": [
+      "communications_radios",
+      "electronics_monoculars",
+      "electronics_accessories"
+    ],
+    "proposed_aliases": [
+      "пристрій радіоелектронної розвідки",
+      "детектор радіосигналів",
+      "детектор fpv"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s2bggyi42dhh",
+        "supplier_name": "киборг",
+        "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+        "examples": [
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+          "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:electronics_rf_detectors",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [],
+    "approval_required": true
+  },
+  {
+    "proposed_category_id": "symbols_flags",
+    "name": "Прапори",
+    "parent_category": "symbols",
+    "parent_name": "Символіка",
+    "products_count": 8,
+    "suppliers": [
+      "тактикал белт",
+      "м вин"
+    ],
+    "examples": [
+      {
+        "product_id": "p9dt3vcen19k",
+        "name": "Прапор України 90х60см"
+      },
+      {
+        "product_id": "plofe5m4ehw8",
+        "name": "Прапор України 70×105 см — під древко. M-WIN"
+      },
+      {
+        "product_id": "pr8xsqe7ehw8",
+        "name": "Прапор України 90×135 см — з люверсами. M-WIN"
+      }
+    ],
+    "reason_existing_categories_do_not_fit": "camouflage_materials — материалы для скрытия объекта, не государственная символика. Нельзя считать любой флаг полевым снаряжением только по поставщику.",
+    "considered_category_ids": [
+      "camouflage_materials",
+      "field_other"
+    ],
+    "proposed_aliases": [
+      "прапор України",
+      "флаг Украины"
+    ],
+    "supplier_categories": [
+      {
+        "supplier_id": "s4p9slmnn0ki",
+        "supplier_name": "тактикал белт",
+        "supplier_category": "ПРАПОРА",
+        "examples": [
+          "Прапор України 90х60см",
+          "Прапор України"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:symbols_flags",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      },
+      {
+        "supplier_id": "sf0t3l7jegf9",
+        "supplier_name": "м вин",
+        "supplier_category": "Державні прапори України",
+        "examples": [
+          "Прапор України 70×105 см — під древко. M-WIN",
+          "Прапор України 90×135 см — з люверсами. M-WIN",
+          "Прапор України 100×150 см — під древко. M-WIN"
+        ],
+        "action": "PROPOSAL_ONLY",
+        "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+        "predicate": "taxonomy-gap:symbols_flags",
+        "requires_description_evidence": true,
+        "never_replace_existing_mapping": true
+      }
+    ],
+    "warnings": [],
+    "approval_required": true
+  }
+]

@@ -1,0 +1,1080 @@
+{
+  "status": "READ_ONLY_DRY_RUN_UKR_TEC_CONFIRMED_TACTICAL_QUANTITY_PENDING",
+  "source_sha256": "9ee5645236db92e5373dea1a875a83d821ec86bab64f4acc1e4316b7183ee5f3",
+  "classified_candidate_sha256": "72d9ab0fe9d00cefd8b96daf2d7de68b5841fe7ed2654dbf3e23b0eedabe9f23",
+  "runtime_html_sha256": "0d0c17d590708670c9be56072a05c1090f15e9f5beace9365c70599af635bfff",
+  "source_semantics": {
+    "тактикал белт": {
+      "source_column": "Наличие",
+      "bindings": 1512,
+      "unique_raw_values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "22",
+        "24",
+        "27",
+        "30",
+        "31",
+        "32",
+        "34",
+        "35",
+        "36",
+        "38",
+        "42",
+        "43",
+        "44",
+        "46",
+        "48",
+        "50",
+        "59",
+        "60",
+        "61",
+        "62",
+        "66",
+        "67",
+        "68",
+        "73",
+        "81",
+        "93",
+        "110",
+        "111",
+        "112",
+        "177",
+        "230",
+        "238",
+        "346",
+        "421",
+        "766",
+        "769",
+        "791",
+        "834",
+        "836",
+        "857",
+        "884",
+        "925",
+        "928",
+        "985",
+        "1265"
+      ],
+      "count_per_value": {
+        "0": 1148,
+        "9": 4,
+        "4": 30,
+        "2": 44,
+        "17": 3,
+        "1": 85,
+        "5": 22,
+        "7": 12,
+        "3": 36,
+        "10": 6,
+        "18": 2,
+        "110": 1,
+        "59": 1,
+        "421": 1,
+        "1265": 1,
+        "15": 3,
+        "62": 2,
+        "346": 1,
+        "68": 1,
+        "12": 9,
+        "50": 2,
+        "36": 2,
+        "38": 1,
+        "43": 2,
+        "8": 14,
+        "16": 5,
+        "11": 8,
+        "73": 1,
+        "836": 1,
+        "22": 2,
+        "14": 3,
+        "19": 2,
+        "925": 1,
+        "766": 1,
+        "985": 1,
+        "857": 1,
+        "61": 1,
+        "48": 1,
+        "6": 15,
+        "24": 3,
+        "769": 1,
+        "13": 3,
+        "81": 1,
+        "35": 1,
+        "44": 1,
+        "60": 1,
+        "42": 1,
+        "30": 2,
+        "34": 2,
+        "177": 1,
+        "93": 1,
+        "67": 1,
+        "111": 2,
+        "112": 1,
+        "31": 1,
+        "928": 1,
+        "791": 1,
+        "884": 1,
+        "834": 1,
+        "230": 1,
+        "238": 1,
+        "20": 2,
+        "66": 1,
+        "27": 2,
+        "32": 1,
+        "46": 1
+      },
+      "groups": {
+        "ZERO": {
+          "count": 1148,
+          "examples": [
+            {
+              "product_id": "pzw2o6fun18m",
+              "sku": "RUB-05564",
+              "supplier_sku": "PM-2-M",
+              "name": "Підсумок медичний з панеллю швидкого скидання NAVIGARA",
+              "brand": "",
+              "size": "M",
+              "color": "Мультикам",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "система швидкого скиду; тканина Cordura 1000D (ззовні), нейлон (внутрішня підкладка); фурнітура YKK; система MOLLE для кріплення на бронежилет, розвантаження тощо; застібається на двосторонню блискавку, що забезпечує зручний доступ до вмісту; додаткова фіксація на фастекс; велкропанель для розміщення патчів; без наповнення.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pzw2o6fun18m",
+              "sku": "RUB-05565",
+              "supplier_sku": "PM-1-P",
+              "name": "Підсумок медичний з панеллю швидкого скидання NAVIGARA",
+              "brand": "",
+              "size": "",
+              "color": "Піксель",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "система швидкого скиду; тканина Cordura 1000D (ззовні), нейлон (внутрішня підкладка); фурнітура YKK; система MOLLE для кріплення на бронежилет, розвантаження тощо; застібається на двосторонню блискавку, що забезпечує зручний доступ до вмісту; додаткова фіксація на фастекс; велкропанель для розміщення патчів; без наповнення.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pitsc7uzn1a6",
+              "sku": "RUB-05768",
+              "supplier_sku": "126-00001-K",
+              "name": "Рукавиці Mechanix Precision Pro",
+              "brand": "",
+              "size": "M",
+              "color": "COYOTE",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Ці стрілецькі рукавички від американської компанії Mechanix Wear - це витончений злиток функціональності та комфорту. Ось докладні характеристики: Міцна синтетична шкіра, використана для долонної частини, забезпечує міцний хват і тактильний контроль, покриття нековзним силіконовим покриттям Padlock на внутрішній стороні долоні. Верхня частина рукавичок вигот",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "psnbw4ozn1c8",
+              "sku": "RUB-06065",
+              "supplier_sku": "FFN5",
+              "name": "Флісова кофта Комбат з накладками Чорна",
+              "brand": "",
+              "size": "48/4",
+              "color": "Чорний",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Флісова кофта Комбат виконана зі щільного флісу 350 г/м2 кольору хакі й оснащена насадками зі щільної тканини рип-стоп. Ця кофта призначена як середній тепловий шар і може використовуватися як самостійний елемент або в поєднанні з іншим верхнім одягом. Флісова кофта ефективно утримує тепло, захищає від вітру та легкого дощу. Плечі та лікті додатково посилені",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "psnbw4ozn1c8",
+              "sku": "RUB-06066",
+              "supplier_sku": "FFN18",
+              "name": "Флісова кофта Комбат з накладками Чорна",
+              "brand": "",
+              "size": "56/5",
+              "color": "Чорний",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Флісова кофта Комбат виконана зі щільного флісу 350 г/м2 кольору хакі й оснащена насадками зі щільної тканини рип-стоп. Ця кофта призначена як середній тепловий шар і може використовуватися як самостійний елемент або в поєднанні з іншим верхнім одягом. Флісова кофта ефективно утримує тепло, захищає від вітру та легкого дощу. Плечі та лікті додатково посилені",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pqiacpf1n1cz",
+              "sku": "RUB-06169",
+              "supplier_sku": "MILIGUS35",
+              "name": "Штани військові тактичні ММ-14 розмір 48 (M)",
+              "brand": "",
+              "size": "48 M",
+              "color": "Піксель",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Тактичні штани відшиті за покращеною конструкцією. Мають 9 кишень: дві великих кишені на стегнах (застібки липучки та ґудзик), дві кишені спереду, дві кишені ззаду, в які вміщається ріжок. Є внутрішні кишені для наколінників. Низ штанів регулюється липучкою. Застібаються штани на блискавку з вітрозахисним клапаном та ґудзик. Мають на поясі петлі під офіцерсь",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p4jr2aojn19j",
+              "sku": "RUB-05669",
+              "supplier_sku": "PB-1-L",
+              "name": "Пояс бойовий широкий Warrior Spirit Розмір",
+              "brand": "",
+              "size": "L",
+              "color": "Мультикам",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "1. Спецтканина Грета 2. Жорстка пластина з поліпропілену 3. Пінка EVA для пом'якшення 4. Стропа 5. Система MOLLE 6. Залізний фастекс Кобра 7. Залізний гачок",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p4jr2aojn19j",
+              "sku": "RUB-05670",
+              "supplier_sku": "PB-1-M",
+              "name": "Пояс бойовий широкий Warrior Spirit Розмір",
+              "brand": "",
+              "size": "M",
+              "color": "Мультикам",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "1. Спецтканина Грета 2. Жорстка пластина з поліпропілену 3. Пінка EVA для пом'якшення 4. Стропа 5. Система MOLLE 6. Залізний фастекс Кобра 7. Залізний гачок",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p4jr2aojn19j",
+              "sku": "RUB-05671",
+              "supplier_sku": "PB-1-XL",
+              "name": "Пояс бойовий широкий Warrior Spirit Розмір",
+              "brand": "",
+              "size": "XL",
+              "color": "Мультикам",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "1. Спецтканина Грета 2. Жорстка пластина з поліпропілену 3. Пінка EVA для пом'якшення 4. Стропа 5. Система MOLLE 6. Залізний фастекс Кобра 7. Залізний гачок",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p4jr2aojn19j",
+              "sku": "RUB-05672",
+              "supplier_sku": "PB-2-L",
+              "name": "Пояс бойовий широкий Warrior Spirit Розмір",
+              "brand": "",
+              "size": "L",
+              "color": "Піксель",
+              "source_column": "Наличие",
+              "raw_value": "0",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "1. Спецтканина Грета 2. Жорстка пластина з поліпропілену 3. Пінка EVA для пом'якшення 4. Стропа 5. Система MOLLE 6. Залізний фастекс Кобра 7. Залізний гачок",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            }
+          ]
+        },
+        "POSITIVE_INTEGER": {
+          "count": 364,
+          "examples": [
+            {
+              "product_id": "ppwwd0v2n17w",
+              "sku": "RUB-05510",
+              "supplier_sku": "THOR4",
+              "name": "Одноточковий плечовий ремінь з кріпленням до плитоноски RAGNAROK THOR",
+              "brand": "",
+              "size": "",
+              "color": "OLIVE",
+              "source_column": "Наличие",
+              "raw_value": "1265",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Ragnarok Thor — це спеціалізований одноточковий ремінь, розроблений для прямого кріплення до плитоноски (plate carrier). Така конструкція дозволяє зняти навантаження з шиї бійця, рівномірно розподіляючи вагу зброї на бронежилет, та забезпечує максимальну мобільність при оперуванні зброєю. Ми вдосконалили конструкцію! У новій генерації ременя Ragnarok Thor ми",
+              "availability_keyword_context": [
+                "оєю При потребі скинути зброю, ремінь завжди залишається на вашій плитоносці. Підходить до будь-яких зразків дворучної стрілецької зброї: ав"
+              ],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pa9t6gdzn18k",
+              "sku": "RUB-05560",
+              "supplier_sku": "1404-3",
+              "name": "Підсумок для скидання магазинів (MOLLE, на тактичний пояс, розвантаження, РПС)",
+              "brand": "",
+              "size": "",
+              "color": "Чорний",
+              "source_column": "Наличие",
+              "raw_value": "1",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Переваги підсумка для скидання магазинів: Модульна система Зручне кріплення підсумків - MOLLE Компактні розміри Витривала тканина Cordura 1050 (або Oxford 500 в 2 шари) Підсумки тримають форму Вентиляційні люверси на дні підсумку Матеріали тактичного підсумку для скидання: Основа - Cordura 1050 (або Oxford 500 в 2 шари) Рім'яна стрічка - поліпропілен/поліамі",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pxolhg0qn19g",
+              "sku": "RUB-05653",
+              "supplier_sku": "KP-25",
+              "name": "Повербанк King Power 40000 mah",
+              "brand": "",
+              "size": "",
+              "color": "",
+              "source_column": "Наличие",
+              "raw_value": "3",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Повербанк King Power – відповідний портативний пристрій для дому, подорожей та для військових. Компактний, з великою ємністю, швидкою зарядкою цей повербанк підійде всім. Незважаючи на таку значну потужність, повербанк виконаний у компактних габаритах. Корпус виготовлений із міцних матеріалів: ABS-пластику та полікарбонату. Це продовжує термін служби пристро",
+              "availability_keyword_context": [
+                "озволить багато разів зарядити ваші гаджети. Наявність вбудованих кабелів для заряджання ваших гаджетів. Цифровий індикатор рівня заряду (ак"
+              ],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pzjhrv14n14y",
+              "sku": "RUB-05249",
+              "supplier_sku": "2310",
+              "name": "Карабін для збройового ременя",
+              "brand": "",
+              "size": "",
+              "color": "Чорний",
+              "source_column": "Наличие",
+              "raw_value": "48",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Карабін тактичний 32 мм, виготовлений із металу. Карабін має широку сферу застосування. Може бути використаний як карабін для автоматного ременя, а також у так званих браслетах виживання та багато іншого. Міцний та надійний, при цьому компактний і має відносно невелику вагу.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pdb6stacn14j",
+              "sku": "RUB-05053",
+              "supplier_sku": "KATANA-K",
+              "name": "Збройовий ремінь Ragnarok «Katana»",
+              "brand": "",
+              "size": "",
+              "color": "COYOTE",
+              "source_column": "Наличие",
+              "raw_value": "985",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Тактичний ремінь Ragnarok «Katana» Забудьте про компроміси між комфортом і надійністю. Нова модель тактичного ременя для зброї Ragnarok «Katana» — це ідеальне поєднання інноваційного дизайну, виняткової зручності та легендарної міцності. Характеристики: Модель: Ragnarok «Katana» Матеріал стропи: Поліамідна стропа Матеріал наплічника: EVA-піна та тканина 4w S",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pj8yzy66n14k",
+              "sku": "RUB-05061",
+              "supplier_sku": "KATANA-MM-HK",
+              "name": "Збройовий ремінь Ragnarok «Katana» carbine Murdock",
+              "brand": "",
+              "size": "",
+              "color": "Мультикам",
+              "source_column": "Наличие",
+              "raw_value": "769",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Тактичний ремінь Ragnarok «Katana» Забудьте про компроміси між комфортом і надійністю. Нова модель тактичного ременя для зброї Ragnarok «Katana» — це ідеальне поєднання інноваційного дизайну, виняткової зручності та легендарної міцності. Характеристики: Модель: Ragnarok «Katana» Матеріал стропи: Поліамідна стропа Матеріал наплічника: EVA-піна та тканина 4w S",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pcdv5oe2n19t",
+              "sku": "RUB-05715",
+              "supplier_sku": "HEL-G2-QD-M",
+              "name": "Ремінь збройовий триточковий RAGNAROK \"Hel\" Gen.II QD",
+              "brand": "",
+              "size": "M",
+              "color": "Мультикам",
+              "source_column": "Наличие",
+              "raw_value": "30",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Збройовий ремінь RAGNAROK \"Hel\" Gen II QD Оновлена версія триточкового ременя RAGNAROK \"Hel\" QD створена для надійного носіння та фіксації стрілецької зброї, таких як карабіни та рушниці. Цей ремінь поєднує продумані деталі, які забезпечують комфорт, функціональність і безпеку під час використання. Основні переваги: Триточкова система кріплення забезпечує ма",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "peh2210xn19w",
+              "sku": "RUB-05728",
+              "supplier_sku": "BR-1-K",
+              "name": "Ремінь тактичний ЗСУ",
+              "brand": "",
+              "size": "",
+              "color": "COYOTE",
+              "source_column": "Наличие",
+              "raw_value": "2",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Легкий поясний ремінь з полімерною пряжкою Надійний брючний ремінь для військових, туристів та активного відпочинку. Конструкція пряжки забезпечує швидке застібання та надійну фіксацію стропи механізмом тертя (самозатиск). Особливості: Матеріал стропи: 100% нейлон (зносостійкий, швидко сохне). Пряжка: Ударостійкий пластик (не дзвенить на металошукачах). Шири",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p0xyy8iin162",
+              "sku": "RUB-05346",
+              "supplier_sku": "103-00001-K",
+              "name": "Кріплення Tacticals Gear Clip для системи MOLLE",
+              "brand": "",
+              "size": "",
+              "color": "COYOTE",
+              "source_column": "Наличие",
+              "raw_value": "5",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Тактичний затискач Gear Clip створений для широкого застосування в умовах активного відпочинку, туризму та тактичних місій. Він ідеально підходить для кріплення ліхтариків, джгутів, трекінгових палиць, парасольок, сокир, та іншого спорядження. Завдяки системі MOLLE, затискач легко інтегрується з рюкзаками, жилетами та іншими сумісними аксесуарами. Основні пе",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "ps3iwlv6n19m",
+              "sku": "RUB-05679",
+              "supplier_sku": "1575-9",
+              "name": "Присипка-дезодорант \"Сушар\" для ніг та взуття (з протигрибковим ефектом) 100 мл",
+              "brand": "",
+              "size": "",
+              "color": "",
+              "source_column": "Наличие",
+              "raw_value": "66",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "\"Сушар\" - натуральний адсорбент, спеціально створений для сушіння та очищення ніг, шкарпеток і взуття. Він зберігає ноги сухими та чистими, нормалізує потовиділення, усуває неприємний запах, запобігає появі грибків та натирання, а також ефективний для сухого очищення. Пітні та вологі ноги сприяють росту грибків, тому \"Сушар\" поглинає піт і запобігає їх утвор",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            }
+          ]
+        },
+        "EMPTY": {
+          "count": 0,
+          "examples": []
+        },
+        "NONSTANDARD": {
+          "count": 0,
+          "examples": []
+        }
+      },
+      "original_source_rows_available": false,
+      "supplier_semantics_confirmed": false,
+      "confirmation_evidence": "User explicitly reports quantity semantics not confirmed"
+    },
+    "укр тек": {
+      "source_column": "Наявність",
+      "bindings": 979,
+      "unique_raw_values": [
+        "+",
+        "-",
+        "!",
+        "3"
+      ],
+      "count_per_value": {
+        "+": 972,
+        "-": 4,
+        "!": 2,
+        "3": 1
+      },
+      "groups": {
+        "+": {
+          "count": 972,
+          "examples": [
+            {
+              "product_id": "pu7uj6uzogpi",
+              "sku": "RUB-08111",
+              "supplier_sku": "2011326508",
+              "name": "Куртка зимова тактична UKR-TEC slimtex omni-heat, мультикам",
+              "brand": "",
+              "size": "",
+              "color": "Камуфляж",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Камуфляж",
+                "Стать": "Чоловіча",
+                "Стан": "Новий",
+                "Вид виробу": "куртка",
+                "Тип тканини": "Softshell",
+                "Категорії": "Для військовослужбовців",
+                "Візерунки і принти": "Мультикам"
+              },
+              "description_excerpt": "куртка тактична зимова UKR-TEC slimtex, підкладка omni-heat. особливості: - матеріал верху soft shell. - температурний режим до -20. - розміри 44-58. - 2 кармана на рукавах. - липучки под шеврони. - стяжка на поясе; - блискавки для швидкого доступа. - 4 нагрудних кармана. +2 кармана под поясом.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p749h0f7ogtj",
+              "sku": "RUB-08475",
+              "supplier_sku": "1762015078",
+              "name": "Флісова балаклава",
+              "brand": "",
+              "size": "универсальный",
+              "color": "KHAKI",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Хакі",
+                "Стать": "унісекс",
+                "Сезон": "Зима",
+                "Вид виробу": "Балаклава",
+                "Тип тканини": "фліс",
+                "Тип": "шиті",
+                "Вид": "шапка-шлем",
+                "розмір головного убора": "універсальний",
+                "Розмір головного убору": "Універсальний"
+              },
+              "description_excerpt": "Флісова балаклава 100% поліестер – тепла, м’яка та еластична, надійно захищає обличчя й шию від холоду та вітру. - м’яка і приємний на дотик; - добре утримує тепло; - легка і дихаюча; - не мнеться і швидко сохне.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p9qiagngognn",
+              "sku": "RUB-07790",
+              "supplier_sku": "1762015061",
+              "name": "Берці демісезонні Памір",
+              "brand": "",
+              "size": "40",
+              "color": "Коричневий",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Коричневий",
+                "Стать": "Чоловіча",
+                "Сезон": "Весна/Осінь",
+                "Стан": "Новий",
+                "Вид тактичного взуття": "Берці",
+                "Тип": "берці",
+                "Матеріал підошви": "ПУ/ТПУ",
+                "Призначення": "військове|для полювання та риболовлі|захисне",
+                "Особливості": "шнурування",
+                "матеріал верху": "натуральна шкіра",
+                "розмір взуття": "40|41|42|43|44|45|46",
+                "матеріал підкладки": "Текстиль",
+                "Вид устілки": "Адаптивная",
+                "Вид взуття": "Захисна взуття"
+              },
+              "description_excerpt": "Матеріал верху: -Поверхня взуття виконана з натуральної шкіри (нубук) та вставок з CORDURA (має вологостійкі властивості); -шви прошиті надійним способом; -шнурівка закритого типу; -шнурки з міцного нейлону, чітко фіксують ногу і не тиснуть на неї при ходьбі; Внутрішня частина: Текстильна підкладка. Підошва Energy виготовлена має такі властивості: -зносостій",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p9qiagngognn",
+              "sku": "RUB-07797",
+              "supplier_sku": "1928443363",
+              "name": "Берці демісезонні Памір",
+              "brand": "",
+              "size": "",
+              "color": "Оливковий",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Коричневий",
+                "Стать": "Чоловіча",
+                "Сезон": "Весна/Осінь",
+                "Стан": "Новий",
+                "Вид тактичного взуття": "Берці",
+                "Тип": "берці",
+                "Матеріал підошви": "ПУ/ТПУ",
+                "Призначення": "військове|для полювання та риболовлі|захисне",
+                "Особливості": "шнурування",
+                "матеріал верху": "натуральна шкіра",
+                "розмір взуття": "40|41|42|43|44|45|46",
+                "матеріал підкладки": "Текстиль",
+                "Вид устілки": "Адаптивная",
+                "Вид взуття": "Захисна взуття"
+              },
+              "description_excerpt": "Матеріал верху: -Поверхня взуття виконана з натуральної шкіри (нубук) та вставок з CORDURA (має вологостійкі властивості); -шви прошиті надійним способом; -шнурівка закритого типу; -шнурки з міцного нейлону, чітко фіксують ногу і не тиснуть на неї при ходьбі; Внутрішня частина: Текстильна підкладка. Підошва Energy виготовлена має такі властивості: -зносостій",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "puoompgwogp4",
+              "sku": "RUB-08040",
+              "supplier_sku": "1774952016",
+              "name": "Кросівки тактичні демісезонні Ягуар",
+              "brand": "",
+              "size": "",
+              "color": "COYOTE",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Стать": "Чоловіча",
+                "Сезон": "Демісезон",
+                "Вид тактичного взуття": "Тактичні кросівки"
+              },
+              "description_excerpt": "Розміри: 40-46 Поверхня: комбінований верх виконаний з натуральної шкіри та текстильних вставок. Шнурівка на шкіряних петлях з високим підйомом. ⠀ •Внутрішня частина: зсередини кросівки виконані з дихаючого текстильного матеріалу, який забезпечує нормалізований мікроклімат всередині взуття. ⠀ •Підошва: модель підошви трекінгового походження «JB». Матеріал з ",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "ps59l857ogtn",
+              "sku": "RUB-08485",
+              "supplier_sku": "1762015023",
+              "name": "Форма тактична військова статутна",
+              "brand": "",
+              "size": "46",
+              "color": "пиксель",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "пиксель",
+                "Стать": "чоловіча",
+                "Сезон": "літня",
+                "Тип тканини": "рип-стоп",
+                "Тип": "костюм",
+                "Призначення": "армия",
+                "розмір одягу": "46|48|50|52|54|56"
+              },
+              "description_excerpt": "Форма статутна Піксель Розміри: 44-60рр Придатна для військових форма кольору піксель, українського виробництва. Костюм виконаний з міцної тканини ріп-стоп, яка відміно себе показує в плані зностостійкості та функціональності. Також чудово підходить рибакам, мисливцям чи співробітникам силових відомств. Тканина: Ріп-Стоп (100% бавовна) Китель: — Дві нагрудні",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p9fd07f3ogom",
+              "sku": "RUB-07959",
+              "supplier_sku": "1772501049",
+              "name": "Костюм тактичний Soft Shell",
+              "brand": "ESDY",
+              "size": "",
+              "color": "Оливковий",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Оливковий",
+                "Стать": "Чоловіча",
+                "Сезон": "Весна/Осінь",
+                "Стан": "Новий",
+                "Вид виробу": "Костюм",
+                "Тип тканини": "Поліестер",
+                "Категорії": "Інше"
+              },
+              "description_excerpt": "Тактичний костюм бездоганно оберігає від снігу, дощу та вітру, має компактну форму та чудово зберігає тепло, виготовлений з водонепроникної і вітростійким тканини(Soft Shell). Зручний капюшон, який регулюється затяжками на гумках та який можна сховати у комір-стійку. У нагрудних кишенях пластикові карабіни для кріплення ключів. В плечових і нагрудних кишенях",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p9fd07f3ogom",
+              "sku": "RUB-07960",
+              "supplier_sku": "2973736472",
+              "name": "Костюм тактичний Soft Shell",
+              "brand": "ESDY",
+              "size": "",
+              "color": "BLACK",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Оливковий",
+                "Стать": "Чоловіча",
+                "Сезон": "Весна/Осінь",
+                "Стан": "Новий",
+                "Вид виробу": "Костюм",
+                "Тип тканини": "Поліестер",
+                "Категорії": "Інше"
+              },
+              "description_excerpt": "Тактичний костюм бездоганно оберігає від снігу, дощу та вітру, має компактну форму та чудово зберігає тепло, виготовлений з водонепроникної і вітростійким тканини(Soft Shell). Зручний капюшон, який регулюється затяжками на гумках та який можна сховати у комір-стійку. У нагрудних кишенях пластикові карабіни для кріплення ключів. В плечових і нагрудних кишенях",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "p9fd07f3ogom",
+              "sku": "RUB-07961",
+              "supplier_sku": "2973742211",
+              "name": "Костюм тактичний Soft Shell",
+              "brand": "ESDY",
+              "size": "",
+              "color": "Multicam",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Оливковий",
+                "Стать": "Чоловіча",
+                "Сезон": "Весна/Осінь",
+                "Стан": "Новий",
+                "Вид виробу": "Костюм",
+                "Тип тканини": "Поліестер",
+                "Категорії": "Інше"
+              },
+              "description_excerpt": "Тактичний костюм бездоганно оберігає від снігу, дощу та вітру, має компактну форму та чудово зберігає тепло, виготовлений з водонепроникної і вітростійким тканини(Soft Shell). Зручний капюшон, який регулюється затяжками на гумках та який можна сховати у комір-стійку. У нагрудних кишенях пластикові карабіни для кріплення ключів. В плечових і нагрудних кишенях",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "phutcw5togv5",
+              "sku": "RUB-08721",
+              "supplier_sku": "2556205647",
+              "name": "Штани штурмові ріп-стоп",
+              "brand": "",
+              "size": "",
+              "color": "OLIVE",
+              "source_column": "Наявність",
+              "raw_value": "+",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Штани Штурмові ріп-стоп \\ олива Розміри: 42-60. Штани з Rip-stop матеріалу є популярними серед активних людей, які займаються туризмом, мисливством, службою або іншими видами діяльності на відкритому повітрі. Ріп-стоп матеріал дозволяє штанам бути дуже міцними та стійкими до розривів, що робить їх ідеальними для вимогливих умов. Штани з ріп-стоп матеріалу до",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            }
+          ]
+        },
+        "-": {
+          "count": 4,
+          "examples": [
+            {
+              "product_id": "pq0e1c0logqa",
+              "sku": "RUB-08158",
+              "supplier_sku": "2497471190",
+              "name": "Плитоноска ALPC з системою Molle",
+              "brand": "",
+              "size": "",
+              "color": "Оливковий",
+              "source_column": "Наявність",
+              "raw_value": "-",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Койот",
+                "Стан": "новий",
+                "Матеріал": "Cordura"
+              },
+              "description_excerpt": "Плитоноски моделі ALPC (Advanced Light Plate Carrier) розроблені для бойових одиниць спецпідрозділів. Це штурмові групи, розвідники та інші, для яких має значення вага і об'ємність одягнутого спорядження. АLPC якнайкраще підходить під дані вимоги: жилет відрізняється легкістю, забезпечує максимальну свободу дій і руху. Невелика вага, лаконічний дизайн, відсу",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pq108q9uogq9",
+              "sku": "RUB-08157",
+              "supplier_sku": "2193765733",
+              "name": "Плитоноска з системою швидкого скиду ATTACK",
+              "brand": "",
+              "size": "Що регулюється",
+              "color": "Мультикам",
+              "source_column": "Наявність",
+              "raw_value": "-",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Мультикам",
+                "Матеріал": "Cordura",
+                "Розмір": "Що регулюється"
+              },
+              "description_excerpt": "Плитоноска ATTACK з системою швидкого скиду на 4 точки/Мультикам В комплект входять: - 4 підсумки для магазину; - підсумок для радіостанції; - підсумок. • Виготовлений із міцного матеріалу Cordura • Вся фурнітура виконана з поліаміду • На всій поверхні застосовується система MOLLE • Підходить для плит стандартного розміру 25х30 см. • Регулюється за шириною т",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pwhf6vczogro",
+              "sku": "RUB-08246",
+              "supplier_sku": "2121336049",
+              "name": "Тактична футболка CoolMax піксель.",
+              "brand": "",
+              "size": "",
+              "color": "",
+              "source_column": "Наявність",
+              "raw_value": "-",
+              "stock_quantity": null,
+              "attributes": {
+                "Стать": "Чоловіча",
+                "Сезон": "Літо",
+                "Стан": "Новий",
+                "Вид виробу": "Футболка",
+                "Тип тканини": "Coolmax",
+                "Категорії": "Для військовослужбовців",
+                "Візерунки і принти": "Піксель"
+              },
+              "description_excerpt": "Футболка CoolMax піксель. Розміри: 46-58. Матеріал CoolMax являє собою якісну синтетичну тканину для польових умов. Повітропроникність, гігроскопічність, гіпоалергенність цієї тканини, її м'якість і легкість ідеально підходять для повсякденного носіння Вільний крій не сковує рухи. Не вбирає запахи і вдвічі легша за бавовну. Тканина не вигорає, добре пропуска",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "pf12ikvxogqa",
+              "sku": "RUB-08160",
+              "supplier_sku": "2229433293",
+              "name": "Плитоноска, розвантаження зі швидким скиданням з напашником",
+              "brand": "",
+              "size": "Універсальний",
+              "color": "Мультикам",
+              "source_column": "Наявність",
+              "raw_value": "-",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Мультикам",
+                "Матеріал": "Cordura",
+                "Розмір": "Універсальний"
+              },
+              "description_excerpt": "Комплект містить 7 підсумків. Виготовлений із міцного матеріалу Cordura. Вся фурнітура виготовлена з поліаміду. На всій поверхні застосовано систему MOLLE. Підходить для різних плит. Регулюється за шириною та висотою. Виробник: Туреччина.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            }
+          ]
+        },
+        "!": {
+          "count": 2,
+          "examples": [
+            {
+              "product_id": "pdpeio5mogrk",
+              "sku": "RUB-08236",
+              "supplier_sku": "2607486188",
+              "name": "Тактична сумка через плече нагрудна 5л",
+              "brand": "",
+              "size": "",
+              "color": "піксель",
+              "source_column": "Наявність",
+              "raw_value": "!",
+              "stock_quantity": null,
+              "attributes": {
+                "Матеріал": "Оксфорд"
+              },
+              "description_excerpt": "Тактична сумка через плече нагрудна 5л. Піксель Тактична через плече – максимально зручна для носіння на грудях або через плече. Матеріал щільний, стійкий до пошкоджень, не промокає. На передній стороні дві невеликі кишені, одна кишеня основна. Матеріал: оксфорд - товста нейлонова тканина з особливою структурою нитки, з водовідштовхувальним просоченням.",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            },
+            {
+              "product_id": "prfws12aogqs",
+              "sku": "RUB-08193",
+              "supplier_sku": "2727917856",
+              "name": "Спальний мішок",
+              "brand": "",
+              "size": "",
+              "color": "OLIVE",
+              "source_column": "Наявність",
+              "raw_value": "!",
+              "stock_quantity": null,
+              "attributes": {},
+              "description_excerpt": "Спальний мішок верх плащівка олива, в середині байка з начосом! Спальник (плащівка прострочена методом сендвіча з спанбондом, 250 синтепоном, другий шар спанбонду та (фліс байка з начосом)(Туреччина, на бавовняній основі.приємна до тіла) + сумка! Замок по всій довжині та низу, розстібається як ковдра. Утеплювач синтепон 250 має чудові теплоізоляційні показни",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            }
+          ]
+        },
+        "3": {
+          "count": 1,
+          "examples": [
+            {
+              "product_id": "p5ye3ot9ogub",
+              "sku": "RUB-08667",
+              "supplier_sku": "2605347814",
+              "name": "Чоловічі лофери з натуральної замші сірі",
+              "brand": "",
+              "size": "",
+              "color": "Сірий",
+              "source_column": "Наявність",
+              "raw_value": "3",
+              "stock_quantity": null,
+              "attributes": {
+                "Колір": "Сірий",
+                "Вид взуття": "Лофери"
+              },
+              "description_excerpt": "Чоловічі лофери з натуральної замші – класика, що завжди в моді Стильні чоловічі лофери з натуральної замші в універсальному сірому кольорі – вдалий вибір для сучасного чоловіка, який цінує комфорт та елегантність. Модель має лаконічний дизайн з акуратним декоративним елементом на верхній частині, що додає взуттю вишуканості. М’яка замша приємна на дотик, а ",
+              "availability_keyword_context": [],
+              "record_origin": "SAVED_BINDING_AND_MODEL_CONTEXT_NOT_ORIGINAL_WORKBOOK_ROW"
+            }
+          ]
+        }
+      },
+      "original_source_rows_available": false,
+      "supplier_semantics_confirmed": true,
+      "confirmation_evidence": "User confirmed standard Prom.ua export; official Prom field specification"
+    }
+  },
+  "before_ukr_confirmation": {
+    "availability": {
+      "IN_STOCK": 5213,
+      "OUT_OF_STOCK": 1030,
+      "PREORDER": 0,
+      "UNKNOWN": 2491
+    },
+    "per_supplier": {
+      "м вин": {
+        "IN_STOCK": 923,
+        "OUT_OF_STOCK": 1
+      },
+      "тактикал белт": {
+        "UNKNOWN": 1512
+      },
+      "укр тек": {
+        "UNKNOWN": 979
+      },
+      "киборг": {
+        "OUT_OF_STOCK": 779,
+        "IN_STOCK": 3135
+      },
+      "армолайн": {
+        "OUT_OF_STOCK": 250,
+        "IN_STOCK": 1155
+      }
+    },
+    "readiness_exclusive": {
+      "PAYMENT_READY": 4859,
+      "NOT_PAYMENT_READY_AVAILABILITY": 2401,
+      "SIZE_CONFIRMATION_REQUIRED": 848,
+      "BINDING_CONFIRMATION_REQUIRED": 626
+    },
+    "readiness_independent": {
+      "BINDING_CONFIRMATION_REQUIRED": 626,
+      "SIZE_CONFIRMATION_REQUIRED": 1446
+    },
+    "binding_size_overlap": 598,
+    "readiness_precedence": "BINDING → SIZE → PAYMENT/PRICE → PREORDER_CONFIRMATION → AVAILABILITY_UNRESOLVED_OR_OUT"
+  },
+  "accepted_policy_only": {
+    "availability": {
+      "IN_STOCK": 6187,
+      "OUT_OF_STOCK": 1034,
+      "PREORDER": 1,
+      "UNKNOWN": 1512
+    },
+    "per_supplier": {
+      "м вин": {
+        "IN_STOCK": 923,
+        "OUT_OF_STOCK": 1
+      },
+      "тактикал белт": {
+        "UNKNOWN": 1512
+      },
+      "укр тек": {
+        "IN_STOCK": 974,
+        "OUT_OF_STOCK": 4,
+        "PREORDER": 1
+      },
+      "киборг": {
+        "OUT_OF_STOCK": 779,
+        "IN_STOCK": 3135
+      },
+      "армолайн": {
+        "OUT_OF_STOCK": 250,
+        "IN_STOCK": 1155
+      }
+    },
+    "readiness_exclusive": {
+      "PAYMENT_READY": 4915,
+      "NOT_PAYMENT_READY_AVAILABILITY": 2345,
+      "SIZE_CONFIRMATION_REQUIRED": 848,
+      "BINDING_CONFIRMATION_REQUIRED": 626
+    },
+    "readiness_independent": {
+      "BINDING_CONFIRMATION_REQUIRED": 626,
+      "SIZE_CONFIRMATION_REQUIRED": 1446
+    },
+    "binding_size_overlap": 598,
+    "readiness_precedence": "BINDING → SIZE → PAYMENT/PRICE → PREORDER_CONFIRMATION → AVAILABILITY_UNRESOLVED_OR_OUT"
+  },
+  "conditional_tactical_quantity_confirmed": {
+    "availability": {
+      "IN_STOCK": 6551,
+      "OUT_OF_STOCK": 2182,
+      "PREORDER": 1,
+      "UNKNOWN": 0
+    },
+    "per_supplier": {
+      "м вин": {
+        "IN_STOCK": 923,
+        "OUT_OF_STOCK": 1
+      },
+      "тактикал белт": {
+        "OUT_OF_STOCK": 1148,
+        "IN_STOCK": 364
+      },
+      "укр тек": {
+        "IN_STOCK": 974,
+        "OUT_OF_STOCK": 4,
+        "PREORDER": 1
+      },
+      "киборг": {
+        "OUT_OF_STOCK": 779,
+        "IN_STOCK": 3135
+      },
+      "армолайн": {
+        "OUT_OF_STOCK": 250,
+        "IN_STOCK": 1155
+      }
+    },
+    "readiness_exclusive": {
+      "PAYMENT_READY": 5242,
+      "NOT_PAYMENT_READY_AVAILABILITY": 2018,
+      "SIZE_CONFIRMATION_REQUIRED": 848,
+      "BINDING_CONFIRMATION_REQUIRED": 626
+    },
+    "readiness_independent": {
+      "BINDING_CONFIRMATION_REQUIRED": 626,
+      "SIZE_CONFIRMATION_REQUIRED": 1446
+    },
+    "binding_size_overlap": 598,
+    "readiness_precedence": "BINDING → SIZE → PAYMENT/PRICE → PREORDER_CONFIRMATION → AVAILABILITY_UNRESOLVED_OR_OUT"
+  },
+  "conditional_scenarios_are_not_policy_approval": true,
+  "confirmed_supplier_policies": {
+    "M-WIN": "STATUS",
+    "Киборг": "STATUS",
+    "Армолайн": "STATUS",
+    "UKR-TEC": "STATUS_PROM_EXPORT"
+  },
+  "unconfirmed_supplier_policies": {
+    "Tactical Belt": "QUANTITY_CANDIDATE"
+  },
+  "ukr_tec_inventory_policy": {
+    "inventory_mode": "STATUS",
+    "source_profile": "PROM_XLS_XLSX_CSV_UK",
+    "source_column": "Наявність",
+    "confirmed": true,
+    "confirmation_source": "USER_CONFIRMED_FORMAT + OFFICIAL_FORMAT_SPECIFICATION",
+    "status_mapping": {
+      "+": "IN_STOCK",
+      "-": "OUT_OF_STOCK",
+      "!": "IN_STOCK"
+    },
+    "positive_integer_rule": "PREORDER",
+    "positive_integer_semantics": "SUPPLIER_DELIVERY_LEAD_TIME_DAYS_NOT_QUANTITY",
+    "raw_3_delivery_days": 3,
+    "stock_quantity": null,
+    "manufacturing_days": null,
+    "age_changes_availability": false,
+    "unrecognized_token": "UNKNOWN_OR_RETAIN_LAST_VALID_OBSERVATION",
+    "working_policy_applied": false
+  },
+  "quantity_records_created": 0,
+  "working_policy_writes": 0,
+  "catalog_writes": 0,
+  "production_writes": 0,
+  "source_input_unchanged": true,
+  "import_apply_calls": 0,
+  "persist_calls": 0,
+  "readiness_scope": "Virtual readiness of existing real SKU using policy signal, confirmed binding, confirmed applicable size, positive calculated price and margin guards. Does not publish, charge or authorize a live checkout; publication separately controlled."
+}

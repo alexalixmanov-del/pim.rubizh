@@ -1,0 +1,4171 @@
+{
+ "totals": {
+  "products": 4232,
+  "skus": 8187,
+  "decisions": {
+   "READY": 1476,
+   "MODERATION": 1965,
+   "ARCHIVED": 760,
+   "REJECTED": 31
+  }
+ },
+ "moderation_reasons": {
+  "category": {
+   "models": 520,
+   "skus": 1071
+  },
+  "color": {
+   "models": 72,
+   "skus": 84
+  },
+  "grouping": {
+   "models": 1619,
+   "skus": 4022
+  },
+  "photo_ownership": {
+   "models": 3,
+   "skus": 13
+  },
+  "price_unit": {
+   "models": 47,
+   "skus": 47
+  },
+  "variant_cell": {
+   "models": 39,
+   "skus": 139
+  }
+ },
+ "moderation_by_supplier": {
+  "M-WIN": {
+   "category": {
+    "models": 30,
+    "skus": 31
+   },
+   "color": {
+    "models": 1,
+    "skus": 1
+   },
+   "grouping": {
+    "models": 143,
+    "skus": 591
+   },
+   "price_unit": {
+    "models": 26,
+    "skus": 26
+   },
+   "variant_cell": {
+    "models": 4,
+    "skus": 8
+   }
+  },
+  "Tactical Belt": {
+   "category": {
+    "models": 73,
+    "skus": 166
+   },
+   "color": {
+    "models": 11,
+    "skus": 18
+   },
+   "grouping": {
+    "models": 20,
+    "skus": 36
+   },
+   "variant_cell": {
+    "models": 8,
+    "skus": 35
+   }
+  },
+  "UKR-TEC": {
+   "category": {
+    "models": 57,
+    "skus": 57
+   },
+   "color": {
+    "models": 2,
+    "skus": 2
+   },
+   "grouping": {
+    "models": 135,
+    "skus": 135
+   }
+  },
+  "Армолайн": {
+   "category": {
+    "models": 47,
+    "skus": 249
+   },
+   "grouping": {
+    "models": 278,
+    "skus": 1203
+   }
+  },
+  "Киборг": {
+   "category": {
+    "models": 313,
+    "skus": 568
+   },
+   "color": {
+    "models": 58,
+    "skus": 63
+   },
+   "grouping": {
+    "models": 1043,
+    "skus": 2057
+   },
+   "photo_ownership": {
+    "models": 3,
+    "skus": 13
+   },
+   "price_unit": {
+    "models": 21,
+    "skus": 21
+   },
+   "variant_cell": {
+    "models": 27,
+    "skus": 96
+   }
+  }
+ },
+ "states_by_supplier": {
+  "-": {
+   "ARCHIVED": 760
+  },
+  "M-WIN": {
+   "READY": 89,
+   "MODERATION": 166
+  },
+  "Tactical Belt": {
+   "READY": 502,
+   "MODERATION": 110,
+   "REJECTED": 13
+  },
+  "UKR-TEC": {
+   "READY": 274,
+   "MODERATION": 165
+  },
+  "Армолайн": {
+   "MODERATION": 279,
+   "READY": 31
+  },
+  "Киборг": {
+   "MODERATION": 1245,
+   "READY": 580,
+   "REJECTED": 18
+  }
+ },
+ "moderation_evidence_by_supplier": {
+  "M-WIN": {
+   "models": 166,
+   "group_id_present": 166,
+   "color_known": 165,
+   "size_exact_or_not_required": 135,
+   "category_confirmed": 136,
+   "photos": 166
+  },
+  "Tactical Belt": {
+   "models": 110,
+   "group_id_present": 60,
+   "color_known": 99,
+   "size_exact_or_not_required": 52,
+   "category_confirmed": 37,
+   "photos": 110
+  },
+  "UKR-TEC": {
+   "models": 165,
+   "group_id_present": 0,
+   "color_known": 163,
+   "size_exact_or_not_required": 20,
+   "category_confirmed": 108,
+   "photos": 165
+  },
+  "Армолайн": {
+   "models": 279,
+   "group_id_present": 279,
+   "color_known": 279,
+   "size_exact_or_not_required": 272,
+   "category_confirmed": 232,
+   "photos": 279
+  },
+  "Киборг": {
+   "models": 1245,
+   "group_id_present": 1245,
+   "color_known": 1187,
+   "size_exact_or_not_required": 951,
+   "category_confirmed": 932,
+   "photos": 1245
+  }
+ },
+ "grouping_review": {
+  "classes": {
+   "A_same_group_id": {
+    "groups": 1,
+    "models": 2,
+    "skus": 4
+   },
+   "C_codes_not_slices": {
+    "groups": 2,
+    "models": 6,
+    "skus": 11
+   },
+   "C_identical_text_no_model_token": {
+    "groups": 180,
+    "models": 730,
+    "skus": 1286
+   },
+   "C_insufficient_evidence": {
+    "groups": 183,
+    "models": 588,
+    "skus": 1837
+   },
+   "C_no_supplier_group": {
+    "groups": 61,
+    "models": 144,
+    "skus": 144
+   },
+   "F_size_grid": {
+    "groups": 8,
+    "models": 38,
+    "skus": 476
+   },
+   "F_size_or_cell_conflict": {
+    "groups": 20,
+    "models": 60,
+    "skus": 146
+   },
+   "G_source_inconsistency": {
+    "groups": 13,
+    "models": 39,
+    "skus": 86
+   }
+  },
+  "by_supplier": {
+   "M-WIN": {
+    "F_size_grid": 38,
+    "C_identical_text_no_model_token": 75,
+    "G_source_inconsistency": 10,
+    "F_size_or_cell_conflict": 6,
+    "A_same_group_id": 2,
+    "C_insufficient_evidence": 12
+   },
+   "Tactical Belt": {
+    "C_no_supplier_group": 11,
+    "F_size_or_cell_conflict": 7,
+    "C_insufficient_evidence": 2
+   },
+   "UKR-TEC": {
+    "C_no_supplier_group": 133
+   },
+   "Армолайн": {
+    "C_insufficient_evidence": 278
+   },
+   "Киборг": {
+    "C_identical_text_no_model_token": 655,
+    "C_codes_not_slices": 6,
+    "C_insufficient_evidence": 296,
+    "F_size_or_cell_conflict": 47,
+    "G_source_inconsistency": 29
+   }
+  },
+  "examples": {
+   "F_size_grid": [
+    {
+     "name": "Антидронова маскувальна сітка M-WIN",
+     "cards": 22,
+     "reasons": [
+      "Поставщик передал разные коды модели",
+      "Превышен лимит вариантов",
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Антидронова маскувальна сітка M-WIN Листя осінь",
+     "cards": 2,
+     "reasons": [
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Антимоскітна сітка на голову M-WIN + підсумок-чохол в кольорі",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Маскувальна сітка M-Win . Маскування весна, літо",
+     "cards": 3,
+     "reasons": [
+      "Превышен лимит вариантов",
+      "Различаются характеристики, совместимость или связи"
+     ]
+    }
+   ],
+   "C_identical_text_no_model_token": [
+    {
+     "name": "Балаклава фліс M-WIN",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Балістичний захист шиї / Горжет 1 клас M-WIN",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Балістичний захист шиї / Горжет 2 клас M-WIN",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Кавер на шолом з вухами \"Залужний\" M-WIN",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    }
+   ],
+   "G_source_inconsistency": [
+    {
+     "name": "Балістичний захист плечей 1 клас M-WIN . Комплект 2 шт.",
+     "cards": 2,
+     "reasons": [
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Балістичний захист плечей 2 клас M-WIN . Комплект 2 шт.",
+     "cards": 2,
+     "reasons": [
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Панама тактична з короткими полями M-WIN Rip-stop",
+     "cards": 4,
+     "reasons": [
+      "Поставщик передал разные коды модели",
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Термобілизна Термофліс 2-го покоління квадратики . .",
+     "cards": 2,
+     "reasons": [
+      "Различаются характеристики, совместимость или связи"
+     ]
+    }
+   ],
+   "F_size_or_cell_conflict": [
+    {
+     "name": "Балістичний фартух 1 клас M-WIN",
+     "cards": 3,
+     "reasons": [
+      "Один цвет и размер принадлежат разным исходным карточкам"
+     ]
+    },
+    {
+     "name": "Балістичний фартух 2 клас M-WIN",
+     "cards": 3,
+     "reasons": [
+      "Один цвет и размер принадлежат разным исходным карточкам"
+     ]
+    },
+    {
+     "name": "Додаткове кріплення з QD антабкою",
+     "cards": 2,
+     "reasons": [
+      "Один цвет и размер принадлежат разным исходным карточкам",
+      "Поставщик передал разные коды модели"
+     ]
+    },
+    {
+     "name": "Сумка скидання магазинів Navigara",
+     "cards": 2,
+     "reasons": [
+      "Один цвет и размер принадлежат разным исходным карточкам",
+      "Поставщик передал разные коды модели"
+     ]
+    }
+   ],
+   "A_same_group_id": [
+    {
+     "name": "Панама тактична з короткими полями M-WIN NyCo",
+     "cards": 2,
+     "reasons": [
+      "Различаются характеристики, совместимость или связи"
+     ]
+    }
+   ],
+   "C_insufficient_evidence": [
+    {
+     "name": "Панама тактична універсальна M-WIN R3 Rip-stop",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Спальний мішок зимовий M-WIN Tactical Winter Gen-3 220х88 см",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Тактичний каремат п'ятиточка M-WIN трисекційний",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Тактичний пояс РПС з лямками M-WIN",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    }
+   ],
+   "C_no_supplier_group": [
+    {
+     "name": "Балаклава тактична",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Балаклава флісова",
+     "cards": 3,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Бейсболка з гербом",
+     "cards": 4,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    },
+    {
+     "name": "Тактичний ремінь-липучка Ragnarok",
+     "cards": 2,
+     "reasons": [
+      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+     ]
+    }
+   ],
+   "C_codes_not_slices": [
+    {
+     "name": "Активні Навушники Walker's Razor Slim",
+     "cards": 2,
+     "reasons": [
+      "Поставщик передал разные коды модели"
+     ]
+    },
+    {
+     "name": "Балістичний шолом FAST PE GEN III AGGRESSIVE",
+     "cards": 4,
+     "reasons": [
+      "Поставщик передал разные коды модели"
+     ]
+    }
+   ]
+  }
+ },
+ "grouping_flagged_models": 1619,
+ "merged_into_models": 760,
+ "m_win": {
+  "source_rows": 924,
+  "groups": 199,
+  "multi_row_groups": 52,
+  "rows_in_multi_row_groups": 777,
+  "products": 255,
+  "skus": 924,
+  "multi_variant_models": 47,
+  "multi_row_group_outcome": {
+   "nets:partly_merged": 25,
+   "other:partly_merged": 3,
+   "other:one_model": 13,
+   "other:model_per_row": 11
+  },
+  "representative_groups": [
+   {
+    "group_id": "37469",
+    "rows": 48,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "0000LO",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. індивідуального розміру (ціна за 1 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "Індивідуальний розмір",
+      "pim_model": "ptzj1wxdk2gg",
+      "pim_color": "Осіннє листя",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "LO-2х3",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х3 м (площа 6 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х3",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х4",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х4 м (площа 8 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х4",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х5",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х5 м (площа 10 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х5",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х6",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х6 м (площа 12 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х6",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х7",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х7 м (площа 14 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х7",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х8",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х8 м (площа 16 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х8",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х9",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х9 м (площа 18 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х9",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-2х10",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 2х10 м (площа 20 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "2х10",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х3",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х3 м (площа 9 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х3",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х4",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х4 м (площа 12 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х4",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х5",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х5 м (площа 15 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х5",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х6",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х6 м (площа 18 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х6",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х7",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х7 м (площа 21 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х7",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х8",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х8 м (площа 24 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х8",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х9",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х9 м (площа 27 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х9",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-3х10",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 3х10 м (площа 30 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "3х10",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х4",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х4 м (площа 16 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х4",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х5",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х5 м (площа 20 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х5",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х6",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х6 м (площа 24 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х6",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х7",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х7 м (площа 28 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х7",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х8",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х8 м (площа 32 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х8",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х9",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х9 м (площа 36 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х9",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-4х10",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 4х10 м (площа 40 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "4х10",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "LO-5х5",
+      "raw_title": "Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь. 5х5 м (площа 25 кв.м.)",
+      "raw_color": "Осіннє листя",
+      "raw_size": null,
+      "selector": "5х5",
+      "pim_model": "piyx2xluk26o",
+      "pim_color": "Осіннє листя",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "46469",
+    "rows": 48,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "0000ZL",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. індивідуального розміру (ціна за 1 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "Індивідуальний розмір",
+      "pim_model": "p0y7hfn4k1vp",
+      "pim_color": "Зелене листя",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х3",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х3 м (площа 6 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х3",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х4",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х4 м (площа 8 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х4",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х5",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х5 м (площа 10 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х5",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х6",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х6 м (площа 12 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х6",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х7",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х7 м (площа 14 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х7",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х8",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х8 м (площа 16 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х8",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х9",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х9 м (площа 18 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х9",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-2х10",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 2х10 м (площа 20 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "2х10",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х3",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х3 м (площа 9 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х3",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х4",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х4 м (площа 12 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х4",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х5",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х5 м (площа 15 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х5",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х6",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х6 м (площа 18 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х6",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х7",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х7 м (площа 21 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х7",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х8",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х8 м (площа 24 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х8",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х9",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х9 м (площа 27 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х9",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-3х10",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 3х10 м (площа 30 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "3х10",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х4",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х4 м (площа 16 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х4",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х5",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х5 м (площа 20 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х5",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х6",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х6 м (площа 24 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х6",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х7",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х7 м (площа 28 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х7",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х8",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х8 м (площа 32 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х8",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х9",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х9 м (площа 36 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х9",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-4х10",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 4х10 м (площа 40 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "4х10",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "ZL-5х5",
+      "raw_title": "Маскувальна сітка M-Win Зелене листя. Маскування весна, літо. 5х5 м (площа 25 кв.м.)",
+      "raw_color": "Зелене листя",
+      "raw_size": null,
+      "selector": "5х5",
+      "pim_model": "puokd7e0k1mo",
+      "pim_color": "Зелене листя",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "47469",
+    "rows": 48,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "0000TM",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. Індивідуальний розмір (ціна за 1 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "Індивідуальний розмір",
+      "pim_model": "p93lrp9wk4bd",
+      "pim_color": "Темний мультикам",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х3",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х3 м (площа 6 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х3",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х4",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х4 м (площа 8 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х4",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х5",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х5 м (площа 10 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х5",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х6",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х6 м (площа 12 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х6",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х7",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х7 м (площа 14 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х7",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х8",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х8 м (площа 16 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х8",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х9",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х9 м (площа 18 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х9",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-2х10",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 2х10 м (площа 20 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "2х10",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х3",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь.3х3 м (площа 9 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х3",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х4",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь.3х4 м (площа 12 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х4",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х5",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 3х5 м (площа 15 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х5",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х6",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 3х6 м (площа 18 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х6",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х7",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 3х7 м (площа 21 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х7",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х8",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь.3х8 м (площа 24 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х8",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х9",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 3х9 м (площа 27 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х9",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-3х10",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 3х10 м (площа 30 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "3х10",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х4",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х4 м (площа 16 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х4",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х5",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х5 м (площа 20 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х5",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х6",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х6 м (площа 24 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х6",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х7",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х7 м (площа 28 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х7",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х8",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х8 м (площа 32 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х8",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х9",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х9 м (площа 36 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х9",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-4х10",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 4х10 м (площа 40 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "4х10",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TM-5х5",
+      "raw_title": "Маскувальна сітка M-Win Темний мультикам. Маскування весна, літо, осінь. 5х5 м (площа 25 кв.м.)",
+      "raw_color": "Темний мультикам",
+      "raw_size": null,
+      "selector": "5х5",
+      "pim_model": "p4s09ogjk42i",
+      "pim_color": "Темний мультикам",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "48469",
+    "rows": 48,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "0000Kh",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. Індивідуальний розмір (ціна за 1 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "Індивідуальний розмір",
+      "pim_model": "p6c8f9k7k4mw",
+      "pim_color": "Хижак",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х3",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х3 м (площа 6 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х3",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х4",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х4 м (площа 8 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х4",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х5",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х5 м (площа 10 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х5",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х6",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х6 м (площа 12 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х6",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х7",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х7 м (площа 14 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х7",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х8",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х8 м (площа 16 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х8",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х9",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х9 м (площа 18 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х9",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-2х10",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 2х10 м (площа 20 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "2х10",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х3",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х3 м (площа 9 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х3",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х4",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х4 м (площа 12 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х4",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х5",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х5 м (площа 15 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х5",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х6",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х6 м (площа 18 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х6",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х7",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х7 м (площа 21 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х7",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х8",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х8 м (площа 24 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х8",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х9",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х9 м (площа 27 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х9",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-3х10",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 3х10 м (площа 30 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "3х10",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х4",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х4 м (площа 16 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х4",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х5",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х5 м (площа 20 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х5",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х6",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х6 м (площа 24 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х6",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х7",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х7 м (площа 28 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х7",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х8",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х8 м (площа 32 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х8",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х9",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х9 м (площа 36 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х9",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-4х10",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 4х10 м (площа 40 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "4х10",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "Kh-5х5",
+      "raw_title": "Маскувальна сітка M-Win Хижак. Маскування осінь, весна. 5х5 м (площа 25 кв.м.)",
+      "raw_color": "Хижак",
+      "raw_size": null,
+      "selector": "5х5",
+      "pim_model": "p6cpy6afk4c5",
+      "pim_color": "Хижак",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "56469",
+    "rows": 48,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "0000BM",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. Індивідуального розміру (ціна за 1 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "Індивідуальний розмір",
+      "pim_model": "pl0ti28lk2zz",
+      "pim_color": "Білий мультикам",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "BM-2х3",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х3 м (площа 6 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х3",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х4",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х4 м (площа 8 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х4",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х5",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х5 м (площа 10 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х5",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х6",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х6 м (площа 12 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х6",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х7",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х7 м (площа 14 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х7",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х8",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х8 м (площа 16 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х8",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х9",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х9 м (площа 18 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х9",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-2х10",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 2х10 м (площа 20 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "2х10",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х3",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х3 м (площа 9 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х3",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х4",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х4 м (площа 12 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х4",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х5",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х5 м (площа 15 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х5",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х6",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х6 м (площа 18 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х6",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х7",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х7 м (площа 21 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х7",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х8",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х8 м (площа 24 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х8",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х9",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х9 м (площа 27 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х9",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-3х10",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 3х10 м (площа 30 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "3х10",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х4",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х4 м (площа 16 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х4",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х5",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х5 м (площа 20 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х5",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х6",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х6 м (площа 24 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х6",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х7",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х7 м (площа 28 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х7",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х8",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х8 м (площа 32 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х8",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х9",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х9 м (площа 36 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х9",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-4х10",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 4х10 м (площа 40 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "4х10",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "BM-5х5",
+      "raw_title": "Маскувальна сітка M-WIN Білий мультикам. Маскування зима. 5х5 м (площа 25 кв.м.)",
+      "raw_color": "Білий мультикам",
+      "raw_size": null,
+      "selector": "5х5",
+      "pim_model": "p7cd90b7k2pu",
+      "pim_color": "Білий мультикам",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "58469",
+    "rows": 48,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "0000TK",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. Індивідуального розміру (ціна за 1 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "Індивідуальний розмір",
+      "pim_model": "poqcvwpsk42c",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "TK-2х3",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х3 м (площа 6 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х3",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х4",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х4 м (площа 8 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х4",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х5",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х5 м (площа 10 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х5",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х6",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х6 м (площа 12 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х6",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х7",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х7 м (площа 14 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х7",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х8",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х8 м (площа 16 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х8",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х9",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х9 м (площа 18 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х9",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-2х10",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 2х10 м (площа 20 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "2х10",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х3",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х3 м (площа 9 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х3",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х4",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х4 м (площа 12 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х4",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х5",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х5 м (площа 15 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х5",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х6",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х6 м (площа 18 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х6",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х7",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х7 м (площа 21 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х7",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х8",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х8 м (площа 24 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х8",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х9",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х9 м (площа 27 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х9",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-3х10",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 3х10 м (площа 30 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "3х10",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х4",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х4 м (площа 16 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х4",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х5",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х5 м (площа 20 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х5",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х6",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х6 м (площа 24 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х6",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х7",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х7 м (площа 28 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х7",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х8",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х8 м (площа 32 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х8",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х9",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х9 м (площа 36 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х9",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-4х10",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 4х10 м (площа 40 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "4х10",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "TK-5х5",
+      "raw_title": "Маскувальна сітка M-WIN Темний камуфляж. Маскування осінь, зима, весна. 5х5 м (площа 25 кв.м.)",
+      "raw_color": "Темний камуфляж",
+      "raw_size": null,
+      "selector": "5х5",
+      "pim_model": "p09ah0iyk3t1",
+      "pim_color": "Темний камуфляж",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "82463",
+    "rows": 4,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "2000683271764",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Піксель розмір М",
+      "raw_color": "Піксель",
+      "raw_size": "M",
+      "selector": null,
+      "pim_model": "pvxc5h1ck55t",
+      "pim_color": "Піксель",
+      "pim_size": "M",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683271757",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Піксель розмір S",
+      "raw_color": "Піксель",
+      "raw_size": "S",
+      "selector": null,
+      "pim_model": "px7wud0pk54q",
+      "pim_color": "Піксель",
+      "pim_size": "S",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683271771",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Піксель розмір L",
+      "raw_color": "Піксель",
+      "raw_size": "L",
+      "selector": null,
+      "pim_model": "px7wud0pk54q",
+      "pim_color": "Піксель",
+      "pim_size": "L",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683271788",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Піксель розмір XL",
+      "raw_color": "Піксель",
+      "raw_size": "XL",
+      "selector": null,
+      "pim_model": "px7wud0pk54q",
+      "pim_color": "Піксель",
+      "pim_size": "XL",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "84463",
+    "rows": 4,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "2000683271801",
+      "raw_title": "Панама тактична з короткими полями M-WIN NyCo Мультикам розмір S",
+      "raw_color": "Мультикам",
+      "raw_size": "S",
+      "selector": null,
+      "pim_model": "pzv75j2fk53f",
+      "pim_color": "Мультикам",
+      "pim_size": "S",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683271818",
+      "raw_title": "Панама тактична з короткими полями M-WIN NyCo Мультикам розмір М",
+      "raw_color": "Мультикам",
+      "raw_size": "M",
+      "selector": null,
+      "pim_model": "p9f9oxgck54k",
+      "pim_color": "Мультикам",
+      "pim_size": "M",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683271825",
+      "raw_title": "Панама тактична з короткими полями M-WIN NyCo Мультикам розмір L",
+      "raw_color": "Мультикам",
+      "raw_size": "L",
+      "selector": null,
+      "pim_model": "pzv75j2fk53f",
+      "pim_color": "Мультикам",
+      "pim_size": "L",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683271832",
+      "raw_title": "Панама тактична з короткими полями M-WIN NyCo Мультикам розмір XL",
+      "raw_color": "Мультикам",
+      "raw_size": "XL",
+      "selector": null,
+      "pim_model": "pzv75j2fk53f",
+      "pim_color": "Мультикам",
+      "pim_size": "XL",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "88463",
+    "rows": 4,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "2000683271795",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Койот розмір S",
+      "raw_color": "Койот",
+      "raw_size": "S",
+      "selector": null,
+      "pim_model": "pafvdsujk55o",
+      "pim_color": "Койот",
+      "pim_size": "S",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2011332221597",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Койот розмір М",
+      "raw_color": "Койот",
+      "raw_size": "M",
+      "selector": null,
+      "pim_model": "ppb9hucgk560",
+      "pim_color": "Койот",
+      "pim_size": "M",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2024650683930",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Койот розмір L",
+      "raw_color": "Койот",
+      "raw_size": "L",
+      "selector": null,
+      "pim_model": "pafvdsujk55o",
+      "pim_color": "Койот",
+      "pim_size": "L",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2047032275356",
+      "raw_title": "Панама тактична з короткими полями M-WIN Rip-stop Койот розмір XL",
+      "raw_color": "Койот",
+      "raw_size": "XL",
+      "selector": null,
+      "pim_model": "pafvdsujk55o",
+      "pim_color": "Койот",
+      "pim_size": "XL",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "30459",
+    "rows": 3,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "2000683270453",
+      "raw_title": "Шолом FAST TEAM WENDY 2.0 балістичний NIJ IIIA. Каска тактична. Хакі. Розмір М",
+      "raw_color": "Хакі",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "p9irrmqkk6zy",
+      "pim_color": "Хакі",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "2000683270460",
+      "raw_title": "Шолом FAST TEAM WENDY 2.0 балістичний NIJ IIIA. Каска тактична. Хакі. Розмір L",
+      "raw_color": "Хакі",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "p9irrmqkk6zy",
+      "pim_color": "Хакі",
+      "pim_size": "L",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "2000683270477",
+      "raw_title": "Шолом FAST TEAM WENDY 2.0 балістичний NIJ IIIA. Каска тактична. Хакі. Розмір XL",
+      "raw_color": "Хакі",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "p9irrmqkk6zy",
+      "pim_color": "Хакі",
+      "pim_size": "XL",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "74463",
+    "rows": 3,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "2000683270927",
+      "raw_title": "Зимова тактична куртка M-WIN Waterproof Level 7 Tinsul-M Хакі Розмір 48",
+      "raw_color": "Хакі",
+      "raw_size": "48",
+      "selector": null,
+      "pim_model": "piajhlkxk0lu",
+      "pim_color": "Хакі",
+      "pim_size": "48",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "2000683270941",
+      "raw_title": "Зимова тактична куртка M-WIN Waterproof Level 7 Tinsul-M Хакі Розмір 52",
+      "raw_color": "Хакі",
+      "raw_size": "52",
+      "selector": null,
+      "pim_model": "piajhlkxk0lu",
+      "pim_color": "Хакі",
+      "pim_size": "52",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "2000683270965",
+      "raw_title": "Зимова тактична куртка M-WIN Waterproof Level 7 Tinsul-M Хакі Розмір 56",
+      "raw_color": "Хакі",
+      "raw_size": "56",
+      "selector": null,
+      "pim_model": "piajhlkxk0lu",
+      "pim_color": "Хакі",
+      "pim_size": "56",
+      "size_status": "EXACT_SIZE",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "12460",
+    "rows": 2,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "1012-M-L",
+      "raw_title": "Бронежилет тактичний Spartan. Плитоноска з підсумками M-WIN GEN.2 Мультикам M-L",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pqb4abpbk0cl",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "1112-XL-XXL",
+      "raw_title": "Бронежилет тактичний Spartan. Плитоноска з підсумками M-WIN GEN.2 Мультикам XL-XXL",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pqb4abpbk0cl",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "13460",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "1022-ml",
+      "raw_title": "Бронежилет тактичний Steel Warrior. Плитоноска M-WIN GEN.2 Мультикам M-L. Комплект",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "p03g2q21k0de",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "1022-xxl",
+      "raw_title": "Бронежилет тактичний Steel Warrior. Плитоноска M-WIN GEN.2 Мультикам XL-XXL. Комплект ",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "p0qebxook0e7",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "14460",
+    "rows": 2,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "1002-M-L",
+      "raw_title": "Плитоноска закритого типу M-WIN GEN.2 Мультикам розмір M-L",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pf4nmu01k5jy",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "1002-XL-XXL",
+      "raw_title": "Плитоноска закритого типу M-WIN GEN.2 Мультикам розмір XL-XXL",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pf4nmu01k5jy",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "16460",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "1032-ml",
+      "raw_title": "Бронежилет тактичний Cyborg. Плитоноска M-WIN GEN.2 Мультикам M-L. Комплект",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pphuobnok02m",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "1032-xxl",
+      "raw_title": "Бронежилет тактичний Cyborg. Плитоноска M-WIN GEN.2 Мультикам XL-XXL. Комплект  ",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pw63g2q9k06d",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "17460",
+    "rows": 2,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "1122-M-L",
+      "raw_title": "Бронежилет тактичний Phantom. Плитоноска з підсумками M-WIN GEN.2 Мультикам M-L",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pt51j39ak070",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "1122-Xl-XXL",
+      "raw_title": "Бронежилет тактичний Phantom. Плитоноска з підсумками M-WIN GEN.2 Мультикам Xl-XXL",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pt51j39ak070",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "18460",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "1042-ml",
+      "raw_title": "Бронежилет тактичний Ranger. Плитоноска M-WIN GEN.2 Мультикам M-L. Комплект",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pdwqaox2k091",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "1042-xxl",
+      "raw_title": "Бронежилет тактичний Ranger. Плитоноска M-WIN GEN.2 Мультикам XL-XXL. Комплект",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "p3257lmuk0by",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "19459",
+    "rows": 2,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "2000000000138",
+      "raw_title": "Кріплення Чебурашки для активних навушників EARMOR хакі (Ops core arc & team wendy)",
+      "raw_color": "Хакі",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "plu6os0dk128",
+      "pim_color": "Хакі",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "2000683272884",
+      "raw_title": "Кріплення Чебурашки для активних навушників EARMOR койот (Ops core arc & team wendy)",
+      "raw_color": "Койот",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "plu6os0dk128",
+      "pim_color": "Койот",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "19460",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "1052-ml",
+      "raw_title": "Бронежилет тактичний Swift Eagle M-WIN. Плитоноска GEN.2 Мультикам M-L. Комплект",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pr2lsynrk0ef",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "1052-xxl",
+      "raw_title": "Бронежилет тактичний Swift Eagle M-WIN. Плитоноска GEN.2 Мультикам XL-XXL. Комплект",
+      "raw_color": "Мультикам",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pgan99cgk0fe",
+      "pim_color": "Мультикам",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "20460",
+    "rows": 2,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "1001-M-L",
+      "raw_title": "Плитоноска закритого типу M-WIN GEN.2 Піксель розмір M-L",
+      "raw_color": "Піксель",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "p6dm96kwk5ku",
+      "pim_color": "Піксель",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     },
+     {
+      "supplier_sku": "1001-XL-XXL",
+      "raw_title": "Плитоноска закритого типу M-WIN GEN.2 Піксель розмір XL-XXL",
+      "raw_color": "Піксель",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "p6dm96kwk5ku",
+      "pim_color": "Піксель",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     }
+    ]
+   },
+   {
+    "group_id": "21460",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "1031-ml",
+      "raw_title": "Бронежилет тактичний Cyborg. Плитоноска M-WIN GEN.2 Піксель M-L. Комплект",
+      "raw_color": "Піксель",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pphuobnok02m",
+      "pim_color": "Піксель",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "1031-xxl",
+      "raw_title": "Бронежилет тактичний Cyborg. Плитоноска M-WIN GEN.2 Піксель XL-XX. Комплект",
+      "raw_color": "Піксель",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pan2dcqsk05k",
+      "pim_color": "Піксель",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "22460",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "1041-ml",
+      "raw_title": "Бронежилет тактичний Ranger. Плитоноска M-WIN GEN.2 Піксель M-L. Комплект",
+      "raw_color": "Піксель",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "pdwqaox2k091",
+      "pim_color": "Піксель",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "1041-xxl",
+      "raw_title": "Бронежилет тактичний Ranger. Плитоноска M-WIN GEN.2 Піксель XL-XXL. Комплект",
+      "raw_color": "Піксель",
+      "raw_size": "M-L, XL-XXL",
+      "selector": null,
+      "pim_model": "p3257lmuk0by",
+      "pim_color": "Піксель",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "32459",
+    "rows": 2,
+    "models": 1,
+    "items": [
+     {
+      "supplier_sku": "2000683270552",
+      "raw_title": "Ліхтар на шолом тактичний. Койот",
+      "raw_color": "Койот",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "pgl4cqdpk17h",
+      "pim_color": "Койот",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "0933",
+      "raw_title": "Ліхтар на шолом тактичний. Хакі",
+      "raw_color": "Хакі",
+      "raw_size": null,
+      "selector": null,
+      "pim_model": "pgl4cqdpk17h",
+      "pim_color": "Хакі",
+      "pim_size": "",
+      "size_status": "NO_SIZE_REQUIRED",
+      "state": "READY"
+     }
+    ]
+   },
+   {
+    "group_id": "3465",
+    "rows": 2,
+    "models": 2,
+    "items": [
+     {
+      "supplier_sku": "2000683270767",
+      "raw_title": "Тактичний ремінь War Belt M-WIN Gen. IV Хакі. Розмір XS-S",
+      "raw_color": "Хакі",
+      "raw_size": "XS-S",
+      "selector": null,
+      "pim_model": "p5rllh26k6pt",
+      "pim_color": "Хакі",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "READY"
+     },
+     {
+      "supplier_sku": "2000683275465",
+      "raw_title": "Тактичний ремінь War Belt M-WIN Gen. IV Хакі. Розмір М-L",
+      "raw_color": "Хакі",
+      "raw_size": "М-L",
+      "selector": null,
+      "pim_model": "p6o7ktuok6rj",
+      "pim_color": "Хакі",
+      "pim_size": "",
+      "size_status": "SIZE_CONFIRMATION_REQUIRED",
+      "state": "MODERATION"
+     }
+    ]
+   }
+  ],
+  "gorka": [
+   {
+    "group_id": "1463",
+    "rows_in_group": 1,
+    "title": "Військовий тактичний демісезон костюм \"Горка\" мультикам. Розмір 50"
+   }
+  ]
+ },
+ "m_win_size_grid": {
+  "selector_field": "ОБЕРІТЬ РОЗМІР СІТКИ:",
+  "rows": 716,
+  "groups": 26,
+  "non_net_rows": 6,
+  "distinct_values": 76,
+  "values": {
+   "Індивідуальний розмір": 26,
+   "3х4": 25,
+   "3х5": 25,
+   "3х6": 25,
+   "6х8": 25,
+   "2х6": 24,
+   "4х6": 24,
+   "5х6": 24,
+   "3х3": 13,
+   "3х7": 13,
+   "3х8": 13,
+   "3х9": 13,
+   "3х10": 13,
+   "6х6": 13,
+   "6х7": 13,
+   "6х9": 13,
+   "6х10": 13,
+   "9х10": 13,
+   "2х3": 12,
+   "2х4": 12,
+   "2х5": 12,
+   "2х7": 12,
+   "2х8": 12,
+   "2х9": 12,
+   "2х10": 12,
+   "4х4": 12,
+   "4х5": 12,
+   "4х7": 12,
+   "4х8": 12,
+   "4х9": 12,
+   "4х10": 12,
+   "5х5": 12,
+   "5х7": 12,
+   "5х8": 12,
+   "5х9": 12,
+   "5х10": 12,
+   "7х7": 12,
+   "7х8": 12,
+   "7х9": 12,
+   "7х10": 12,
+   "8х8": 12,
+   "8х9": 12,
+   "8х10": 12,
+   "9х9": 12,
+   "10х10": 12,
+   "10х15": 12,
+   "10х20": 12,
+   "20х20": 12,
+   "1,5х3": 1,
+   "1,5х4": 1,
+   "1,5х5": 1,
+   "1,5х6": 1,
+   "1.5х7": 1,
+   "1.5х8": 1,
+   "1.5х9": 1,
+   "1.5х10": 1,
+   "4,5х3": 1,
+   "4,5х4": 1,
+   "4,5х5": 1,
+   "4,5х6": 1,
+   "4,5х7": 1,
+   "4,5х8": 1,
+   "4,5х9": 1,
+   "4,5х10": 1,
+   "6х4": 1,
+   "6х5": 1,
+   "7.5х4": 1,
+   "7.5х5": 1,
+   "7.5х6": 1,
+   "7.5х7": 1,
+   "7.5х8": 1,
+   "7.5х9": 1,
+   "7.5х10": 1,
+   "9х4": 1,
+   "9х5": 1,
+   "9х7": 1
+  },
+  "consistency": {
+   "individual_size_price_per_sqm": 26,
+   "title_agrees": 690,
+   "width_length_agree": 688,
+   "width_length_missing": 2
+  },
+  "current_state": {
+   "MODERATION": 484,
+   "READY": 232
+  },
+  "current_size_status": {
+   "NO_SIZE_REQUIRED": 49,
+   "EXACT_SIZE": 667
+  },
+  "duplicate_value_inside_group": 0
+ },
+ "tactical_belt_inventory": {
+  "offers": 1512,
+  "signals": {
+   "@available": {
+    "false": 1148,
+    "true": 364
+   },
+   "@in_stock": {
+    "None": 1148,
+    "true": 364
+   },
+   "quantity_in_stock": {
+    "0": 1148,
+    ">0": 364
+   }
+  },
+  "cross": {
+   "false|None|0": 1148,
+   "true|true|>0": 364
+  },
+  "quantity_positive": {
+   "count": 364,
+   "min": 1,
+   "median": 4,
+   "max": 1265
+  },
+  "examples": [
+   {
+    "sku": "THOR-SET-QD-MC",
+    "available": "false",
+    "quantity_in_stock": "0"
+   },
+   {
+    "sku": "LOKI-CB",
+    "available": "false",
+    "quantity_in_stock": "0"
+   },
+   {
+    "sku": "KATANA-RG",
+    "available": "true",
+    "quantity_in_stock": "857"
+   },
+   {
+    "sku": "156-00011-K",
+    "available": "true",
+    "quantity_in_stock": "16"
+   },
+   {
+    "sku": "122-00003-P",
+    "available": "true",
+    "quantity_in_stock": "11"
+   }
+  ],
+  "pim_skus": 1512,
+  "pim_availability": {
+   "OUT_OF_STOCK": 1045,
+   "SIZE_CONFIRMATION_REQUIRED": 144,
+   "IN_STOCK": 323
+  }
+ },
+ "size_status": {
+  "total": {
+   "ONE_SIZE": 88,
+   "NO_SIZE_REQUIRED": 1914,
+   "EXACT_SIZE": 5073,
+   "SIZE_CONFIRMATION_REQUIRED": 1112
+  },
+  "by_supplier": {
+   "M-WIN": {
+    "ONE_SIZE": 21,
+    "NO_SIZE_REQUIRED": 153,
+    "EXACT_SIZE": 700,
+    "SIZE_CONFIRMATION_REQUIRED": 50
+   },
+   "Tactical Belt": {
+    "NO_SIZE_REQUIRED": 568,
+    "SIZE_CONFIRMATION_REQUIRED": 144,
+    "EXACT_SIZE": 780,
+    "ONE_SIZE": 20
+   },
+   "UKR-TEC": {
+    "SIZE_CONFIRMATION_REQUIRED": 384,
+    "NO_SIZE_REQUIRED": 59
+   },
+   "Армолайн": {
+    "EXACT_SIZE": 1295,
+    "NO_SIZE_REQUIRED": 99,
+    "SIZE_CONFIRMATION_REQUIRED": 11
+   },
+   "Киборг": {
+    "SIZE_CONFIRMATION_REQUIRED": 523,
+    "NO_SIZE_REQUIRED": 1035,
+    "EXACT_SIZE": 2298,
+    "ONE_SIZE": 47
+   }
+  },
+  "confirmation_raw_examples": {
+   "M-WIN": {
+    "M-L, XL-XXL": 20,
+    "(нет)": 10,
+    "Фронтальний 496х155 мм": 4,
+    "280 х 380 мм": 4,
+    "M-XXL": 4,
+    "М-L": 4,
+    "15х30 см": 2,
+    "XS-S": 1
+   },
+   "Tactical Belt": {
+    "(нет)": 90,
+    "40-42": 7,
+    "43-45": 7,
+    "92 см": 2,
+    "98 см": 2,
+    "104 см": 2,
+    "110 см": 2,
+    "116 см": 2
+   },
+   "UKR-TEC": {
+    "(нет)": 384
+   },
+   "Армолайн": {
+    "(нет)": 11
+   },
+   "Киборг": {
+    "(нет)": 302,
+    "40-42": 25,
+    "43-45": 24,
+    "38-40": 21,
+    "46-48": 21,
+    "35-37": 18,
+    "M/L/XL": 13,
+    "40-43": 11
+   }
+  },
+  "confirmation_provenance": {
+   "M-WIN": {
+    "DEDICATED_COLUMN": 50
+   },
+   "Tactical Belt": {
+    "DEDICATED_COLUMN": 144
+   },
+   "UKR-TEC": {
+    "GENERIC_ATTRIBUTES": 384
+   },
+   "Армолайн": {
+    "DEDICATED_COLUMN": 11
+   },
+   "Киборг": {
+    "DEDICATED_COLUMN": 523
+   }
+  }
+ },
+ "availability": {
+  "IN_STOCK": 5099,
+  "SIZE_CONFIRMATION_REQUIRED": 1112,
+  "OUT_OF_STOCK": 1976
+ },
+ "color_unknown_values": [
+  {
+   "supplier": "Киборг",
+   "value": "Камуфляж",
+   "skus": 29
+  },
+  {
+   "supplier": "Киборг",
+   "value": "Очерет",
+   "skus": 17
+  },
+  {
+   "supplier": "Киборг",
+   "value": "Листя",
+   "skus": 17
+  },
+  {
+   "supplier": "Tactical Belt",
+   "value": "Карбон",
+   "skus": 3
+  },
+  {
+   "supplier": "Tactical Belt",
+   "value": "Чорний камуфляж",
+   "skus": 3
+  },
+  {
+   "supplier": "Tactical Belt",
+   "value": "Скеля",
+   "skus": 3
+  },
+  {
+   "supplier": "UKR-TEC",
+   "value": "Камуфляж",
+   "skus": 2
+  },
+  {
+   "supplier": "M-WIN",
+   "value": "Різнокольоровий",
+   "skus": 1
+  },
+  {
+   "supplier": "Tactical Belt",
+   "value": "Біла клякса",
+   "skus": 1
+  },
+  {
+   "supplier": "Tactical Belt",
+   "value": "Різнокольоровий",
+   "skus": 1
+  },
+  {
+   "supplier": "Tactical Belt",
+   "value": "Пісочний камуфляж",
+   "skus": 1
+  }
+ ],
+ "photo_ownership": [
+  {
+   "model": "ppnzlbcvutm9",
+   "title": "Кріплення для смартфона MOLLE, відкидний холдер",
+   "colors_without_photos": [
+    [
+     "Олива"
+    ]
+   ],
+   "offers": [
+    {
+     "sku": "RUB-21762",
+     "supplier_sku": "1555-К",
+     "raw_color": "Койот",
+     "pim_color": "Койот",
+     "photos": 4
+    },
+    {
+     "sku": "RUB-21763",
+     "supplier_sku": "1555-О",
+     "raw_color": "Хакі",
+     "pim_color": "Олива",
+     "photos": 4
+    }
+   ]
+  },
+  {
+   "model": "pen559fbv3ae",
+   "title": "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
+   "colors_without_photos": [
+    [
+     "Сірий"
+    ]
+   ],
+   "offers": [
+    {
+     "sku": "RUB-22655",
+     "supplier_sku": "1889-BL",
+     "raw_color": "Блакитний",
+     "pim_color": "Блакитний",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22656",
+     "supplier_sku": "1889-V",
+     "raw_color": "Бузковий",
+     "pim_color": "Бузковий",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22657",
+     "supplier_sku": "1889-Y",
+     "raw_color": "Жовтий",
+     "pim_color": "Жовтий",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22658",
+     "supplier_sku": "1889-GR",
+     "raw_color": "Зелений",
+     "pim_color": "Зелений",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22659",
+     "supplier_sku": "1889-MULT",
+     "raw_color": "Мультикам",
+     "pim_color": "Мультикам",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22660",
+     "supplier_sku": "1889-PINK",
+     "raw_color": "Рожевий",
+     "pim_color": "Рожевий",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22661",
+     "supplier_sku": "1889-G",
+     "raw_color": "Сырий",
+     "pim_color": "Сірий",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22662",
+     "supplier_sku": "1889-R",
+     "raw_color": "Червоний",
+     "pim_color": "Червоний",
+     "photos": 1
+    },
+    {
+     "sku": "RUB-22663",
+     "supplier_sku": "1889",
+     "raw_color": "Чорний",
+     "pim_color": "Чорний",
+     "photos": 7
+    }
+   ]
+  },
+  {
+   "model": "pa2bgd3zvdjs",
+   "title": "Цифрові активні ззахисні навушники Earmor M32 PLUS",
+   "colors_without_photos": [
+    [
+     "Олива"
+    ]
+   ],
+   "offers": [
+    {
+     "sku": "RUB-23946",
+     "supplier_sku": "7073-К",
+     "raw_color": "Койот",
+     "pim_color": "Койот",
+     "photos": 10
+    },
+    {
+     "sku": "RUB-23947",
+     "supplier_sku": "7073-О",
+     "raw_color": "Хакі",
+     "pim_color": "Олива",
+     "photos": 10
+    }
+   ]
+  }
+ ],
+ "ready_price_blockers": [
+  {
+   "model": "pll27sg5nrbc",
+   "title": "Зимова куртка \"Хуртовина\" (Omni-Heat) /3",
+   "sku": "RUB-18620",
+   "supplier": "Tactical Belt",
+   "supplier_sku": "RAPTOR-41",
+   "supplier_price": 0,
+   "availability": "OUT_OF_STOCK"
+  }
+ ],
+ "import_queue": [
+  {
+   "supplier": "UKR-TEC",
+   "supplier_sku": "1762015059",
+   "title": "Футболка піксель",
+   "photos": 2,
+   "description_chars": 350,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "p9i6ky6onyul"
+   ]
+  },
+  {
+   "supplier": "UKR-TEC",
+   "supplier_sku": "1855184596",
+   "title": "Футболка, койот",
+   "photos": 4,
+   "description_chars": 299,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "p9i6ky6onyul"
+   ]
+  },
+  {
+   "supplier": "UKR-TEC",
+   "supplier_sku": "2119188330",
+   "title": "Штани польові ріп-стоп мультикам",
+   "photos": 3,
+   "description_chars": 377,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "pubvfdwrnzch",
+    "pu50bn5dnzck"
+   ]
+  },
+  {
+   "supplier": "UKR-TEC",
+   "supplier_sku": "2323873626",
+   "title": "кофта тактична чоловіча флісова, олива",
+   "photos": 4,
+   "description_chars": 307,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "pja7t1lsny1l"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1101",
+   "title": "Шапка флісова мультикам",
+   "photos": 4,
+   "description_chars": 1194,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "8009",
+   "title": "Турнікет кровоспинний \"ДНІПРО\" GEN 2",
+   "photos": 10,
+   "description_chars": 2830,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "p41e6y2ensf5"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1930-56",
+   "title": "Шапка флісова мультикам",
+   "photos": 3,
+   "description_chars": 783,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1930-58",
+   "title": "Шапка флісова мультикам",
+   "photos": 3,
+   "description_chars": 783,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1929-56",
+   "title": "Шапка флісова піксель",
+   "photos": 3,
+   "description_chars": 808,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1929-58",
+   "title": "Шапка флісова піксель",
+   "photos": 3,
+   "description_chars": 808,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1928-56",
+   "title": "Шапка флісова олива",
+   "photos": 4,
+   "description_chars": 783,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1928-58",
+   "title": "Шапка флісова олива",
+   "photos": 4,
+   "description_chars": 783,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1938-56",
+   "title": "Шапка флісова койот",
+   "photos": 1,
+   "description_chars": 775,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "1938-58",
+   "title": "Шапка флісова койот",
+   "photos": 1,
+   "description_chars": 775,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "supplier_sku": "3702-0121-00",
+   "title": "Кавер мультикам на шолом FAST",
+   "photos": 10,
+   "description_chars": 1345,
+   "price_present": true,
+   "reason": "duplicate",
+   "strong_duplicate_of": [
+    "pak3ye26nrkc"
+   ]
+  }
+ ],
+ "variant_cell": {
+  "models": 39,
+  "examples": [
+   {
+    "title": "Бронежилет тактичний Phantom. Плитоноска з підсумками M-WIN GEN.2",
+    "skus": [
+     "RUB-17582",
+     "RUB-17583"
+    ]
+   },
+   {
+    "title": "Бронежилет тактичний Spartan. Плитоноска з підсумками M-WIN GEN.2",
+    "skus": [
+     "RUB-17588",
+     "RUB-17589"
+    ]
+   },
+   {
+    "title": "Плитоноска закритого типу M-WIN GEN.2",
+    "skus": [
+     "RUB-18308",
+     "RUB-18309"
+    ]
+   },
+   {
+    "title": "Плитоноска закритого типу M-WIN GEN.2",
+    "skus": [
+     "RUB-18310",
+     "RUB-18311"
+    ]
+   },
+   {
+    "title": "Військова форма \"RAPTOR\" 44/7",
+    "skus": [
+     "RUB-18500",
+     "RUB-18501"
+    ]
+   },
+   {
+    "title": "Одноточковий збройовий ремінь Ragnarok \"Loki\"",
+    "skus": [
+     "RUB-19049",
+     "RUB-19053"
+    ]
+   },
+   {
+    "title": "Одноточковий плечовий ремінь з кріпленням до плитоноски RAGNAROK THOR",
+    "skus": [
+     "RUB-19058",
+     "RUB-19061"
+    ]
+   },
+   {
+    "title": "Тактичний Убакс RAPTOR - розмір /6",
+    "skus": [
+     "RUB-19519",
+     "RUB-19520"
+    ]
+   }
+  ]
+ },
+ "price_unit": {
+  "models": 47,
+  "by_supplier": {
+   "M-WIN": 26,
+   "Киборг": 21
+  }
+ },
+ "category_unresolved_paths": [
+  {
+   "supplier": "Киборг",
+   "path": "Плити, плитоноски та бронепакети / Бронекомплекти / 1 клас захисту",
+   "unresolved_products": 63,
+   "confirmed": {
+    "armor_ballistic_blankets": 1,
+    "pouches_dangler": 1
+   },
+   "path_alias_candidates": [
+    "armor_sets",
+    "armor_plate_carriers",
+    "armor_soft"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Плити, плитоноски та бронепакети / Бронекомплекти / 2 клас захисту",
+   "unresolved_products": 58,
+   "confirmed": {
+    "armor_ballistic_blankets": 1,
+    "pouches_dangler": 1
+   },
+   "path_alias_candidates": [
+    "armor_sets",
+    "armor_plate_carriers",
+    "armor_soft"
+   ]
+  },
+  {
+   "supplier": "UKR-TEC",
+   "path": "https://prom.ua/Voennaya-forma",
+   "unresolved_products": 29,
+   "confirmed": {
+    "clothing_fleece": 8,
+    "clothing_headwear": 2,
+    "clothing_combat_shirts": 9,
+    "clothing_jackets": 47,
+    "clothing_insulated_vests": 1,
+    "clothing_suits": 10,
+    "clothing_tshirts": 22,
+    "clothing_pants": 53,
+    "clothing_shorts": 3
+   },
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Обладнання для спостереження / Кріплення для ПНБ та тепловізорів",
+   "unresolved_products": 21,
+   "confirmed": {
+    "electronics_mounts": 8
+   },
+   "path_alias_candidates": [
+    "electronics_mounts"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Шоломи та аксесуари / Аксесуари до шоломів",
+   "unresolved_products": 21,
+   "confirmed": {
+    "helmets_rails": 2,
+    "helmets_ballistic": 1,
+    "eye_glasses": 3
+   },
+   "path_alias_candidates": [
+    "helmets_ballistic"
+   ]
+  },
+  {
+   "supplier": "Армолайн",
+   "path": "Костюми, комплекти / Зимові та утеплені костюми і комплекти",
+   "unresolved_products": 21,
+   "confirmed": {
+    "clothing_jackets": 14
+   },
+   "path_alias_candidates": [
+    "clothing_suits"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Одяг та взуття / Кофти",
+   "unresolved_products": 17,
+   "confirmed": {
+    "clothing_fleece": 3
+   },
+   "path_alias_candidates": [
+    "footwear_tactical_boots"
+   ]
+  },
+  {
+   "supplier": "Tactical Belt",
+   "path": "ТАКТИЧНЕ СПОРЯДЖЕННЯ / ЛІХТАРІ, ЛАМПИ, БАТАРЕЙКИ / Тактичні ліхтарі",
+   "unresolved_products": 15,
+   "confirmed": {
+    "lighting_tactical": 4
+   },
+   "path_alias_candidates": [
+    "lighting_tactical"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Комплектуючі та модулі для зброї / Глушники",
+   "unresolved_products": 15,
+   "confirmed": {},
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "M-WIN",
+   "path": "Балістичний захист",
+   "unresolved_products": 14,
+   "confirmed": {
+    "armor_accessories": 10,
+    "armor_soft": 8,
+    "pouches_dangler": 4
+   },
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Плити, плитоноски та бронепакети / М'які балістичні бронепакети / Бронепакети (1 клас захисту)",
+   "unresolved_products": 14,
+   "confirmed": {
+    "armor_soft": 24
+   },
+   "path_alias_candidates": [
+    "armor_soft"
+   ]
+  },
+  {
+   "supplier": "UKR-TEC",
+   "path": "https://prom.ua/Armejskie-spetssumki-i-ryukzaki",
+   "unresolved_products": 13,
+   "confirmed": {
+    "bags_hydration": 1,
+    "bags_backpacks": 5
+   },
+   "path_alias_candidates": [
+    "bags_backpacks"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Плити, плитоноски та бронепакети / М'які балістичні бронепакети / Бронепакети (2 клас захисту)",
+   "unresolved_products": 12,
+   "confirmed": {
+    "armor_soft": 26
+   },
+   "path_alias_candidates": [
+    "armor_soft"
+   ]
+  },
+  {
+   "supplier": "Tactical Belt",
+   "path": "ВІЙСЬКОВИЙ ОДЯГ / ВІЙСЬКОВА УНІФОРМА",
+   "unresolved_products": 11,
+   "confirmed": {
+    "clothing_jackets": 2,
+    "clothing_suits": 7
+   },
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Шоломи та аксесуари / Підвісні системи/ Подушки",
+   "unresolved_products": 11,
+   "confirmed": {
+    "helmets_ballistic": 3,
+    "helmets_padding": 1
+   },
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Армолайн",
+   "path": "Толстовки, жилетки / Толстовки тактичні флісові",
+   "unresolved_products": 11,
+   "confirmed": {},
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Рюкзаки, сумки та баули / Штурмові рюкзаки",
+   "unresolved_products": 10,
+   "confirmed": {},
+   "path_alias_candidates": [
+    "bags_assault_backpacks"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Одяг та взуття / Взуття",
+   "unresolved_products": 9,
+   "confirmed": {
+    "footwear_gaiters": 4,
+    "footwear_boots": 18,
+    "footwear_tactical_boots": 2,
+    "footwear_sneakers": 18
+   },
+   "path_alias_candidates": [
+    "footwear_tactical_boots"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Плити, плитоноски та бронепакети / Плитоноски / Комплекти плитоносок",
+   "unresolved_products": 9,
+   "confirmed": {
+    "armor_sets": 1,
+    "armor_plate_carriers": 27
+   },
+   "path_alias_candidates": [
+    "armor_plate_carriers"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Комплектуючі та модулі для зброї / Аксесуари для AR",
+   "unresolved_products": 9,
+   "confirmed": {
+    "weapon_other": 3,
+    "weapon_stocks": 5
+   },
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Tactical Belt",
+   "path": "ТАКТИЧНЕ СПОРЯДЖЕННЯ / РОЗВАНТАЖУВАЛЬНІ ЖИЛЕТИ І СИСТЕМИ / Ремінно-поясна система (РПС)",
+   "unresolved_products": 7,
+   "confirmed": {
+    "load_bearing_harness": 2,
+    "load_bearing_rps": 5
+   },
+   "path_alias_candidates": [
+    "load_bearing_rps"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Комплектуючі та модулі для зброї / Аксесуари для АК",
+   "unresolved_products": 7,
+   "confirmed": {
+    "weapon_other": 3,
+    "weapon_magazines": 1,
+    "weapon_bipods": 1
+   },
+   "path_alias_candidates": []
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Автономні джерела живлення / Портативні зарядні станції",
+   "unresolved_products": 7,
+   "confirmed": {},
+   "path_alias_candidates": [
+    "power_stations"
+   ]
+  },
+  {
+   "supplier": "Киборг",
+   "path": "Плити, плитоноски та бронепакети / Плитоноски",
+   "unresolved_products": 7,
+   "confirmed": {
+    "armor_plate_carriers": 13,
+    "armor_accessories": 2
+   },
+   "path_alias_candidates": [
+    "armor_plate_carriers"
+   ]
+  },
+  {
+   "supplier": "M-WIN",
+   "path": "Головні убори",
+   "unresolved_products": 6,
+   "confirmed": {
+    "clothing_balaclavas": 3,
+    "clothing_headwear": 1
+   },
+   "path_alias_candidates": [
+    "clothing_headwear"
+   ]
+  }
+ ],
+ "category_exception_rules": [
+  {
+   "supplier": "Киборг",
+   "rule": "insufficient-independent-evidence",
+   "models": 219
+  },
+  {
+   "supplier": "Киборг",
+   "rule": "canonical-whole-item-corroborated",
+   "models": 90
+  },
+  {
+   "supplier": "UKR-TEC",
+   "rule": "insufficient-independent-evidence",
+   "models": 46
+  },
+  {
+   "supplier": "Tactical Belt",
+   "rule": "canonical-whole-item-corroborated",
+   "models": 34
+  },
+  {
+   "supplier": "Tactical Belt",
+   "rule": "insufficient-independent-evidence",
+   "models": 32
+  },
+  {
+   "supplier": "Армолайн",
+   "rule": "canonical-whole-item-corroborated",
+   "models": 30
+  },
+  {
+   "supplier": "M-WIN",
+   "rule": "insufficient-independent-evidence",
+   "models": 22
+  },
+  {
+   "supplier": "Армолайн",
+   "rule": "insufficient-independent-evidence",
+   "models": 17
+  },
+  {
+   "supplier": "M-WIN",
+   "rule": "canonical-whole-item-corroborated",
+   "models": 7
+  },
+  {
+   "supplier": "UKR-TEC",
+   "rule": "generic-belt-policy",
+   "models": 6
+  },
+  {
+   "supplier": "Tactical Belt",
+   "rule": "generic-belt-policy",
+   "models": 3
+  },
+  {
+   "supplier": "UKR-TEC",
+   "rule": "canonical-whole-item-corroborated",
+   "models": 3
+  },
+  {
+   "supplier": "Киборг",
+   "rule": "armor-cover-or-complete",
+   "models": 3
+  },
+  {
+   "supplier": "Tactical Belt",
+   "rule": "pest-trap-policy",
+   "models": 2
+  },
+  {
+   "supplier": "UKR-TEC",
+   "rule": "point-sling-insufficient-evidence",
+   "models": 2
+  },
+  {
+   "supplier": "M-WIN",
+   "rule": "headwear-kit-policy",
+   "models": 1
+  },
+  {
+   "supplier": "Tactical Belt",
+   "rule": "existing-profile-category:communications_earplugs",
+   "models": 1
+  },
+  {
+   "supplier": "Tactical Belt",
+   "rule": "watch-fallback-policy",
+   "models": 1
+  },
+  {
+   "supplier": "Киборг",
+   "rule": "helmet-marker-policy",
+   "models": 1
+  }
+ ],
+ "autoprices_preview": {
+  "mode": "PREVIEW",
+  "writes": 0,
+  "compared": "fresh supplier files vs the current (backup) catalog, before reset",
+  "skus": 8231,
+  "affected": 0,
+  "unchanged": 8226,
+  "blocked": 1,
+  "blockers": {
+   "MISSING_COST": 1
+  },
+  "min_delta_pct": 0.0,
+  "median_delta_pct": 0.0,
+  "max_delta_pct": 0.0,
+  "price_decreases": 0,
+  "missing_cost": 1,
+  "missing_rrp": 8231
+ },
+ "image_preflight": {
+  "IMAGE_URLS_TOTAL": 18692,
+  "IMAGE_URLS_REACHABLE": 0,
+  "IMAGE_URLS_FAILED": 0,
+  "IMAGE_URLS_TIMEOUT": 0,
+  "IMAGE_URLS_403": 0,
+  "IMAGE_URLS_404": 0,
+  "IMAGE_URLS_OTHER_HTTP": 0,
+  "IMAGE_URLS_INVALID_CONTENT_TYPE": 0,
+  "IMAGE_URLS_NETWORK_UNREACHABLE": 18692,
+  "IMAGE_URLS_REDIRECTED": 0,
+  "complete": false,
+  "by_host": {
+   "tactical-belt.store": {
+    "total": 8681,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 8681
+   },
+   "images.prom.ua": {
+    "total": 1209,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 1209
+   },
+   "tactic-shop.in.ua": {
+    "total": 6559,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 6559
+   },
+   "armoline.com.ua": {
+    "total": 1841,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 1841
+   },
+   "m-win.com.ua": {
+    "total": 402,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 402
+   }
+  }
+ },
+ "_note": "Final clean-import rehearsal from a fresh clone of PIM 6f3afcf (real backup + 5 supplier feeds). Lists capped at 25; per-group detail stays private."
+}

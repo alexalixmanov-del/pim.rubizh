@@ -1,0 +1,35 @@
+name: PIM CI
+# Synthetic, reproducible checks only: private supplier files, backups and real-data rehearsals stay outside Git.
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - name: Application is assembled from lib/ (no hand edits drift)
+        run: node tools/build.cjs && git diff --exit-code -- rubizh_pim.html
+      - name: Exact wire fixture is the shipped exporter output
+        run: node tools/export-wire-fixture.cjs "$RUNNER_TEMP/wire.json" && cmp "$RUNNER_TEMP/wire.json" contracts/fixtures/pim-site-wire-v3.exact.json
+      - name: Unit, schema, contract, clean-import, size, inventory, autoprices preview, archive safety
+        run: npm test
+      - name: Size evidence and dry-run business rules
+        run: npm run test:dry-run
+      - name: Production installer (rebuilt archive must equal the committed one)
+        run: python3 tools/package-production.py "$RUNNER_TEMP/pim.zip" && cmp "$RUNNER_TEMP/pim.zip" ../releases/pim-10.9.3/rubizh-pim-10.9.3-final-workflow.zip && python3 tests/production-installer.test.py

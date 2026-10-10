@@ -1,0 +1,20 @@
+{
+  "accepted_original_124": {
+    "SAFE_AUTO": 109,
+    "LIKELY": 12,
+    "AMBIGUOUS": 3
+  },
+  "size_statuses": {
+    "NO_SIZE_REQUIRED": 3068,
+    "EXACT_SIZE": 4199,
+    "SIZE_CONFIRMATION_REQUIRED": 1446,
+    "ONE_SIZE": 21
+  },
+  "model_catalogs": 268,
+  "expanded_ranges": 119,
+  "exception_groups_by_kind": {
+    "size": 84,
+    "category": 64
+  },
+  "exceptions_total": 1846
+}

@@ -1,0 +1,497 @@
+{
+  "version": 1,
+  "canonical_category_ids": [
+    "symbols",
+    "armor_ballistic_blankets",
+    "clothing_insulated_vests",
+    "footwear_care",
+    "footwear_shoes",
+    "communications_earplugs",
+    "electronics_rf_detectors",
+    "symbols_flags",
+    "field_watches"
+  ],
+  "supplier_rules": [
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "supplier_category": "2 клас захисту",
+      "target_category_id": "armor_ballistic_blankets",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "supplier_category": "1 клас захисту",
+      "target_category_id": "armor_ballistic_blankets",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2hjvaqgnp29",
+      "supplier_name": "армолайн",
+      "supplier_category": "Жилетки утеплені",
+      "target_category_id": "clothing_insulated_vests",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Voennaya forma",
+      "target_category_id": "clothing_insulated_vests",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Krem dlya obuvi",
+      "target_category_id": "footwear_care",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Zaschitnye pokrytiya",
+      "target_category_id": "footwear_care",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "supplier_name": "укр тек",
+      "supplier_category": "Tufli",
+      "target_category_id": "footwear_shoes",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "Навушники , беруши",
+      "target_category_id": "communications_earplugs",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_name": "киборг",
+      "supplier_category": "Електронна боротьба та розвідка РЕБ та РЕР",
+      "target_category_id": "electronics_rf_detectors",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "ПРАПОРА",
+      "target_category_id": "symbols_flags",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "sf0t3l7jegf9",
+      "supplier_name": "м вин",
+      "supplier_category": "Державні прапори України",
+      "target_category_id": "symbols_flags",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "Тактичні годинники",
+      "target_category_id": "field_watches",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_name": "тактикал белт",
+      "supplier_category": "Годинники GLOCK",
+      "target_category_id": "field_watches",
+      "scope": "CONDITIONAL_WHOLE_ITEM_RULE",
+      "requires_matching_supplier_title": true,
+      "requires_description_evidence": true,
+      "preserve_manual_locks": true,
+      "never_replace_existing_mapping": true
+    }
+  ],
+  "supplier_mappings": [
+    {
+      "id": "audit-20261010-01",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Ремені для зброї",
+      "supplier_category_path_raw": "Комплектуючі та модулі для зброї / Ремені для зброї",
+      "canonical_category_id": "weapon_slings",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 3,
+        "likely_same_category": 17,
+        "path_alias": "weapon_slings"
+      }
+    },
+    {
+      "id": "audit-20261010-02",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Куртки",
+      "supplier_category_path_raw": "Одяг та взуття / Куртки",
+      "canonical_category_id": "clothing_jackets",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 72,
+        "likely_same_category": 3,
+        "path_alias": "clothing_jackets"
+      }
+    },
+    {
+      "id": "audit-20261010-03",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Шкарпетки",
+      "supplier_category_path_raw": "Одяг та взуття / Шкарпетки",
+      "canonical_category_id": "footwear_socks",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 37,
+        "likely_same_category": 2,
+        "path_alias": "footwear_socks"
+      }
+    },
+    {
+      "id": "audit-20261010-04",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Бронеплити",
+      "supplier_category_path_raw": "Плити, плитоноски та бронепакети / Бронеплити",
+      "canonical_category_id": "armor_plates",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 43,
+        "likely_same_category": 2,
+        "path_alias": "armor_plates"
+      }
+    },
+    {
+      "id": "audit-20261010-05",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Підсумки для магазину",
+      "supplier_category_path_raw": "Підсумки / Підсумки для магазину",
+      "canonical_category_id": "pouches_magazine",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 16,
+        "likely_same_category": 3,
+        "path_alias": "pouches_magazine"
+      }
+    },
+    {
+      "id": "audit-20261010-06",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Підсумки для скидання магазинів",
+      "supplier_category_path_raw": "Підсумки / Підсумки для скидання магазинів",
+      "canonical_category_id": "pouches_dump",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 1,
+        "likely_same_category": 11,
+        "path_alias": "pouches_dump"
+      }
+    },
+    {
+      "id": "audit-20261010-07",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "(РПС) Ремінно-плечові системи",
+      "supplier_category_path_raw": "РПС Розгрузки / (РПС) Ремінно-плечові системи",
+      "canonical_category_id": "load_bearing_rps",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 11,
+        "likely_same_category": 1,
+        "path_alias": "load_bearing_rps"
+      }
+    },
+    {
+      "id": "audit-20261010-08",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Спальні мішки",
+      "supplier_category_path_raw": "Спорядження та туризм / Спальні мішки",
+      "canonical_category_id": "field_sleeping_bags",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 21,
+        "likely_same_category": 1,
+        "path_alias": "field_sleeping_bags"
+      }
+    },
+    {
+      "id": "audit-20261010-09",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Термоковдри",
+      "supplier_category_path_raw": "Тактична медицина / Термоковдри",
+      "canonical_category_id": "field_thermal_blankets",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 14,
+        "likely_same_category": 1,
+        "path_alias": "field_thermal_blankets"
+      }
+    },
+    {
+      "id": "audit-20261010-10",
+      "supplier_id": "s2bggyi42dhh",
+      "supplier_category_raw": "Екшн-камери",
+      "supplier_category_path_raw": "Шоломи та аксесуари / Екшн-камери",
+      "canonical_category_id": "electronics_action_cameras",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 4,
+        "likely_same_category": 1,
+        "path_alias": "electronics_action_cameras"
+      }
+    },
+    {
+      "id": "audit-20261010-11",
+      "supplier_id": "s2hjvaqgnp29",
+      "supplier_category_raw": "Шапки",
+      "supplier_category_path_raw": "Головні убори / Шапки",
+      "canonical_category_id": "clothing_headwear",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 10,
+        "likely_same_category": 5,
+        "path_alias": "clothing_headwear"
+      }
+    },
+    {
+      "id": "audit-20261010-12",
+      "supplier_id": "s2hjvaqgnp29",
+      "supplier_category_raw": "Польові, тактичні костюми та комплекти",
+      "supplier_category_path_raw": "Костюми, комплекти / Польові, тактичні костюми та комплекти",
+      "canonical_category_id": "clothing_suits",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 11,
+        "likely_same_category": 3,
+        "path_alias": "clothing_suits"
+      }
+    },
+    {
+      "id": "audit-20261010-13",
+      "supplier_id": "s2hjvaqgnp29",
+      "supplier_category_raw": "Спортивні костюми та комплекти",
+      "supplier_category_path_raw": "Костюми, комплекти / Спортивні костюми та комплекти",
+      "canonical_category_id": "clothing_suits",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 9,
+        "likely_same_category": 8,
+        "path_alias": "clothing_suits"
+      }
+    },
+    {
+      "id": "audit-20261010-14",
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_category_raw": "Демісезонні куртки",
+      "supplier_category_path_raw": "ВІЙСЬКОВИЙ ОДЯГ / КУРТКИ / Демісезонні куртки",
+      "canonical_category_id": "clothing_jackets",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 3,
+        "likely_same_category": 3,
+        "path_alias": "clothing_jackets"
+      }
+    },
+    {
+      "id": "audit-20261010-15",
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_category_raw": "Шкарпетки",
+      "supplier_category_path_raw": "ВЗУТТЯ / Шкарпетки",
+      "canonical_category_id": "footwear_socks",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 7,
+        "likely_same_category": 3,
+        "path_alias": "footwear_socks"
+      }
+    },
+    {
+      "id": "audit-20261010-16",
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_category_raw": "ЗАСОБИ ОСОБИСТОЇ ГІГІЄНИ",
+      "supplier_category_path_raw": "СПОРЯДЖЕННЯ ТА ЕКІПІРОВКА / ЗАСОБИ ОСОБИСТОЇ ГІГІЄНИ",
+      "canonical_category_id": "field_hygiene",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 2,
+        "likely_same_category": 6,
+        "path_alias": "field_hygiene"
+      }
+    },
+    {
+      "id": "audit-20261010-17",
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_category_raw": "Тактичні ліхтарі",
+      "supplier_category_path_raw": "ТАКТИЧНЕ СПОРЯДЖЕННЯ / ЛІХТАРІ, ЛАМПИ, БАТАРЕЙКИ / Тактичні ліхтарі",
+      "canonical_category_id": "lighting_tactical",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 4,
+        "likely_same_category": 15,
+        "path_alias": "lighting_tactical"
+      }
+    },
+    {
+      "id": "audit-20261010-18",
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_category_raw": "ОКУЛЯРИ",
+      "supplier_category_path_raw": "ТАКТИЧНЕ СПОРЯДЖЕННЯ / ОКУЛЯРИ",
+      "canonical_category_id": "eye_glasses",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 13,
+        "likely_same_category": 1,
+        "path_alias": "eye_glasses"
+      }
+    },
+    {
+      "id": "audit-20261010-19",
+      "supplier_id": "s4p9slmnn0ki",
+      "supplier_category_raw": "Двоточкові ремені",
+      "supplier_category_path_raw": "ТАКТИЧНЕ СПОРЯДЖЕННЯ / РЕМЕНІ ЗБРОЙОВІ І ПІСТОЛЕТНІ / Двоточкові ремені",
+      "canonical_category_id": "weapon_slings",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 6,
+        "likely_same_category": 3,
+        "path_alias": "weapon_slings"
+      }
+    },
+    {
+      "id": "audit-20261010-20",
+      "supplier_id": "sf0t3l7jegf9",
+      "supplier_category_raw": "Маскувальні сітки",
+      "supplier_category_path_raw": "Маскувальні сітки",
+      "canonical_category_id": "camouflage_nets",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 714,
+        "likely_same_category": 1,
+        "path_alias": "camouflage_nets"
+      }
+    },
+    {
+      "id": "audit-20261010-21",
+      "supplier_id": "sf0t3l7jegf9",
+      "supplier_category_raw": "Спальні мішки",
+      "supplier_category_path_raw": "Спальні мішки",
+      "canonical_category_id": "field_sleeping_bags",
+      "confirmed": true,
+      "confidence": 0.95,
+      "name_must_not_contradict": true,
+      "source": "clean-import-audit-2026-10-10",
+      "evidence": {
+        "confirmed_products": 8,
+        "likely_same_category": 3,
+        "path_alias": "field_sleeping_bags"
+      }
+    }
+  ]
+}

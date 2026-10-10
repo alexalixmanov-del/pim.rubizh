@@ -1,0 +1,23 @@
+{
+  "version": "10.9.3-rc",
+  "status": "RC_REVIEW_READY_PRODUCTION_BLOCKED",
+  "integration_base_commit": "14c62909f067d43d7dd98528cd1b5317f2d831fd",
+  "inventory_analysis_commit": "c783e077f693d34326eef894491192bcf86477d6",
+  "runtime_html_sha256": "f15f91373d8f366b2c1dee5b914bd95b3505834d10aede36a599d3787c9e0a3f",
+  "archive_sha256": "4e60646fcebc95ddd96b92bd07c8a16012c561b84b2e845e920cc912cd52492a",
+  "contract_version": 3,
+  "order_policy_version": 1,
+  "inventory_policy_version": 1,
+  "production_writes": 0,
+  "sync_blocked": true,
+  "real_source_compatibility": "BLOCKED",
+  "test_counts": {
+    "application": 575,
+    "size": 49,
+    "accepted_categories": 78,
+    "total": 702,
+    "fresh_checkout_application": 575
+  },
+  "manual_locks_unchanged": true,
+  "reproducible_archive": true
+}

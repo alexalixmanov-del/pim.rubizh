@@ -1,0 +1,58 @@
+{
+  "status": "PLAN_ONLY",
+  "date": "2026-10-09",
+  "timezone": "Europe/Kiev",
+  "accepted_category_commit": "6404be4f96d77babaccf05fbbf03605be38046e4",
+  "accepted_size_spec": "reviews/queue-size-dry-run-2026-10-08/SIZE-RULES-FINAL.md",
+  "planned_changed_files": [
+    "app/categories/canonical-categories.json",
+    "app/categories/classifier-core.js",
+    "app/lib/categories-ui.inc.js",
+    "app/lib/size-evidence.js",
+    "app/lib/product-model.js",
+    "app/rubizh_pim.html",
+    "app/lib/simple-ui.inc.js",
+    "app/lib/model-colors-ui.inc.js",
+    "app/lib/workflow.inc.js",
+    "app/lib/storage.inc.js",
+    "app/lib/performance.inc.js",
+    "app/tools/build.cjs",
+    "app/lib/categories.js",
+    "app/server-contract.md",
+    "app/package.json"
+  ],
+  "planned_new_files": [
+    "app/lib/category-evidence.js",
+    "app/categories/approved-evidence-rules.json",
+    "app/lib/classification-ui.inc.js",
+    "app/contracts/category-size-export.schema.json",
+    "audit/category-size-control-import.cjs"
+  ],
+  "planned_test_files": [
+    "app/tests/category-size-integration.test.cjs",
+    "app/tests/category-size-export.test.cjs"
+  ],
+  "working_file_sha256_before_implementation": {
+    "app/categories/canonical-categories.json": "90b9a640379e05eb31493a100ee9322d83cb3ad496c964c27eac63c6a6cdef2c",
+    "app/categories/classifier-core.js": "6ce0434016cc4862088f37bdedb1354e2e640e2b022d3f22bf85543d08d92046",
+    "app/lib/categories-ui.inc.js": "9f26c77b17e08d4645f7ad186829ba36ca4f391c50afeaf6da861c3f09e67840",
+    "app/lib/size-evidence.js": "ecc3adfdeb98321d36fe3f87227719303c46c247f9c58a7a88abec01e4d3fb85",
+    "app/lib/product-model.js": "8a2a5494ea46fd2e2e3bc3f9e2ea79d022f4e6d1be61271981a8373b46b880cb",
+    "app/rubizh_pim.html": "4203a4a764aaf498f71330f2a33aa1e693ee818ad66e441c6bc38ddaed385c79",
+    "app/lib/simple-ui.inc.js": "d5d86b88d1e09aad59ff012a009cfb7ec36cca4a0bd40dd035c6653bce9d66db",
+    "app/lib/model-colors-ui.inc.js": "61b44a2fd80fe6758505d922adccfb0382c1d900c46fa37ce0d9d0fd3ea00943",
+    "app/lib/workflow.inc.js": "fe5388eb1cf3cff942f35ad51d2c859bb13f3f908e68893ea5a2b23f15bfa0ed",
+    "app/lib/storage.inc.js": "1f3adf4393b89e36b48f0451e84a83810e25e6fffceb33f7396b6fe027a97735",
+    "app/lib/performance.inc.js": "efbcdb14dd6cbb6081a0e48e476ba114d759eae1c3a62710d66ad9a60bfd168e",
+    "app/tools/build.cjs": "7650349f9861c5be5e7d940621652810e9eef4665e3e5bb94d29ad2d007bc147",
+    "app/lib/categories.js": "a3cb5d97458a054b855ecf5f584fcae458bf95679473887d7572c29db804ee2c",
+    "app/server-contract.md": "f31f5d465d5acaccfcd1ad65af7c12c3848c690a809839b86f626e45d3e90837",
+    "app/package.json": "636658dde5bbdfa563523df037332d87db2ac255fbc60194a32a2b4a1d5f4386"
+  },
+  "runtime_size_resolver_references_now": 0,
+  "actual_taxonomy_count": 134,
+  "implementation_executed": false,
+  "control_import_executed": false,
+  "production_changed": false,
+  "data_changed": false
+}

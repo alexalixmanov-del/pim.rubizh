@@ -1,0 +1,19 @@
+{
+  "official_url": "https://support.prom.ua/hc/uk/articles/360004960817",
+  "title": "Імпорт через Excel - формат файлів XLS(X) та CSV",
+  "article_id": 360004960817,
+  "public_article_body_sha256": "9328f5415a7354ca918de463bdf311ebe776f43b801924c427fc4d9a391a8271",
+  "format": "PROM_XLS_XLSX_CSV",
+  "quantity_column": "Кількість",
+  "availability_column": "Наявність",
+  "availability_semantics": {
+    "+": "IN_STOCK",
+    "-": "OUT_OF_STOCK",
+    "!": "IN_STOCK_READY_TO_DISPATCH",
+    "positive_integer": "PREORDER_DELIVERY_DAYS_NOT_QUANTITY"
+  },
+  "limited_quote": "Наявність рядок Наявність товару, готового до відправки: \"+\" — є в наявності \"-\" — немає в наявності \"@\" — послуга \"!\" — товар в наявності «Готово до відправки». Доступно лише для компаній з високими показниками якості обслуговування клієнтів. Детальніше цифра, наприклад, \"9\" — к-ть днів на доставку, якщо товар під замовлення Важливо! Якщо поле наявності у файлі порожнє, вказані нульові залишки або статус «Очікується» (\"&\"), товар буде завантажений у статусі «Немає в наявності». ",
+  "supplier_profile_confirmed": true,
+  "applicability_note": "Official field specification applies to the user-confirmed UKR-TEC Prom export. Original workbook parser compatibility remains untested.",
+  "confirmation_source": "User explicitly confirmed UKR-TEC is a standard Prom.ua export"
+}

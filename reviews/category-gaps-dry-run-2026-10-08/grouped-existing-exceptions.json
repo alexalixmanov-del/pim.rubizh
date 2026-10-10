@@ -1,0 +1,219 @@
+[
+  {
+    "group_id": "watch-fallback-policy|тактикал белт",
+    "tier": "LIKELY",
+    "rule_id": "watch-fallback-policy",
+    "category": "field_other",
+    "suppliers": [
+      "тактикал белт"
+    ],
+    "count": 23,
+    "examples": [
+      "Годинник Glock Automatic GW-14-1-24",
+      "Годинник Glock Swiss – Quartz GW-34-4-24",
+      "Годинник Glock Swiss – Quartz GW-27-1-24"
+    ],
+    "supplier_groups": [
+      "Годинники GLOCK",
+      "ЛОПАТИ І ШАНЦЕВІ ІНСТРУМЕНТИ",
+      "Тактичні годинники"
+    ],
+    "reason": "В taxonomy есть общий полевой раздел. Нужно одно решение о допустимости такого раздела для часов, включая городские модели; это не доказанный пробел.",
+    "product_ids": [
+      "puzzz4n3n13y",
+      "p1ym9zern142",
+      "phigb1ykn142",
+      "pvn442jbn13w",
+      "p2yg6iben143",
+      "p8yeolcrn1ak",
+      "pm0mgrbin141",
+      "p8iagcspn145",
+      "puqjdz6dn13z",
+      "plitlmf1n13w",
+      "p001j2won1b9",
+      "pkkhv3f8n1dh",
+      "pk2irpzpn13z",
+      "p925ftghn144",
+      "pabqwtgun1dh",
+      "prw40kcyn141",
+      "p49xbefxn144",
+      "ptcb3deqn13x",
+      "pdbqzcbkn13y",
+      "p3ssz6wsn146",
+      "prv9eowrn13t",
+      "pcvqjx7dn140",
+      "pnv8lcyun19n"
+    ]
+  },
+  {
+    "group_id": "point-sling-insufficient-evidence|укр тек",
+    "tier": "LIKELY",
+    "rule_id": "point-sling-insufficient-evidence",
+    "category": "weapon_slings",
+    "suppliers": [
+      "укр тек"
+    ],
+    "count": 2,
+    "examples": [
+      "Ремінь двоточковий",
+      "Ремінь одноточковий"
+    ],
+    "supplier_groups": [
+      "Komplektuyuschie dlya oruzhiya"
+    ],
+    "reason": "Точечный ремень и оружейная supplier group согласуются, но SKU-level описание крайне короткое; одного раздела поставщика недостаточно.",
+    "product_ids": [
+      "pszaygyzogqh",
+      "p83ds88cogqi"
+    ]
+  },
+  {
+    "group_id": "headwear-kit-policy|м вин",
+    "tier": "LIKELY",
+    "rule_id": "headwear-kit-policy",
+    "category": "clothing_headwear",
+    "suppliers": [
+      "м вин"
+    ],
+    "count": 1,
+    "examples": [
+      "Зимовий флісовий комплект M-WIN. Шапка (розмір)+баф. Олива."
+    ],
+    "supplier_groups": [
+      "Головні убори"
+    ],
+    "reason": "Комплект шапка+баф: обе существующие категории подходят компонентам. Утвердить основную категорию комплекта один раз.",
+    "product_ids": [
+      "p2sesp6iehne"
+    ]
+  },
+  {
+    "group_id": "generic-belt-policy|укр тек",
+    "tier": "LIKELY",
+    "rule_id": "generic-belt-policy",
+    "category": "clothing_belts",
+    "suppliers": [
+      "укр тек"
+    ],
+    "count": 2,
+    "examples": [
+      "Ремінь тактичний",
+      "Ремінь тактичний зі швидкою застібкою Cobra"
+    ],
+    "supplier_groups": [
+      "Remni ofitserskie"
+    ],
+    "reason": "Недостаточно конструкции, чтобы исключить разгрузочный пояс; поставщик использует общее название.",
+    "product_ids": [
+      "p8y4wvozogqk",
+      "pfjoujuyogqk"
+    ]
+  },
+  {
+    "group_id": "pest-trap-policy|тактикал белт",
+    "tier": "LIKELY",
+    "rule_id": "pest-trap-policy",
+    "category": "field_other",
+    "suppliers": [
+      "тактикал белт"
+    ],
+    "count": 2,
+    "examples": [
+      "Клейова пастка мишоловка для гризунів книжка 24х16,5 см",
+      "Клейова пастка мишоловка для гризунів 120x28 см"
+    ],
+    "supplier_groups": [
+      "СПОРЯДЖЕННЯ ТА ЕКІПІРОВКА"
+    ],
+    "reason": "Изделие определено как ловушка. Общий полевой раздел возможен, но описание говорит о помещениях; требуется одно решение о пределах общего раздела.",
+    "product_ids": [
+      "pmobqi9in15b",
+      "pjcmb7crn15a"
+    ]
+  },
+  {
+    "group_id": "helmet-marker-policy|киборг",
+    "tier": "LIKELY",
+    "rule_id": "helmet-marker-policy",
+    "category": "helmets_accessories",
+    "suppliers": [
+      "киборг"
+    ],
+    "count": 1,
+    "examples": [
+      "Стробоскопічний маркер (маячок) Hel-Star 6 GEN III (R) для шолому"
+    ],
+    "supplier_groups": [
+      "Аксесуари до шоломів"
+    ],
+    "reason": "IFF-маячок крепится не только к шлему; согласовать шлемный аксессуар или общий световой прибор.",
+    "product_ids": [
+      "ppi3e6fw2mir"
+    ]
+  },
+  {
+    "group_id": "sleeping-bag-poncho|киборг",
+    "tier": "LIKELY",
+    "rule_id": "sleeping-bag-poncho",
+    "category": "field_sleeping_bags",
+    "suppliers": [
+      "киборг"
+    ],
+    "count": 1,
+    "examples": [
+      "Спальний мішок-пончо 6в1 Multishelter Kiborg утеплений"
+    ],
+    "supplier_groups": [
+      "Спальні мішки"
+    ],
+    "reason": "Многофункциональный мишок-пончо: реальные функции сна и одежды конкурируют. Достаточно одного решения для семейства.",
+    "product_ids": [
+      "pozmndn22mio"
+    ]
+  },
+  {
+    "group_id": "armor-cover-or-complete|киборг",
+    "tier": "AMBIGUOUS",
+    "rule_id": "armor-cover-or-complete",
+    "category": "armor_accessories",
+    "suppliers": [
+      "киборг"
+    ],
+    "count": 3,
+    "examples": [
+      "Комплект (захист живота Kiborg + балістичний захист 2 класу Militex) GEN.2",
+      "Комплект (захист живота Kiborg + балістичний захист 1 клас Militex) GEN.2",
+      "Комплект (захист живота Kiborg + балістичний захист2 класу Militex) GEN.2"
+    ],
+    "supplier_groups": [
+      "2 клас захисту",
+      "1 клас захисту"
+    ],
+    "reason": "Название: комплект с защитой. Описание: чехол под пакет/возможность покупки отдельно. Нет однозначного SKU-level состава.",
+    "product_ids": [
+      "p5ix1bpe2mbp",
+      "p4r6qyk52mbp",
+      "pm14gpca2mbq"
+    ]
+  },
+  {
+    "group_id": "headwear-kit-policy|армолайн",
+    "tier": "LIKELY",
+    "rule_id": "headwear-kit-policy",
+    "category": "clothing_headwear",
+    "suppliers": [
+      "армолайн"
+    ],
+    "count": 1,
+    "examples": [
+      "Теплий Комплект Шапка + Баф (Фліс)"
+    ],
+    "supplier_groups": [
+      "Шапки"
+    ],
+    "reason": "Комплект шапка+баф: обе существующие категории подходят компонентам. Утвердить основную категорию комплекта один раз.",
+    "product_ids": [
+      "pw3o02jtnqb4"
+    ]
+  }
+]

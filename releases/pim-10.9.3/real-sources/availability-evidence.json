@@ -1,0 +1,351 @@
+[
+  {
+    "supplier_id": "sf0t3l7jegf9",
+    "source_sha256": "786a52829fefabc459f8ecce5853a15905c06e41f1d7d88ee827b104dcda7884",
+    "policy_id": "m-win-status-v1",
+    "policy_mode": "STATUS",
+    "policy_confirmed": true,
+    "RAW_SIGNAL_SOURCE": "offer@available → column «Наличие» (есть/нет); Наличие/Наявність param kept as separate raw evidence, not used by the policy",
+    "RAW_VALUES": {
+      "offer_available": {
+        "available=true": 923,
+        "available=": 1
+      },
+      "availability_param": {
+        "В наявності": 923,
+        "Немає в наявності": 1
+      }
+    },
+    "PARSED_VALUES": {
+      "есть": 923,
+      "нет": 1
+    },
+    "PARSED_STATUS_COUNTS": {
+      "IN_STOCK": 923,
+      "OUT_OF_STOCK": 1
+    },
+    "IN_STOCK": 923,
+    "OUT_OF_STOCK": 1,
+    "UNKNOWN": 0,
+    "PREORDER": 0,
+    "PARAM_CONFLICTS_WITH_STATUS": 0,
+    "SIGNAL_COMBINATIONS": {
+      "available=true | В наявності → IN_STOCK": 923,
+      "available= | Немає в наявності → OUT_OF_STOCK": 1
+    },
+    "SAMPLES": {
+      "available=true | В наявності → IN_STOCK": [
+        {
+          "sku": "2000683271993",
+          "offer_id": "514",
+          "raw_available": "available=true",
+          "raw_param": "В наявності",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2000000000244",
+          "offer_id": "516",
+          "raw_available": "available=true",
+          "raw_param": "В наявності",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2000000000251",
+          "offer_id": "517",
+          "raw_available": "available=true",
+          "raw_param": "В наявності",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        }
+      ],
+      "available= | Немає в наявності → OUT_OF_STOCK": [
+        {
+          "sku": "Kh-8х10",
+          "offer_id": "1035",
+          "raw_available": "available=",
+          "raw_param": "Немає в наявності",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        }
+      ]
+    }
+  },
+  {
+    "supplier_id": "s2bggyi42dhh",
+    "source_sha256": "5c013e08591ab093df25c8eb22951db42dfbb58de66a058f09fbe332b227c296",
+    "policy_id": "kiborg-status-v1",
+    "policy_mode": "STATUS",
+    "policy_confirmed": true,
+    "RAW_SIGNAL_SOURCE": "offer@available → column «Наличие» (есть/нет); Наличие/Наявність param kept as separate raw evidence, not used by the policy",
+    "RAW_VALUES": {
+      "offer_available": {
+        "available=true": 3135,
+        "available=": 779
+      },
+      "availability_param": {
+        "(no param)": 3665,
+        "В наличии": 176,
+        "Нет в наличии": 73
+      }
+    },
+    "PARSED_VALUES": {
+      "есть": 3135,
+      "нет": 779
+    },
+    "PARSED_STATUS_COUNTS": {
+      "IN_STOCK": 3135,
+      "OUT_OF_STOCK": 779
+    },
+    "IN_STOCK": 3135,
+    "OUT_OF_STOCK": 779,
+    "UNKNOWN": 0,
+    "PREORDER": 0,
+    "PARAM_CONFLICTS_WITH_STATUS": 0,
+    "SIGNAL_COMBINATIONS": {
+      "available=true | (no param) → IN_STOCK": 2959,
+      "available= | (no param) → OUT_OF_STOCK": 706,
+      "available=true | В наличии → IN_STOCK": 176,
+      "available= | Нет в наличии → OUT_OF_STOCK": 73
+    },
+    "SAMPLES": {
+      "available=true | (no param) → IN_STOCK": [
+        {
+          "sku": "2602-2201-00",
+          "offer_id": "689",
+          "raw_available": "available=true",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2603-0121-00",
+          "offer_id": "712",
+          "raw_available": "available=true",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2603-0122-00",
+          "offer_id": "741",
+          "raw_available": "available=true",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        }
+      ],
+      "available= | (no param) → OUT_OF_STOCK": [
+        {
+          "sku": "1113-S",
+          "offer_id": "732",
+          "raw_available": "available=",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "1703-38-40",
+          "offer_id": "1040",
+          "raw_available": "available=",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "1125",
+          "offer_id": "1470",
+          "raw_available": "available=",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        }
+      ],
+      "available=true | В наличии → IN_STOCK": [
+        {
+          "sku": "2145-42",
+          "offer_id": "10811",
+          "raw_available": "available=true",
+          "raw_param": "В наличии",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2145-43",
+          "offer_id": "10812",
+          "raw_available": "available=true",
+          "raw_param": "В наличии",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2145-44",
+          "offer_id": "10813",
+          "raw_available": "available=true",
+          "raw_param": "В наличии",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        }
+      ],
+      "available= | Нет в наличии → OUT_OF_STOCK": [
+        {
+          "sku": "2151-41",
+          "offer_id": "11005",
+          "raw_available": "available=",
+          "raw_param": "Нет в наличии",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2153-41",
+          "offer_id": "11010",
+          "raw_available": "available=",
+          "raw_param": "Нет в наличии",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "2153-45",
+          "offer_id": "11014",
+          "raw_available": "available=",
+          "raw_param": "Нет в наличии",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        }
+      ]
+    }
+  },
+  {
+    "supplier_id": "s2hjvaqgnp29",
+    "source_sha256": "cd3be8859c300537a6b88fe4c43c2cf3b6c4391dd779f5b514cec01a92d1797a",
+    "policy_id": "armoline-status-v1",
+    "policy_mode": "STATUS",
+    "policy_confirmed": true,
+    "RAW_SIGNAL_SOURCE": "offer@available → column «Наличие» (есть/нет); Наличие/Наявність param kept as separate raw evidence, not used by the policy",
+    "RAW_VALUES": {
+      "offer_available": {
+        "available=true": 1155,
+        "available=": 250
+      },
+      "availability_param": {
+        "(no param)": 1405
+      }
+    },
+    "PARSED_VALUES": {
+      "есть": 1155,
+      "нет": 250
+    },
+    "PARSED_STATUS_COUNTS": {
+      "IN_STOCK": 1155,
+      "OUT_OF_STOCK": 250
+    },
+    "IN_STOCK": 1155,
+    "OUT_OF_STOCK": 250,
+    "UNKNOWN": 0,
+    "PREORDER": 0,
+    "PARAM_CONFLICTS_WITH_STATUS": 0,
+    "SIGNAL_COMBINATIONS": {
+      "available=true | (no param) → IN_STOCK": 1155,
+      "available= | (no param) → OUT_OF_STOCK": 250
+    },
+    "SAMPLES": {
+      "available=true | (no param) → IN_STOCK": [
+        {
+          "sku": "00305000S0000000",
+          "offer_id": "513",
+          "raw_available": "available=true",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "00264000S0000000",
+          "offer_id": "514",
+          "raw_available": "available=true",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "0011000000000000",
+          "offer_id": "515",
+          "raw_available": "available=true",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "есть",
+          "status": "IN_STOCK",
+          "stock_quantity": null
+        }
+      ],
+      "available= | (no param) → OUT_OF_STOCK": [
+        {
+          "sku": "0021500000000000",
+          "offer_id": "528",
+          "raw_available": "available=",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "0016700000000000",
+          "offer_id": "530",
+          "raw_available": "available=",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        },
+        {
+          "sku": "0022500000000000",
+          "offer_id": "533",
+          "raw_available": "available=",
+          "raw_param": "(no param)",
+          "parsed_column": "Наличие",
+          "parsed_value": "нет",
+          "status": "OUT_OF_STOCK",
+          "stock_quantity": null
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,46 @@
+'use strict';
+// Import: supplier group_id is the MODEL boundary (only while colour/size cells stay distinct); Prom size selector.
+const test=require('node:test'),assert=require('node:assert/strict');
+const {createHarness,appRequire}=require('./isolated-harness.cjs');
+async function imported(rows){
+ const h=createHarness({runtime:true});h.run('render=()=>{}');await h.run('Store.init()');h.run('S.cfg.suppliers[0].auto=true');
+ h.ctx.rows=[['SKU','Name','Size','Color','Model','Category','Photo','Stock','Cost'],...rows];
+ h.run('S.imp={sup:"supplier-a",file:"feed.csv",rows,hdr:0,map:{sku:0,name:1,size:2,color:3,model:4,category:5,photos:6,stock:7,cost:8}}');
+ await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);return h;
+}
+const products=h=>JSON.parse(h.run('JSON.stringify([...S.products.values()].filter(p=>!p.archived).map(p=>({id:p.id,skus:p.variants.map(v=>v.size+"/"+v.color)})))'));
+test('one supplier group_id with recognised sizes/colours becomes one MODEL even when names differ',async()=>{
+ const h=await imported([
+  ['RP-MC-S','Штани тактичні Raptor Мультикам S','S','Мультикам','20208','Штани','https://rubizh.shop/media/r1.webp',3,900],
+  ['RP-MC-M','Штани тактичні Raptor Мультикам M','M','Мультикам','20208','Штани','https://rubizh.shop/media/r1.webp',3,900],
+  ['RP-OL-M','Штани тактичні Raptor Олива M','M','Олива','20208','Штани','https://rubizh.shop/media/r2.webp',3,900]]);
+ const list=products(h);assert.equal(list.length,1,JSON.stringify(list));assert.deepEqual(list[0].skus.sort(),['M/Мультикам','M/Олива','S/Мультикам']);
+});
+test('same group_id whose sizes the approved size rules do not recognise stays apart (no guessing)',async()=>{
+ const h=await imported([
+  ['ZL-2x3','Сітка маскувальна Зелене листя 2х3 м (площа 6 кв.м.)','2х3','Зелене листя','46469','Маскувальні сітки','https://rubizh.shop/media/n1.webp',3,250],
+  ['ZL-2x4','Сітка маскувальна Зелене листя 2х4 м (площа 8 кв.м.)','2х4','Зелене листя','46469','Маскувальні сітки','https://rubizh.shop/media/n1.webp',3,330]]);
+ assert.equal(products(h).length,2,'photos present → products created, not NO_PHOTOS');
+});
+test('sizes the approved size engine reads from the name (розмір L / XL) are distinct cells → one MODEL',async()=>{
+ const h=await imported([
+  ['KV-L','Кавер на шолом Мультикам розмір L','','Мультикам','6459','Кавери','https://rubizh.shop/media/k1.webp',3,500],
+  ['KV-XL','Кавер на шолом Мультикам розмір XL','','Мультикам','6459','Кавери','https://rubizh.shop/media/k2.webp',3,500]]);
+ const list=products(h);assert.equal(list.length,1);assert.deepEqual(list[0].skus.sort(),['L/Мультикам','XL/Мультикам']);
+});
+test('different supplier group_ids never merge by this rule',async()=>{
+ const h=await imported([
+  ['A-S','Футболка Test Олива','S','Олива','100','Футболки','https://rubizh.shop/media/a.webp',3,300],
+  ['C-L','Футболка Test Олива','L','Олива','200','Футболки','https://rubizh.shop/media/c.webp',3,300]]);
+ assert.equal(products(h).length,2);
+});
+test('MODEL → COLOR on import: colours that exist only in the names, one supplier model code → one model; merged cards stay archived',async()=>{
+ const h=createHarness({runtime:true});h.run('render=()=>{}');await h.run('Store.init()');h.run('S.cfg.suppliers[0].auto=true;S.cfg.model_colors_version=MC_VERSION');
+ h.ctx.rows=[['SKU','Name','Model','Category','Photo','Stock','Cost'],
+  ['G-MC','Рукавиці тактичні Protect Armor Caoutch Multicam','114272129','Рукавиці','https://rubizh.shop/media/g1.webp',3,300],
+  ['G-OL','Рукавиці тактичні Protect Armor Caoutch Olive','114272129','Рукавиці','https://rubizh.shop/media/g2.webp',3,300]];
+ h.run('S.imp={sup:"supplier-a",file:"g.csv",rows,hdr:0,map:{sku:0,name:1,model:2,category:3,photos:4,stock:5,cost:6}}');await h.run('doImport()');assert.equal(await h.run('applyImport()'),true);
+ const all=JSON.parse(h.run('JSON.stringify([...S.products.values()].map(p=>({archived:!!p.archived,merged:p.merged_into||null,variants:p.variants.length,colors:mcColors(p).length})))'));
+ const active=all.filter(p=>!p.archived);assert.equal(active.length,1,JSON.stringify(all));assert.equal(active[0].variants,2);assert.equal(active[0].colors,2);
+ assert.ok(all.filter(p=>p.merged).every(p=>p.archived&&p.variants===0));
+});

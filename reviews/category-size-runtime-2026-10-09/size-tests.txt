@@ -1,0 +1,61 @@
+
+> rubizh-pim-verification@10.9.3-review test:dry-run
+> node --test tests/size-evidence.test.cjs tests/dry-run-business.test.cjs
+
+✔ production cannot invoke safe mutations (103.285047ms)
+✔ stock 0 does not create preorder (20.70632ms)
+✔ stock null does not create preorder (20.152674ms)
+✔ stock -1 does not create preorder (23.099646ms)
+✔ source preorder permits unknown lead time, invents no term (25.585634ms)
+✔ owner default or explicit denial does not masquerade as supplier preorder (17.064837ms)
+✔ size does not change stock or availability (18.427637ms)
+✔ description can be restored from supplier facts without autoarchive (112.145035ms)
+✔ description absence alone is exception, never archive (13.266056ms)
+✔ manual description and category are protected (13.728315ms)
+✔ known broken and placeholder photos are unusable (14.408463ms)
+✔ unknown network photo status is disclosed (17.191088ms)
+✔ similar name alone never sufficient to group (31.199812ms)
+✔ historical stock override is possible only in explicitly isolated audit (20.128487ms)
+✔ manual normalized primary type prevents automatic category changes (19.465374ms)
+✔ clothing range 42-60 (2.482782ms)
+✔ clothing range 42–60 (0.314826ms)
+✔ clothing range 42—60 (0.169406ms)
+✔ footwear range 40...46 (0.168605ms)
+✔ footwear range 40–46 (0.17878ms)
+✔ letter range S-XXL (0.269016ms)
+✔ letter range XS–3XL (0.250618ms)
+✔ numeric list 42,44,46 (0.293203ms)
+✔ numeric list 42 / 44 / 46 (0.216507ms)
+✔ letter list is not a SKU assignment (0.301996ms)
+✔ combined clothing size 46-48 (0.215686ms)
+✔ combined clothing size 46/48 (0.824075ms)
+✔ footwear hyphen interval is not a combined clothing size (0.13287ms)
+✔ explicit universal One Size (1.820491ms)
+✔ explicit universal OS (0.117627ms)
+✔ explicit universal універсальний (0.210789ms)
+✔ no size requirement does not invent One Size (0.155945ms)
+✔ unknown system never guesses numeric step (0.085359ms)
+✔ odd clothing range cannot silently round end (0.066401ms)
+✔ range produces request options without variants or stock (0.852479ms)
+✔ structured 48 wins over weaker variant 50 and model 42–60 (0.917817ms)
+✔ conflicting columns of equal priority are exceptions (0.326984ms)
+✔ confirmed supplier SKU rule works without touching rules (0.266503ms)
+✔ SKU suffix alone requires confirmation (0.260975ms)
+✔ dimensions in descriptions are not sizes (0.098259ms)
+✔ shared supplier SKU cannot create exact sizes from expanded variant rows (0.227764ms)
+✔ blank size is not preorder (0.087272ms)
+✔ singular title label of a single variant is SKU scoped (0.199862ms)
+✔ variant name supplies an exact size with provenance (0.712677ms)
+✔ unconfirmed range is not used with wrong product system (0.11851ms)
+✔ legacy range parser cannot turn 42-60 into exact SKU size (0.128774ms)
+✔ confirmed supplier range step wins over default without fabricating stock (0.425664ms)
+✔ model option with numeric label is not mislabeled as letter clothing (0.129987ms)
+✔ composite height remains part of a model option label (0.134153ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 634.187933

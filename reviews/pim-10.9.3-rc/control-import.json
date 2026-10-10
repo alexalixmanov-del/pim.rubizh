@@ -1,0 +1,329 @@
+{
+  "runtime_html_sha256": "f15f91373d8f366b2c1dee5b914bd95b3505834d10aede36a599d3787c9e0a3f",
+  "elapsed_ms": 217850,
+  "source": {
+    "type": "RECONSTRUCTED_FROZEN_OFFER_REPLAY",
+    "note": "Original XLS/XLSX files are unavailable. Rows replay saved supplier bindings/provenance; dedicated-column and new-row parsing are covered separately by integration fixtures.",
+    "baseline_sha256": "9ee5645236db92e5373dea1a875a83d821ec86bab64f4acc1e4316b7183ee5f3",
+    "fixture_sha256": "e15e84779955e11adc8fd6d64f321732650520d00186f23cca97ec61d3108a82",
+    "rows": 8734,
+    "products": 3113,
+    "variants": 8734
+  },
+  "CATEGORIES": 143,
+  "LOST_CATEGORIES": 0,
+  "LOST_SKU": 0,
+  "LOST_VARIANTS": 0,
+  "LOST_PHOTOS": 0,
+  "LOST_PRICES": 0,
+  "LOST_STOCK": 0,
+  "DUPLICATE_SKU_CREATED": 0,
+  "DUPLICATE_SIZE_OPTIONS_CREATED": 0,
+  "DUPLICATE_EXCEPTIONS_CREATED": 0,
+  "PRODUCTION_WRITES": 0,
+  "inventory_policy_version": 1,
+  "inventory_policies": [
+    {
+      "supplier": "м вин",
+      "mode": "STATUS",
+      "confirmed": true
+    },
+    {
+      "supplier": "тактикал белт",
+      "mode": "QUANTITY",
+      "confirmed": false
+    },
+    {
+      "supplier": "армолайн",
+      "mode": "STATUS",
+      "confirmed": true
+    },
+    {
+      "supplier": "укр тек",
+      "mode": "STATUS",
+      "confirmed": true
+    },
+    {
+      "supplier": "киборг",
+      "mode": "STATUS",
+      "confirmed": true
+    }
+  ],
+  "supplier_availability": {
+    "IN_STOCK": 6187,
+    "OUT_OF_STOCK": 1034,
+    "PREORDER": 1,
+    "UNKNOWN": 1512,
+    "ORDER_ON_REQUEST": 0
+  },
+  "readiness": {
+    "PAYMENT_READY": 4915,
+    "BINDING_CONFIRMATION_REQUIRED": 626,
+    "SIZE_CONFIRMATION_REQUIRED": 848,
+    "NOT_PAYMENT_READY": 2345,
+    "size_independent": 1446,
+    "binding_independent": 626,
+    "overlap": 598
+  },
+  "inventory_exception_groups": [
+    {
+      "key": "inventory:s4p9slmnn0ki:tactical-belt-quantity-candidate-v1:policy-unconfirmed",
+      "title": "тактикал белт: правило доступності",
+      "count": 1512,
+      "examples": [
+        {
+          "product_id": "pzw2o6fun18m",
+          "sku": "RUB-05564",
+          "raw_value": "0"
+        },
+        {
+          "product_id": "pzw2o6fun18m",
+          "sku": "RUB-05565",
+          "raw_value": "0"
+        },
+        {
+          "product_id": "pitsc7uzn1a6",
+          "sku": "RUB-05768",
+          "raw_value": "0"
+        }
+      ]
+    }
+  ],
+  "order_permissions": {
+    "order_submission_allowed": 5763,
+    "payment_allowed": 4915,
+    "requires_order_confirmation": 2869,
+    "availability": {
+      "IN_STOCK": 4915,
+      "UNKNOWN": 2021,
+      "SIZE_CONFIRMATION_REQUIRED": 848,
+      "OUT_OF_STOCK": 950
+    }
+  },
+  "export_first_sha256": "ebbf5c36a8e3746b6c45eb7c0ec300a10278cc6367e43bfc81c15a1c0385869a",
+  "export_second_sha256": "ebbf5c36a8e3746b6c45eb7c0ec300a10278cc6367e43bfc81c15a1c0385869a",
+  "category_tiers": {
+    "SAFE_AUTO": 2711,
+    "LIKELY": 194,
+    "AMBIGUOUS": 204,
+    "UNTOUCHED": 4
+  },
+  "size_tiers": {
+    "SAFE_AUTO": 7866,
+    "LIKELY": 1,
+    "AMBIGUOUS": 867
+  },
+  "runtime": {
+    "SAFE_AUTO": 10577,
+    "LIKELY": 195,
+    "AMBIGUOUS": 1075,
+    "exact_sku_sizes": 4199,
+    "allowed_sizes_without_sku": 1145,
+    "SIZE_CONFIRMATION_REQUIRED": 1446,
+    "UNKNOWN_stock": 8734,
+    "NO_SIZE_REQUIRED": 3068,
+    "ONE_SIZE": 21
+  },
+  "manual_locks": {
+    "products": 8,
+    "variant_locks": 0,
+    "before_sha256": "fe52ba54e4b7a6de39f9aaef9568e2f658cce23cb11b7952e8a31e3547c3b759",
+    "after_sha256": "fe52ba54e4b7a6de39f9aaef9568e2f658cce23cb11b7952e8a31e3547c3b759"
+  },
+  "protected_before_sha256": "42bd818bf5e9bed8a83ee19c864f3e3cf7df0b2a3321c715795a64eb4064bb62",
+  "protected_after_sha256": "42bd818bf5e9bed8a83ee19c864f3e3cf7df0b2a3321c715795a64eb4064bb62",
+  "calculated_prices_before_sha256": "e72873d9ed41136116c8660aad69972f8b656c1d1cd8996ffc5d4ba197857ec4",
+  "calculated_prices_after_sha256": "e72873d9ed41136116c8660aad69972f8b656c1d1cd8996ffc5d4ba197857ec4",
+  "first_import": [
+    {
+      "supplier": "sf0t3l7jegf9",
+      "rows": 924,
+      "updated": 924,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 1607,
+        "LIKELY": 23,
+        "AMBIGUOUS": 60,
+        "exact_sku_sizes": 21,
+        "allowed_sizes_without_sku": 1,
+        "SIZE_CONFIRMATION_REQUIRED": 45,
+        "UNKNOWN_stock": 924,
+        "NO_SIZE_REQUIRED": 852,
+        "ONE_SIZE": 6
+      }
+    },
+    {
+      "supplier": "s4p9slmnn0ki",
+      "rows": 1512,
+      "updated": 1512,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 1952,
+        "LIKELY": 56,
+        "AMBIGUOUS": 147,
+        "exact_sku_sizes": 696,
+        "allowed_sizes_without_sku": 0,
+        "SIZE_CONFIRMATION_REQUIRED": 117,
+        "UNKNOWN_stock": 1512,
+        "NO_SIZE_REQUIRED": 692,
+        "ONE_SIZE": 7
+      }
+    },
+    {
+      "supplier": "s2akya7xoafn",
+      "rows": 979,
+      "updated": 979,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 991,
+        "LIKELY": 9,
+        "AMBIGUOUS": 380,
+        "exact_sku_sizes": 5,
+        "allowed_sizes_without_sku": 1083,
+        "SIZE_CONFIRMATION_REQUIRED": 894,
+        "UNKNOWN_stock": 988,
+        "NO_SIZE_REQUIRED": 88,
+        "ONE_SIZE": 1
+      }
+    },
+    {
+      "supplier": "s2bggyi42dhh",
+      "rows": 3914,
+      "updated": 3914,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 4567,
+        "LIKELY": 97,
+        "AMBIGUOUS": 464,
+        "exact_sku_sizes": 2184,
+        "allowed_sizes_without_sku": 61,
+        "SIZE_CONFIRMATION_REQUIRED": 376,
+        "UNKNOWN_stock": 3923,
+        "NO_SIZE_REQUIRED": 1356,
+        "ONE_SIZE": 7
+      }
+    },
+    {
+      "supplier": "s2hjvaqgnp29",
+      "rows": 1405,
+      "updated": 1405,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 1479,
+        "LIKELY": 10,
+        "AMBIGUOUS": 20,
+        "exact_sku_sizes": 1293,
+        "allowed_sizes_without_sku": 0,
+        "SIZE_CONFIRMATION_REQUIRED": 14,
+        "UNKNOWN_stock": 1405,
+        "NO_SIZE_REQUIRED": 98,
+        "ONE_SIZE": 0
+      }
+    }
+  ],
+  "second_import": [
+    {
+      "supplier": "sf0t3l7jegf9",
+      "rows": 924,
+      "updated": 924,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 1607,
+        "LIKELY": 23,
+        "AMBIGUOUS": 60,
+        "exact_sku_sizes": 21,
+        "allowed_sizes_without_sku": 1,
+        "SIZE_CONFIRMATION_REQUIRED": 45,
+        "UNKNOWN_stock": 924,
+        "NO_SIZE_REQUIRED": 852,
+        "ONE_SIZE": 6
+      }
+    },
+    {
+      "supplier": "s4p9slmnn0ki",
+      "rows": 1512,
+      "updated": 1512,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 1952,
+        "LIKELY": 56,
+        "AMBIGUOUS": 147,
+        "exact_sku_sizes": 696,
+        "allowed_sizes_without_sku": 0,
+        "SIZE_CONFIRMATION_REQUIRED": 117,
+        "UNKNOWN_stock": 1512,
+        "NO_SIZE_REQUIRED": 692,
+        "ONE_SIZE": 7
+      }
+    },
+    {
+      "supplier": "s2akya7xoafn",
+      "rows": 979,
+      "updated": 979,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 991,
+        "LIKELY": 9,
+        "AMBIGUOUS": 380,
+        "exact_sku_sizes": 5,
+        "allowed_sizes_without_sku": 1083,
+        "SIZE_CONFIRMATION_REQUIRED": 894,
+        "UNKNOWN_stock": 988,
+        "NO_SIZE_REQUIRED": 88,
+        "ONE_SIZE": 1
+      }
+    },
+    {
+      "supplier": "s2bggyi42dhh",
+      "rows": 3914,
+      "updated": 3914,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 4567,
+        "LIKELY": 97,
+        "AMBIGUOUS": 464,
+        "exact_sku_sizes": 2184,
+        "allowed_sizes_without_sku": 61,
+        "SIZE_CONFIRMATION_REQUIRED": 376,
+        "UNKNOWN_stock": 3923,
+        "NO_SIZE_REQUIRED": 1356,
+        "ONE_SIZE": 7
+      }
+    },
+    {
+      "supplier": "s2hjvaqgnp29",
+      "rows": 1405,
+      "updated": 1405,
+      "created": 0,
+      "createdVariants": 0,
+      "classification": {
+        "SAFE_AUTO": 1479,
+        "LIKELY": 10,
+        "AMBIGUOUS": 20,
+        "exact_sku_sizes": 1293,
+        "allowed_sizes_without_sku": 0,
+        "SIZE_CONFIRMATION_REQUIRED": 14,
+        "UNKNOWN_stock": 1405,
+        "NO_SIZE_REQUIRED": 98,
+        "ONE_SIZE": 0
+      }
+    }
+  ],
+  "second_identical_import": {
+    "idempotent": true,
+    "first_normalized_sha256": "dda55f9d14a85ebe09ec08e42e60bcbc8056921cfe544dc3725222bfabe63c2d",
+    "second_normalized_sha256": "dda55f9d14a85ebe09ec08e42e60bcbc8056921cfe544dc3725222bfabe63c2d",
+    "created_sku": 0
+  },
+  "exception_groups": 148,
+  "rollback_abort_tests": "See runtime-tests.txt: cancelled preview, stale preview, failed persistence verification."
+}
