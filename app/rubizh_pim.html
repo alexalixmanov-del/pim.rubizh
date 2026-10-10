@@ -2534,7 +2534,7 @@ for(const [ru,ua] of Object.entries({
  'сетка':'сітка','сетки':'сітки','сетку':'сітку','листья':'листя','осень':'осінь','осенью':'восени',
  'площадь':'площа','площади':'площі','газовый':'газовий','газовая':'газова','баллон':'балон',
  'портативный':'портативний','портативная':'портативна','который':'який','которая':'яка','которые':'які',
- 'карманах':'кишенях','кармане':'кишені','кармана':'кишені','карману':'кишені','карманом':'кишенею','брюшных':'черевних','брюшних':'черевних','брюшной':'черевний','брюшная':'черевна', 'эксплуатации':'експлуатації','эксплуатация':'експлуатація','полевых':'польових','условиях':'умовах',
+ 'синтетическое':'синтетичне','синтетическая':'синтетична','синтетический':'синтетичний','полипропиленовое':'поліпропіленове','полипропиленовая':'поліпропіленова','армированная':'армована','армированный':'армований','нитка':'нитка','сетчатое':'сітчасте','сетчатая':'сітчаста','полотно':'полотно','замша':'замша','силикон':'силікон','силиконовый':'силіконовий', 'карманах':'кишенях','кармане':'кишені','кармана':'кишені','карману':'кишені','карманом':'кишенею','брюшных':'черевних','брюшних':'черевних','брюшной':'черевний','брюшная':'черевна', 'эксплуатации':'експлуатації','эксплуатация':'експлуатація','полевых':'польових','условиях':'умовах',
  'индивидуального':'індивідуального','маскировки':'маскування','газом':'газом'
 })) RU_UA_WORDS.set(ru,ua);
 for(const [ru,ua] of Object.entries({'он':'він','она':'вона','они':'вони','долго':'довго','работает':'працює','остановок':'зупинок','выдерживает':'витримує','нагрузку':'навантаження','спинка':'спинка','оснащена':'оснащена','съёмными':'знімними','съемными':'знімними','алюминиевыми':'алюмінієвими','вставками':'вставками','также':'також','поэтому':'тому','является':'є','имеет':'має','изделие':'виріб'}))RU_UA_WORDS.set(ru,ua);
@@ -10684,7 +10684,9 @@ function finalWireProduct(p){
  out.photos=photos;out.unassigned_photos=photos.filter(url=>!out.colors.some(c=>c.photos.includes(url)));
  // U+02BC is missing from the storefront fonts (the word breaks into «Ім ʼ я»): publish the typographic apostrophe ’.
  const typo=t=>String(t??'').replace(/(?<=\p{L})\u02bc(?=\p{L})/gu,'\u2019');
- out.name=out.marketing_name_uk=typo(finalTitle(p));out.description=typo(finalDescription(p));if(out.model_name)out.model_name=typo(out.model_name);
+ out.name=out.marketing_name_uk=typo(finalTitle(p));
+ // Attribute texts are supplier words: the same RU→UA normalization as titles and descriptions (codes such as «winter» stay).
+ for(const k of ['attributes','filter_attributes'])if(out[k]&&typeof out[k]==='object')out[k]=Object.fromEntries(Object.entries(out[k]).map(([a,v])=>[a,typeof v==='string'?typo(autoUkText(v)):v]));out.description=typo(finalDescription(p));if(out.model_name)out.model_name=typo(out.model_name);
  out.category=canonicalPath(out.canonical_category_id);out.category_path=out.category.split(' / ');
  out.publication_state='ACTIVE';out.publication={state:'READY',decision_version:FINAL_WORKFLOW_VERSION};
  out.pricing_policy_version=1;

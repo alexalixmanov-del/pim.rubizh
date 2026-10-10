@@ -166,7 +166,9 @@ function finalWireProduct(p){
  out.photos=photos;out.unassigned_photos=photos.filter(url=>!out.colors.some(c=>c.photos.includes(url)));
  // U+02BC is missing from the storefront fonts (the word breaks into «Ім ʼ я»): publish the typographic apostrophe ’.
  const typo=t=>String(t??'').replace(/(?<=\p{L})\u02bc(?=\p{L})/gu,'\u2019');
- out.name=out.marketing_name_uk=typo(finalTitle(p));out.description=typo(finalDescription(p));if(out.model_name)out.model_name=typo(out.model_name);
+ out.name=out.marketing_name_uk=typo(finalTitle(p));
+ // Attribute texts are supplier words: the same RU→UA normalization as titles and descriptions (codes such as «winter» stay).
+ for(const k of ['attributes','filter_attributes'])if(out[k]&&typeof out[k]==='object')out[k]=Object.fromEntries(Object.entries(out[k]).map(([a,v])=>[a,typeof v==='string'?typo(autoUkText(v)):v]));out.description=typo(finalDescription(p));if(out.model_name)out.model_name=typo(out.model_name);
  out.category=canonicalPath(out.canonical_category_id);out.category_path=out.category.split(' / ');
  out.publication_state='ACTIVE';out.publication={state:'READY',decision_version:FINAL_WORKFLOW_VERSION};
  out.pricing_policy_version=1;
