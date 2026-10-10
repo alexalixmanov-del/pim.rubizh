@@ -17,7 +17,7 @@ function expand(entry,{type,system,step,combinedRange=false}={}){
  }
  const first=ALPHA.indexOf(alpha(entry.size_range_min)),last=ALPHA.indexOf(alpha(entry.size_range_max));return first>=0&&last>=first?{confidence:'SAFE_AUTO',size_system:actual,allowed_sizes:ALPHA.slice(first,last+1)}:{confidence:'AMBIGUOUS',reason:'LETTER_ORDER_UNKNOWN'};
 }
-function priority(e){const s=e.source||'';return s==='manual_size'?0:/xls_column|structured_size_field/u.test(s)?1:/^offer\.(?:size_raw|native_size|variant_size)$/u.test(s)?2:s.startsWith('supplier_rule:')?3:/^variant\.(?:size|size_raw|native_size)$/u.test(s)?3.5:/variant_name|variant_label/u.test(s)?4:/source_name|original_name|product.name/u.test(s)?5:/structured/u.test(s)?6:7;}
+function priority(e){const s=e.source||'';return s==='manual_size'?0:s.startsWith('supplier_grid:')?1.5:/xls_column|structured_size_field/u.test(s)?1:/^offer\.(?:size_raw|native_size|variant_size)$/u.test(s)?2:s.startsWith('supplier_rule:')?3:/^variant\.(?:size|size_raw|native_size)$/u.test(s)?3.5:/variant_name|variant_label/u.test(s)?4:/source_name|original_name|product.name/u.test(s)?5:/structured/u.test(s)?6:7;}
 function parse(raw,{scope='model',type='clothing',sharedSku=false}={}){
  const text=clean(raw),label=text.replace(/^(?:розміри|размеры|sizes?|розмір|размер)\s*[:=-]?\s*/iu,'').trim(),n=label.replace(/\s+/g,'').toUpperCase();
  if(!n)return null;
@@ -50,6 +50,21 @@ function variantLabel(raw,{type,source='variant.label'}={}){
  if(!m)return [];
  const parsed=parse(m[1],{type,scope:'sku'});return parsed&&['EXACT_SIZE','ONE_SIZE'].includes(parsed.kind)?[{...parsed,source,scope:'sku',proof:m[0]}]:[];
 }
+// Owner-approved supplier grid selector (M-WIN nets «ОБЕРІТЬ РОЗМІР СІТКИ: 3х4»): the selector names the SKU's own
+// W×H only for that supplier, an approved category and a product name of that family; the title and the
+// width/length attributes must not contradict it. «Індивідуальний розмір» and anything else is no evidence.
+function gridDimension(rule,o,product){
+ const key=x=>clean(x).replace(/[:\s]+$/u,'').toLocaleLowerCase('uk-UA'),attrs=o.source_attributes||{},raw=Object.entries(attrs).find(([k])=>key(k)===key(rule.attribute))?.[1];
+ if(raw==null||!(rule.canonical_categories||[]).includes(product.category_id))return null;
+ if(rule.supplier_categories&&!rule.supplier_categories.map(key).includes(key(o.supplier_category_raw||'')))return null;
+ const name=clean(o.source_name||o.original_name||product.name||'');if(rule.name_pattern&&!new RegExp(rule.name_pattern,'iu').test(name))return null;
+ const value=clean(String(raw).replace(/^[:\s]+/u,'')),m=value.match(/^(\d{1,2})\s*[xх×]\s*(\d{1,2})\s*(?:м\.?)?$/iu);if(!m)return null;
+ const w=Number(m[1]),h=Number(m[2]),max=rule.max_dimension||50;if(!w||!h||w>max||h>max)return null;
+ const dims=[...name.matchAll(/(?<![\p{N}])(\d{1,2})\s*[xх×]\s*(\d{1,2})(?![\p{N}])/giu)].map(x=>x[1]+'×'+x[2]);if(dims.some(d=>d!==w+'×'+h))return null;
+ const metre=k=>{const v=Object.entries(attrs).find(([a])=>key(a)===k)?.[1];if(v==null)return null;const n=clean(v).match(/^(\d+(?:[.,]\d+)?)\s*м\.?$/u);return n?Number(n[1].replace(',','.')):NaN;},side=[metre('ширина'),metre('довжина')].filter(x=>x!=null);
+ if(side.some(x=>Number.isNaN(x))||side.length===2&&[...side].sort((a,b)=>a-b).join()!==[w,h].sort((a,b)=>a-b).join()||side.length===1&&![w,h].includes(side[0]))return null;
+ const label=w+'×'+h+' м';return {kind:'EXACT_SIZE',value:label,raw:label,size_system:rule.size_system||'net_dimensions',source:'supplier_grid:'+rule.id,scope:'sku',supplier_sku:o.s,proof:value};
+}
 function resolveCore({type,required=true,variant={},product={},offers=[],rules=[],fallback=null}={}){
  if(!required)return {status:'NO_SIZE_REQUIRED',confidence:'SAFE_AUTO',evidence:[],metadata:[]};
  const evidence=[],push=(raw,source,scope='sku',extra={})=>{const parsed=parse(raw,{type,scope,sharedSku:extra.sharedSku});if(parsed)evidence.push({...parsed,source,scope,...extra});};
@@ -63,8 +78,9 @@ function resolveCore({type,required=true,variant={},product={},offers=[],rules=[
   for(const key of ['variant_name','source_variant_name','variant_label'])if(o[key]){push(o[key],'offer.'+key,'sku',{supplier_sku:o.s});evidence.push(...fromText(o[key],{type,scope:'sku',source:'offer.'+key}),...variantLabel(o[key],{type,source:'offer.'+key}));}
   for(const key of ['source_name','original_name'])if(o[key])evidence.push(...fromText(o[key],{type,scope:o.sharedSku?'model':'sku',source:'offer.'+key}));
   if(o.source_description)evidence.push(...fromText(o.source_description,{type,scope:'model',source:'offer.description'}));
-  for(const rule of rules.filter(r=>r.confirmed===true&&r.supplier_id===o.sid&&(!r.product_type||r.product_type===type))){try{const re=new RegExp(rule.pattern,'u');if(!rule.pattern.startsWith('^')||!rule.pattern.endsWith('$'))continue;const match=String(o.s||'').match(re);if(match&&match[rule.size_group||1])push(match[rule.size_group||1],'supplier_rule:'+rule.id,'sku',{supplier_sku:o.s});}catch{/* Invalid rules never generate sizes. */}}
+  for(const rule of rules.filter(r=>r.confirmed===true&&!r.kind&&r.supplier_id===o.sid&&(!r.product_type||r.product_type===type))){try{const re=new RegExp(rule.pattern,'u');if(!rule.pattern.startsWith('^')||!rule.pattern.endsWith('$'))continue;const match=String(o.s||'').match(re);if(match&&match[rule.size_group||1])push(match[rule.size_group||1],'supplier_rule:'+rule.id,'sku',{supplier_sku:o.s});}catch{/* Invalid rules never generate sizes. */}}
  }
+ for(const o of offers)if(!o.sharedSku)for(const rule of rules.filter(r=>r.confirmed===true&&r.kind==='GRID_DIMENSION_ATTRIBUTE'&&r.supplier_id===o.sid)){const e=gridDimension(rule,o,product);if(e)evidence.push(e);}
  for(const key of ['variant_name','variant_label','name'])if(variant[key]){push(variant[key],'variant.'+key);evidence.push(...fromText(variant[key],{type,scope:'sku',source:'variant.'+key}),...variantLabel(variant[key],{type,source:'variant.'+key}));}
  const single=(product.variants||[]).length===1;
  if(single)for(const [key,val] of Object.entries(product.supplier_attributes||{}))if(/^(розмір|размер|size|розмір одягу|размер одежды)$/iu.test(clean(key)))push(val,'product.structured:'+key);
@@ -76,7 +92,7 @@ function resolveCore({type,required=true,variant={},product={},offers=[],rules=[
  const rangeRule=rangePolicies.length===1?rangeRules[0]:null;
  const metadata=evidence.filter(e=>['SIZE_LIST','SIZE_RANGE'].includes(e.kind)).map(e=>({...e,...(rangePolicies.length>1?{confidence:'AMBIGUOUS',reason:'CONFLICTING_SUPPLIER_RANGE_RULES'}:expand(e,{type,system:product.size_system||rangeRule?.size_system,step:rangeRule?.range_step}))})),values=uniq(exact.map(e=>JSON.stringify(e.value)));
  if(values.length>1)return {status:'SIZE_CONFIRMATION_REQUIRED',confidence:'AMBIGUOUS',evidence,metadata,reason:'CONFLICTING_SKU_SIZE_EVIDENCE'};
- if(values.length===1){const e=exact[0];return {status:e.kind,confidence:'SAFE_AUTO',value:e.value,raw:e.raw,evidence,metadata,weak_source_conflicts:allExact.filter(x=>JSON.stringify(x.value)!==JSON.stringify(e.value))};}
+ if(values.length===1){const e=exact[0];return {status:e.kind,confidence:'SAFE_AUTO',value:e.value,raw:e.raw,...(e.size_system?{size_system:e.size_system}:{}),evidence,metadata,weak_source_conflicts:allExact.filter(x=>JSON.stringify(x.value)!==JSON.stringify(e.value))};}
  // Existing supplier-specific parsers may contribute ONLY evidence already classified SAFE_AUTO.
  const fallbackParsed=fallback?.size?parse(fallback.size.size_display||fallback.size.size_raw,{type,scope:'sku'}):null;
  if(fallback?.tier==='SAFE_AUTO'&&fallback.size&&!fallback.size.size_unconfirmed&&fallback.size.size_normalized!=null&&!['SIZE_RANGE','SIZE_LIST'].includes(fallbackParsed?.kind)&&(!offers.some(o=>o.sharedSku)||variant.source_review_confirmed===true))return {status:fallback.size.size_system==='universal'?'ONE_SIZE':'EXACT_SIZE',confidence:'SAFE_AUTO',value:fallback.size.size_normalized,raw:fallback.size.size_display,evidence:[{source:'supplier_format_parser',...fallback.size}],metadata};
@@ -87,5 +103,5 @@ function resolveCore({type,required=true,variant={},product={},offers=[],rules=[
  return {status:'SIZE_CONFIRMATION_REQUIRED',confidence:'AMBIGUOUS',evidence,metadata,reason:metadata.length?'MODEL_SIZE_OPTIONS_WITHOUT_SKU_ASSIGNMENT':'NO_SKU_SIZE_EVIDENCE'};
 }
 function resolve(input={}){const out=resolveCore(input);out.size_required=input.required!==false;out.size_system=out.status==='NO_SIZE_REQUIRED'?'NONE':out.status==='ONE_SIZE'?'universal':out.size_system||(/^\D/u.test(String(out.value??''))&&ALPHA.includes(alpha(out.value))?'letter_clothing':sizeSystem(input.type,input.product?.size_system));return out;}
-return {version:1,parse,fromText,resolve,expand,sizeSystem,priority,variantLabel};
+return {version:1,parse,fromText,resolve,expand,sizeSystem,priority,variantLabel,gridDimension};
 });

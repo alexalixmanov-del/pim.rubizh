@@ -188,3 +188,38 @@ test('public identity: digit segments stay in the title, two active cards never 
  const s=setup();card(s,'p-s','Тактичні шорти BR Stinger Стрейч, сірі Літо, ТрО','clothing_shorts',[['RUB-S','Сірий',offer('ST',{original_name:'Тактические шорты BR Stinger | Стрейч, серые | Лето, ТрО'}),'S']]);
  const w=JSON.parse(JSON.stringify(s.run('finalWireProduct(S.products.get("p-s"))')));assert.equal(w.name,'Тактичні шорти BR Stinger');assert.equal(w.slug,s.run('slugify("Тактичні шорти BR Stinger")'));
 });
+const MWIN='sf0t3l7jegf9';
+function net(h,id,name,sku,selector,extra={}){
+ const attrs={'ОБЕРІТЬ РОЗМІР СІТКИ':': '+selector,'Колір':'Осіннє листя'},m=String(selector).match(/^(\d+)х(\d+)$/u);if(m){attrs['Ширина']=m[1]+' м';attrs['Довжина']=m[2]+' м';}
+ const o={...offer(sku),source_model:'37469',source_name:name,supplier_category_raw:'Маскувальні сітки',source_attributes:attrs,...extra};
+ const p=h.product({id,name,brand:'M-WIN',canonical_category_id:extra.category||'camouflage_nets',category_locked:true,desc:DESC,attrs:Object.fromEntries(Object.entries(attrs).map(([k,v])=>[k,String(v).replace(/^:\s*/,'')])),variants:[{sku:'RUB-'+sku,size:'',color:'',camouflage:'Осіннє листя',price:0,offers:{[MWIN]:o}}]});
+ h.add(p);h.ctx.pid=id;h.run('classificationApplyProduct(S.products.get(pid))');return p;
+}
+function mwinSetup(){const h=setup();h.run(`S.cfg.suppliers.push({id:'${MWIN}',name:'M-WIN',auto:false,priority:1,terms:{priceType:'cost'}})`);return h;}
+test('M-WIN net grid selector: W×H is the exact SKU size of real nets; per-m² and non-net rows never get one',()=>{
+ const h=mwinSetup(),T='Маскувальна сітка M-Win Листя осінь. Маскування весна, літо, осінь.';
+ net(h,'n1',T+' 2х3 м (площа 6 кв.м.)','LO-2х3','2х3');net(h,'n2',T+' 3х4 м (площа 12 кв.м.)','LO-3х4','3х4');
+ net(h,'n0',T+' індивідуального розміру (ціна за 1 кв.м.)','0000LO','Індивідуальний розмір');
+ const sz=id=>{h.ctx.pid=id;return JSON.parse(h.run('JSON.stringify(S.products.get(pid).variants.map(v=>[v.size_status,v.size||"",v.size_system||null]))'))[0];};
+ assert.deepEqual(sz('n1'),['EXACT_SIZE','2×3 м','net_dimensions']);assert.deepEqual(sz('n2'),['EXACT_SIZE','3×4 м','net_dimensions']);
+ assert.equal(sz('n0')[0],'NO_SIZE_REQUIRED','«Індивідуальний розмір» is not a size');
+ net(h,'x1','Рюкзак тактичний 2х3','BAG-1','2х3',{category:'backpacks_tactical'});assert.notEqual(sz('x1')[0],'EXACT_SIZE','not an approved net category');
+ net(h,'x2',T+' 4х5 м','LO-4х5c','2х3');assert.notEqual(sz('x2')[0],'EXACT_SIZE','title contradicts the selector');
+ net(h,'x3',T+' 5х6 м','LO-5х6w','5х6',{source_attributes:{'ОБЕРІТЬ РОЗМІР СІТКИ':': 5х6','Ширина':'4 м','Довжина':'6 м'}});assert.notEqual(sz('x3')[0],'EXACT_SIZE','width contradicts the selector');
+ h.run('for(const id of ["x1","x2","x3"])S.products.delete(id);bumpData()');
+ const plan=JSON.parse(h.run('JSON.stringify(mcPlan())')),g=plan.automatic.find(g=>g.ids.includes('n1'));
+ assert.ok(g,'size grid of one colour merges automatically');assert.deepEqual(g.ids,['n1','n2']);assert.ok(!g.ids.includes('n0'));
+ h.run('mcMigrate()');h.ctx.pid=g.ids[0];
+ const wire=JSON.parse(h.run('JSON.stringify(finalWireProduct(S.products.get(pid)))'));
+ assert.deepEqual(wire.variants.map(v=>[v.sku,v.size_display]),[['RUB-LO-2х3','2×3 м'],['RUB-LO-3х4','3×4 м']],'one real SKU per size, no invented SKU');
+ assert.equal(state(h,'n0').state,'MODERATION');assert.ok(state(h,'n0').reasons.some(r=>r.code==='price_unit'));
+});
+test('a READY model never has zero priced variants; one unpriced SKU of a priced model is published disabled, never with a price',()=>{
+ const h=setup();
+ card(h,'p-none','Куртка тестова Хуртовина','clothing_jackets',[['RUB-Z1','Олива',offer('Z-1',{cost:0,payout:0}),'M']]);
+ const none=state(h,'p-none');assert.notEqual(none.state,'READY');
+ card(h,'p-one','Куртка тестова Завірюха','clothing_jackets',[['RUB-G1','Олива',offer('G-1'),'M'],['RUB-G2','Олива',offer('G-2',{cost:0,payout:0}),'L']]);
+ assert.equal(state(h,'p-one').state,'READY');h.ctx.pid='p-one';
+ const bad=JSON.parse(h.run('JSON.stringify(finalWireProduct(S.products.get(pid)))')).variants.find(v=>v.sku==='RUB-G2');
+ assert.equal(bad.price,null);assert.equal(bad.price_ready,false);assert.equal(bad.payment_allowed,false);assert.equal(bad.order_submission_allowed,false);
+});

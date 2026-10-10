@@ -100,7 +100,7 @@ function finalSupplierSizeLabel(v){
 function finalSizeLabels(p){
  const byColor=new Map(),out=new Map();
  for(const v of p.variants||[]){const z=simpleSize(p,v);if(z.size_status!=='SIZE_CONFIRMATION_REQUIRED'||z.size_display)continue;const k=mcColor(v).key;if(!byColor.has(k))byColor.set(k,[]);byColor.get(k).push(v);}
- for(const list of byColor.values()){if(list.length<2)continue;const labels=list.map(finalSupplierSizeLabel);if(labels.every(Boolean)&&new Set(labels.map(norm)).size===labels.length)list.forEach((v,i)=>out.set(v.sku,labels[i]));}
+ for(const list of byColor.values()){if(list.length<2)continue;const labels=list.map(finalSupplierSizeLabel);if(labels.every(Boolean)&&new Set(list.map((v,i)=>variantCellKey(v,labels[i]))).size===labels.length)list.forEach((v,i)=>out.set(v.sku,labels[i]));}
  return out;
 }
 // Supplier price per unit area (made-to-measure nets: «індивідуальний розмір», «ціна за 1 кв.м»): not an item price.
@@ -108,7 +108,7 @@ const FINAL_UNIT_PRICE=/(?:ціна|цена)\s+за\s+(?:1\s*)?(?:кв\.?\s*м|
 function finalUnitPriced(v){return Object.values(v.offers||{}).some(o=>FINAL_UNIT_PRICE.test(String(o.source_name||o.original_name||''))||Object.values(o.source_attributes||{}).some(x=>FINAL_UNIT_PRICE.test(String(x))));}
 // What the site shows for one SKU: colour + size label (NO_SIZE_REQUIRED shows none). Two SKUs with the same public cell
 // cannot be told apart by a buyer, so such a model is never READY.
-function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,mcColor(v).key+'|'+norm(size)];}));}
+function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,variantCellKey(v,size)];}));}
 // One MODEL = one public card: active cards of one category sharing a public title are an owner question, never two READY.
 const finalTitleOwners=memoByData(function(){const m=new Map();for(const p of S.products.values()){if(p.archived||p.merged_into||!p.variants?.length)continue;const k=(p.canonical_category_id||'')+'\u0000'+norm(finalTitle(p));if(!m.has(k))m.set(k,[]);m.get(k).push(p.id);}return m;});
 const finalDecision=memoProd('final-decision',function(p){
@@ -158,6 +158,7 @@ function finalSizeRank(v){
  const raw=String(v.size_normalized??v.size_display??v.size??'').trim().toUpperCase().replace(/^2XL$/,'XXL').replace(/^3XL$/,'XXXL');if(!raw)return 1e9;
  const alpha=FINAL_ALPHA_SIZES.indexOf(raw);if(alpha>=0)return 1000+alpha;
  const m=raw.match(/^(\d{2,3})(?:\s*[/-]\s*(\d{1,3}))?$/u);if(m)return 2000+Number(m[1])*100+Number(m[2]||0);
+ const grid=raw.match(/^(\d{1,2})×(\d{1,2}) М$/u);if(grid)return 20000+Number(grid[1])*100+Number(grid[2]);
  return 1e9;
 }
 function finalWireProduct(p){
@@ -464,3 +465,26 @@ document.addEventListener('click',async e=>{
   if(a==='resetApply'){const r=await finalCatalogReset(FINAL_UI.resetPlan,($('#finalResetConfirm')?.value||'').trim());toast('Каталог очищен: товаров '+r.remove.products+', SKU '+r.remove.skus);}
  }catch(error){toast(error.message||String(error));}finally{render();}
 },true);
+// AUTOPRICES PREVIEW: what a fresh supplier file would do to every touched SKU price, read from the import preview
+// (S.snap = before, S.products = after) without writing anything. Autoprices stay OFF; the owner applies or cancels.
+function autopricesPreview(){
+ if(!S.snap)throw Error('AUTOPRICES_PREVIEW_REQUIRES_IMPORT_PREVIEW');
+ const name=sid=>(S.cfg.suppliers.find(s=>s.id===sid)?.name)||sid,rows=[],round=x=>x==null?null:Math.round(x*100)/100;
+ const rule=c=>c.manual?'manual price':c.isBig?'payout ≥ '+(S.cfg.bigPriceFrom||10000)+' → '+c.minMarginUsed+'%':c.rrp!=null&&c.price===c.rrp?'RRP':c.minMarginUsed+'%';
+ for(const [id,before] of S.snap.products){const after=S.products.get(id);if(!after)continue;
+  const old=new Map((before?.variants||[]).map(v=>[v.sku,v]));
+  for(const v of after.variants||[]){
+   // A held price jump (priceAlert) is what the file proposes: priced as if the owner accepted it, and flagged.
+   const held=Object.values(v.offers||{}).some(o=>o.priceAlert),proposal=held?{...v,offers:Object.fromEntries(Object.entries(v.offers||{}).map(([sid,o])=>{if(!o.priceAlert)return [sid,o];const {priceAlert:a,...rest}=o;return [sid,{...rest,cost:a.cost,payout:a.payout||a.cost,rrp:a.rrp||null}];}))}:v;
+   const c=calc(after,proposal),b=old.has(v.sku)?calc(before,old.get(v.sku),S.snap.cfg):null,blockers=[];
+   if(c.cost==null)blockers.push('MISSING_COST');if(c.lowMargin)blockers.push('MARGIN_FLOOR');if(c.rrpViolation)blockers.push('BELOW_RRP');if(held)blockers.push('PRICE_JUMP_REVIEW');
+   const current=b?.price??null,proposed=c.price??null;
+   rows.push({supplier:name(c.ref?.sid||Object.keys(v.offers||{})[0]),sku:v.sku,supplier_sku:c.ref?.s||Object.values(v.offers||{})[0]?.s||null,cost:c.cost,rrp:c.rrp,current_price:current,proposed_price:proposed,rule:rule(c),delta_pct:current>0&&proposed!=null?round((proposed-current)/current*100):null,margin_pct:round(c.margin),blocker:blockers.join(',')||null});
+  }}
+ const deltas=rows.map(r=>r.delta_pct).filter(x=>x!=null).sort((a,b)=>a-b),median=deltas.length?deltas[Math.floor(deltas.length/2)]:null;
+ const changed=rows.filter(r=>r.current_price!=null&&r.proposed_price!==r.current_price);
+ return {autoprices_enabled:false,mode:'PREVIEW',writes:0,rows,summary:{skus:rows.length,affected:changed.length,unchanged:rows.filter(r=>r.current_price!=null&&r.proposed_price===r.current_price).length,new_skus:rows.filter(r=>r.current_price==null).length,blocked:rows.filter(r=>r.blocker).length,
+  min_delta_pct:deltas[0]??null,median_delta_pct:median,max_delta_pct:deltas.at(-1)??null,price_decreases:changed.filter(r=>r.proposed_price<r.current_price).length,margin_violations:rows.filter(r=>/MARGIN_FLOOR|BELOW_RRP/.test(r.blocker||'')).length,
+  missing_cost:rows.filter(r=>r.cost==null).length,missing_rrp:rows.filter(r=>r.rrp==null).length,top_increases:changed.filter(r=>r.delta_pct>0).sort((a,b)=>b.delta_pct-a.delta_pct).slice(0,20)}};
+}
+function autopricesPreviewCsv(report=autopricesPreview()){const cols=['supplier','sku','supplier_sku','cost','rrp','current_price','proposed_price','rule','delta_pct','margin_pct','blocker'],q=x=>x==null?'':/[",\n;]/.test(String(x))?'"'+String(x).replace(/"/g,'""')+'"':String(x);return [cols.join(','),...report.rows.map(r=>cols.map(c=>q(r[c])).join(','))].join('\n')+'\n';}

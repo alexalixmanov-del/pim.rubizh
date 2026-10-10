@@ -38,7 +38,7 @@ async function productionPlan(rows){
  const saved={...S};let candidate,pricesBefore,pricesAfter,report;
  try{
   productionHydrate(source);pricesBefore=productionPrices();classificationEnable();releaseStorage.gates(S.cfg);S.cfg.storageBucketVersion=2;
-  const tactical=S.cfg.suppliers.find(s=>s.id==='s4p9slmnn0ki');if(tactical?.inventory_policy?.confirmed)throw Error('TACTICAL_QUANTITY_CONFIRMATION_REQUIRED: policy не може бути активована без підтвердження');
+  const tactical=S.cfg.suppliers.find(s=>s.id==='s4p9slmnn0ki');if(tactical?.inventory_policy?.confirmed&&tactical.inventory_policy.mode==='QUANTITY')throw Error('TACTICAL_QUANTITY_CONFIRMATION_REQUIRED: policy не може бути активована без підтвердження');
   let n=0;for(const p of S.products.values()){
    if(p.archived&&p.variants.length===0)continue; // Historical merged-model aliases are not active classification records.
    // Existing normalized RC records are carried over verbatim. Old records use exactly the accepted RC pipeline.

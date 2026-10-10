@@ -4,6 +4,8 @@
 // (saved supplier mapping) → quality checks → contract-3 wire. Writes an aggregate report and the private wire.
 // Usage: node audit/catalog-reset-rehearsal.cjs BACKUP.json SOURCES.json REPORT.json WIRE.json [DETAIL.jsonl]
 //   DETAIL.jsonl (optional, private): per-product/queue audit lines (audit/import-audit.cjs) for the owner breakdowns
+//   PRICES_PREVIEW=FILE.csv (env, optional, private): AUTOPRICES PREVIEW of every fresh file against the catalog before the
+//   reset (import preview → per-SKU report → cancel; nothing written); the summary goes into the report
 //   SOURCES.json: [{"supplier_id":"…","file":"/private/…"}] in import order
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{performance}=require('node:perf_hooks');
 const {createHarness,appRequire}=require('../app/tests/isolated-harness.cjs');
@@ -18,6 +20,14 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  await time('migration_ms',async()=>{await h.run('productionPreview()');await h.run('productionApply()');});
  h.run('SIMPLE_UI.pricePreview=simplePricePolicyPreview()');await h.run('simpleApplyPricePolicy()');
  const cfgKeep=()=>JSON.parse(h.run(`JSON.stringify({categories:(S.cfg.canonical_categories||[]).length,suppliers:S.cfg.suppliers.map(s=>({id:s.id,name:s.name,auto:s.auto,mapping:s.mapping,fulfillment:s.fulfillment})),catMap:S.cfg.catMap,catRules:S.cfg.catRules,colorMap:S.cfg.colorMap,sizeMap:S.cfg.sizeMap,brandMap:S.cfg.brandMap,supplierAliases:S.cfg.supplierAliases,pricing:[S.cfg.pricing_policy_version,S.cfg.minMargin,S.cfg.bigPriceFrom,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version,classification_version:S.cfg.classification_version,model_colors_version:S.cfg.model_colors_version,nextSku:S.cfg.nextSku})`));
+ const loadSource=async src=>{const file=fs.readFileSync(src.file),name=path.basename(src.file);h.ctx.download={blob:new Blob([file]),url:'https://import.invalid/'+encodeURIComponent(name)};h.ctx.supId=src.supplier_id;
+  const parsed=await h.run('workflowParseSource(download,S.cfg.suppliers.find(s=>s.id===supId))');h.ctx.parsed=parsed;
+  h.run('S.imp={sup:supId,file:download.url.split("/").pop(),rows:parsed.rows,hdr:parsed.hdr,sheet:parsed.sheet,sheets:parsed.sheets,wb:parsed.wb||null,zero:true,xml:parsed.sheet==="XML"};remap()');return {file,parsed};};
+ let pricesPreview=null;
+ if(process.env.PRICES_PREVIEW){const digest=()=>sha(h.run('JSON.stringify([...S.products.values()])')),start=digest(),csv=[],summaries=[];
+  for(const src of JSON.parse(fs.readFileSync(sourcesPath,'utf8'))){await loadSource(src);await h.run('doImport()');const r=JSON.parse(h.run('JSON.stringify(autopricesPreview())'));h.run('cancelImport(true)');
+   h.ctx.__prices=r;csv.push(...h.run('autopricesPreviewCsv(__prices)').trim().split('\n').slice(csv.length?1:0));const {top_increases,...sum}=r.summary;summaries.push({supplier_id:src.supplier_id,...sum,top_increases:top_increases.slice(0,20).map(x=>({sku:x.sku,current_price:x.current_price,proposed_price:x.proposed_price,delta_pct:x.delta_pct}))});}
+  fs.writeFileSync(process.env.PRICES_PREVIEW,csv.join('\n')+'\n');fs.chmodSync(process.env.PRICES_PREVIEW,0o600);pricesPreview={mode:'PREVIEW',autoprices_enabled:false,catalog_unchanged:digest()===start,by_supplier:summaries};}
  const keepBefore=cfgKeep(),before={products:h.run('S.products.size'),skus:h.run('[...S.products.values()].reduce((n,p)=>n+p.variants.length,0)')};
  const plan=h.run('finalCatalogResetPreview()');h.ctx.plan=plan;
  const reset=await time('reset_ms',()=>h.run('finalCatalogReset(plan,FINAL_RESET_CONFIRM)'));
@@ -27,10 +37,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  // Imports: original supplier files, saved mapping of each supplier, the same calls the ИМПОРТ screen makes.
  const imports=[],sourceSkus=new Map();
  for(const src of JSON.parse(fs.readFileSync(sourcesPath,'utf8'))){
-  const file=fs.readFileSync(src.file),name=path.basename(src.file);h.ctx.download={blob:new Blob([file]),url:'https://import.invalid/'+encodeURIComponent(name)};h.ctx.supId=src.supplier_id;
-  const t0=performance.now();
-  const parsed=await h.run('workflowParseSource(download,S.cfg.suppliers.find(s=>s.id===supId))');h.ctx.parsed=parsed;
-  h.run('S.imp={sup:supId,file:download.url.split("/").pop(),rows:parsed.rows,hdr:parsed.hdr,sheet:parsed.sheet,sheets:parsed.sheets,wb:parsed.wb||null,zero:true,xml:parsed.sheet==="XML"};remap()');
+  const t0=performance.now(),{file,parsed}=await loadSource(src);
   const map=h.run('Object.fromEntries(Object.entries(S.imp.map).map(([k,i])=>[k,String(S.imp.rows[S.imp.hdr][i])]))');
   const skuCol=h.run('S.imp.map.sku');sourceSkus.set(src.supplier_id,new Set(parsed.rows.slice(parsed.hdr+1).map(r=>String(r[skuCol]??'').trim()).filter(Boolean)));
   await h.run('doImport()');const applied=await h.run('applyImport()');
@@ -72,7 +79,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  const wire=await time('wire_export_ms',()=>h.run('pimSiteWire()'));const wireText=JSON.stringify(wire);fs.writeFileSync(wirePath,wireText);fs.chmodSync(wirePath,0o600);
  const wireSkus=wire.products.flatMap(p=>p.variants.map(v=>v.sku));
  const report={source_backup_sha256:backupSha,before,reset:{removed:reset.removed,backup_sha256:reset.backup?.sha256||null},after,kept_identical:keptIdentical,kept:{categories:keepAfter.categories,suppliers:keepAfter.suppliers.length,pricing:keepAfter.pricing,inventory_policy_version:keepAfter.inventory_policy_version,next_sku:keepAfter.nextSku},
-  imports,quality:q,wire:{models:wire.products.length,skus:wireSkus.length,duplicate_skus:wireSkus.length-new Set(wireSkus).size,categories:wire.categories.length,hide_ids:wire.hide_ids.length,catalog_revision:wire.catalog_revision,sha256:sha(wireText)},timing_ms:timing,network_requests:h.requests?.length??0};
+  imports,autoprices_preview:pricesPreview,quality:q,wire:{models:wire.products.length,skus:wireSkus.length,duplicate_skus:wireSkus.length-new Set(wireSkus).size,categories:wire.categories.length,hide_ids:wire.hide_ids.length,catalog_revision:wire.catalog_revision,sha256:sha(wireText)},timing_ms:timing,network_requests:h.requests?.length??0};
  fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify({PIM_PRODUCTS:q.models,PIM_SKU:q.skus,...q.decisions,DUPLICATE_SKU:q.duplicate_skus,wire_models:wire.products.length},null,0));
 })().catch(e=>{console.error(e.stack);process.exitCode=1;});

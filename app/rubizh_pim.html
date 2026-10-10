@@ -5325,7 +5325,7 @@ function previewPanel(I){
     ${outs.length ? `<details><summary>Закончатся: ${outs.length}</summary><ul class="small">${outs.slice(0, 60).map(o => `<li>${esc(o.name)} ${esc(o.size || "")} <span class="muted">${esc(o.sku)}</span></li>`).join("")}</ul></details>` : ""}
     ${sum("created") ? `<details><summary>Новые товары: ${sum("created")}</summary><ul class="small">${created.slice(0,80).map(c=>`<li>${esc(c.name)} <span class="muted">${c.n} вар.</span></li>`).join("")}</ul>${sum("created")>created.slice(0,80).length?`<p class="small muted">Показаны первые ${Math.min(created.length,80)} из ${sum("created")}.</p>`:""}</details>` : ""}
     ${sum("errorCount") ? `<details><summary>Замечания (${sum("errorCount")})</summary><ul class="small">${R.flatMap(r=>r.errors).map(e=>`<li>${esc(e)}</li>`).join("")}</ul>${sum("errorCount")>R.flatMap(r=>r.errors).length?`<p class="small muted">Показаны первые ${R.flatMap(r=>r.errors).length} замечаний.</p>`:""}</details>` : ""}
-    <div class="row" style="margin-top:14px"><button class="btn primary" data-act="impApply" ${(!audit.ok)?'disabled':''}>Всё верно — применить</button><button class="btn" data-act="impCancel">Отменить</button></div>
+    <div class="row" style="margin-top:14px"><button class="btn primary" data-act="impApply" ${(!audit.ok)?'disabled':''}>Всё верно — применить</button><button class="btn" data-act="impPricePreview" title="AUTOPRICES PREVIEW: цены по SKU без записи">Предпросмотр цен (CSV)</button><button class="btn" data-act="impCancel">Отменить</button></div>
   </div>`;
 }
 function countSupplierOffersTouched(products,sid,at){
@@ -7158,6 +7158,7 @@ document.addEventListener("click", async e => {
       for(const g of groups) previewResolveNew(g); render(); toast("Все спорные модели отмечены как новые"); break;
     }
     case "impApply": await applyImport(); break;
+    case "impPricePreview": { const r=autopricesPreview(); await offerDownload("autoprices-preview-"+(S.imp?.sup||"")+".csv",new Blob([autopricesPreviewCsv(r)],{type:"text/csv;charset=utf-8"})); toast("PREVIEW: "+r.summary.skus+" SKU, змінюються "+r.summary.affected+", заблоковано "+r.summary.blocked+". Нічого не записано."); break; }
     case "impCancel": cancelImport(); render(); break;
     case "impForce": S.imp.force = true; await doImport(); break;
     case "undoLast": await undoLastImport(); break;
@@ -9986,6 +9987,9 @@ const MC_VERSION=1,MC_UI={selected:new Map()};
 function mcEnabled(){return S.cfg.model_colors_version===MC_VERSION;}
 function mcValidPhotos(photos){return uniq((photos||[]).filter(s=>{try{return ['http:','https:'].includes(new URL(s).protocol);}catch{return false;}}));}
 function mcColor(v){const a=simplePalette(v);return {key:norm(a.color||(!a.camouflage?v.color:'')||'')+'|'+norm(a.camouflage||v.camouflage||''),color:a.color||(!a.camouflage?v.color:null)||null,camouflage:a.camouflage||v.camouflage||null};}
+// The one indistinguishability rule: what a buyer can tell apart is the public colour plus the public size label.
+// Grouping validation, the public variant-cell check and the supplier-label display all use it.
+function variantCellKey(v,size){return mcColor(v).key+'|'+norm(size||'');}
 function mcColors(p){
  const groups=new Map();for(const v of p.variants||[]){const c=mcColor(v);if(!groups.has(c.key))groups.set(c.key,{id:'clr-'+fnvHash(c.key),...c,photos:[],variant_skus:[],sources:[]});const g=groups.get(c.key);g.variant_skus.push(v.sku);
   if(v.photos?.length){g.photos.push(...mcValidPhotos(v.photos));g.sources.push({kind:'variant',sku:v.sku});}
@@ -10007,6 +10011,8 @@ function mcClean(raw,p){
 // size is a variant value, not part of the model name. Only approved EXACT sizes of the card's own SKU are removed.
 function mcStripOwnSize(text,p){
  const sizes=uniq((p.variants||[]).filter(v=>v.size_status==='EXACT_SIZE'&&v.size).map(v=>String(v.size)));if(sizes.length!==1)return String(text||'').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim()||text;
+ // Net W×H (approved grid selector): the title's «3х4 м (площа 12 кв.м.)» is that SKU's own size.
+ const grid=sizes[0].match(/^(\d{1,2})×(\d{1,2}) м$/u);if(grid){const out=String(text||'').replace(new RegExp('(^|[^\\p{N}])'+grid[1]+'\\s*[xх×]\\s*'+grid[2]+'(?![\\p{N}])\\s*(?:м\\.?)?\\s*(?:\\(?\\s*площа\\s*[\\d.,]+\\s*кв\\.?\\s*м\\.?\\s*\\)?)?','giu'),'$1 ').replace(/\s+/g,' ').replace(/[\s.,]+$/u,'').trim();return out.length>=3?out:text;}
  const escaped=[...sizes[0]].map(ch=>({M:'[MМ]',X:'[XХ]'}[ch.toUpperCase()]||ch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'))).join(''),out=String(text||'').replace(new RegExp('(^|[^\\p{L}\\p{N}-])(?:(?:розмір|размер|size)\\s*)?\\(?\\s*'+escaped+'\\s*\\)?(?=$|[^\\p{L}\\p{N}-])','giu'),'$1 ').replace(/\s+/g,' ').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim();
  return out.length>=3?out:text;
 }
@@ -10021,9 +10027,11 @@ function mcReasons(products){
  const codeSets=products.map(p=>mcIdentity(p).codes),slices=codeSets.every(c=>c.length>0)&&new Set(codeSets.flat()).size===codeSets.flat().length&&products.every(p=>new Set((p.variants||[]).map(v=>mcColor(v).key)).size===1||(p.variants||[]).every(v=>v.size)&&new Set((p.variants||[]).map(v=>norm(v.size))).size===1);
  if(codes.length>1&&!slices)why.push('Поставщик передал разные коды модели');
  if(new Set(all.map(v=>v.sku)).size!==all.length)why.push('Повторяется RUB-SKU');
- const ownership=new Map(),cells=new Map();for(const p of products)for(const v of p.variants){const cell=mcColor(v).key+'|'+norm(v.size||'');if(cells.has(cell)&&cells.get(cell)!==p.id)why.push('Один цвет и размер принадлежат разным исходным карточкам');else cells.set(cell,p.id);for(const [sid,o] of Object.entries(v.offers||{})){const k=sid+'|'+o.s;if(o.s&&ownership.has(k)&&ownership.get(k)!==v.sku)why.push('Артикул поставщика привязан к нескольким SKU');else ownership.set(k,v.sku);}}
+ const ownership=new Map(),cells=new Map();for(const p of products)for(const v of p.variants){const cell=variantCellKey(v,v.size);if(cells.has(cell)&&cells.get(cell)!==p.id)why.push('Один цвет и размер принадлежат разным исходным карточкам');else cells.set(cell,p.id);for(const [sid,o] of Object.entries(v.offers||{})){const k=sid+'|'+o.s;if(o.s&&ownership.has(k)&&ownership.get(k)!==v.sku)why.push('Артикул поставщика привязан к нескольким SKU');else ownership.set(k,v.sku);}}
  if(all.length>modelLimit(first))why.push('Превышен лимит вариантов');
- const variantKey=k=>/(?:колір|цвет|розмір|размер|camouflage|^color$|^size(?:_|$))/iu.test(k),adminKey=k=>/^(?:артикул|назва(?: модифікації)?|название|наявність|наличие|валюта|ціна|цена|популярність|популярность|розділ|раздел)$/iu.test(k),fields=o=>Object.fromEntries(Object.entries(o||{}).filter(([k])=>!variantKey(k)&&!adminKey(k)));
+ // Width/length/area of approved net grid sizes are the variant's own size, not a model characteristic.
+ const gridSizes=all.length>0&&all.every(v=>v.size_system==='net_dimensions'&&v.size_status==='EXACT_SIZE');
+ const variantKey=k=>/(?:колір|цвет|розмір|размер|camouflage|^color$|^size(?:_|$))/iu.test(k)||gridSizes&&/^(?:ширина|довжина|площа)$/iu.test(String(k).trim()),adminKey=k=>/^(?:артикул|назва(?: модифікації)?|название|наявність|наличие|валюта|ціна|цена|популярність|популярность|розділ|раздел)$/iu.test(k),fields=o=>Object.fromEntries(Object.entries(o||{}).filter(([k])=>!variantKey(k)&&!adminKey(k)));
  const attrs=p=>stableValue105({attrs:fields(p.attrs),normalized:fields(p.normalized_attributes),canonical:fields(p.canonical_attributes),compatibility:p.compatibility||{},relations:p.relations||[],recommended:p.recommended_with||[],kit:p.kit_component});
  if(products.some(p=>attrs(p)!==attrs(first)))why.push('Различаются характеристики, совместимость или связи');
  if(products.some(p=>p.fieldMeta?.name?.source==='manual')&&products.some(p=>p.name!==first.name))why.push('Различаются ручные названия');
@@ -10157,10 +10165,13 @@ function classificationSizePolicy(p){
  const required=['combat_shirt','pants','jacket','fleece','base_layer','clothing','boots','shoes','gloves','helmet','insoles','socks','plate_carrier','armor_vest','battle_belt'].includes(type);
  return {type,required:!type?true:required};
 }
+// Owner decision 10.10.2026: M-WIN net size selector is the exact SKU size of real nets (camouflage_nets only).
+const CLASSIFICATION_BUILTIN_SIZE_RULES=[{id:'m-win-net-grid-v1',kind:'GRID_DIMENSION_ATTRIBUTE',confirmed:true,supplier_id:'sf0t3l7jegf9',attribute:'ОБЕРІТЬ РОЗМІР СІТКИ',canonical_categories:['camouflage_nets'],supplier_categories:['Маскувальні сітки'],name_pattern:'(?:^|[^\\p{L}])сітк',size_system:'net_dimensions',max_dimension:50,confirmation:'OWNER_DECISION_20261010'}];
+function classificationSizeRules(){return [...CLASSIFICATION_BUILTIN_SIZE_RULES,...(S.cfg.confirmed_supplier_size_rules||[])];}
 function classificationSize(p,v){
  const policy=classificationSizePolicy(p),locked=classificationLocked(p,'size')||v.manualFields?.size||v.manual_locks?.size||v.fieldMeta?.size?.source==='manual';
  const variant=locked?{...v,manualFields:{...v.manualFields,size:true}}:v;
- const input={...policy,variant,product:{name:p.original_name||p.name,description:classificationSupplierDescription(p),variants:p.variants,supplier_attributes:p.supplier_attributes,size_system:p.confirmed_size_system},offers:Object.entries(v.offers||{}).map(([sid,o])=>({...o,sid})),rules:S.cfg.confirmed_supplier_size_rules||[],fallback:classificationSupplierFormat(p,v,policy.type)};
+ const input={...policy,variant,product:{name:p.original_name||p.name,description:classificationSupplierDescription(p),variants:p.variants,supplier_attributes:p.supplier_attributes,size_system:p.confirmed_size_system,category_id:p.canonical_category_id||p.last_confirmed_category_id||null},offers:Object.entries(v.offers||{}).map(([sid,o])=>({...o,sid})),rules:classificationSizeRules(),fallback:classificationSupplierFormat(p,v,policy.type)};
  const z=RubizhSizeEvidence.resolve(input);
  if(policy.required||locked)return z;
  // The category needs no size, but the supplier states this SKU's own size in a dedicated SKU field (Panama M, cap 58,
@@ -10168,7 +10179,7 @@ function classificationSize(p,v){
  const explicit=RubizhSizeEvidence.resolve({...input,required:true});
  return explicit.confidence==='SAFE_AUTO'&&['EXACT_SIZE','ONE_SIZE'].includes(explicit.status)&&(explicit.evidence||[]).some(e=>e.scope==='sku'&&e.kind===explicit.status&&CLASSIFICATION_SKU_SIZE_SOURCES.test(e.source||''))?explicit:z;
 }
-const CLASSIFICATION_SKU_SIZE_SOURCES=/^(?:structured_size_field|offer\.(?:size_raw|native_size|variant_size))$/u;
+const CLASSIFICATION_SKU_SIZE_SOURCES=/^(?:structured_size_field|offer\.(?:size_raw|native_size|variant_size)|supplier_grid:[\w-]+)$/u;
 function classificationSupplierFormat(p,v,type){
  // Previously approved supplier formats; fallback never beats dedicated column evidence.
  const offers=Object.values(v.offers||{});if(offers.some(o=>o.sharedSku)&&v.source_review_confirmed!==true)return null;
@@ -10292,7 +10303,7 @@ function classificationSourceTimestamp(raw,allowFuture=false){
 }
 function classificationSourceBoolean(raw){return /^(?:1|true|yes|так|да)$/iu.test(String(raw??'').trim());}
 const classificationExtract=extract;
-extract=function(row,map,headers=[]){const rec=classificationExtract(...arguments);const inventoryPolicy=RubizhInventory.policy(S._classificationSupplier);rec.inventorySourceColumn=map.stock!=null?headers[map.stock]||null:null;if(inventoryPolicy.confirmed&&inventoryPolicy.mode==='QUANTITY'){rec.stock=RubizhInventory.quantity(map.stock!=null?row[map.stock]:null);rec.invalidStock=rec.stock==null;}rec.sizeInputProvenance=map.size!=null&&map.size!==''?'DEDICATED_COLUMN':'GENERIC_ATTRIBUTES';rec.variantName=map.variantName!=null?String(row[map.variantName]||''):'';rec.stockObservedAt=classificationSourceTimestamp(map.stockObservedAt!=null?row[map.stockObservedAt]:null);rec.sourceUpdatedAt=classificationSourceTimestamp(map.sourceUpdatedAt!=null?row[map.sourceUpdatedAt]:null);rec.stockExpiresAt=classificationSourceTimestamp(map.stockExpiresAt!=null?row[map.stockExpiresAt]:null,true);rec.preorderConfirmed=map.preorder!=null?classificationSourceBoolean(row[map.preorder]):rec.availability==='order'&&/(?:preorder|предзаказ|під замов|под заказ)/iu.test(rec.rawAvailability||'');rec.orderOnRequest=map.orderOnRequest!=null?classificationSourceBoolean(row[map.orderOnRequest]):rec.availability==='order'&&!rec.preorderConfirmed&&/(?:order[ _-]?on[ _-]?request|on request|на запит|по запросу)/iu.test(rec.rawAvailability||'');if(rec.preorderConfirmed||rec.orderOnRequest)rec.availability='order';const replay=headers.indexOf('__review_replay');if(replay>=0){if(!classificationReviewMode())throw Error('Replay fixtures require review mode');rec.reviewReplay=row[replay];}return rec;};
+extract=function(row,map,headers=[]){const rec=classificationExtract(...arguments);const inventoryPolicy=RubizhInventory.policy(S._classificationSupplier);rec.inventorySourceColumn=map.stock!=null?headers[map.stock]||null:null;if(inventoryPolicy.confirmed&&inventoryPolicy.quantity_cross_check_column){const qi=headers.indexOf(inventoryPolicy.quantity_cross_check_column);rec.supplierQuantityEvidence=qi>=0?RubizhInventory.quantity(row[qi]):null;}if(inventoryPolicy.confirmed&&inventoryPolicy.mode==='QUANTITY'){rec.stock=RubizhInventory.quantity(map.stock!=null?row[map.stock]:null);rec.invalidStock=rec.stock==null;}rec.sizeInputProvenance=map.size!=null&&map.size!==''?'DEDICATED_COLUMN':'GENERIC_ATTRIBUTES';rec.variantName=map.variantName!=null?String(row[map.variantName]||''):'';rec.stockObservedAt=classificationSourceTimestamp(map.stockObservedAt!=null?row[map.stockObservedAt]:null);rec.sourceUpdatedAt=classificationSourceTimestamp(map.sourceUpdatedAt!=null?row[map.sourceUpdatedAt]:null);rec.stockExpiresAt=classificationSourceTimestamp(map.stockExpiresAt!=null?row[map.stockExpiresAt]:null,true);rec.preorderConfirmed=map.preorder!=null?classificationSourceBoolean(row[map.preorder]):rec.availability==='order'&&/(?:preorder|предзаказ|під замов|под заказ)/iu.test(rec.rawAvailability||'');rec.orderOnRequest=map.orderOnRequest!=null?classificationSourceBoolean(row[map.orderOnRequest]):rec.availability==='order'&&!rec.preorderConfirmed&&/(?:order[ _-]?on[ _-]?request|on request|на запит|по запросу)/iu.test(rec.rawAvailability||'');if(rec.preorderConfirmed||rec.orderOnRequest)rec.availability='order';const replay=headers.indexOf('__review_replay');if(replay>=0){if(!classificationReviewMode())throw Error('Replay fixtures require review mode');rec.reviewReplay=row[replay];}return rec;};
 const classificationCombos=variantCombos;
 variantCombos=function(rec){
  if(!classificationEnabled())return classificationCombos(rec);
@@ -10325,7 +10336,7 @@ applyOfferUpdate=function(p,v,sup,offer,rec,cat,d,ck,stats,at){
  }
  const previousStock=structuredClone(v.offers?.[sup.id]);
  const locks=structuredClone({size:v.size,manualFields:v.manualFields,manual_locks:v.manual_locks,fieldMeta:v.fieldMeta});
- const z=classificationOfferUpdate(...arguments);const o=v.offers?.[sup.id];if(o){o.structured_size=rec.sizeInputProvenance==='DEDICATED_COLUMN'?rec.rz:null;o.variant_name=rec.variantName;o.size_input_provenance=rec.sizeInputProvenance;o.imported_at=at;o.stock_observed_at=rec.stockObservedAt;o.stock_observation_provenance=rec.stockObservedAt?'SUPPLIER_FIELD':'UNKNOWN';o.inventory_source_column=rec.inventorySourceColumn;if(RubizhInventory.policy(sup).confirmed&&RubizhInventory.policy(sup).mode==='FEED_PRESENCE'&&RubizhInventory.policy(sup).feed_presence_confirmed===true)o.feed_presence_confirmed=true;if(!o.preorderManual){o.preorder=rec.preorderConfirmed;o.preorder_confirmed=rec.preorderConfirmed;o.order_on_request=rec.orderOnRequest;}classificationRetainStock(previousStock,o,rec,v,sup);}
+ const z=classificationOfferUpdate(...arguments);const o=v.offers?.[sup.id];if(o){o.structured_size=rec.sizeInputProvenance==='DEDICATED_COLUMN'?rec.rz:null;o.variant_name=rec.variantName;o.size_input_provenance=rec.sizeInputProvenance;o.imported_at=at;o.stock_observed_at=rec.stockObservedAt;o.stock_observation_provenance=rec.stockObservedAt?'SUPPLIER_FIELD':'UNKNOWN';o.inventory_source_column=rec.inventorySourceColumn;if(Object.hasOwn(rec,'supplierQuantityEvidence'))o.supplier_quantity_evidence=rec.supplierQuantityEvidence;else delete o.supplier_quantity_evidence;if(RubizhInventory.policy(sup).confirmed&&RubizhInventory.policy(sup).mode==='FEED_PRESENCE'&&RubizhInventory.policy(sup).feed_presence_confirmed===true)o.feed_presence_confirmed=true;if(!o.preorderManual){o.preorder=rec.preorderConfirmed;o.preorder_confirmed=rec.preorderConfirmed;o.order_on_request=rec.orderOnRequest;}classificationRetainStock(previousStock,o,rec,v,sup);}
  if(locks.manualFields?.size||locks.manual_locks?.size||locks.fieldMeta?.size?.source==='manual'||classificationLocked(p,'size'))v.size=locks.size;
  return z;
 };
@@ -10430,7 +10441,7 @@ async function productionPlan(rows){
  const saved={...S};let candidate,pricesBefore,pricesAfter,report;
  try{
   productionHydrate(source);pricesBefore=productionPrices();classificationEnable();releaseStorage.gates(S.cfg);S.cfg.storageBucketVersion=2;
-  const tactical=S.cfg.suppliers.find(s=>s.id==='s4p9slmnn0ki');if(tactical?.inventory_policy?.confirmed)throw Error('TACTICAL_QUANTITY_CONFIRMATION_REQUIRED: policy не може бути активована без підтвердження');
+  const tactical=S.cfg.suppliers.find(s=>s.id==='s4p9slmnn0ki');if(tactical?.inventory_policy?.confirmed&&tactical.inventory_policy.mode==='QUANTITY')throw Error('TACTICAL_QUANTITY_CONFIRMATION_REQUIRED: policy не може бути активована без підтвердження');
   let n=0;for(const p of S.products.values()){
    if(p.archived&&p.variants.length===0)continue; // Historical merged-model aliases are not active classification records.
    // Existing normalized RC records are carried over verbatim. Old records use exactly the accepted RC pipeline.
@@ -10618,7 +10629,7 @@ function finalSupplierSizeLabel(v){
 function finalSizeLabels(p){
  const byColor=new Map(),out=new Map();
  for(const v of p.variants||[]){const z=simpleSize(p,v);if(z.size_status!=='SIZE_CONFIRMATION_REQUIRED'||z.size_display)continue;const k=mcColor(v).key;if(!byColor.has(k))byColor.set(k,[]);byColor.get(k).push(v);}
- for(const list of byColor.values()){if(list.length<2)continue;const labels=list.map(finalSupplierSizeLabel);if(labels.every(Boolean)&&new Set(labels.map(norm)).size===labels.length)list.forEach((v,i)=>out.set(v.sku,labels[i]));}
+ for(const list of byColor.values()){if(list.length<2)continue;const labels=list.map(finalSupplierSizeLabel);if(labels.every(Boolean)&&new Set(list.map((v,i)=>variantCellKey(v,labels[i]))).size===labels.length)list.forEach((v,i)=>out.set(v.sku,labels[i]));}
  return out;
 }
 // Supplier price per unit area (made-to-measure nets: «індивідуальний розмір», «ціна за 1 кв.м»): not an item price.
@@ -10626,7 +10637,7 @@ const FINAL_UNIT_PRICE=/(?:ціна|цена)\s+за\s+(?:1\s*)?(?:кв\.?\s*м|
 function finalUnitPriced(v){return Object.values(v.offers||{}).some(o=>FINAL_UNIT_PRICE.test(String(o.source_name||o.original_name||''))||Object.values(o.source_attributes||{}).some(x=>FINAL_UNIT_PRICE.test(String(x))));}
 // What the site shows for one SKU: colour + size label (NO_SIZE_REQUIRED shows none). Two SKUs with the same public cell
 // cannot be told apart by a buyer, so such a model is never READY.
-function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,mcColor(v).key+'|'+norm(size)];}));}
+function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,variantCellKey(v,size)];}));}
 // One MODEL = one public card: active cards of one category sharing a public title are an owner question, never two READY.
 const finalTitleOwners=memoByData(function(){const m=new Map();for(const p of S.products.values()){if(p.archived||p.merged_into||!p.variants?.length)continue;const k=(p.canonical_category_id||'')+'\u0000'+norm(finalTitle(p));if(!m.has(k))m.set(k,[]);m.get(k).push(p.id);}return m;});
 const finalDecision=memoProd('final-decision',function(p){
@@ -10676,6 +10687,7 @@ function finalSizeRank(v){
  const raw=String(v.size_normalized??v.size_display??v.size??'').trim().toUpperCase().replace(/^2XL$/,'XXL').replace(/^3XL$/,'XXXL');if(!raw)return 1e9;
  const alpha=FINAL_ALPHA_SIZES.indexOf(raw);if(alpha>=0)return 1000+alpha;
  const m=raw.match(/^(\d{2,3})(?:\s*[/-]\s*(\d{1,3}))?$/u);if(m)return 2000+Number(m[1])*100+Number(m[2]||0);
+ const grid=raw.match(/^(\d{1,2})×(\d{1,2}) М$/u);if(grid)return 20000+Number(grid[1])*100+Number(grid[2]);
  return 1e9;
 }
 function finalWireProduct(p){
@@ -10982,6 +10994,29 @@ document.addEventListener('click',async e=>{
   if(a==='resetApply'){const r=await finalCatalogReset(FINAL_UI.resetPlan,($('#finalResetConfirm')?.value||'').trim());toast('Каталог очищен: товаров '+r.remove.products+', SKU '+r.remove.skus);}
  }catch(error){toast(error.message||String(error));}finally{render();}
 },true);
+// AUTOPRICES PREVIEW: what a fresh supplier file would do to every touched SKU price, read from the import preview
+// (S.snap = before, S.products = after) without writing anything. Autoprices stay OFF; the owner applies or cancels.
+function autopricesPreview(){
+ if(!S.snap)throw Error('AUTOPRICES_PREVIEW_REQUIRES_IMPORT_PREVIEW');
+ const name=sid=>(S.cfg.suppliers.find(s=>s.id===sid)?.name)||sid,rows=[],round=x=>x==null?null:Math.round(x*100)/100;
+ const rule=c=>c.manual?'manual price':c.isBig?'payout ≥ '+(S.cfg.bigPriceFrom||10000)+' → '+c.minMarginUsed+'%':c.rrp!=null&&c.price===c.rrp?'RRP':c.minMarginUsed+'%';
+ for(const [id,before] of S.snap.products){const after=S.products.get(id);if(!after)continue;
+  const old=new Map((before?.variants||[]).map(v=>[v.sku,v]));
+  for(const v of after.variants||[]){
+   // A held price jump (priceAlert) is what the file proposes: priced as if the owner accepted it, and flagged.
+   const held=Object.values(v.offers||{}).some(o=>o.priceAlert),proposal=held?{...v,offers:Object.fromEntries(Object.entries(v.offers||{}).map(([sid,o])=>{if(!o.priceAlert)return [sid,o];const {priceAlert:a,...rest}=o;return [sid,{...rest,cost:a.cost,payout:a.payout||a.cost,rrp:a.rrp||null}];}))}:v;
+   const c=calc(after,proposal),b=old.has(v.sku)?calc(before,old.get(v.sku),S.snap.cfg):null,blockers=[];
+   if(c.cost==null)blockers.push('MISSING_COST');if(c.lowMargin)blockers.push('MARGIN_FLOOR');if(c.rrpViolation)blockers.push('BELOW_RRP');if(held)blockers.push('PRICE_JUMP_REVIEW');
+   const current=b?.price??null,proposed=c.price??null;
+   rows.push({supplier:name(c.ref?.sid||Object.keys(v.offers||{})[0]),sku:v.sku,supplier_sku:c.ref?.s||Object.values(v.offers||{})[0]?.s||null,cost:c.cost,rrp:c.rrp,current_price:current,proposed_price:proposed,rule:rule(c),delta_pct:current>0&&proposed!=null?round((proposed-current)/current*100):null,margin_pct:round(c.margin),blocker:blockers.join(',')||null});
+  }}
+ const deltas=rows.map(r=>r.delta_pct).filter(x=>x!=null).sort((a,b)=>a-b),median=deltas.length?deltas[Math.floor(deltas.length/2)]:null;
+ const changed=rows.filter(r=>r.current_price!=null&&r.proposed_price!==r.current_price);
+ return {autoprices_enabled:false,mode:'PREVIEW',writes:0,rows,summary:{skus:rows.length,affected:changed.length,unchanged:rows.filter(r=>r.current_price!=null&&r.proposed_price===r.current_price).length,new_skus:rows.filter(r=>r.current_price==null).length,blocked:rows.filter(r=>r.blocker).length,
+  min_delta_pct:deltas[0]??null,median_delta_pct:median,max_delta_pct:deltas.at(-1)??null,price_decreases:changed.filter(r=>r.proposed_price<r.current_price).length,margin_violations:rows.filter(r=>/MARGIN_FLOOR|BELOW_RRP/.test(r.blocker||'')).length,
+  missing_cost:rows.filter(r=>r.cost==null).length,missing_rrp:rows.filter(r=>r.rrp==null).length,top_increases:changed.filter(r=>r.delta_pct>0).sort((a,b)=>b.delta_pct-a.delta_pct).slice(0,20)}};
+}
+function autopricesPreviewCsv(report=autopricesPreview()){const cols=['supplier','sku','supplier_sku','cost','rrp','current_price','proposed_price','rule','delta_pct','margin_pct','blocker'],q=x=>x==null?'':/[",\n;]/.test(String(x))?'"'+String(x).replace(/"/g,'""')+'"':String(x);return [cols.join(','),...report.rows.map(r=>cols.map(c=>q(r[c])).join(','))].join('\n')+'\n';}
 
 /* ===================== старт ===================== */
 (async () => {

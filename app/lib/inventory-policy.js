@@ -5,7 +5,8 @@ const version=1,defaults={
  s2bggyi42dhh:{id:'kiborg-status-v1',mode:'STATUS',confirmed:true,source_column:'Наличие',status_map:{'есть':'IN_STOCK','нет':'OUT_OF_STOCK'},confirmation:'USER_ACCEPTED_SAVED_STATUS_EVIDENCE'},
  s2hjvaqgnp29:{id:'armoline-status-v1',mode:'STATUS',confirmed:true,source_column:'Наличие',status_map:{'есть':'IN_STOCK','нет':'OUT_OF_STOCK'},confirmation:'USER_ACCEPTED_SAVED_STATUS_EVIDENCE'},
  s2akya7xoafn:{id:'ukr-tec-prom-status-v1',mode:'STATUS',confirmed:true,source_column:'Наявність',source_profile:'PROM_XLS_UK',status_map:{'+':'IN_STOCK','-':'OUT_OF_STOCK','!':'IN_STOCK'},positive_integer_semantics:'DELIVERY_DAYS_PREORDER',confirmation:'USER_CONFIRMED_PROM_EXPORT_AND_OFFICIAL_SPEC'},
- s4p9slmnn0ki:{id:'tactical-belt-quantity-candidate-v1',mode:'QUANTITY',confirmed:false,source_column:'Наличие',confirmation:'QUANTITY_SEMANTICS_NOT_CONFIRMED'}
+ // Owner decision 10.10.2026: offer@available is the status (true → есть, false → нет); quantity_in_stock only validates it.
+ s4p9slmnn0ki:{id:'tactical-belt-status-v1',mode:'STATUS',confirmed:true,source_column:'Наличие',status_map:{'есть':'IN_STOCK','нет':'OUT_OF_STOCK'},quantity_cross_check_column:'Stock',confirmation:'OWNER_DECISION_20261010_AVAILABLE_ATTRIBUTE'}
 };
 const validQuantity=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
 function policy(supplier){return supplier?.inventory_policy||defaults[supplier?.id]||{id:'unconfirmed-'+(supplier?.id||'supplier'),mode:'NO_AVAILABILITY_SIGNAL',confirmed:false};}
@@ -24,6 +25,8 @@ function resolve(p,o={}){
  }
  if(p.mode==='STATUS'){
   const value=base.raw_value.toLocaleLowerCase(),status=p.status_map?.[value];
+  // A status that its own supplier quantity contradicts (есть with 0, нет with >0) is no signal.
+  if(p.quantity_cross_check_column&&validQuantity(o.supplier_quantity_evidence)&&(status==='IN_STOCK'&&o.supplier_quantity_evidence===0||status==='OUT_OF_STOCK'&&o.supplier_quantity_evidence>0))return {...base,rule:'status-quantity-contradiction'};
   if(['IN_STOCK','OUT_OF_STOCK','PREORDER','ORDER_ON_REQUEST'].includes(status))return result(status,'STATUS',null,{rule:'exact-status-map',ready_to_dispatch:p.source_profile==='PROM_XLS_UK'&&value==='!'});
   if(p.source_profile==='PROM_XLS_UK'&&p.positive_integer_semantics==='DELIVERY_DAYS_PREORDER'&&/^[1-9]\d*$/.test(value)&&Number.isSafeInteger(Number(value)))return result('PREORDER','STATUS',null,{rule:'prom-delivery-days',delivery_lead_time_days:Number(value)});
  }

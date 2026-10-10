@@ -57,13 +57,14 @@ test('raw availability signals are extracted per offer without a universal inter
  assert.deepEqual([by['F-1'].status,by['F-1'].qty],['нет','0'],'quantity tag stays a separate number');assert.deepEqual([by['G-1'].status,by['G-1'].qty],['есть','7']);
 });
 
-test('approved supplier policies resolve the extracted signal; Tactical Belt stays UNKNOWN; no PREORDER from false/0',()=>{
+test('approved supplier policies resolve the extracted signal; Tactical Belt reads offer@available, numbers alone are no signal; no PREORDER from false/0',()=>{
  const resolve=(id,raw)=>Inventory.resolve(Inventory.policy({id}),{rawAvailability:raw,inventory_source_column:'Наличие',stock:Inventory.quantity(raw),availability:raw==='есть'?'in':'out'});
  for(const id of ['sf0t3l7jegf9','s2bggyi42dhh','s2hjvaqgnp29']){
   assert.equal(resolve(id,'есть').availability_status,'IN_STOCK');assert.equal(resolve(id,'нет').availability_status,'OUT_OF_STOCK');
   assert.equal(resolve(id,'').availability_status,'UNKNOWN');assert.equal(resolve(id,'есть').stock_quantity,null,'status never becomes a quantity');
  }
- for(const raw of ['7','0','есть','нет'])assert.equal(resolve('s4p9slmnn0ki',raw).availability_status,'UNKNOWN');
+ for(const raw of ['7','0','1265',''])assert.equal(resolve('s4p9slmnn0ki',raw).availability_status,'UNKNOWN');
+ assert.equal(resolve('s4p9slmnn0ki','есть').availability_status,'IN_STOCK');assert.equal(resolve('s4p9slmnn0ki','нет').availability_status,'OUT_OF_STOCK');
  for(const id of ['sf0t3l7jegf9','s2bggyi42dhh','s2hjvaqgnp29','s4p9slmnn0ki'])for(const raw of ['нет','0','false',''])assert.notEqual(resolve(id,raw).availability_status,'PREORDER');
  assert.equal(Inventory.resolve(Inventory.policy({id:'s2akya7xoafn'}),{rawAvailability:'+',inventory_source_column:'Наявність'}).availability_status,'IN_STOCK','UKR-TEC Prom policy unchanged');
 });

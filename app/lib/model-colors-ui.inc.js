@@ -3,6 +3,9 @@ const MC_VERSION=1,MC_UI={selected:new Map()};
 function mcEnabled(){return S.cfg.model_colors_version===MC_VERSION;}
 function mcValidPhotos(photos){return uniq((photos||[]).filter(s=>{try{return ['http:','https:'].includes(new URL(s).protocol);}catch{return false;}}));}
 function mcColor(v){const a=simplePalette(v);return {key:norm(a.color||(!a.camouflage?v.color:'')||'')+'|'+norm(a.camouflage||v.camouflage||''),color:a.color||(!a.camouflage?v.color:null)||null,camouflage:a.camouflage||v.camouflage||null};}
+// The one indistinguishability rule: what a buyer can tell apart is the public colour plus the public size label.
+// Grouping validation, the public variant-cell check and the supplier-label display all use it.
+function variantCellKey(v,size){return mcColor(v).key+'|'+norm(size||'');}
 function mcColors(p){
  const groups=new Map();for(const v of p.variants||[]){const c=mcColor(v);if(!groups.has(c.key))groups.set(c.key,{id:'clr-'+fnvHash(c.key),...c,photos:[],variant_skus:[],sources:[]});const g=groups.get(c.key);g.variant_skus.push(v.sku);
   if(v.photos?.length){g.photos.push(...mcValidPhotos(v.photos));g.sources.push({kind:'variant',sku:v.sku});}
@@ -24,6 +27,8 @@ function mcClean(raw,p){
 // size is a variant value, not part of the model name. Only approved EXACT sizes of the card's own SKU are removed.
 function mcStripOwnSize(text,p){
  const sizes=uniq((p.variants||[]).filter(v=>v.size_status==='EXACT_SIZE'&&v.size).map(v=>String(v.size)));if(sizes.length!==1)return String(text||'').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim()||text;
+ // Net W×H (approved grid selector): the title's «3х4 м (площа 12 кв.м.)» is that SKU's own size.
+ const grid=sizes[0].match(/^(\d{1,2})×(\d{1,2}) м$/u);if(grid){const out=String(text||'').replace(new RegExp('(^|[^\\p{N}])'+grid[1]+'\\s*[xх×]\\s*'+grid[2]+'(?![\\p{N}])\\s*(?:м\\.?)?\\s*(?:\\(?\\s*площа\\s*[\\d.,]+\\s*кв\\.?\\s*м\\.?\\s*\\)?)?','giu'),'$1 ').replace(/\s+/g,' ').replace(/[\s.,]+$/u,'').trim();return out.length>=3?out:text;}
  const escaped=[...sizes[0]].map(ch=>({M:'[MМ]',X:'[XХ]'}[ch.toUpperCase()]||ch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'))).join(''),out=String(text||'').replace(new RegExp('(^|[^\\p{L}\\p{N}-])(?:(?:розмір|размер|size)\\s*)?\\(?\\s*'+escaped+'\\s*\\)?(?=$|[^\\p{L}\\p{N}-])','giu'),'$1 ').replace(/\s+/g,' ').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim();
  return out.length>=3?out:text;
 }
@@ -38,9 +43,11 @@ function mcReasons(products){
  const codeSets=products.map(p=>mcIdentity(p).codes),slices=codeSets.every(c=>c.length>0)&&new Set(codeSets.flat()).size===codeSets.flat().length&&products.every(p=>new Set((p.variants||[]).map(v=>mcColor(v).key)).size===1||(p.variants||[]).every(v=>v.size)&&new Set((p.variants||[]).map(v=>norm(v.size))).size===1);
  if(codes.length>1&&!slices)why.push('Поставщик передал разные коды модели');
  if(new Set(all.map(v=>v.sku)).size!==all.length)why.push('Повторяется RUB-SKU');
- const ownership=new Map(),cells=new Map();for(const p of products)for(const v of p.variants){const cell=mcColor(v).key+'|'+norm(v.size||'');if(cells.has(cell)&&cells.get(cell)!==p.id)why.push('Один цвет и размер принадлежат разным исходным карточкам');else cells.set(cell,p.id);for(const [sid,o] of Object.entries(v.offers||{})){const k=sid+'|'+o.s;if(o.s&&ownership.has(k)&&ownership.get(k)!==v.sku)why.push('Артикул поставщика привязан к нескольким SKU');else ownership.set(k,v.sku);}}
+ const ownership=new Map(),cells=new Map();for(const p of products)for(const v of p.variants){const cell=variantCellKey(v,v.size);if(cells.has(cell)&&cells.get(cell)!==p.id)why.push('Один цвет и размер принадлежат разным исходным карточкам');else cells.set(cell,p.id);for(const [sid,o] of Object.entries(v.offers||{})){const k=sid+'|'+o.s;if(o.s&&ownership.has(k)&&ownership.get(k)!==v.sku)why.push('Артикул поставщика привязан к нескольким SKU');else ownership.set(k,v.sku);}}
  if(all.length>modelLimit(first))why.push('Превышен лимит вариантов');
- const variantKey=k=>/(?:колір|цвет|розмір|размер|camouflage|^color$|^size(?:_|$))/iu.test(k),adminKey=k=>/^(?:артикул|назва(?: модифікації)?|название|наявність|наличие|валюта|ціна|цена|популярність|популярность|розділ|раздел)$/iu.test(k),fields=o=>Object.fromEntries(Object.entries(o||{}).filter(([k])=>!variantKey(k)&&!adminKey(k)));
+ // Width/length/area of approved net grid sizes are the variant's own size, not a model characteristic.
+ const gridSizes=all.length>0&&all.every(v=>v.size_system==='net_dimensions'&&v.size_status==='EXACT_SIZE');
+ const variantKey=k=>/(?:колір|цвет|розмір|размер|camouflage|^color$|^size(?:_|$))/iu.test(k)||gridSizes&&/^(?:ширина|довжина|площа)$/iu.test(String(k).trim()),adminKey=k=>/^(?:артикул|назва(?: модифікації)?|название|наявність|наличие|валюта|ціна|цена|популярність|популярность|розділ|раздел)$/iu.test(k),fields=o=>Object.fromEntries(Object.entries(o||{}).filter(([k])=>!variantKey(k)&&!adminKey(k)));
  const attrs=p=>stableValue105({attrs:fields(p.attrs),normalized:fields(p.normalized_attributes),canonical:fields(p.canonical_attributes),compatibility:p.compatibility||{},relations:p.relations||[],recommended:p.recommended_with||[],kit:p.kit_component});
  if(products.some(p=>attrs(p)!==attrs(first)))why.push('Различаются характеристики, совместимость или связи');
  if(products.some(p=>p.fieldMeta?.name?.source==='manual')&&products.some(p=>p.name!==first.name))why.push('Различаются ручные названия');
