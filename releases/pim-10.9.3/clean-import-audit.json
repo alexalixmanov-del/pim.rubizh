@@ -3,9 +3,9 @@
   "products": 4232,
   "skus": 8187,
   "decisions": {
-   "READY": 1698,
-   "MODERATION": 2393,
-   "ARCHIVED": 110,
+   "READY": 1476,
+   "MODERATION": 1965,
+   "ARCHIVED": 760,
    "REJECTED": 31
   }
  },
@@ -19,8 +19,8 @@
    "skus": 84
   },
   "grouping": {
-   "models": 2046,
-   "skus": 4007
+   "models": 1619,
+   "skus": 4022
   },
   "photo_ownership": {
    "models": 3,
@@ -46,8 +46,8 @@
     "skus": 1
    },
    "grouping": {
-    "models": 565,
-    "skus": 576
+    "models": 143,
+    "skus": 591
    },
    "price_unit": {
     "models": 26,
@@ -110,7 +110,7 @@
     "skus": 63
    },
    "grouping": {
-    "models": 1048,
+    "models": 1043,
     "skus": 2057
    },
    "photo_ownership": {
@@ -129,14 +129,14 @@
  },
  "states_by_supplier": {
   "-": {
-   "ARCHIVED": 110
+   "ARCHIVED": 760
   },
   "M-WIN": {
-   "READY": 306,
-   "MODERATION": 589
+   "READY": 89,
+   "MODERATION": 166
   },
   "Tactical Belt": {
-   "READY": 503,
+   "READY": 502,
    "MODERATION": 110,
    "REJECTED": 13
   },
@@ -149,19 +149,19 @@
    "READY": 31
   },
   "Киборг": {
-   "MODERATION": 1250,
-   "READY": 584,
+   "MODERATION": 1245,
+   "READY": 580,
    "REJECTED": 18
   }
  },
  "moderation_evidence_by_supplier": {
   "M-WIN": {
-   "models": 589,
-   "group_id_present": 589,
-   "color_known": 588,
-   "size_exact_or_not_required": 558,
-   "category_confirmed": 559,
-   "photos": 589
+   "models": 166,
+   "group_id_present": 166,
+   "color_known": 165,
+   "size_exact_or_not_required": 135,
+   "category_confirmed": 136,
+   "photos": 166
   },
   "Tactical Belt": {
    "models": 110,
@@ -188,12 +188,12 @@
    "photos": 279
   },
   "Киборг": {
-   "models": 1250,
-   "group_id_present": 1250,
-   "color_known": 1192,
-   "size_exact_or_not_required": 956,
-   "category_confirmed": 937,
-   "photos": 1250
+   "models": 1245,
+   "group_id_present": 1245,
+   "color_known": 1187,
+   "size_exact_or_not_required": 951,
+   "category_confirmed": 932,
+   "photos": 1245
   }
  },
  "grouping_review": {
@@ -204,9 +204,9 @@
     "skus": 4
    },
    "C_codes_not_slices": {
-    "groups": 3,
-    "models": 17,
-    "skus": 22
+    "groups": 2,
+    "models": 6,
+    "skus": 11
    },
    "C_identical_text_no_model_token": {
     "groups": 180,
@@ -214,9 +214,9 @@
     "skus": 1286
    },
    "C_insufficient_evidence": {
-    "groups": 182,
-    "models": 578,
-    "skus": 1826
+    "groups": 183,
+    "models": 588,
+    "skus": 1837
    },
    "C_no_supplier_group": {
     "groups": 61,
@@ -224,9 +224,9 @@
     "skus": 144
    },
    "F_size_grid": {
-    "groups": 151,
-    "models": 460,
-    "skus": 461
+    "groups": 8,
+    "models": 38,
+    "skus": 476
    },
    "F_size_or_cell_conflict": {
     "groups": 20,
@@ -241,7 +241,7 @@
   },
   "by_supplier": {
    "M-WIN": {
-    "F_size_grid": 460,
+    "F_size_grid": 38,
     "C_identical_text_no_model_token": 75,
     "G_source_inconsistency": 10,
     "F_size_or_cell_conflict": 6,
@@ -261,8 +261,8 @@
    },
    "Киборг": {
     "C_identical_text_no_model_token": 655,
-    "C_codes_not_slices": 17,
-    "C_insufficient_evidence": 286,
+    "C_codes_not_slices": 6,
+    "C_insufficient_evidence": 296,
     "F_size_or_cell_conflict": 47,
     "G_source_inconsistency": 29
    }
@@ -271,30 +271,33 @@
    "F_size_grid": [
     {
      "name": "Антидронова маскувальна сітка M-WIN",
-     "cards": 11,
+     "cards": 22,
+     "reasons": [
+      "Поставщик передал разные коды модели",
+      "Превышен лимит вариантов",
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Антидронова маскувальна сітка M-WIN Листя осінь",
+     "cards": 2,
+     "reasons": [
+      "Различаются характеристики, совместимость или связи"
+     ]
+    },
+    {
+     "name": "Антимоскітна сітка на голову M-WIN + підсумок-чохол в кольорі",
+     "cards": 2,
      "reasons": [
       "Название похоже, но код модели или полное совпадение источника не подтверждены"
      ]
     },
     {
-     "name": "Антидронова маскувальна сітка M-WIN 2х6 м площа 12 кв.м.",
-     "cards": 11,
+     "name": "Маскувальна сітка M-Win . Маскування весна, літо",
+     "cards": 3,
      "reasons": [
-      "Название похоже, но код модели или полное совпадение источника не подтверждены"
-     ]
-    },
-    {
-     "name": "Антидронова маскувальна сітка M-WIN 3х4 м площа 12 кв.м.",
-     "cards": 11,
-     "reasons": [
-      "Название похоже, но код модели или полное совпадение источника не подтверждены"
-     ]
-    },
-    {
-     "name": "Антидронова маскувальна сітка M-WIN 3х5 м площа 15 кв.м.",
-     "cards": 11,
-     "reasons": [
-      "Название похоже, но код модели или полное совпадение источника не подтверждены"
+      "Превышен лимит вариантов",
+      "Различаются характеристики, совместимость или связи"
      ]
     }
    ],
@@ -474,30 +477,22 @@
      "reasons": [
       "Поставщик передал разные коды модели"
      ]
-    },
-    {
-     "name": "Пояс для РПС GEN.2 Kiborg R-1 з IRR-покриттям",
-     "cards": 11,
-     "reasons": [
-      "Поставщик передал разные коды модели"
-     ]
     }
    ]
   }
  },
- "grouping_flagged_models": 2046,
- "merged_into_models": 110,
+ "grouping_flagged_models": 1619,
+ "merged_into_models": 760,
  "m_win": {
   "source_rows": 924,
   "groups": 199,
   "multi_row_groups": 52,
   "rows_in_multi_row_groups": 777,
-  "products": 895,
+  "products": 255,
   "skus": 924,
-  "multi_variant_models": 22,
+  "multi_variant_models": 47,
   "multi_row_group_outcome": {
-   "nets:model_per_row": 24,
-   "nets:partly_merged": 1,
+   "nets:partly_merged": 25,
    "other:partly_merged": 3,
    "other:one_model": 13,
    "other:model_per_row": 11
@@ -506,7 +501,7 @@
    {
     "group_id": "37469",
     "rows": 48,
-    "models": 48,
+    "models": 2,
     "items": [
      {
       "supplier_sku": "0000LO",
@@ -514,7 +509,7 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "Індивідуальний розмір",
-      "pim_model": "punipyucdwx6",
+      "pim_model": "ptzj1wxdk2gg",
       "pim_color": "Осіннє листя",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -526,10 +521,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х3",
-      "pim_model": "p3ex3dkidwnc",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -538,10 +533,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х4",
-      "pim_model": "p8vgma74dwnj",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -550,10 +545,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х5",
-      "pim_model": "pqomfagldwnp",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -562,10 +557,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х6",
-      "pim_model": "pg147ktcdwnw",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -574,10 +569,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х7",
-      "pim_model": "pt7e1ndxdwo3",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -586,10 +581,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х8",
-      "pim_model": "p6vsnbkqdwoa",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -598,10 +593,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х9",
-      "pim_model": "p12ab5pndwoh",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -610,10 +605,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "2х10",
-      "pim_model": "pqvetedudwon",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -622,10 +617,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х3",
-      "pim_model": "p99dlavpdwou",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -634,10 +629,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х4",
-      "pim_model": "p1wl0fv7dwp7",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -646,10 +641,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х5",
-      "pim_model": "p9et094idwpi",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -658,10 +653,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х6",
-      "pim_model": "p16zgacsdwpp",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -670,10 +665,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х7",
-      "pim_model": "pjwnp45fdwpv",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -682,10 +677,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х8",
-      "pim_model": "p47t1maddwq2",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -694,10 +689,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х9",
-      "pim_model": "p9kfftsedwq9",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -706,10 +701,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "3х10",
-      "pim_model": "pcxsqh3rdwqf",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -718,10 +713,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х4",
-      "pim_model": "pcxtydfldwql",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -730,10 +725,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х5",
-      "pim_model": "pgz4mljbdwqr",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -742,10 +737,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х6",
-      "pim_model": "piu9myw2dwqy",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -754,10 +749,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х7",
-      "pim_model": "pc7jw1gfdwr4",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -766,10 +761,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х8",
-      "pim_model": "pzjccotfdwrb",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -778,10 +773,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х9",
-      "pim_model": "ptgbdsgfdwro",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -790,10 +785,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "4х10",
-      "pim_model": "p1xj7gq0dwru",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -802,10 +797,10 @@
       "raw_color": "Осіннє листя",
       "raw_size": null,
       "selector": "5х5",
-      "pim_model": "p3qjqtthdws1",
+      "pim_model": "piyx2xluk26o",
       "pim_color": "Осіннє листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      }
     ]
@@ -813,7 +808,7 @@
    {
     "group_id": "46469",
     "rows": 48,
-    "models": 48,
+    "models": 2,
     "items": [
      {
       "supplier_sku": "0000ZL",
@@ -821,7 +816,7 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "Індивідуальний розмір",
-      "pim_model": "pbsn2owsdwd4",
+      "pim_model": "p0y7hfn4k1vp",
       "pim_color": "Зелене листя",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -833,10 +828,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х3",
-      "pim_model": "pcs5i279dw24",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -845,10 +840,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х4",
-      "pim_model": "pdb0onkndw2m",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -857,10 +852,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х5",
-      "pim_model": "p5ozzhkmdw2v",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -869,10 +864,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х6",
-      "pim_model": "pskn9ckydw33",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -881,10 +876,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х7",
-      "pim_model": "prxahoxmdw3a",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -893,10 +888,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х8",
-      "pim_model": "pddhwvstdw3n",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -905,10 +900,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х9",
-      "pim_model": "pque38dcdw3u",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -917,10 +912,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "2х10",
-      "pim_model": "pd677wdsdw40",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -929,10 +924,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х3",
-      "pim_model": "puh4wd0wdw46",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -941,10 +936,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х4",
-      "pim_model": "pidedlbldw4e",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -953,10 +948,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х5",
-      "pim_model": "p7khh6qgdw4m",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -965,10 +960,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х6",
-      "pim_model": "pk24a6qbdw4u",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -977,10 +972,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х7",
-      "pim_model": "pb5f4yi9dw53",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -989,10 +984,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х8",
-      "pim_model": "poahpjzfdw5b",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1001,10 +996,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х9",
-      "pim_model": "pwfvg48zdw5h",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1013,10 +1008,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "3х10",
-      "pim_model": "pbvpjma9dw5p",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1025,10 +1020,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х4",
-      "pim_model": "p6e5zkctdw5x",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1037,10 +1032,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х5",
-      "pim_model": "ppc0hh5adw6c",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1049,10 +1044,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х6",
-      "pim_model": "p4fn0gd3dw6k",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1061,10 +1056,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х7",
-      "pim_model": "pi8p55bbdw6s",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1073,10 +1068,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х8",
-      "pim_model": "pq6plm61dw6z",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1085,10 +1080,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х9",
-      "pim_model": "pvh97w2qdw77",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1097,10 +1092,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "4х10",
-      "pim_model": "py1l9ssgdw7e",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1109,10 +1104,10 @@
       "raw_color": "Зелене листя",
       "raw_size": null,
       "selector": "5х5",
-      "pim_model": "pasc0pqedw7l",
+      "pim_model": "puokd7e0k1mo",
       "pim_color": "Зелене листя",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      }
     ]
@@ -1120,7 +1115,7 @@
    {
     "group_id": "47469",
     "rows": 48,
-    "models": 48,
+    "models": 2,
     "items": [
      {
       "supplier_sku": "0000TM",
@@ -1128,7 +1123,7 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "Індивідуальний розмір",
-      "pim_model": "pify1dsydyuz",
+      "pim_model": "p93lrp9wk4bd",
       "pim_color": "Темний мультикам",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -1140,10 +1135,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х3",
-      "pim_model": "p5wm8f5gdylz",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1152,10 +1147,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х4",
-      "pim_model": "pnoaat2bdym6",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1164,10 +1159,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х5",
-      "pim_model": "pluu75yndymc",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1176,10 +1171,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х6",
-      "pim_model": "p63x9ad3dymj",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1188,10 +1183,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х7",
-      "pim_model": "pdpqqojedymq",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1200,10 +1195,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х8",
-      "pim_model": "pb253dm1dymw",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1212,10 +1207,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х9",
-      "pim_model": "pcpionrsdyn3",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1224,10 +1219,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "2х10",
-      "pim_model": "p2uewav3dyn9",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1236,11 +1231,11 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х3",
-      "pim_model": "p9zyhl7ddyv5",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
-      "state": "READY"
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
      },
      {
       "supplier_sku": "TM-3х4",
@@ -1248,11 +1243,11 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х4",
-      "pim_model": "pretev3hdyvc",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
-      "state": "READY"
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
      },
      {
       "supplier_sku": "TM-3х5",
@@ -1260,10 +1255,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х5",
-      "pim_model": "ppzxwa9bdynf",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1272,10 +1267,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х6",
-      "pim_model": "payx2uaddynm",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1284,10 +1279,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х7",
-      "pim_model": "pa5st8zldynz",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1296,11 +1291,11 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х8",
-      "pim_model": "pcfrwp5odyvi",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
-      "state": "READY"
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
      },
      {
       "supplier_sku": "TM-3х9",
@@ -1308,10 +1303,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х9",
-      "pim_model": "plitximqdyo5",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1320,10 +1315,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "3х10",
-      "pim_model": "p2jg3mg9dyoc",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1332,10 +1327,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х4",
-      "pim_model": "p4f2h14gdyoi",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1344,10 +1339,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х5",
-      "pim_model": "pg7ywi4ddyop",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1356,10 +1351,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х6",
-      "pim_model": "p4y0dnxndyov",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1368,10 +1363,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х7",
-      "pim_model": "p6lkoyvjdyp2",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1380,10 +1375,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х8",
-      "pim_model": "pdw7e1u4dyp8",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1392,10 +1387,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х9",
-      "pim_model": "p5itkpg9dype",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1404,10 +1399,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "4х10",
-      "pim_model": "p5hsxt92dypl",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1416,10 +1411,10 @@
       "raw_color": "Темний мультикам",
       "raw_size": null,
       "selector": "5х5",
-      "pim_model": "p88mx8xudypr",
+      "pim_model": "p4s09ogjk42i",
       "pim_color": "Темний мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      }
     ]
@@ -1427,7 +1422,7 @@
    {
     "group_id": "48469",
     "rows": 48,
-    "models": 48,
+    "models": 2,
     "items": [
      {
       "supplier_sku": "0000Kh",
@@ -1435,7 +1430,7 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "Індивідуальний розмір",
-      "pim_model": "pv8lf152dz5h",
+      "pim_model": "p6c8f9k7k4mw",
       "pim_color": "Хижак",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -1447,10 +1442,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х3",
-      "pim_model": "p4dibqmqdyvw",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1459,10 +1454,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х4",
-      "pim_model": "puqn74xhdyw3",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1471,10 +1466,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х5",
-      "pim_model": "p6uadzy2dywc",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1483,10 +1478,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х6",
-      "pim_model": "peevorrwdywi",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1495,10 +1490,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х7",
-      "pim_model": "ph334brndywp",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1507,10 +1502,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х8",
-      "pim_model": "pkyev1yndywx",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1519,10 +1514,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х9",
-      "pim_model": "p2njto1tdyx4",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1531,10 +1526,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "2х10",
-      "pim_model": "p4bod2rgdyxf",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1543,10 +1538,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х3",
-      "pim_model": "p7c8cvnvdyxp",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1555,10 +1550,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х4",
-      "pim_model": "p4jzdpfqdyxw",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1567,10 +1562,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х5",
-      "pim_model": "pt7mfrc7dyy3",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1579,10 +1574,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х6",
-      "pim_model": "pw5vzq71dyya",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1591,10 +1586,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х7",
-      "pim_model": "psg1bu8edyyn",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1603,10 +1598,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х8",
-      "pim_model": "psf68s3idyyw",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1615,10 +1610,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х9",
-      "pim_model": "p13g8h0fdyz4",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1627,10 +1622,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "3х10",
-      "pim_model": "pb1pkg39dyzb",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1639,10 +1634,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х4",
-      "pim_model": "pdxspboidyzh",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1651,10 +1646,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х5",
-      "pim_model": "p62bk4q8dyzo",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1663,10 +1658,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х6",
-      "pim_model": "pg8ok3cadyzv",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1675,10 +1670,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х7",
-      "pim_model": "prvy00mtdz02",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1687,11 +1682,11 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х8",
-      "pim_model": "p9m0bk5bdz08",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
-      "state": "READY"
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
+      "state": "MODERATION"
      },
      {
       "supplier_sku": "Kh-4х9",
@@ -1699,10 +1694,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х9",
-      "pim_model": "p9y3qlr2dz0f",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1711,10 +1706,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "4х10",
-      "pim_model": "pcrxlrlodz0m",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      },
      {
@@ -1723,10 +1718,10 @@
       "raw_color": "Хижак",
       "raw_size": null,
       "selector": "5х5",
-      "pim_model": "p5bth8codz0t",
+      "pim_model": "p6cpy6afk4c5",
       "pim_color": "Хижак",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "MODERATION"
      }
     ]
@@ -1734,7 +1729,7 @@
    {
     "group_id": "56469",
     "rows": 48,
-    "models": 48,
+    "models": 2,
     "items": [
      {
       "supplier_sku": "0000BM",
@@ -1742,7 +1737,7 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "Індивідуальний розмір",
-      "pim_model": "pcj7py4bdxi9",
+      "pim_model": "pl0ti28lk2zz",
       "pim_color": "Білий мультикам",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -1754,10 +1749,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х3",
-      "pim_model": "puhk4q3ndx7i",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1766,10 +1761,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х4",
-      "pim_model": "ptqjb4iadx7p",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1778,10 +1773,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х5",
-      "pim_model": "pnd58gmgdx7x",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1790,10 +1785,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х6",
-      "pim_model": "p7fs8ogmdx86",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1802,10 +1797,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х7",
-      "pim_model": "pkkptj03dx8e",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1814,10 +1809,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х8",
-      "pim_model": "p3lt0ouwdx8l",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1826,10 +1821,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х9",
-      "pim_model": "pwk1eor4dx8t",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1838,10 +1833,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "2х10",
-      "pim_model": "pn15g9msdx90",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1850,10 +1845,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х3",
-      "pim_model": "po1q71n5dx96",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1862,10 +1857,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х4",
-      "pim_model": "pghf1iibdx9d",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1874,10 +1869,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х5",
-      "pim_model": "px8xa0mydx9k",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1886,10 +1881,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х6",
-      "pim_model": "p8zro6wxdx9r",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1898,10 +1893,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х7",
-      "pim_model": "po7zpbc1dx9y",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1910,10 +1905,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х8",
-      "pim_model": "p5ad90bgdxab",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1922,10 +1917,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х9",
-      "pim_model": "pj5za5xsdxai",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1934,10 +1929,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "3х10",
-      "pim_model": "phykbgrudxao",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1946,10 +1941,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х4",
-      "pim_model": "ps66vx6udxav",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1958,10 +1953,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х5",
-      "pim_model": "purpsgrpdxb1",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1970,10 +1965,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х6",
-      "pim_model": "p1p67fvydxbb",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1982,10 +1977,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х7",
-      "pim_model": "pgbqemtkdxbl",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -1994,10 +1989,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х8",
-      "pim_model": "p18ndjx7dxbt",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2006,10 +2001,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х9",
-      "pim_model": "paqk3vqhdxbz",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2018,10 +2013,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "4х10",
-      "pim_model": "pmjdzep3dxc6",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2030,10 +2025,10 @@
       "raw_color": "Білий мультикам",
       "raw_size": null,
       "selector": "5х5",
-      "pim_model": "pxmf7pm2dxcd",
+      "pim_model": "p7cd90b7k2pu",
       "pim_color": "Білий мультикам",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      }
     ]
@@ -2041,7 +2036,7 @@
    {
     "group_id": "58469",
     "rows": 48,
-    "models": 48,
+    "models": 2,
     "items": [
      {
       "supplier_sku": "0000TK",
@@ -2049,7 +2044,7 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "Індивідуальний розмір",
-      "pim_model": "ph6hs9andylt",
+      "pim_model": "poqcvwpsk42c",
       "pim_color": "Темний камуфляж",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -2061,10 +2056,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х3",
-      "pim_model": "pd4zhvsidyc0",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2073,10 +2068,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х4",
-      "pim_model": "ptytyygydyc7",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2085,10 +2080,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х5",
-      "pim_model": "pnor84fhdycd",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2097,10 +2092,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х6",
-      "pim_model": "pzao7hf5dycj",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2109,10 +2104,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х7",
-      "pim_model": "p71cw0ksdycr",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2121,10 +2116,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х8",
-      "pim_model": "pwznan74dyd1",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2133,10 +2128,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х9",
-      "pim_model": "puvwhwhbdydb",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2145,10 +2140,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "2х10",
-      "pim_model": "pjpbvzuqdydm",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "2×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2157,10 +2152,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х3",
-      "pim_model": "psfwg6t5dye3",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×3 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2169,10 +2164,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х4",
-      "pim_model": "pyfzqgzsdye9",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2181,10 +2176,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х5",
-      "pim_model": "ptqbmpgrdyef",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2193,10 +2188,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х6",
-      "pim_model": "p6u4ustadyem",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2205,10 +2200,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х7",
-      "pim_model": "p5k3kuefdyes",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2217,10 +2212,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х8",
-      "pim_model": "poqgj5jndyey",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2229,10 +2224,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х9",
-      "pim_model": "plkrlfnsdyf5",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2241,10 +2236,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "3х10",
-      "pim_model": "pojskl2bdyfb",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "3×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2253,10 +2248,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х4",
-      "pim_model": "p83hwi1hdyfh",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×4 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2265,10 +2260,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х5",
-      "pim_model": "pi0hpc4mdyfo",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2277,10 +2272,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х6",
-      "pim_model": "pj7gs69ndyfu",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×6 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2289,10 +2284,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х7",
-      "pim_model": "pxy36ctsdyg1",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×7 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2301,10 +2296,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х8",
-      "pim_model": "p3ak1l14dyg8",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×8 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2313,10 +2308,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х9",
-      "pim_model": "pr4ea21xdygl",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×9 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2325,10 +2320,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "4х10",
-      "pim_model": "pmfozhhjdygs",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "4×10 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      },
      {
@@ -2337,10 +2332,10 @@
       "raw_color": "Темний камуфляж",
       "raw_size": null,
       "selector": "5х5",
-      "pim_model": "pffsb8xwdyh0",
+      "pim_model": "p09ah0iyk3t1",
       "pim_color": "Темний камуфляж",
-      "pim_size": "",
-      "size_status": "NO_SIZE_REQUIRED",
+      "pim_size": "5×5 м",
+      "size_status": "EXACT_SIZE",
       "state": "READY"
      }
     ]
@@ -2356,7 +2351,7 @@
       "raw_color": "Піксель",
       "raw_size": "M",
       "selector": null,
-      "pim_model": "pcrooabrdznt",
+      "pim_model": "pvxc5h1ck55t",
       "pim_color": "Піксель",
       "pim_size": "M",
       "size_status": "EXACT_SIZE",
@@ -2368,7 +2363,7 @@
       "raw_color": "Піксель",
       "raw_size": "S",
       "selector": null,
-      "pim_model": "p3ciibd1dzmt",
+      "pim_model": "px7wud0pk54q",
       "pim_color": "Піксель",
       "pim_size": "S",
       "size_status": "EXACT_SIZE",
@@ -2380,7 +2375,7 @@
       "raw_color": "Піксель",
       "raw_size": "L",
       "selector": null,
-      "pim_model": "p3ciibd1dzmt",
+      "pim_model": "px7wud0pk54q",
       "pim_color": "Піксель",
       "pim_size": "L",
       "size_status": "EXACT_SIZE",
@@ -2392,7 +2387,7 @@
       "raw_color": "Піксель",
       "raw_size": "XL",
       "selector": null,
-      "pim_model": "p3ciibd1dzmt",
+      "pim_model": "px7wud0pk54q",
       "pim_color": "Піксель",
       "pim_size": "XL",
       "size_status": "EXACT_SIZE",
@@ -2411,7 +2406,7 @@
       "raw_color": "Мультикам",
       "raw_size": "S",
       "selector": null,
-      "pim_model": "p0heglxrdzlj",
+      "pim_model": "pzv75j2fk53f",
       "pim_color": "Мультикам",
       "pim_size": "S",
       "size_status": "EXACT_SIZE",
@@ -2423,7 +2418,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M",
       "selector": null,
-      "pim_model": "puyqzs3hdzmn",
+      "pim_model": "p9f9oxgck54k",
       "pim_color": "Мультикам",
       "pim_size": "M",
       "size_status": "EXACT_SIZE",
@@ -2435,7 +2430,7 @@
       "raw_color": "Мультикам",
       "raw_size": "L",
       "selector": null,
-      "pim_model": "p0heglxrdzlj",
+      "pim_model": "pzv75j2fk53f",
       "pim_color": "Мультикам",
       "pim_size": "L",
       "size_status": "EXACT_SIZE",
@@ -2447,7 +2442,7 @@
       "raw_color": "Мультикам",
       "raw_size": "XL",
       "selector": null,
-      "pim_model": "p0heglxrdzlj",
+      "pim_model": "pzv75j2fk53f",
       "pim_color": "Мультикам",
       "pim_size": "XL",
       "size_status": "EXACT_SIZE",
@@ -2466,7 +2461,7 @@
       "raw_color": "Койот",
       "raw_size": "S",
       "selector": null,
-      "pim_model": "pk4gp81ddznm",
+      "pim_model": "pafvdsujk55o",
       "pim_color": "Койот",
       "pim_size": "S",
       "size_status": "EXACT_SIZE",
@@ -2478,7 +2473,7 @@
       "raw_color": "Койот",
       "raw_size": "M",
       "selector": null,
-      "pim_model": "pirm0tnqdzny",
+      "pim_model": "ppb9hucgk560",
       "pim_color": "Койот",
       "pim_size": "M",
       "size_status": "EXACT_SIZE",
@@ -2490,7 +2485,7 @@
       "raw_color": "Койот",
       "raw_size": "L",
       "selector": null,
-      "pim_model": "pk4gp81ddznm",
+      "pim_model": "pafvdsujk55o",
       "pim_color": "Койот",
       "pim_size": "L",
       "size_status": "EXACT_SIZE",
@@ -2502,7 +2497,7 @@
       "raw_color": "Койот",
       "raw_size": "XL",
       "selector": null,
-      "pim_model": "pk4gp81ddznm",
+      "pim_model": "pafvdsujk55o",
       "pim_color": "Койот",
       "pim_size": "XL",
       "size_status": "EXACT_SIZE",
@@ -2521,7 +2516,7 @@
       "raw_color": "Хакі",
       "raw_size": null,
       "selector": null,
-      "pim_model": "pjpflelle1l6",
+      "pim_model": "p9irrmqkk6zy",
       "pim_color": "Хакі",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2533,7 +2528,7 @@
       "raw_color": "Хакі",
       "raw_size": null,
       "selector": null,
-      "pim_model": "pjpflelle1l6",
+      "pim_model": "p9irrmqkk6zy",
       "pim_color": "Хакі",
       "pim_size": "L",
       "size_status": "EXACT_SIZE",
@@ -2545,7 +2540,7 @@
       "raw_color": "Хакі",
       "raw_size": null,
       "selector": null,
-      "pim_model": "pjpflelle1l6",
+      "pim_model": "p9irrmqkk6zy",
       "pim_color": "Хакі",
       "pim_size": "XL",
       "size_status": "EXACT_SIZE",
@@ -2564,7 +2559,7 @@
       "raw_color": "Хакі",
       "raw_size": "48",
       "selector": null,
-      "pim_model": "p5g9i280duyt",
+      "pim_model": "piajhlkxk0lu",
       "pim_color": "Хакі",
       "pim_size": "48",
       "size_status": "EXACT_SIZE",
@@ -2576,7 +2571,7 @@
       "raw_color": "Хакі",
       "raw_size": "52",
       "selector": null,
-      "pim_model": "p5g9i280duyt",
+      "pim_model": "piajhlkxk0lu",
       "pim_color": "Хакі",
       "pim_size": "52",
       "size_status": "EXACT_SIZE",
@@ -2588,7 +2583,7 @@
       "raw_color": "Хакі",
       "raw_size": "56",
       "selector": null,
-      "pim_model": "p5g9i280duyt",
+      "pim_model": "piajhlkxk0lu",
       "pim_color": "Хакі",
       "pim_size": "56",
       "size_status": "EXACT_SIZE",
@@ -2607,7 +2602,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pdag1gjpdunx",
+      "pim_model": "pqb4abpbk0cl",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2619,7 +2614,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pdag1gjpdunx",
+      "pim_model": "pqb4abpbk0cl",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2638,7 +2633,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "p1unkaonduor",
+      "pim_model": "p03g2q21k0de",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2650,7 +2645,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "ph54kpdzdupv",
+      "pim_model": "p0qebxook0e7",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2669,7 +2664,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "p3nwa035e01x",
+      "pim_model": "pf4nmu01k5jy",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2681,7 +2676,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "p3nwa035e01x",
+      "pim_model": "pf4nmu01k5jy",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2700,7 +2695,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "p0n8ru5wduao",
+      "pim_model": "pphuobnok02m",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2712,7 +2707,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "py7l7g33duft",
+      "pim_model": "pw63g2q9k06d",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2731,7 +2726,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pclyl6gidugo",
+      "pim_model": "pt51j39ak070",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2743,7 +2738,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pclyl6gidugo",
+      "pim_model": "pt51j39ak070",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2762,7 +2757,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pl9h1hvtdujr",
+      "pim_model": "pdwqaox2k091",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2774,7 +2769,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "puvfdg2qdumy",
+      "pim_model": "p3257lmuk0by",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2793,7 +2788,7 @@
       "raw_color": "Хакі",
       "raw_size": null,
       "selector": null,
-      "pim_model": "pu93yeecdvgw",
+      "pim_model": "plu6os0dk128",
       "pim_color": "Хакі",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2805,7 +2800,7 @@
       "raw_color": "Койот",
       "raw_size": null,
       "selector": null,
-      "pim_model": "pu93yeecdvgw",
+      "pim_model": "plu6os0dk128",
       "pim_color": "Койот",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2824,7 +2819,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "poe9p5t6duq7",
+      "pim_model": "pr2lsynrk0ef",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2836,7 +2831,7 @@
       "raw_color": "Мультикам",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "phyq7vhrdurk",
+      "pim_model": "pgan99cgk0fe",
       "pim_color": "Мультикам",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2855,7 +2850,7 @@
       "raw_color": "Піксель",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pdzd67sle02n",
+      "pim_model": "p6dm96kwk5ku",
       "pim_color": "Піксель",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2867,7 +2862,7 @@
       "raw_color": "Піксель",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pdzd67sle02n",
+      "pim_model": "p6dm96kwk5ku",
       "pim_color": "Піксель",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2886,7 +2881,7 @@
       "raw_color": "Піксель",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "p0n8ru5wduao",
+      "pim_model": "pphuobnok02m",
       "pim_color": "Піксель",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2898,7 +2893,7 @@
       "raw_color": "Піксель",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pn9yma3aduex",
+      "pim_model": "pan2dcqsk05k",
       "pim_color": "Піксель",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2917,7 +2912,7 @@
       "raw_color": "Піксель",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "pl9h1hvtdujr",
+      "pim_model": "pdwqaox2k091",
       "pim_color": "Піксель",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2929,7 +2924,7 @@
       "raw_color": "Піксель",
       "raw_size": "M-L, XL-XXL",
       "selector": null,
-      "pim_model": "puvfdg2qdumy",
+      "pim_model": "p3257lmuk0by",
       "pim_color": "Піксель",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2948,7 +2943,7 @@
       "raw_color": "Койот",
       "raw_size": null,
       "selector": null,
-      "pim_model": "psiohvs2dvmi",
+      "pim_model": "pgl4cqdpk17h",
       "pim_color": "Койот",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -2960,7 +2955,7 @@
       "raw_color": "Хакі",
       "raw_size": null,
       "selector": null,
-      "pim_model": "psiohvs2dvmi",
+      "pim_model": "pgl4cqdpk17h",
       "pim_color": "Хакі",
       "pim_size": "",
       "size_status": "NO_SIZE_REQUIRED",
@@ -2979,7 +2974,7 @@
       "raw_color": "Хакі",
       "raw_size": "XS-S",
       "selector": null,
-      "pim_model": "pt6qqf96e1a3",
+      "pim_model": "p5rllh26k6pt",
       "pim_color": "Хакі",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -2991,7 +2986,7 @@
       "raw_color": "Хакі",
       "raw_size": "М-L",
       "selector": null,
-      "pim_model": "pufqappde1bv",
+      "pim_model": "p6o7ktuok6rj",
       "pim_color": "Хакі",
       "pim_size": "",
       "size_status": "SIZE_CONFIRMATION_REQUIRED",
@@ -3099,11 +3094,12 @@
    "width_length_missing": 2
   },
   "current_state": {
-   "MODERATION": 470,
-   "READY": 246
+   "MODERATION": 484,
+   "READY": 232
   },
   "current_size_status": {
-   "NO_SIZE_REQUIRED": 716
+   "NO_SIZE_REQUIRED": 49,
+   "EXACT_SIZE": 667
   },
   "duplicate_value_inside_group": 0
  },
@@ -3162,23 +3158,24 @@
   ],
   "pim_skus": 1512,
   "pim_availability": {
-   "UNKNOWN": 1368,
-   "SIZE_CONFIRMATION_REQUIRED": 144
+   "OUT_OF_STOCK": 1045,
+   "SIZE_CONFIRMATION_REQUIRED": 144,
+   "IN_STOCK": 323
   }
  },
  "size_status": {
   "total": {
    "ONE_SIZE": 88,
-   "NO_SIZE_REQUIRED": 2581,
-   "SIZE_CONFIRMATION_REQUIRED": 1112,
-   "EXACT_SIZE": 4406
+   "NO_SIZE_REQUIRED": 1914,
+   "EXACT_SIZE": 5073,
+   "SIZE_CONFIRMATION_REQUIRED": 1112
   },
   "by_supplier": {
    "M-WIN": {
     "ONE_SIZE": 21,
-    "NO_SIZE_REQUIRED": 820,
-    "SIZE_CONFIRMATION_REQUIRED": 50,
-    "EXACT_SIZE": 33
+    "NO_SIZE_REQUIRED": 153,
+    "EXACT_SIZE": 700,
+    "SIZE_CONFIRMATION_REQUIRED": 50
    },
    "Tactical Belt": {
     "NO_SIZE_REQUIRED": 568,
@@ -3259,10 +3256,9 @@
   }
  },
  "availability": {
-  "IN_STOCK": 4776,
+  "IN_STOCK": 5099,
   "SIZE_CONFIRMATION_REQUIRED": 1112,
-  "OUT_OF_STOCK": 931,
-  "UNKNOWN": 1368
+  "OUT_OF_STOCK": 1976
  },
  "color_unknown_values": [
   {
@@ -3323,7 +3319,7 @@
  ],
  "photo_ownership": [
   {
-   "model": "pgixvacioqbv",
+   "model": "ppnzlbcvutm9",
    "title": "Кріплення для смартфона MOLLE, відкидний холдер",
    "colors_without_photos": [
     [
@@ -3348,7 +3344,7 @@
    ]
   },
   {
-   "model": "p7bi5rsroztr",
+   "model": "pen559fbv3ae",
    "title": "Пристрій радіоелектронної розвідки «Чуйка 3.0» (1,2 ГГц, 3,3 ГГц, 5,8 ГГц)",
    "colors_without_photos": [
     [
@@ -3422,7 +3418,7 @@
    ]
   },
   {
-   "model": "pb2nma4pp9vz",
+   "model": "pa2bgd3zvdjs",
    "title": "Цифрові активні ззахисні навушники Earmor M32 PLUS",
    "colors_without_photos": [
     [
@@ -3449,13 +3445,13 @@
  ],
  "ready_price_blockers": [
   {
-   "model": "pdte9esvhrg5",
+   "model": "pll27sg5nrbc",
    "title": "Зимова куртка \"Хуртовина\" (Omni-Heat) /3",
    "sku": "RUB-18620",
    "supplier": "Tactical Belt",
    "supplier_sku": "RAPTOR-41",
    "supplier_price": 0,
-   "availability": "UNKNOWN"
+   "availability": "OUT_OF_STOCK"
   }
  ],
  "import_queue": [
@@ -3468,7 +3464,7 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "pq90vatihya0"
+    "p9i6ky6onyul"
    ]
   },
   {
@@ -3480,7 +3476,7 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "pq90vatihya0"
+    "p9i6ky6onyul"
    ]
   },
   {
@@ -3492,8 +3488,8 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p0rj6yabhys6",
-    "po6hjel4hys8"
+    "pubvfdwrnzch",
+    "pu50bn5dnzck"
    ]
   },
   {
@@ -3505,7 +3501,7 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "pvssyy37hxhz"
+    "pja7t1lsny1l"
    ]
   },
   {
@@ -3517,9 +3513,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3531,7 +3527,7 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p6mk02cphsd2"
+    "p41e6y2ensf5"
    ]
   },
   {
@@ -3543,9 +3539,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3557,9 +3553,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3571,9 +3567,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3585,9 +3581,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3599,9 +3595,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3613,9 +3609,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3627,9 +3623,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3641,9 +3637,9 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "p5td60nrk2vr",
-    "pyi6q6qhk2wi",
-    "pnqr740ok2wp"
+    "ppuamlwxq3if",
+    "patxlhzdq3j7",
+    "phjk3vdsq3jd"
    ]
   },
   {
@@ -3655,7 +3651,7 @@
    "price_present": true,
    "reason": "duplicate",
    "strong_duplicate_of": [
-    "pvkepromhrnl"
+    "pak3ye26nrkc"
    ]
   }
  ],
@@ -4108,5 +4104,68 @@
    "models": 1
   }
  ],
- "_note": "Aggregates of the clean-import rehearsal r5 (PIM 7b0c025, real backup + 5 supplier feeds). Lists capped at 25 examples; per-group M-WIN detail stays private."
+ "autoprices_preview": {
+  "mode": "PREVIEW",
+  "writes": 0,
+  "compared": "fresh supplier files vs the current (backup) catalog, before reset",
+  "skus": 8231,
+  "affected": 0,
+  "unchanged": 8226,
+  "blocked": 1,
+  "blockers": {
+   "MISSING_COST": 1
+  },
+  "min_delta_pct": 0.0,
+  "median_delta_pct": 0.0,
+  "max_delta_pct": 0.0,
+  "price_decreases": 0,
+  "missing_cost": 1,
+  "missing_rrp": 8231
+ },
+ "image_preflight": {
+  "IMAGE_URLS_TOTAL": 18692,
+  "IMAGE_URLS_REACHABLE": 0,
+  "IMAGE_URLS_FAILED": 0,
+  "IMAGE_URLS_TIMEOUT": 0,
+  "IMAGE_URLS_403": 0,
+  "IMAGE_URLS_404": 0,
+  "IMAGE_URLS_OTHER_HTTP": 0,
+  "IMAGE_URLS_INVALID_CONTENT_TYPE": 0,
+  "IMAGE_URLS_NETWORK_UNREACHABLE": 18692,
+  "IMAGE_URLS_REDIRECTED": 0,
+  "complete": false,
+  "by_host": {
+   "tactical-belt.store": {
+    "total": 8681,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 8681
+   },
+   "images.prom.ua": {
+    "total": 1209,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 1209
+   },
+   "tactic-shop.in.ua": {
+    "total": 6559,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 6559
+   },
+   "armoline.com.ua": {
+    "total": 1841,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 1841
+   },
+   "m-win.com.ua": {
+    "total": 402,
+    "ok": 0,
+    "failed": 0,
+    "unreachable": 402
+   }
+  }
+ },
+ "_note": "Final clean-import rehearsal from a fresh clone of PIM 6f3afcf (real backup + 5 supplier feeds). Lists capped at 25; per-group detail stays private."
 }
