@@ -55,7 +55,7 @@ const classificationPreviousDecision=categoryDecisionForProduct;
 categoryDecisionForProduct=function(p,...args){
  if(!classificationEnabled())return classificationPreviousDecision(p,...args);
  const e=classificationDecision(p),safe=e.tier==='SAFE_AUTO';
- return {canonical_category_id:safe?e.category:null,category:safe?canonicalPath(e.category):'',category_source:e.protected?p.category_source||'manual':'evidence',source:'auto_evidence',category_confidence:safe?1:e.tier==='LIKELY'?.8:.3,category_rule_id:e.rule_id,category_status:safe?'CONFIRMED':'NEEDS_REVIEW',category_review_status:safe?'CONFIRMED':e.tier,candidates:e.category?[e.category]:[],suggested_category_id:e.category,reasons:[e.reason],classification:e};
+ return {canonical_category_id:safe?e.category:null,category:safe?canonicalPath(e.category):'',category_source:e.rule_id==='confirmed-mapping'?'mapping':e.protected?p.category_source||'manual':'evidence',source:'auto_evidence',category_confidence:safe?1:e.tier==='LIKELY'?.8:.3,category_rule_id:e.rule_id,category_status:safe?'CONFIRMED':'NEEDS_REVIEW',category_review_status:safe?'CONFIRMED':e.tier,candidates:e.category?[e.category]:[],suggested_category_id:e.category,reasons:[e.reason],classification:e};
 };
 const classificationCachedCategory=categoryDecisionCached;
 categoryDecisionCached=function(name,raw,attrs={},context={}){
@@ -69,7 +69,8 @@ categoryApplyDecision=function(p,d,options){
  const e=d.classification;
  if(!e){if(d.category_source==='manual')return classificationPreviousApply(p,d,options);return;}
  p.category_confidence_tier=e.tier;p.category_evidence={...(e.evidence||{reason:e.reason}),conditional_supplier_rules:e.conditional_supplier_rules||[]};p.category_rule_version=CLASSIFICATION_VERSION;
- if(e.protected||e.tier!=='SAFE_AUTO')return;
+ // Manual locks are already on the card; a confirmed supplier mapping must still be applied to a freshly imported one.
+ if(e.protected&&e.rule_id!=='confirmed-mapping'||e.tier!=='SAFE_AUTO')return;
  p.pricing_canonical_category_id??=p.canonical_category_id;classificationPreviousApply(p,d,options);
 };
 function classificationSizePolicy(p){

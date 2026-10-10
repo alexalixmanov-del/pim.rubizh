@@ -171,3 +171,11 @@ test('wire: SKU sizes go in logical order inside each colour, never alphabetical
  const n=setup();card(n,'p-n','Штани польові Test','clothing_pants',['50/4','46/3','48/3','46/4'].map((z,i)=>['RUB-'+i,'Олива',offer('P-'+i,{structured_size:z}),z]));
  assert.deepEqual(JSON.parse(JSON.stringify(n.run('finalWireProduct(S.products.get("p-n"))'))).variants.map(v=>v.size_display),['46/3','46/4','48/3','50/4']);
 });
+test('a confirmed supplier mapping is applied to a freshly imported card (not treated as an already-applied manual lock)',()=>{
+ const h=setup();h.run('S.cfg.suppliers.push({id:"sf0t3l7jegf9",name:"м вин",auto:true,mapping:{}})');
+ const p=h.product({id:'p-net',name:'Маскувальна сітка M-Win Хижак 3х6 м',desc:'',category:'',catSource:'',variants:[{sku:'RUB-N',size:'',color:'Хижак',price:0,offers:{'sf0t3l7jegf9':offer('HZ-3x6',{supplier_category_raw:'Маскувальні сітки',supplier_category_path_raw:'Маскувальні сітки',source_name:'Маскувальна сітка M-Win Хижак 3х6 м'})}}]});
+ h.add(p);h.run('classificationApplyProduct(S.products.get("p-net"))');
+ assert.deepEqual(JSON.parse(h.run('JSON.stringify((p=>[p.canonical_category_id,p.category_source])(S.products.get("p-net")))')),['camouflage_nets','mapping']);
+ const q=h.product({id:'p-man',name:'Маскувальна сітка M-Win Хижак 3х6 м',canonical_category_id:'camouflage_antidrone',category_locked:true,variants:p.variants.map(v=>({...v,sku:'RUB-M'}))});h.add(q);h.run('classificationApplyProduct(S.products.get("p-man"))');
+ assert.equal(h.run('S.products.get("p-man").canonical_category_id'),'camouflage_antidrone','manual lock wins');
+});
