@@ -31,15 +31,15 @@ const FINAL_MODERATION_TEXT={
 };
 function finalUsablePhotos(p){return simplePhotos(p).filter(url=>p.photoMeta?.[url]?.broken!==true&&p.photoMeta?.[url]?.invalid!==true);}
 // Supplier titles join descriptor segments with «|» («Тактические шорты BR Stinger | Стрейч, серые | Лето, ТрО, …»). When
-// every segment after the first carries no model identity (no digit and no Latin word once colour/size words are gone,
-// or a «Розмір: …» label), the public title is cut back to the first segment — only if the title verifiably starts
+// every segment after the first carries no model identity (no digit at all, no Latin word once colour/size words are gone),
+// the public title is cut back to the first segment — only if the title verifiably starts
 // with it (colour words ignored). Nothing is added or reworded; manual titles are untouched.
 const FINAL_TITLE_SIZE=/^(?:XXS|XS|S|M|L|XL|XXL|XXXL|[2-6]XL|\d{2}(?:[/-]\d{1,2})?)$/iu;
 const finalTitleWords=t=>String(t||'').split(/[\s,;:()«»"|]+/u).filter(Boolean);
 function finalTitleColorWord(w){const x=RubizhModel.palette(w);return !!(x.color||x.camouflage);}
 function finalTitleHead(p){
  for(const v of p.variants||[])for(const o of Object.values(v.offers||{})){const segs=String(o.original_name||o.source_name||'').split('|').map(x=>x.trim());if(segs.length<2||!segs[0])continue;
-  const noise=segs.slice(1).every(t=>!t||/^(?:розмір|размер|size)\b/iu.test(t)||!finalTitleWords(t).filter(w=>!FINAL_TITLE_SIZE.test(w)&&!finalTitleColorWord(w)).some(w=>/\d|[a-z]{2}/iu.test(w)));
+  const noise=segs.slice(1).every(t=>!t||!/\d/u.test(t)&&!finalTitleWords(t).filter(w=>!FINAL_TITLE_SIZE.test(w)&&!finalTitleColorWord(w)).some(w=>/[a-z]{2}/iu.test(w)));
   if(noise)return autoUkText(segs[0]);}
  return '';
 }
@@ -52,7 +52,7 @@ function finalTitle(p){
  const want=finalTitleWords(head).filter(w=>!finalTitleColorWord(w)&&!FINAL_TITLE_SIZE.test(w)).map(norm);if(want.length<2)return raw;
  const re=/[^\s,;:()«»"|]+/gu;let m,i=0,cut=-1;
  while((m=re.exec(raw))){const w=m[0];if(finalTitleColorWord(w)||FINAL_TITLE_SIZE.test(w))continue;if(!finalTitleSameWord(norm(w),want[i]))return raw;i++;if(i===want.length){cut=m.index+w.length;break;}}
- if(cut<0)return raw;const out=raw.slice(0,cut).replace(/[\s,;:|–—-]+$/u,'').trim();
+ if(cut<0)return raw;const close=raw.slice(cut).match(/^["»”)\]]+/u);if(close)cut+=close[0].length;const out=raw.slice(0,cut).replace(/[\s,;:|–—-]+$/u,'').trim();
  return out.length<raw.length?out:raw;
 }
 // Performance only: the generated description is a pure function of the chosen source text, the manual flag, the
@@ -109,6 +109,8 @@ function finalUnitPriced(v){return Object.values(v.offers||{}).some(o=>FINAL_UNI
 // What the site shows for one SKU: colour + size label (NO_SIZE_REQUIRED shows none). Two SKUs with the same public cell
 // cannot be told apart by a buyer, so such a model is never READY.
 function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,mcColor(v).key+'|'+norm(size)];}));}
+// One MODEL = one public card: active cards of one category sharing a public title are an owner question, never two READY.
+const finalTitleOwners=memoByData(function(){const m=new Map();for(const p of S.products.values()){if(p.archived||p.merged_into||!p.variants?.length)continue;const k=(p.canonical_category_id||'')+'\u0000'+norm(finalTitle(p));if(!m.has(k))m.set(k,[]);m.get(k).push(p.id);}return m;});
 const finalDecision=memoProd('final-decision',function(p){
  const reject=[],moderate=[],variants=p.variants||[],add=(list,code,why,evidence=[])=>list.push({code,why,evidence});
  if(p.archived)return {state:'ARCHIVED',reasons:[]};
@@ -131,6 +133,7 @@ const finalDecision=memoProd('final-decision',function(p){
  const unknownColors=uniq(variants.flatMap(v=>simplePalette(v).unknown));if(unknownColors.length)add(moderate,'color',FINAL_MODERATION_TEXT.color[1],unknownColors.slice(0,5));
  if(classificationEnabled()||mcEnabled()){const colors=mcColors(p);if(colors.length>1&&colors.some(c=>!c.photos.length))add(moderate,'photo_ownership',FINAL_MODERATION_TEXT.photo_ownership[1],colors.filter(c=>!c.photos.length).map(c=>[c.color,c.camouflage].filter(Boolean).join(' / ')||c.id));}
  const unitPriced=variants.filter(finalUnitPriced);if(unitPriced.length)add(moderate,'price_unit',FINAL_MODERATION_TEXT.price_unit[1],unitPriced.slice(0,5).map(v=>v.sku));
+ const sameTitle=(finalTitleOwners().get((p.canonical_category_id||'')+'\u0000'+norm(finalTitle(p)))||[]).filter(id=>id!==p.id);if(sameTitle.length)add(moderate,'grouping',FINAL_MODERATION_TEXT.grouping[1],['Та сама назва: '+sameTitle.slice(0,3).join(', ')]);
  const publicCells=finalPublicCells(p),cells=new Map(),same=[];for(const v of variants){const k=publicCells.get(v.sku);if(cells.has(k))same.push(cells.get(k),v.sku);else cells.set(k,v.sku);}
  if(same.length)add(moderate,'variant_cell',FINAL_MODERATION_TEXT.variant_cell[1],uniq(same).slice(0,6));
  const shared=variants.filter(v=>v.source_binding_status&&v.source_binding_status!=='CONFIRMED');if(shared.length)add(moderate,'binding',FINAL_MODERATION_TEXT.binding[1],shared.slice(0,5).map(v=>v.sku));
@@ -161,7 +164,9 @@ function finalWireProduct(p){
  const out=simpleProductPayload(simpleAssess(p)),photos=finalUsablePhotos(p);
  out.colors=(out.colors||[]).map(c=>Object.fromEntries(FINAL_COLOR_FIELDS.filter(k=>Object.hasOwn(c,k)).map(k=>[k,structuredClone(c[k])])));
  out.photos=photos;out.unassigned_photos=photos.filter(url=>!out.colors.some(c=>c.photos.includes(url)));
- out.name=out.marketing_name_uk=finalTitle(p);out.description=finalDescription(p);
+ // U+02BC is missing from the storefront fonts (the word breaks into «Ім ʼ я»): publish the typographic apostrophe ’.
+ const typo=t=>String(t??'').replace(/(?<=\p{L})\u02bc(?=\p{L})/gu,'\u2019');
+ out.name=out.marketing_name_uk=typo(finalTitle(p));out.description=typo(finalDescription(p));if(out.model_name)out.model_name=typo(out.model_name);
  out.category=canonicalPath(out.canonical_category_id);out.category_path=out.category.split(' / ');
  out.publication_state='ACTIVE';out.publication={state:'READY',decision_version:FINAL_WORKFLOW_VERSION};
  out.pricing_policy_version=1;

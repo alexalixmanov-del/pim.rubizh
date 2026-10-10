@@ -179,3 +179,12 @@ test('a confirmed supplier mapping is applied to a freshly imported card (not tr
  const q=h.product({id:'p-man',name:'Маскувальна сітка M-Win Хижак 3х6 м',canonical_category_id:'camouflage_antidrone',category_locked:true,variants:p.variants.map(v=>({...v,sku:'RUB-M'}))});h.add(q);h.run('classificationApplyProduct(S.products.get("p-man"))');
  assert.equal(h.run('S.products.get("p-man").canonical_category_id'),'camouflage_antidrone','manual lock wins');
 });
+test('public identity: digit segments stay in the title, two active cards never share one public title as READY, slug follows the title',()=>{
+ const h=setup();
+ assert.equal((()=>{h.ctx.x={name:'Штани "Піхота" Розмір: 50/4',variants:[{offers:{a:{original_name:'Штани "Піхота", Піксель |Розмір: 50/4'}}}]};return h.run('finalTitle(x)');})(),'Штани "Піхота" Розмір: 50/4');
+ card(h,'p-a','Зимовий костюм горка','clothing_suits',[['RUB-A','Мультикам',offer('G-A'),'50']],{brand:'Stimul'});
+ card(h,'p-b','Зимовий костюм горка','clothing_suits',[['RUB-B','Піксель',offer('G-B'),'52']],{brand:''});
+ h.run('bumpData()');for(const id of ['p-a','p-b']){const d=state(h,id);assert.equal(d.state,'MODERATION');assert.ok(d.reasons.some(r=>r.code==='grouping'&&String(r.evidence).includes('Та сама назва')));}
+ const s=setup();card(s,'p-s','Тактичні шорти BR Stinger Стрейч, сірі Літо, ТрО','clothing_shorts',[['RUB-S','Сірий',offer('ST',{original_name:'Тактические шорты BR Stinger | Стрейч, серые | Лето, ТрО'}),'S']]);
+ const w=JSON.parse(JSON.stringify(s.run('finalWireProduct(S.products.get("p-s"))')));assert.equal(w.name,'Тактичні шорти BR Stinger');assert.equal(w.slug,s.run('slugify("Тактичні шорти BR Stinger")'));
+});
