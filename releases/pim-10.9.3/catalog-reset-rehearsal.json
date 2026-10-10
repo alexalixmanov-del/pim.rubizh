@@ -12,7 +12,7 @@
       "content": 3115,
       "import_logs": 13
     },
-    "backup_sha256": "a491e2abf16bda3405c9cf68770dd16e62d3677af5358c901893cc874329d015"
+    "backup_sha256": "a891797e6b370abd0df9d335a6d3545ab45d5c862348044c4f5533497c523c21"
   },
   "after": {
     "products": 0,
@@ -65,7 +65,7 @@
         "categoryPath": "Шлях категорії постачальника"
       },
       "applied": true,
-      "ms": 167628,
+      "ms": 173045,
       "products_after": 902,
       "queue_after": 0
     },
@@ -98,8 +98,8 @@
         "categoryPath": "Шлях категорії постачальника"
       },
       "applied": true,
-      "ms": 121023,
-      "products_after": 1527,
+      "ms": 121943,
+      "products_after": 1528,
       "queue_after": 0
     },
     {
@@ -121,8 +121,8 @@
         "descFallback": "Опис"
       },
       "applied": true,
-      "ms": 99328,
-      "products_after": 1970,
+      "ms": 90719,
+      "products_after": 1971,
       "queue_after": 4
     },
     {
@@ -154,8 +154,8 @@
         "categoryPath": "Шлях категорії постачальника"
       },
       "applied": true,
-      "ms": 685490,
-      "products_after": 3911,
+      "ms": 617883,
+      "products_after": 3912,
       "queue_after": 15
     },
     {
@@ -187,56 +187,56 @@
         "categoryPath": "Шлях категорії постачальника"
       },
       "applied": true,
-      "ms": 669494,
-      "products_after": 4231,
+      "ms": 283698,
+      "products_after": 4232,
       "queue_after": 15
     }
   ],
   "quality": {
-    "models": 4231,
+    "models": 4232,
     "skus": 8187,
     "duplicate_model_ids": 0,
     "duplicate_skus": 0,
     "duplicate_supplier_bindings": 0,
-    "same_name_brand_models": 1240,
+    "same_name_brand_models": 1221,
     "skus_without_supplier_offer": 0,
     "offers_not_in_source": 0,
     "variants_sharing_one_supplier_sku": 0,
-    "multi_color_models": 254,
-    "colors": 4697,
+    "multi_color_models": 289,
+    "colors": 4645,
     "colors_without_photos": 3,
-    "photos_shared_between_colors": 99,
+    "photos_shared_between_colors": 79,
     "models_without_usable_photo": 0,
     "size_status": {
-      "ONE_SIZE": 30,
-      "NO_SIZE_REQUIRED": 2594,
-      "SIZE_CONFIRMATION_REQUIRED": 1215,
-      "EXACT_SIZE": 4348
+      "ONE_SIZE": 88,
+      "NO_SIZE_REQUIRED": 2581,
+      "SIZE_CONFIRMATION_REQUIRED": 1112,
+      "EXACT_SIZE": 4406
     },
-    "size_options": 1176,
-    "without_category": 876,
+    "size_options": 1166,
+    "without_category": 654,
     "price_zero_ready_skus": 1,
     "margin_blocked_skus": 0,
     "availability": {
-      "IN_STOCK": 4695,
-      "SIZE_CONFIRMATION_REQUIRED": 1215,
-      "OUT_OF_STOCK": 928,
-      "UNKNOWN": 1349
+      "IN_STOCK": 4776,
+      "SIZE_CONFIRMATION_REQUIRED": 1112,
+      "OUT_OF_STOCK": 931,
+      "UNKNOWN": 1368
     },
     "by_supplier": {
       "sf0t3l7jegf9": {
         "skus": 924,
         "availability": {
-          "IN_STOCK": 868,
-          "SIZE_CONFIRMATION_REQUIRED": 55,
+          "IN_STOCK": 873,
+          "SIZE_CONFIRMATION_REQUIRED": 50,
           "OUT_OF_STOCK": 1
         }
       },
       "s4p9slmnn0ki": {
         "skus": 1512,
         "availability": {
-          "UNKNOWN": 1349,
-          "SIZE_CONFIRMATION_REQUIRED": 163
+          "UNKNOWN": 1368,
+          "SIZE_CONFIRMATION_REQUIRED": 144
         }
       },
       "s2akya7xoafn": {
@@ -249,35 +249,37 @@
       "s2bggyi42dhh": {
         "skus": 3903,
         "availability": {
-          "SIZE_CONFIRMATION_REQUIRED": 598,
-          "OUT_OF_STOCK": 680,
-          "IN_STOCK": 2625
+          "SIZE_CONFIRMATION_REQUIRED": 523,
+          "OUT_OF_STOCK": 683,
+          "IN_STOCK": 2697
         }
       },
       "s2hjvaqgnp29": {
         "skus": 1405,
         "availability": {
-          "IN_STOCK": 1143,
+          "IN_STOCK": 1147,
           "OUT_OF_STOCK": 247,
-          "SIZE_CONFIRMATION_REQUIRED": 15
+          "SIZE_CONFIRMATION_REQUIRED": 11
         }
       }
     },
     "decisions": {
-      "READY": 1528,
-      "MODERATION": 2670,
-      "REJECTED": 29,
-      "ARCHIVED": 4
+      "READY": 1698,
+      "MODERATION": 2393,
+      "REJECTED": 31,
+      "ARCHIVED": 110
     },
     "reasons": {
       "REJECTED": {
-        "NO_DESCRIPTION": 13,
+        "NO_DESCRIPTION": 15,
         "RESTRICTED": 16
       },
       "MODERATION": {
-        "grouping": 2191,
-        "category": 843,
-        "color": 95,
+        "grouping": 3625,
+        "price_unit": 47,
+        "category": 520,
+        "variant_cell": 39,
+        "color": 72,
         "photo_ownership": 3
       }
     },
@@ -289,18 +291,18 @@
     }
   },
   "wire": {
-    "models": 1528,
-    "skus": 2820,
+    "models": 1698,
+    "skus": 3458,
     "duplicate_skus": 0,
     "categories": 143,
     "hide_ids": 0,
-    "catalog_revision": "b6064c6ac9e77a3b",
-    "sha256": "cf99cde1422f06a01fc4aabaf2456f921c54db82d7bec655731874a6c2bb7a99"
+    "catalog_revision": "a191899fa0aef100",
+    "sha256": "9ed69376fccdf01c0ace80cecc94bd24620c9cd715f3e0ba80a97f8f4913525b"
   },
   "timing_ms": {
-    "migration_ms": 66287,
-    "reset_ms": 59507,
-    "wire_export_ms": 11114
+    "migration_ms": 80482,
+    "reset_ms": 52278,
+    "wire_export_ms": 11075
   },
   "network_requests": 0
 }
