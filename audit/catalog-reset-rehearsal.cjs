@@ -25,7 +25,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
   h.run('S.imp={sup:supId,file:download.url.split("/").pop(),rows:parsed.rows,hdr:parsed.hdr,sheet:parsed.sheet,sheets:parsed.sheets,wb:parsed.wb||null,zero:true,xml:parsed.sheet==="XML"};remap()');return {file,parsed};};
  let pricesPreview=null;
  if(process.env.PRICES_PREVIEW){const digest=()=>sha(h.run('JSON.stringify([...S.products.values()])')),start=digest(),csv=[],summaries=[];
-  for(const src of JSON.parse(fs.readFileSync(sourcesPath,'utf8'))){await loadSource(src);await h.run('doImport()');const r=JSON.parse(h.run('JSON.stringify(autopricesPreview())'));h.run('cancelImport(true)');
+  for(const src of JSON.parse(fs.readFileSync(sourcesPath,'utf8'))){await loadSource(src);await h.run('doImport()');const r=JSON.parse(h.run('JSON.stringify(autopricesPreview())'));h.run('cancelImport(true);S.imp=null');
    h.ctx.__prices=r;csv.push(...h.run('autopricesPreviewCsv(__prices)').trim().split('\n').slice(csv.length?1:0));const {top_increases,...sum}=r.summary;summaries.push({supplier_id:src.supplier_id,...sum,top_increases:top_increases.slice(0,20).map(x=>({sku:x.sku,current_price:x.current_price,proposed_price:x.proposed_price,delta_pct:x.delta_pct}))});}
   fs.writeFileSync(process.env.PRICES_PREVIEW,csv.join('\n')+'\n');fs.chmodSync(process.env.PRICES_PREVIEW,0o600);pricesPreview={mode:'PREVIEW',autoprices_enabled:false,catalog_unchanged:digest()===start,by_supplier:summaries};}
  const keepBefore=cfgKeep(),before={products:h.run('S.products.size'),skus:h.run('[...S.products.values()].reduce((n,p)=>n+p.variants.length,0)')};
