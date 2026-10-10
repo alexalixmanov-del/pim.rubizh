@@ -233,3 +233,16 @@ test('import path: M-WIN net rows of one supplier group become one model with W�
  const net=models.find(m=>m.v.length===2);assert.ok(net,JSON.stringify(models));assert.deepEqual(net.v.map(x=>x[2]).sort(),['2×3 м','3×4 м']);
  assert.equal(models.filter(m=>m.v.length===1).length,1,'the per-m² row is its own card');assert.equal(h.run('[...S.products.values()].reduce((n,p)=>n+p.variants.length,0)'),3,'no SKU invented');
 });
+test('one supplier group per colour (M-WIN antidrone nets): each colour\'s size cards become that colour\'s model; per-m² cards stay out; colour stays in the title',()=>{
+ const h=mwinSetup(),T='Антидронова маскувальна сітка M-WIN';let n=0;
+ const card=(colour,code,sel)=>{const id='a'+(++n),name=T+' '+colour+(/х/.test(sel)?' '+sel+' м (площа '+sel.split('х').reduce((a,b)=>a*b,1)+' кв.м.)':' індивідуального розміру (ціна за 1 кв.м.)');
+  const p=net(h,id,name,'AD-'+code+'-'+n,sel,{source_model:code});h.ctx.pid=id;h.run(`S.products.get(pid).variants[0].camouflage=${JSON.stringify(colour)};classificationApplyProduct(S.products.get(pid))`);return id;};
+ const px=[card('Піксель','80469','2х6'),card('Піксель','80469','3х4'),card('Піксель','80469','Індивідуальний розмір')];
+ const mc=[card('Мультикам','5469','2х6'),card('Мультикам','5469','3х4'),card('Мультикам','5469','Індивідуальний розмір')];
+ h.run('bumpData()');const plan=JSON.parse(h.run('JSON.stringify(mcPlan())'));
+ const auto=plan.automatic.map(g=>({ids:g.ids,name:g.name}));
+ assert.deepEqual(auto.map(g=>g.ids).sort(),[px.slice(0,2).sort(),mc.slice(0,2).sort()].sort(),JSON.stringify(plan.groups.map(g=>[g.ids,g.automatic,g.reasons])));
+ assert.ok(auto.some(g=>/Піксель/.test(g.name))&&auto.some(g=>/Мультикам/.test(g.name)),JSON.stringify(auto));
+ assert.ok(auto.every(g=>!/\d×\d|\dх\d|площа/.test(g.name)),'own sizes are not in the model name');
+ h.run('mcMigrate()');assert.equal(state(h,px[2]).state,'MODERATION');assert.ok(state(h,px[2]).reasons.some(r=>r.code==='price_unit'));
+});

@@ -10048,7 +10048,12 @@ const mcPlan=memoByData(function(){
  const groups=[];for(const products of buckets.values()){if(products.length<2)continue;const group=mcGroup(products,mcIdentity(products[0]));groups.push(group);
   // Without the whole size family proven, the cards of one size (title still naming it) are judged on their own.
   if(!group.automatic){const exact=new Map();for(const p of products){const k=mcIdentity(p,{keepSize:true}).key;if(!exact.has(k))exact.set(k,[]);exact.get(k).push(p);}
-   if(exact.size>1)for(const part of exact.values())if(part.length>1){const sub=mcGroup(part,mcIdentity(part[0],{keepSize:true}));if(sub.automatic)groups.push(sub);}}
+   const used=new Set();if(exact.size>1)for(const part of exact.values())if(part.length>1){const sub=mcGroup(part,mcIdentity(part[0],{keepSize:true}));if(sub.automatic){groups.push(sub);sub.ids.forEach(id=>used.add(id));}}
+   // One supplier group code = one colour of one model (M-WIN nets: one group per colour, W×H sizes inside): its size
+   // cards form that colour's model on their own. Per-m² cards never join a fixed-price model; the colour stays in the name.
+   const byCode=new Map();for(const p of products){if(used.has(p.id)||(p.variants||[]).some(finalUnitPriced))continue;const c=mcIdentity(p).codes;if(c.length!==1)continue;if(!byCode.has(c[0]))byCode.set(c[0],[]);byCode.get(c[0]).push(p);}
+   for(const [code,part] of byCode){if(part.length<2||byCode.size<2&&part.length===products.length)continue;const titles=uniq(part.map(p=>norm(mcStripOwnSize(String(p.model_name||p.name||''),p).replace(/[()]/g,' '))));if(titles.length!==1)continue;
+    const base=mcIdentity(part[0]),title=mcStripOwnSize(String(part[0].model_name||part[0].name||''),part[0]).replace(/[()]/g,' ').replace(/\s+/g,' ').trim(),sub=mcGroup(part,{...base,name:title,key:base.key+'|code:'+code});if(sub.automatic)groups.push(sub);}}
  }return {version:1,groups,automatic:groups.filter(g=>g.automatic),review:groups.filter(g=>!g.automatic)};
 });
 function mcMergeGroup(group,{manual=false}={}){
