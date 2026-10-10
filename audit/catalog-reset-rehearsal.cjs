@@ -2,11 +2,12 @@
 // Staging rehearsal of the full catalog reset on a private PIM backup, all network disabled:
 // migration → approved price policy (owner path) → reset → every supplier file through the shipped import pipeline
 // (saved supplier mapping) → quality checks → contract-3 wire. Writes an aggregate report and the private wire.
-// Usage: node audit/catalog-reset-rehearsal.cjs BACKUP.json SOURCES.json REPORT.json WIRE.json
+// Usage: node audit/catalog-reset-rehearsal.cjs BACKUP.json SOURCES.json REPORT.json WIRE.json [DETAIL.jsonl]
+//   DETAIL.jsonl (optional, private): per-product/queue audit lines (audit/import-audit.cjs) for the owner breakdowns
 //   SOURCES.json: [{"supplier_id":"…","file":"/private/…"}] in import order
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{performance}=require('node:perf_hooks');
 const {createHarness,appRequire}=require('../app/tests/isolated-harness.cjs');
-const [backupPath,sourcesPath,reportPath,wirePath]=process.argv.slice(2);if(!wirePath)throw Error('Usage: BACKUP SOURCES REPORT WIRE');
+const [backupPath,sourcesPath,reportPath,wirePath,detailPath]=process.argv.slice(2);if(!wirePath)throw Error('Usage: BACKUP SOURCES REPORT WIRE');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 (async()=>{
  let bytes=fs.readFileSync(backupPath),source=JSON.parse(bytes);const backupSha=sha(bytes),h=createHarness({runtime:true,production:true}),timing={};
@@ -35,6 +36,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
   await h.run('doImport()');const applied=await h.run('applyImport()');
   imports.push({supplier_id:src.supplier_id,file_sha256:sha(file),rows:parsed.rows.length-parsed.hdr-1,mapped:map,applied,ms:Math.round(performance.now()-t0),products_after:h.run('S.products.size'),queue_after:h.run('S.queue.size')});
  }
+ if(detailPath)require('./import-audit.cjs').writeDetail(h,detailPath);
  // Quality checks on the new catalog.
  const q=h.run(`(()=>{
   const out={models:0,skus:0,duplicate_model_ids:0,duplicate_skus:0,duplicate_supplier_bindings:(S.dupLinks||[]).length,same_name_brand_models:0,
@@ -47,7 +49,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
    const nk=(finalTitle(p)||p.name||'').toLowerCase().trim()+'|'+(p.brand||'').toLowerCase();nameSeen.set(nk,(nameSeen.get(nk)||0)+1);
    const d=finalDecision(p);out.decisions[d.state]++;if(out.reasons[d.state])for(const r of d.reasons)out.reasons[d.state][r.code]=(out.reasons[d.state][r.code]||0)+1;
    if(!p.canonical_category_id)out.without_category++;
-   if(!finalUsablePhotos(p).length)out.models_without_usable_photo++;
+   if(!p.archived&&!finalUsablePhotos(p).length)out.models_without_usable_photo++;
    const colors=mcColors(p);out.colors+=colors.length;if(colors.length>1)out.multi_color_models++;
    const photoOwners=new Map();for(const c of colors){if(!c.photos.length)out.colors_without_photos++;for(const u of c.photos)photoOwners.set(u,(photoOwners.get(u)||0)+1);}
    for(const n of photoOwners.values())if(n>1)out.photos_shared_between_colors++;

@@ -8,7 +8,9 @@ function mcColors(p){
   if(v.photos?.length){g.photos.push(...mcValidPhotos(v.photos));g.sources.push({kind:'variant',sku:v.sku});}
   for(const [sid,o] of Object.entries(p.fieldMeta?.photos?.source==='manual'?{}:v.offers||{})){const raw=o.native_color||o.color_raw;if((!raw||mcColor({color:raw,camouflage:o.camouflage}).key===c.key)&&o.photos?.length){g.photos.push(...mcValidPhotos(o.photos));g.sources.push({kind:'offer',supplier_id:sid,supplier_sku:o.s,sku:v.sku});}}
  }
- if(groups.size===1){const g=[...groups.values()][0];g.photos.push(...mcValidPhotos(p.photos));g.sources.push({kind:'single_color_product',product_id:p.id});}
+ // The card gallery is shared content (same base name across colour cards) and may hold other colours' photos:
+ // it belongs to the only colour only when no SKU-bound (offer/variant) photo exists for it.
+ if(groups.size===1){const g=[...groups.values()][0];if(!g.photos.length){g.photos.push(...mcValidPhotos(p.photos));g.sources.push({kind:'single_color_product',product_id:p.id});}}
  for(const saved of p.model_color_sources||[]){const g=groups.get(mcColor({color:saved.color,camouflage:saved.camouflage}).key);if(g){g.photos.push(...mcValidPhotos(saved.photos));g.sources.push({kind:'source_product',product_id:saved.product_id});}}
  return [...groups.values()].map(g=>({...g,photos:uniq(g.photos),variant_skus:uniq(g.variant_skus),photo_assignment:g.photos.length?'source_associated':'unknown'}));
 }
@@ -18,13 +20,23 @@ function mcClean(raw,p){
  s=s.replace(/(^|[^\p{L}\p{N}])(?:чорн(?:а|ий|і|е)|черн(?:ая|ый|ые|ое)|black|multicam|мультикам|олива|оливков(?:а|ий|ый|ая)|olive|coyote|койот|khaki|хакі|хаки)(?=$|[^\p{L}\p{N}])/giu,'$1 ').replace(/\(\s*(?:темн(?:ий|ый)|dark)\s*\)\s*$/iu,'');
  return s.replace(/[()]/g,' ').replace(/\s+/g,' ').trim();
 }
-function mcIdentity(p){const clean=mcClean(p.model_name||p.name,p),name=clean.charAt(0).toLocaleUpperCase('uk-UA')+clean.slice(1),category=p.canonical_category_id||p.last_confirmed_category_id||categoryIdForPath(p.category)||p.category,suppliers=uniq((p.variants||[]).flatMap(v=>Object.keys(v.offers||{}))).sort(),codes=uniq([p.modelArticle,p.model_code,...(p.variants||[]).flatMap(v=>Object.values(v.offers||{}).map(o=>o.source_model))].filter(Boolean).map(norm));return {name,category,suppliers,codes,key:JSON.stringify([norm(name),category,norm(p.brand||''),suppliers])};}
+// A card that is one size slice of a model (Kiborg: «Пояс РПС … (S)», «… (M)») carries that SKU size in its title; the
+// size is a variant value, not part of the model name. Only approved EXACT sizes of the card's own SKU are removed.
+function mcStripOwnSize(text,p){
+ const sizes=uniq((p.variants||[]).filter(v=>v.size_status==='EXACT_SIZE'&&v.size).map(v=>String(v.size)));if(sizes.length!==1)return String(text||'').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim()||text;
+ const escaped=[...sizes[0]].map(ch=>({M:'[MМ]',X:'[XХ]'}[ch.toUpperCase()]||ch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'))).join(''),out=String(text||'').replace(new RegExp('(^|[^\\p{L}\\p{N}-])(?:(?:розмір|размер|size)\\s*)?\\(?\\s*'+escaped+'\\s*\\)?(?=$|[^\\p{L}\\p{N}-])','giu'),'$1 ').replace(/\s+/g,' ').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim();
+ return out.length>=3?out:text;
+}
+function mcIdentity(p,{keepSize=false}={}){const cleaned=mcClean(p.model_name||p.name,p),clean=keepSize?cleaned:mcStripOwnSize(cleaned,p),name=clean.charAt(0).toLocaleUpperCase('uk-UA')+clean.slice(1),category=p.canonical_category_id||p.last_confirmed_category_id||categoryIdForPath(p.category)||p.category,suppliers=uniq((p.variants||[]).flatMap(v=>Object.keys(v.offers||{}))).sort(),codes=uniq([p.modelArticle,p.model_code,...(p.variants||[]).flatMap(v=>Object.values(v.offers||{}).map(o=>o.source_model))].filter(Boolean).map(norm));return {name,category,suppliers,codes,key:JSON.stringify([norm(name),category,norm(p.brand||''),suppliers])};}
 function mcReasons(products){
  const why=[],first=products[0],identity=mcIdentity(first),all=products.flatMap(p=>p.variants||[]),codes=uniq(products.flatMap(p=>mcIdentity(p).codes));
  if(products.some(p=>p.model_grouping_locked))why.push('Ручное разделение модели зафиксировано');
  if(products.some(p=>p.simple_publish_disabled||p.fieldMeta?.pub?.source==='manual'&&p.pub===false))why.push('Различаются ручные правила публикации');
  if(products.some(p=>mcIdentity(p).key!==identity.key))why.push('Различаются модель, категория, бренд или поставщики');
- if(codes.length>1)why.push('Поставщик передал разные коды модели');
+ // Supplier group codes that only slice one model (each card one colour or one size, cells disjoint, one code per card)
+ // do not contradict it; anything else stays a contradiction. Strong evidence is still required for an automatic merge.
+ const codeSets=products.map(p=>mcIdentity(p).codes),slices=codeSets.every(c=>c.length>0)&&new Set(codeSets.flat()).size===codeSets.flat().length&&products.every(p=>new Set((p.variants||[]).map(v=>mcColor(v).key)).size===1||(p.variants||[]).every(v=>v.size)&&new Set((p.variants||[]).map(v=>norm(v.size))).size===1);
+ if(codes.length>1&&!slices)why.push('Поставщик передал разные коды модели');
  if(new Set(all.map(v=>v.sku)).size!==all.length)why.push('Повторяется RUB-SKU');
  const ownership=new Map(),cells=new Map();for(const p of products)for(const v of p.variants){const cell=mcColor(v).key+'|'+norm(v.size||'');if(cells.has(cell)&&cells.get(cell)!==p.id)why.push('Один цвет и размер принадлежат разным исходным карточкам');else cells.set(cell,p.id);for(const [sid,o] of Object.entries(v.offers||{})){const k=sid+'|'+o.s;if(o.s&&ownership.has(k)&&ownership.get(k)!==v.sku)why.push('Артикул поставщика привязан к нескольким SKU');else ownership.set(k,v.sku);}}
  if(all.length>modelLimit(first))why.push('Превышен лимит вариантов');
@@ -35,11 +47,17 @@ function mcReasons(products){
  if(products.some(p=>p.fieldMeta?.desc?.source==='manual')&&products.some(p=>p.desc!==first.desc))why.push('Различаются ручные описания');
  return uniq(why);
 }
+function mcGroup(products,id){
+ const reasons=mcReasons(products),latin=uniq((id.name.match(/[a-z][a-z0-9-]{2,}/gi)||[]).map(norm).filter(t=>!['tactical','pouch','jacket','pants','black','olive','multicam','shirt','pack','double','mag','winter','softshell'].includes(t))),desc=p=>norm(mcClean(ceSourcePlain(simpleSource(p)),p)),sameDescription=desc(products[0]).length>=200&&products.every(p=>desc(p)===desc(products[0]));
+ const strong=!reasons.length&&(id.codes.length===1&&products.every(p=>mcIdentity(p).codes[0]===id.codes[0])||latin.length>=3&&sameDescription);
+ return {key:id.key,name:id.name,ids:products.map(p=>p.id).sort(),variants:products.reduce((n,p)=>n+p.variants.length,0),colors:uniq(products.flatMap(p=>mcColors(p).map(c=>c.key))).length,automatic:strong,reasons:reasons.length?reasons:strong?[]:['Название похоже, но код модели или полное совпадение источника не подтверждены']};
+}
 const mcPlan=memoByData(function(){
  const buckets=new Map();for(const p of S.products.values()){if(p.archived||p.merged_into||!p.variants?.length||p.model_grouping_locked)continue;const id=mcIdentity(p);if(!buckets.has(id.key))buckets.set(id.key,[]);buckets.get(id.key).push(p);}
- const groups=[];for(const products of buckets.values()){if(products.length<2)continue;const id=mcIdentity(products[0]),reasons=mcReasons(products),latin=uniq((id.name.match(/[a-z][a-z0-9-]{2,}/gi)||[]).map(norm).filter(t=>!['tactical','pouch','jacket','pants','black','olive','multicam','shirt','pack','double','mag','winter','softshell'].includes(t))),desc=p=>norm(mcClean(ceSourcePlain(simpleSource(p)),p)),sameDescription=desc(products[0]).length>=200&&products.every(p=>desc(p)===desc(products[0]));
-  const strong=!reasons.length&&(id.codes.length===1&&products.every(p=>mcIdentity(p).codes[0]===id.codes[0])||latin.length>=3&&sameDescription);
-  groups.push({key:id.key,name:id.name,ids:products.map(p=>p.id).sort(),variants:products.reduce((n,p)=>n+p.variants.length,0),colors:uniq(products.flatMap(p=>mcColors(p).map(c=>c.key))).length,automatic:strong,reasons:reasons.length?reasons:strong?[]:['Название похоже, но код модели или полное совпадение источника не подтверждены']});
+ const groups=[];for(const products of buckets.values()){if(products.length<2)continue;const group=mcGroup(products,mcIdentity(products[0]));groups.push(group);
+  // Without the whole size family proven, the cards of one size (title still naming it) are judged on their own.
+  if(!group.automatic){const exact=new Map();for(const p of products){const k=mcIdentity(p,{keepSize:true}).key;if(!exact.has(k))exact.set(k,[]);exact.get(k).push(p);}
+   if(exact.size>1)for(const part of exact.values())if(part.length>1){const sub=mcGroup(part,mcIdentity(part[0],{keepSize:true}));if(sub.automatic)groups.push(sub);}}
  }return {version:1,groups,automatic:groups.filter(g=>g.automatic),review:groups.filter(g=>!g.automatic)};
 });
 function mcMergeGroup(group,{manual=false}={}){

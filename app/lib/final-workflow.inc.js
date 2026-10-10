@@ -25,19 +25,47 @@ const FINAL_MODERATION_TEXT={
  price_policy:['Правило маржи дорогих товаров','Подтвердите правило маржи для всей группы.'],
  size:['Размер требует подтверждения','Подтвердите размер; до этого возможна только заявка без оплаты.'],
  inventory:['Правило наличия поставщика','Подтвердите значение колонки наличия у поставщика; до этого наличие UNKNOWN и оплата закрыта.'],
- model:['Неясно, одна это модель или разные','Решите: объединить в одну модель или оставить отдельно.']
+ model:['Неясно, одна это модель или разные','Решите: объединить в одну модель или оставить отдельно.'],
+ price_unit:['Цена за единицу площади, не за товар','Поставщик продаёт индивидуальный размер по цене за 1 кв.м: такую цену нельзя оплачивать как цену товара. Решите, как продавать (заявка с расчётом) или снимите с сайта.'],
+ variant_cell:['Варианты не различаются на сайте','У нескольких SKU одинаковые цвет и размер: укажите размер/цвет каждого SKU или разделите модель.']
 };
 function finalUsablePhotos(p){return simplePhotos(p).filter(url=>p.photoMeta?.[url]?.broken!==true&&p.photoMeta?.[url]?.invalid!==true);}
-function finalTitle(p){return String(p.marketing_name_uk||p.model_name||p.name||'').trim();}
+// Supplier titles join descriptor segments with «|» («Тактические шорты BR Stinger | Стрейч, серые | Лето, ТрО, …»). When
+// every segment after the first carries no model identity (no digit and no Latin word once colour/size words are gone,
+// or a «Розмір: …» label), the public title is cut back to the first segment — only if the title verifiably starts
+// with it (colour words ignored). Nothing is added or reworded; manual titles are untouched.
+const FINAL_TITLE_SIZE=/^(?:XXS|XS|S|M|L|XL|XXL|XXXL|[2-6]XL|\d{2}(?:[/-]\d{1,2})?)$/iu;
+const finalTitleWords=t=>String(t||'').split(/[\s,;:()«»"|]+/u).filter(Boolean);
+function finalTitleColorWord(w){const x=RubizhModel.palette(w);return !!(x.color||x.camouflage);}
+function finalTitleHead(p){
+ for(const v of p.variants||[])for(const o of Object.values(v.offers||{})){const segs=String(o.original_name||o.source_name||'').split('|').map(x=>x.trim());if(segs.length<2||!segs[0])continue;
+  const noise=segs.slice(1).every(t=>!t||/^(?:розмір|размер|size)\b/iu.test(t)||!finalTitleWords(t).filter(w=>!FINAL_TITLE_SIZE.test(w)&&!finalTitleColorWord(w)).some(w=>/\d|[a-z]{2}/iu.test(w)));
+  if(noise)return autoUkText(segs[0]);}
+ return '';
+}
+// Same word across the two RU→UA translators (штормовая/штормова): equal, or a shared stem of ≥4 letters that differs only in the ending.
+function finalTitleSameWord(a,b){if(a===b)return true;const n=Math.min(a.length,b.length),k=Math.max(4,n-2);return n>=4&&a.slice(0,k)===b.slice(0,k);}
+function finalTitle(p){
+ const raw=String(p.marketing_name_uk||p.model_name||p.name||'').trim();
+ if(!raw.includes(' ')||p.manual_locks?.marketing_name_uk||p.fieldMeta?.name?.source==='manual')return raw;
+ const head=finalTitleHead(p);if(!head)return raw;
+ const want=finalTitleWords(head).filter(w=>!finalTitleColorWord(w)&&!FINAL_TITLE_SIZE.test(w)).map(norm);if(want.length<2)return raw;
+ const re=/[^\s,;:()«»"|]+/gu;let m,i=0,cut=-1;
+ while((m=re.exec(raw))){const w=m[0];if(finalTitleColorWord(w)||FINAL_TITLE_SIZE.test(w))continue;if(!finalTitleSameWord(norm(w),want[i]))return raw;i++;if(i===want.length){cut=m.index+w.length;break;}}
+ if(cut<0)return raw;const out=raw.slice(0,cut).replace(/[\s,;:|–—-]+$/u,'').trim();
+ return out.length<raw.length?out:raw;
+}
 // Performance only: the generated description is a pure function of the chosen source text, the manual flag, the
 // name and the translation glossary. Reuse it while those are identical (a 3 113-product catalog re-translated
 // every render otherwise took minutes).
 // The memo also survives restarts in a separate derived-cache IndexedDB (never synced, never in backups, no
 // business data): entries are keyed by a hash of every input plus the PIM version, so any change recomputes.
+// Bumped whenever the description rules change, so cached descriptions (also persisted) are rebuilt.
+const FINAL_DESCRIPTION_RULES='2';
 const FINAL_DESCRIPTION_MEMO=new Map(),finalUncachedSimpleDescription=simpleDescription;
 const FINAL_DERIVED_CACHE={db:'rubizh_pim_derived_cache_v1',key:'final-descriptions',dirty:false,timer:null};
 simpleDescription=function(p){
- const key=fnvHash(PIM_VERSION+'\u0000'+(p.fieldMeta?.desc?.source==='manual'?'M':'A')+'\u0000'+(p.name||'')+'\u0000'+ceTranslationSignature()+'\u0000'+simpleSource(p)),hit=FINAL_DESCRIPTION_MEMO.get(p.id);
+ const key=fnvHash(PIM_VERSION+'\u0000'+FINAL_DESCRIPTION_RULES+'\u0000'+(p.fieldMeta?.desc?.source==='manual'?'M':'A')+'\u0000'+(p.name||'')+'\u0000'+ceTranslationSignature()+'\u0000'+simpleSource(p)),hit=FINAL_DESCRIPTION_MEMO.get(p.id);
  if(hit&&hit.key===key)return hit.out;
  const out=finalUncachedSimpleDescription(p);FINAL_DESCRIPTION_MEMO.set(p.id,{key,out});finalDerivedCacheSaveSoon();return out;
 };
@@ -60,6 +88,27 @@ function finalDescription(p){return classificationEnabled()?classificationDescri
 const finalSkuCounts=memoByData(function(){const counts=new Map();for(const p of S.products.values())if(!p.archived)for(const v of p.variants||[]){const key=String(v.sku||'').trim().toLowerCase();if(key)counts.set(key,(counts.get(key)||0)+1);}return counts;});
 const finalModelReview=memoByData(function(){try{return new Set(mcPlan().review.flatMap(g=>g.ids));}catch{return new Set();}});
 function finalOwnerUnpublished(p){return !!p.simple_publish_disabled||p.fieldMeta?.pub?.source==='manual'&&p.pub===false;}
+// The supplier's own SKU size labels (dedicated SKU field, not shared between SKUs, not a range/list) for SKUs whose size awaits
+// confirmation, used only where they tell such SKUs of one colour apart (all present and distinct). They never confirm
+// the size or make a SKU payable; a single SKU or an incomplete set keeps no label.
+function finalSupplierSizeLabel(v){
+ const offers=Object.values(v?.offers||{}).filter(o=>!o.sharedSku||v.source_review_confirmed===true);
+ const labels=uniq(offers.map(o=>String(o.structured_size??o.size_raw??o.native_size??'').replace(/^[\s:]+/u,'').replace(/\s+/g,' ').trim()).filter(Boolean));
+ // A range or list (42–60, M-L, 40-42, S/M/L) describes the model's sizes, never one SKU: it is not a SKU label.
+ return labels.length===1&&labels[0].length<=60&&!['SIZE_RANGE','SIZE_LIST'].includes(RubizhSizeEvidence.parse(labels[0],{scope:'sku'})?.kind)?labels[0]:'';
+}
+function finalSizeLabels(p){
+ const byColor=new Map(),out=new Map();
+ for(const v of p.variants||[]){const z=simpleSize(p,v);if(z.size_status!=='SIZE_CONFIRMATION_REQUIRED'||z.size_display)continue;const k=mcColor(v).key;if(!byColor.has(k))byColor.set(k,[]);byColor.get(k).push(v);}
+ for(const list of byColor.values()){if(list.length<2)continue;const labels=list.map(finalSupplierSizeLabel);if(labels.every(Boolean)&&new Set(labels.map(norm)).size===labels.length)list.forEach((v,i)=>out.set(v.sku,labels[i]));}
+ return out;
+}
+// Supplier price per unit area (made-to-measure nets: «індивідуальний розмір», «ціна за 1 кв.м»): not an item price.
+const FINAL_UNIT_PRICE=/(?:ціна|цена)\s+за\s+(?:1\s*)?(?:кв\.?\s*м|м2|м²|квадратн)|індивідуальн\S*\s+розмір|индивидуальн\S*\s+размер/iu;
+function finalUnitPriced(v){return Object.values(v.offers||{}).some(o=>FINAL_UNIT_PRICE.test(String(o.source_name||o.original_name||''))||Object.values(o.source_attributes||{}).some(x=>FINAL_UNIT_PRICE.test(String(x))));}
+// What the site shows for one SKU: colour + size label (NO_SIZE_REQUIRED shows none). Two SKUs with the same public cell
+// cannot be told apart by a buyer, so such a model is never READY.
+function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,mcColor(v).key+'|'+norm(size)];}));}
 const finalDecision=memoProd('final-decision',function(p){
  const reject=[],moderate=[],variants=p.variants||[],add=(list,code,why,evidence=[])=>list.push({code,why,evidence});
  if(p.archived)return {state:'ARCHIVED',reasons:[]};
@@ -81,6 +130,9 @@ const finalDecision=memoProd('final-decision',function(p){
  if(variants.length>modelLimit(p)||finalModelReview().has(p.id))add(moderate,'grouping',FINAL_MODERATION_TEXT.grouping[1],[variants.length+' SKU']);
  const unknownColors=uniq(variants.flatMap(v=>simplePalette(v).unknown));if(unknownColors.length)add(moderate,'color',FINAL_MODERATION_TEXT.color[1],unknownColors.slice(0,5));
  if(classificationEnabled()||mcEnabled()){const colors=mcColors(p);if(colors.length>1&&colors.some(c=>!c.photos.length))add(moderate,'photo_ownership',FINAL_MODERATION_TEXT.photo_ownership[1],colors.filter(c=>!c.photos.length).map(c=>[c.color,c.camouflage].filter(Boolean).join(' / ')||c.id));}
+ const unitPriced=variants.filter(finalUnitPriced);if(unitPriced.length)add(moderate,'price_unit',FINAL_MODERATION_TEXT.price_unit[1],unitPriced.slice(0,5).map(v=>v.sku));
+ const publicCells=finalPublicCells(p),cells=new Map(),same=[];for(const v of variants){const k=publicCells.get(v.sku);if(cells.has(k))same.push(cells.get(k),v.sku);else cells.set(k,v.sku);}
+ if(same.length)add(moderate,'variant_cell',FINAL_MODERATION_TEXT.variant_cell[1],uniq(same).slice(0,6));
  const shared=variants.filter(v=>v.source_binding_status&&v.source_binding_status!=='CONFIRMED');if(shared.length)add(moderate,'binding',FINAL_MODERATION_TEXT.binding[1],shared.slice(0,5).map(v=>v.sku));
  const manualBelow=priced.filter(x=>x.m.margin_blocked);if(manualBelow.length)add(moderate,'price',FINAL_MODERATION_TEXT.price[1],manualBelow.slice(0,5).map(x=>x.v.sku+': '+money(x.c.price)));
  if(simplePricePolicyConflict(p))add(moderate,'price_policy',FINAL_MODERATION_TEXT.price_policy[1]);
@@ -98,6 +150,13 @@ const finalSummary=memoProd('final-summary',function(p){
 function finalModelHash(model){return fnvHash(stableValue105({...model,variants:model.variants.map(v=>{const x={...v};delete x.stock_data_age_hours;delete x.stale_source;return x;})}));}
 const FINAL_COLOR_FIELDS=['id','color','camouflage','photos','variant_skus','photo_assignment'];
 const FINAL_SIZE_TEXT_FIELDS=['size_raw','size_display','size_normalized','size_system','size_type','size_alpha','size_fit','size_height'];
+const FINAL_ALPHA_SIZES=['XXS','XS','S','M','L','XL','XXL','XXXL','4XL','5XL','6XL'];
+function finalSizeRank(v){
+ const raw=String(v.size_normalized??v.size_display??v.size??'').trim().toUpperCase().replace(/^2XL$/,'XXL').replace(/^3XL$/,'XXXL');if(!raw)return 1e9;
+ const alpha=FINAL_ALPHA_SIZES.indexOf(raw);if(alpha>=0)return 1000+alpha;
+ const m=raw.match(/^(\d{2,3})(?:\s*[/-]\s*(\d{1,3}))?$/u);if(m)return 2000+Number(m[1])*100+Number(m[2]||0);
+ return 1e9;
+}
 function finalWireProduct(p){
  const out=simpleProductPayload(simpleAssess(p)),photos=finalUsablePhotos(p);
  out.colors=(out.colors||[]).map(c=>Object.fromEntries(FINAL_COLOR_FIELDS.filter(k=>Object.hasOwn(c,k)).map(k=>[k,structuredClone(c[k])])));
@@ -108,6 +167,11 @@ function finalWireProduct(p){
  out.pricing_policy_version=1;
  // Contract 3 carries size metadata as text (null allowed): numeric sizes parsed by the classifier (41) travel as "41".
  for(const v of out.variants)for(const f of FINAL_SIZE_TEXT_FIELDS)if(typeof v[f]==='number'&&Number.isFinite(v[f]))v[f]=String(v[f]);
+ // Logical size order inside each colour (S, M, L, XL, 2XL…; 44, 46, 48/3, 48/4…); unknown labels keep supplier order last.
+ const colorIndex=new Map(out.colors.map((c,i)=>[c.id,i])),position=new Map(out.variants.map((v,i)=>[v.sku,i]));
+ out.variants.sort((a,b)=>(colorIndex.get(a.color_id)??999)-(colorIndex.get(b.color_id)??999)||finalSizeRank(a)-finalSizeRank(b)||position.get(a.sku)-position.get(b.sku));
+ for(const c of out.colors)c.variant_skus=[...c.variant_skus].sort((a,b)=>out.variants.findIndex(v=>v.sku===a)-out.variants.findIndex(v=>v.sku===b));
+ const sizeLabels=finalSizeLabels(p);for(const v of out.variants)if(v.size_status==='SIZE_CONFIRMATION_REQUIRED'&&!v.size_display&&sizeLabels.has(v.sku)){v.size_raw=sizeLabels.get(v.sku);v.size_display=v.size_raw;}
  for(const v of out.variants){v.photos=out.colors.find(c=>c.id===v.color_id)?.photos||[];
   // Private shipment routing for the SITE server (never public): the offer that prices this SKU.
   const local=p.variants.find(x=>x.sku===v.sku),c=local?calc(p,local):null,o=c?.o||c?.ref,sid=o?.sid||'';

@@ -29,10 +29,13 @@ function classificationEnable(){
 function classificationEnabled(){return S.cfg.classification_version===CLASSIFICATION_VERSION;}
 function classificationHash(value){return fnvHash(stableValue105(value));}
 function classificationSources(p){return (p.variants||[]).flatMap(v=>Object.entries(v.offers||{}).map(([sid,o])=>({...categorySourceRecord(p,sid,o),source_description:o.source_description||'',source_attributes:o.source_attributes||{}})));}
+// Supplier facts for evidence: the card's supplier description, else the description each supplier offer carries
+// (after a clean import the text lives on the offers; the publication path already reads it the same way).
+function classificationSupplierDescription(p){return ceSupplierSource(p)||p.source_description||p.desc||(p.variants||[]).flatMap(v=>Object.values(v.offers||{}).map(o=>String(o.source_description||''))).find(s=>s.trim())||'';}
 function classificationDecision(p){
  const id=p.canonical_category_id||p.last_confirmed_category_id||categoryIdForPath(p.category);
  if(classificationLocked(p,'category')||classificationLocked(p,'canonical_category_id')||classificationLocked(p,'primary_product_type'))return {tier:'SAFE_AUTO',category:id,rule_id:'manual-lock',reason:'Ручне рішення збережене.',protected:true};
- const gathered=classificationSources(p),sources=gathered.length?gathered:p.category_sources||[],dto={...p,name:p.name,description:ceSupplierSource(p)||p.source_description||p.desc,attrs:p.attrs,sources};
+ const gathered=classificationSources(p),sources=gathered.length?gathered:p.category_sources||[],dto={...p,name:p.name,description:classificationSupplierDescription(p),attrs:p.attrs,sources};
  const mapped=sources.map(s=>RubizhCategories.classify({...s,name:p.name,description:dto.description,attributes:p.attrs},categoryOptions())).filter(d=>/^(mapping-|exact-product:)/u.test(d.category_rule_id||''));
  if(mapped.length||/^(mapping-|exact-product:)/u.test(p.category_rule_id||'')){
   const ids=[...new Set(mapped.map(d=>d.canonical_category_id).filter(Boolean))];
@@ -81,8 +84,15 @@ function classificationSizePolicy(p){
 function classificationSize(p,v){
  const policy=classificationSizePolicy(p),locked=classificationLocked(p,'size')||v.manualFields?.size||v.manual_locks?.size||v.fieldMeta?.size?.source==='manual';
  const variant=locked?{...v,manualFields:{...v.manualFields,size:true}}:v;
- return RubizhSizeEvidence.resolve({...policy,variant,product:{name:p.original_name||p.name,description:ceSupplierSource(p)||p.source_description||p.desc,variants:p.variants,supplier_attributes:p.supplier_attributes,size_system:p.confirmed_size_system},offers:Object.entries(v.offers||{}).map(([sid,o])=>({...o,sid})),rules:S.cfg.confirmed_supplier_size_rules||[],fallback:classificationSupplierFormat(p,v,policy.type)});
+ const input={...policy,variant,product:{name:p.original_name||p.name,description:classificationSupplierDescription(p),variants:p.variants,supplier_attributes:p.supplier_attributes,size_system:p.confirmed_size_system},offers:Object.entries(v.offers||{}).map(([sid,o])=>({...o,sid})),rules:S.cfg.confirmed_supplier_size_rules||[],fallback:classificationSupplierFormat(p,v,policy.type)};
+ const z=RubizhSizeEvidence.resolve(input);
+ if(policy.required||locked)return z;
+ // The category needs no size, but the supplier states this SKU's own size in a dedicated SKU field (Panama M, cap 58,
+ // RPS S/M/L): the same approved parser, SKU scope only. Without it the model's SKUs are indistinguishable on the site.
+ const explicit=RubizhSizeEvidence.resolve({...input,required:true});
+ return explicit.confidence==='SAFE_AUTO'&&['EXACT_SIZE','ONE_SIZE'].includes(explicit.status)&&(explicit.evidence||[]).some(e=>e.scope==='sku'&&e.kind===explicit.status&&CLASSIFICATION_SKU_SIZE_SOURCES.test(e.source||''))?explicit:z;
 }
+const CLASSIFICATION_SKU_SIZE_SOURCES=/^(?:structured_size_field|offer\.(?:size_raw|native_size|variant_size))$/u;
 function classificationSupplierFormat(p,v,type){
  // Previously approved supplier formats; fallback never beats dedicated column evidence.
  const offers=Object.values(v.offers||{});if(offers.some(o=>o.sharedSku)&&v.source_review_confirmed!==true)return null;
@@ -109,7 +119,7 @@ let classificationConfigText='',classificationConfigHash='';
 function classificationInputFingerprint(p){
  const config=stableValue105([CLASSIFICATION_VERSION,RubizhSizeEvidence.version,RubizhCategoryEvidence.version,S.cfg.canonical_categories,S.cfg.supplier_category_mapping,S.cfg.confirmed_supplier_size_rules]);
  if(config!==classificationConfigText){classificationConfigText=config;classificationConfigHash=classificationHash(config);}
- return classificationHash([classificationConfigHash,p.name,ceSupplierSource(p)||p.source_description||p.desc,p.attrs,p.canonical_category_id,p.category_source,p.catSource,p.primary_product_type,p.confirmed_size_system,p.category_locked,p.manual_locks,
+ return classificationHash([classificationConfigHash,p.name,classificationSupplierDescription(p),p.attrs,p.canonical_category_id,p.category_source,p.catSource,p.primary_product_type,p.confirmed_size_system,p.category_locked,p.manual_locks,
  Object.fromEntries(Object.entries(p.fieldMeta||{}).filter(([,m])=>m.source==='manual')),
  p.manual_locks?.allowed_sizes?p.size_catalogs:null,
  p.variants.map(v=>[v.sku,v.size,v.size_raw,v.native_size,v.variant_name,v.variant_label,v.manualFields,v.manual_locks,v.fieldMeta,v.source_review_confirmed,

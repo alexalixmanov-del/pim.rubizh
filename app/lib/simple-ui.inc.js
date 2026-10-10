@@ -14,8 +14,11 @@ function simpleMeaningful(raw,name){
 function simpleDescription(p){
  const raw=simpleSource(p);if(!simpleMeaningful(raw,p.name))return '';
  if(p.fieldMeta?.desc?.source==='manual')return raw;
- const lines=ceSourceUnits(ceSourcePlain(raw)).filter(s=>!ceCommercialOnly(s));
- return lines.map(s=>'<p>'+htmlSafeText(autoUkText(s))+'</p>').join('');
+ // Exact repeats (stored content of several SKU rows) and a line that only repeats the title are dropped; nothing else.
+ let units=ceSourceUnits(ceSourcePlain(raw)).filter(s=>!ceCommercialOnly(s)).map(s=>autoUkText(s));const keys=units.map(norm);
+ for(let size=1;size<=keys.length/2;size++)if(keys.length%size===0&&keys.every((k,i)=>k===keys[i%size])){units=units.slice(0,size);break;}
+ const seen=new Set(),titles=new Set([p.name,p.model_name,p.marketing_name_uk].filter(Boolean).map(t=>norm(autoUkText(t)))),lines=units.filter(s=>{const k=norm(s);if(!k||titles.has(k)||k.length>=25&&seen.has(k))return false;seen.add(k);return true;});
+ return lines.map(s=>'<p>'+htmlSafeText(s)+'</p>').join('');
 }
 function simplePhotos(p){
  const raw=p.fieldMeta?.photos?.source==='manual'?p.photos||[]:[...(p.photos||[]),...(p.variants||[]).flatMap(v=>[...(v.photos||[]),...Object.values(v.offers||{}).flatMap(o=>o.photos||[])])];

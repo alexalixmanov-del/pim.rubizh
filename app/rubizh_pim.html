@@ -2534,7 +2534,7 @@ for(const [ru,ua] of Object.entries({
  'сетка':'сітка','сетки':'сітки','сетку':'сітку','листья':'листя','осень':'осінь','осенью':'восени',
  'площадь':'площа','площади':'площі','газовый':'газовий','газовая':'газова','баллон':'балон',
  'портативный':'портативний','портативная':'портативна','который':'який','которая':'яка','которые':'які',
- 'эксплуатации':'експлуатації','эксплуатация':'експлуатація','полевых':'польових','условиях':'умовах',
+ 'карманах':'кишенях','кармане':'кишені','кармана':'кишені','карману':'кишені','карманом':'кишенею','брюшных':'черевних','брюшних':'черевних','брюшной':'черевний','брюшная':'черевна', 'эксплуатации':'експлуатації','эксплуатация':'експлуатація','полевых':'польових','условиях':'умовах',
  'индивидуального':'індивідуального','маскировки':'маскування','газом':'газом'
 })) RU_UA_WORDS.set(ru,ua);
 for(const [ru,ua] of Object.entries({'он':'він','она':'вона','они':'вони','долго':'довго','работает':'працює','остановок':'зупинок','выдерживает':'витримує','нагрузку':'навантаження','спинка':'спинка','оснащена':'оснащена','съёмными':'знімними','съемными':'знімними','алюминиевыми':'алюмінієвими','вставками':'вставками','также':'також','поэтому':'тому','является':'є','имеет':'має','изделие':'виріб'}))RU_UA_WORDS.set(ru,ua);
@@ -4190,8 +4190,10 @@ function runImport(sup, rows, hdr, map, opts){
     const ck=contentKey(sup.id,inferredModel,rec.name,vm.size||rec.rz,rawColor,rec.attrs);
     if(rec.photos.length||rec.desc||Object.keys(rec.attrs).length){
      touchC(ck);const previous=contentSeen.has(ck)?S.content.get(ck):null,original=String(rec.sourceDesc??rec.desc??'');
-     const originals=[...(previous?.originalDescriptions||[]),original].filter(Boolean),dedup=[...new Set(originals)];
-     contentSeen.add(ck);S.content.set(ck,{k:ck,ph:[...new Set([...(previous?.ph||[]),...rec.photos])],d:cleanDesc([previous?.d,rec.desc].filter(Boolean).join('\n')),originalDesc:dedup.join('\n'),originalDescriptions:dedup,a:{...(previous?.a||{}),...rec.attrs}});markContent(ck);
+     // Every SKU row of one model repeats the same supplier text: keep each distinct text once (whitespace/markup-insensitive).
+     const sameText=t=>norm(ceSourcePlain(String(t||''))),distinct=list=>[...new Map(list.filter(x=>String(x||'').trim()).map(x=>[sameText(x),x])).values()];
+     const dedup=distinct([...(previous?.originalDescriptions||[]),original]),descs=distinct([...(previous?.descriptions||(previous?.d?[previous.d]:[])),rec.desc]);
+     contentSeen.add(ck);S.content.set(ck,{k:ck,ph:[...new Set([...(previous?.ph||[]),...rec.photos])],d:cleanDesc(descs.join('\n')),descriptions:descs,originalDesc:dedup.join('\n'),originalDescriptions:dedup,a:{...(previous?.a||{}),...rec.attrs}});markContent(ck);
     }
     const matches=offerIndex.get(String(rec.sku))||((offerIndex.get('product-id:'+rec.supplierProductId)||[]).length===1?offerIndex.get('product-id:'+rec.supplierProductId):[])||[];
     let reuseBlank=matches.find(x=>!String(x.v.size||'').trim()&&!String(x.v.color||'').trim());
@@ -9569,7 +9571,8 @@ function canonicalPath(id){return RubizhCategories.path(id,S.cfg.canonical_categ
 function categoryIdForPath(value){return canonicalCategories().find(c=>c.parent_id&&canonicalPath(c.id)===value)?.id||null;}
 function financialCategory(p){return p.pricing_category_path??p.category;}
 function categoryPlannedMappings(plan=CATEGORY_UI.dry){const pending=plan?.pending_mappings||[];return [...(S.cfg.supplier_category_mapping||[]).filter(m=>!pending.some(p=>p.supplier_id===m.supplier_id&&p.supplier_category_raw===m.supplier_category_raw&&(p.supplier_category_path_raw||'')===(m.supplier_category_path_raw||''))),...pending];}
-function categoryOptions(){return {categories:S.cfg.canonical_categories,mappings:S.cfg.supplier_category_mapping||[]};}
+// Owner/config mappings first; the shipped audit mappings fill only supplier paths the configuration does not map.
+function categoryOptions(){const own=S.cfg.supplier_category_mapping||[],key=m=>[m.supplier_id,m.supplier_category_raw,RubizhCategories.normalize(m.supplier_category_path_raw||'')].join('\u0000'),taken=new Set(own.map(key));return {categories:S.cfg.canonical_categories,mappings:[...own,...(RubizhCategoryEvidence.supplierMappings||[]).filter(m=>!taken.has(key(m))&&S.cfg.suppliers?.some(s=>s.id===m.supplier_id))]};}
 function categorySourceRecord(p,sid,o){return {supplier_id:sid,supplier_name:supName(sid),supplier_product_id:String(o?.supplier_product_id||o?.s||''),supplier_sku:String(o?.s||''),supplier_category_raw:String(o?.supplier_category_raw??p.supplier_category_raw??p.srcCat??''),supplier_category_path_raw:String(o?.supplier_category_path_raw??p.supplier_category_path_raw??p.srcCat??''),supplier_subcategory_raw:String(o?.supplier_subcategory_raw??''),original_name:String(o?.original_name??o?.source_name??p.fieldMeta?.name?.supplierOriginal??p.name??''),normalized_name:RubizhCategories.normalize(o?.source_name||p.name||'')};}
 function categorySources(p){if(p.category_sources?.length)return p.category_sources;const out=[],seen=new Set();for(const v of p.variants||[])for(const [sid,o] of Object.entries(v.offers||{})){const key=sid+'|'+o.s;if(seen.has(key))continue;seen.add(key);out.push(categorySourceRecord(p,sid,o));}return out;}
 function categoryInput(p,source){return {...(source||categorySources(p)[0]||{}),name:p.name,normalized_name:RubizhCategories.normalize(p.name),description:ceSupplierSource(p),attributes:p.attrs||{},canonical_category_id:p.canonical_category_id,category_source:p.category_source==='manual'||p.catSource==='manual'||p.fieldMeta?.category?.source==='manual'?'manual':p.category_source};}
@@ -9773,8 +9776,11 @@ function simpleMeaningful(raw,name){
 function simpleDescription(p){
  const raw=simpleSource(p);if(!simpleMeaningful(raw,p.name))return '';
  if(p.fieldMeta?.desc?.source==='manual')return raw;
- const lines=ceSourceUnits(ceSourcePlain(raw)).filter(s=>!ceCommercialOnly(s));
- return lines.map(s=>'<p>'+htmlSafeText(autoUkText(s))+'</p>').join('');
+ // Exact repeats (stored content of several SKU rows) and a line that only repeats the title are dropped; nothing else.
+ let units=ceSourceUnits(ceSourcePlain(raw)).filter(s=>!ceCommercialOnly(s)).map(s=>autoUkText(s));const keys=units.map(norm);
+ for(let size=1;size<=keys.length/2;size++)if(keys.length%size===0&&keys.every((k,i)=>k===keys[i%size])){units=units.slice(0,size);break;}
+ const seen=new Set(),titles=new Set([p.name,p.model_name,p.marketing_name_uk].filter(Boolean).map(t=>norm(autoUkText(t)))),lines=units.filter(s=>{const k=norm(s);if(!k||titles.has(k)||k.length>=25&&seen.has(k))return false;seen.add(k);return true;});
+ return lines.map(s=>'<p>'+htmlSafeText(s)+'</p>').join('');
 }
 function simplePhotos(p){
  const raw=p.fieldMeta?.photos?.source==='manual'?p.photos||[]:[...(p.photos||[]),...(p.variants||[]).flatMap(v=>[...(v.photos||[]),...Object.values(v.offers||{}).flatMap(o=>o.photos||[])])];
@@ -9984,7 +9990,9 @@ function mcColors(p){
   if(v.photos?.length){g.photos.push(...mcValidPhotos(v.photos));g.sources.push({kind:'variant',sku:v.sku});}
   for(const [sid,o] of Object.entries(p.fieldMeta?.photos?.source==='manual'?{}:v.offers||{})){const raw=o.native_color||o.color_raw;if((!raw||mcColor({color:raw,camouflage:o.camouflage}).key===c.key)&&o.photos?.length){g.photos.push(...mcValidPhotos(o.photos));g.sources.push({kind:'offer',supplier_id:sid,supplier_sku:o.s,sku:v.sku});}}
  }
- if(groups.size===1){const g=[...groups.values()][0];g.photos.push(...mcValidPhotos(p.photos));g.sources.push({kind:'single_color_product',product_id:p.id});}
+ // The card gallery is shared content (same base name across colour cards) and may hold other colours' photos:
+ // it belongs to the only colour only when no SKU-bound (offer/variant) photo exists for it.
+ if(groups.size===1){const g=[...groups.values()][0];if(!g.photos.length){g.photos.push(...mcValidPhotos(p.photos));g.sources.push({kind:'single_color_product',product_id:p.id});}}
  for(const saved of p.model_color_sources||[]){const g=groups.get(mcColor({color:saved.color,camouflage:saved.camouflage}).key);if(g){g.photos.push(...mcValidPhotos(saved.photos));g.sources.push({kind:'source_product',product_id:saved.product_id});}}
  return [...groups.values()].map(g=>({...g,photos:uniq(g.photos),variant_skus:uniq(g.variant_skus),photo_assignment:g.photos.length?'source_associated':'unknown'}));
 }
@@ -9994,13 +10002,23 @@ function mcClean(raw,p){
  s=s.replace(/(^|[^\p{L}\p{N}])(?:чорн(?:а|ий|і|е)|черн(?:ая|ый|ые|ое)|black|multicam|мультикам|олива|оливков(?:а|ий|ый|ая)|olive|coyote|койот|khaki|хакі|хаки)(?=$|[^\p{L}\p{N}])/giu,'$1 ').replace(/\(\s*(?:темн(?:ий|ый)|dark)\s*\)\s*$/iu,'');
  return s.replace(/[()]/g,' ').replace(/\s+/g,' ').trim();
 }
-function mcIdentity(p){const clean=mcClean(p.model_name||p.name,p),name=clean.charAt(0).toLocaleUpperCase('uk-UA')+clean.slice(1),category=p.canonical_category_id||p.last_confirmed_category_id||categoryIdForPath(p.category)||p.category,suppliers=uniq((p.variants||[]).flatMap(v=>Object.keys(v.offers||{}))).sort(),codes=uniq([p.modelArticle,p.model_code,...(p.variants||[]).flatMap(v=>Object.values(v.offers||{}).map(o=>o.source_model))].filter(Boolean).map(norm));return {name,category,suppliers,codes,key:JSON.stringify([norm(name),category,norm(p.brand||''),suppliers])};}
+// A card that is one size slice of a model (Kiborg: «Пояс РПС … (S)», «… (M)») carries that SKU size in its title; the
+// size is a variant value, not part of the model name. Only approved EXACT sizes of the card's own SKU are removed.
+function mcStripOwnSize(text,p){
+ const sizes=uniq((p.variants||[]).filter(v=>v.size_status==='EXACT_SIZE'&&v.size).map(v=>String(v.size)));if(sizes.length!==1)return String(text||'').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim()||text;
+ const escaped=[...sizes[0]].map(ch=>({M:'[MМ]',X:'[XХ]'}[ch.toUpperCase()]||ch.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'))).join(''),out=String(text||'').replace(new RegExp('(^|[^\\p{L}\\p{N}-])(?:(?:розмір|размер|size)\\s*)?\\(?\\s*'+escaped+'\\s*\\)?(?=$|[^\\p{L}\\p{N}-])','giu'),'$1 ').replace(/\s+/g,' ').replace(/[\s.,]+(?:розмір|размер|size)[\s.,]*$/iu,'').trim();
+ return out.length>=3?out:text;
+}
+function mcIdentity(p,{keepSize=false}={}){const cleaned=mcClean(p.model_name||p.name,p),clean=keepSize?cleaned:mcStripOwnSize(cleaned,p),name=clean.charAt(0).toLocaleUpperCase('uk-UA')+clean.slice(1),category=p.canonical_category_id||p.last_confirmed_category_id||categoryIdForPath(p.category)||p.category,suppliers=uniq((p.variants||[]).flatMap(v=>Object.keys(v.offers||{}))).sort(),codes=uniq([p.modelArticle,p.model_code,...(p.variants||[]).flatMap(v=>Object.values(v.offers||{}).map(o=>o.source_model))].filter(Boolean).map(norm));return {name,category,suppliers,codes,key:JSON.stringify([norm(name),category,norm(p.brand||''),suppliers])};}
 function mcReasons(products){
  const why=[],first=products[0],identity=mcIdentity(first),all=products.flatMap(p=>p.variants||[]),codes=uniq(products.flatMap(p=>mcIdentity(p).codes));
  if(products.some(p=>p.model_grouping_locked))why.push('Ручное разделение модели зафиксировано');
  if(products.some(p=>p.simple_publish_disabled||p.fieldMeta?.pub?.source==='manual'&&p.pub===false))why.push('Различаются ручные правила публикации');
  if(products.some(p=>mcIdentity(p).key!==identity.key))why.push('Различаются модель, категория, бренд или поставщики');
- if(codes.length>1)why.push('Поставщик передал разные коды модели');
+ // Supplier group codes that only slice one model (each card one colour or one size, cells disjoint, one code per card)
+ // do not contradict it; anything else stays a contradiction. Strong evidence is still required for an automatic merge.
+ const codeSets=products.map(p=>mcIdentity(p).codes),slices=codeSets.every(c=>c.length>0)&&new Set(codeSets.flat()).size===codeSets.flat().length&&products.every(p=>new Set((p.variants||[]).map(v=>mcColor(v).key)).size===1||(p.variants||[]).every(v=>v.size)&&new Set((p.variants||[]).map(v=>norm(v.size))).size===1);
+ if(codes.length>1&&!slices)why.push('Поставщик передал разные коды модели');
  if(new Set(all.map(v=>v.sku)).size!==all.length)why.push('Повторяется RUB-SKU');
  const ownership=new Map(),cells=new Map();for(const p of products)for(const v of p.variants){const cell=mcColor(v).key+'|'+norm(v.size||'');if(cells.has(cell)&&cells.get(cell)!==p.id)why.push('Один цвет и размер принадлежат разным исходным карточкам');else cells.set(cell,p.id);for(const [sid,o] of Object.entries(v.offers||{})){const k=sid+'|'+o.s;if(o.s&&ownership.has(k)&&ownership.get(k)!==v.sku)why.push('Артикул поставщика привязан к нескольким SKU');else ownership.set(k,v.sku);}}
  if(all.length>modelLimit(first))why.push('Превышен лимит вариантов');
@@ -10011,11 +10029,17 @@ function mcReasons(products){
  if(products.some(p=>p.fieldMeta?.desc?.source==='manual')&&products.some(p=>p.desc!==first.desc))why.push('Различаются ручные описания');
  return uniq(why);
 }
+function mcGroup(products,id){
+ const reasons=mcReasons(products),latin=uniq((id.name.match(/[a-z][a-z0-9-]{2,}/gi)||[]).map(norm).filter(t=>!['tactical','pouch','jacket','pants','black','olive','multicam','shirt','pack','double','mag','winter','softshell'].includes(t))),desc=p=>norm(mcClean(ceSourcePlain(simpleSource(p)),p)),sameDescription=desc(products[0]).length>=200&&products.every(p=>desc(p)===desc(products[0]));
+ const strong=!reasons.length&&(id.codes.length===1&&products.every(p=>mcIdentity(p).codes[0]===id.codes[0])||latin.length>=3&&sameDescription);
+ return {key:id.key,name:id.name,ids:products.map(p=>p.id).sort(),variants:products.reduce((n,p)=>n+p.variants.length,0),colors:uniq(products.flatMap(p=>mcColors(p).map(c=>c.key))).length,automatic:strong,reasons:reasons.length?reasons:strong?[]:['Название похоже, но код модели или полное совпадение источника не подтверждены']};
+}
 const mcPlan=memoByData(function(){
  const buckets=new Map();for(const p of S.products.values()){if(p.archived||p.merged_into||!p.variants?.length||p.model_grouping_locked)continue;const id=mcIdentity(p);if(!buckets.has(id.key))buckets.set(id.key,[]);buckets.get(id.key).push(p);}
- const groups=[];for(const products of buckets.values()){if(products.length<2)continue;const id=mcIdentity(products[0]),reasons=mcReasons(products),latin=uniq((id.name.match(/[a-z][a-z0-9-]{2,}/gi)||[]).map(norm).filter(t=>!['tactical','pouch','jacket','pants','black','olive','multicam','shirt','pack','double','mag','winter','softshell'].includes(t))),desc=p=>norm(mcClean(ceSourcePlain(simpleSource(p)),p)),sameDescription=desc(products[0]).length>=200&&products.every(p=>desc(p)===desc(products[0]));
-  const strong=!reasons.length&&(id.codes.length===1&&products.every(p=>mcIdentity(p).codes[0]===id.codes[0])||latin.length>=3&&sameDescription);
-  groups.push({key:id.key,name:id.name,ids:products.map(p=>p.id).sort(),variants:products.reduce((n,p)=>n+p.variants.length,0),colors:uniq(products.flatMap(p=>mcColors(p).map(c=>c.key))).length,automatic:strong,reasons:reasons.length?reasons:strong?[]:['Название похоже, но код модели или полное совпадение источника не подтверждены']});
+ const groups=[];for(const products of buckets.values()){if(products.length<2)continue;const group=mcGroup(products,mcIdentity(products[0]));groups.push(group);
+  // Without the whole size family proven, the cards of one size (title still naming it) are judged on their own.
+  if(!group.automatic){const exact=new Map();for(const p of products){const k=mcIdentity(p,{keepSize:true}).key;if(!exact.has(k))exact.set(k,[]);exact.get(k).push(p);}
+   if(exact.size>1)for(const part of exact.values())if(part.length>1){const sub=mcGroup(part,mcIdentity(part[0],{keepSize:true}));if(sub.automatic)groups.push(sub);}}
  }return {version:1,groups,automatic:groups.filter(g=>g.automatic),review:groups.filter(g=>!g.automatic)};
 });
 function mcMergeGroup(group,{manual=false}={}){
@@ -10079,10 +10103,13 @@ function classificationEnable(){
 function classificationEnabled(){return S.cfg.classification_version===CLASSIFICATION_VERSION;}
 function classificationHash(value){return fnvHash(stableValue105(value));}
 function classificationSources(p){return (p.variants||[]).flatMap(v=>Object.entries(v.offers||{}).map(([sid,o])=>({...categorySourceRecord(p,sid,o),source_description:o.source_description||'',source_attributes:o.source_attributes||{}})));}
+// Supplier facts for evidence: the card's supplier description, else the description each supplier offer carries
+// (after a clean import the text lives on the offers; the publication path already reads it the same way).
+function classificationSupplierDescription(p){return ceSupplierSource(p)||p.source_description||p.desc||(p.variants||[]).flatMap(v=>Object.values(v.offers||{}).map(o=>String(o.source_description||''))).find(s=>s.trim())||'';}
 function classificationDecision(p){
  const id=p.canonical_category_id||p.last_confirmed_category_id||categoryIdForPath(p.category);
  if(classificationLocked(p,'category')||classificationLocked(p,'canonical_category_id')||classificationLocked(p,'primary_product_type'))return {tier:'SAFE_AUTO',category:id,rule_id:'manual-lock',reason:'Ручне рішення збережене.',protected:true};
- const gathered=classificationSources(p),sources=gathered.length?gathered:p.category_sources||[],dto={...p,name:p.name,description:ceSupplierSource(p)||p.source_description||p.desc,attrs:p.attrs,sources};
+ const gathered=classificationSources(p),sources=gathered.length?gathered:p.category_sources||[],dto={...p,name:p.name,description:classificationSupplierDescription(p),attrs:p.attrs,sources};
  const mapped=sources.map(s=>RubizhCategories.classify({...s,name:p.name,description:dto.description,attributes:p.attrs},categoryOptions())).filter(d=>/^(mapping-|exact-product:)/u.test(d.category_rule_id||''));
  if(mapped.length||/^(mapping-|exact-product:)/u.test(p.category_rule_id||'')){
   const ids=[...new Set(mapped.map(d=>d.canonical_category_id).filter(Boolean))];
@@ -10131,8 +10158,15 @@ function classificationSizePolicy(p){
 function classificationSize(p,v){
  const policy=classificationSizePolicy(p),locked=classificationLocked(p,'size')||v.manualFields?.size||v.manual_locks?.size||v.fieldMeta?.size?.source==='manual';
  const variant=locked?{...v,manualFields:{...v.manualFields,size:true}}:v;
- return RubizhSizeEvidence.resolve({...policy,variant,product:{name:p.original_name||p.name,description:ceSupplierSource(p)||p.source_description||p.desc,variants:p.variants,supplier_attributes:p.supplier_attributes,size_system:p.confirmed_size_system},offers:Object.entries(v.offers||{}).map(([sid,o])=>({...o,sid})),rules:S.cfg.confirmed_supplier_size_rules||[],fallback:classificationSupplierFormat(p,v,policy.type)});
+ const input={...policy,variant,product:{name:p.original_name||p.name,description:classificationSupplierDescription(p),variants:p.variants,supplier_attributes:p.supplier_attributes,size_system:p.confirmed_size_system},offers:Object.entries(v.offers||{}).map(([sid,o])=>({...o,sid})),rules:S.cfg.confirmed_supplier_size_rules||[],fallback:classificationSupplierFormat(p,v,policy.type)};
+ const z=RubizhSizeEvidence.resolve(input);
+ if(policy.required||locked)return z;
+ // The category needs no size, but the supplier states this SKU's own size in a dedicated SKU field (Panama M, cap 58,
+ // RPS S/M/L): the same approved parser, SKU scope only. Without it the model's SKUs are indistinguishable on the site.
+ const explicit=RubizhSizeEvidence.resolve({...input,required:true});
+ return explicit.confidence==='SAFE_AUTO'&&['EXACT_SIZE','ONE_SIZE'].includes(explicit.status)&&(explicit.evidence||[]).some(e=>e.scope==='sku'&&e.kind===explicit.status&&CLASSIFICATION_SKU_SIZE_SOURCES.test(e.source||''))?explicit:z;
 }
+const CLASSIFICATION_SKU_SIZE_SOURCES=/^(?:structured_size_field|offer\.(?:size_raw|native_size|variant_size))$/u;
 function classificationSupplierFormat(p,v,type){
  // Previously approved supplier formats; fallback never beats dedicated column evidence.
  const offers=Object.values(v.offers||{});if(offers.some(o=>o.sharedSku)&&v.source_review_confirmed!==true)return null;
@@ -10159,7 +10193,7 @@ let classificationConfigText='',classificationConfigHash='';
 function classificationInputFingerprint(p){
  const config=stableValue105([CLASSIFICATION_VERSION,RubizhSizeEvidence.version,RubizhCategoryEvidence.version,S.cfg.canonical_categories,S.cfg.supplier_category_mapping,S.cfg.confirmed_supplier_size_rules]);
  if(config!==classificationConfigText){classificationConfigText=config;classificationConfigHash=classificationHash(config);}
- return classificationHash([classificationConfigHash,p.name,ceSupplierSource(p)||p.source_description||p.desc,p.attrs,p.canonical_category_id,p.category_source,p.catSource,p.primary_product_type,p.confirmed_size_system,p.category_locked,p.manual_locks,
+ return classificationHash([classificationConfigHash,p.name,classificationSupplierDescription(p),p.attrs,p.canonical_category_id,p.category_source,p.catSource,p.primary_product_type,p.confirmed_size_system,p.category_locked,p.manual_locks,
  Object.fromEntries(Object.entries(p.fieldMeta||{}).filter(([,m])=>m.source==='manual')),
  p.manual_locks?.allowed_sizes?p.size_catalogs:null,
  p.variants.map(v=>[v.sku,v.size,v.size_raw,v.native_size,v.variant_name,v.variant_label,v.manualFields,v.manual_locks,v.fieldMeta,v.source_review_confirmed,
@@ -10507,19 +10541,47 @@ const FINAL_MODERATION_TEXT={
  price_policy:['Правило маржи дорогих товаров','Подтвердите правило маржи для всей группы.'],
  size:['Размер требует подтверждения','Подтвердите размер; до этого возможна только заявка без оплаты.'],
  inventory:['Правило наличия поставщика','Подтвердите значение колонки наличия у поставщика; до этого наличие UNKNOWN и оплата закрыта.'],
- model:['Неясно, одна это модель или разные','Решите: объединить в одну модель или оставить отдельно.']
+ model:['Неясно, одна это модель или разные','Решите: объединить в одну модель или оставить отдельно.'],
+ price_unit:['Цена за единицу площади, не за товар','Поставщик продаёт индивидуальный размер по цене за 1 кв.м: такую цену нельзя оплачивать как цену товара. Решите, как продавать (заявка с расчётом) или снимите с сайта.'],
+ variant_cell:['Варианты не различаются на сайте','У нескольких SKU одинаковые цвет и размер: укажите размер/цвет каждого SKU или разделите модель.']
 };
 function finalUsablePhotos(p){return simplePhotos(p).filter(url=>p.photoMeta?.[url]?.broken!==true&&p.photoMeta?.[url]?.invalid!==true);}
-function finalTitle(p){return String(p.marketing_name_uk||p.model_name||p.name||'').trim();}
+// Supplier titles join descriptor segments with «|» («Тактические шорты BR Stinger | Стрейч, серые | Лето, ТрО, …»). When
+// every segment after the first carries no model identity (no digit and no Latin word once colour/size words are gone,
+// or a «Розмір: …» label), the public title is cut back to the first segment — only if the title verifiably starts
+// with it (colour words ignored). Nothing is added or reworded; manual titles are untouched.
+const FINAL_TITLE_SIZE=/^(?:XXS|XS|S|M|L|XL|XXL|XXXL|[2-6]XL|\d{2}(?:[/-]\d{1,2})?)$/iu;
+const finalTitleWords=t=>String(t||'').split(/[\s,;:()«»"|]+/u).filter(Boolean);
+function finalTitleColorWord(w){const x=RubizhModel.palette(w);return !!(x.color||x.camouflage);}
+function finalTitleHead(p){
+ for(const v of p.variants||[])for(const o of Object.values(v.offers||{})){const segs=String(o.original_name||o.source_name||'').split('|').map(x=>x.trim());if(segs.length<2||!segs[0])continue;
+  const noise=segs.slice(1).every(t=>!t||/^(?:розмір|размер|size)\b/iu.test(t)||!finalTitleWords(t).filter(w=>!FINAL_TITLE_SIZE.test(w)&&!finalTitleColorWord(w)).some(w=>/\d|[a-z]{2}/iu.test(w)));
+  if(noise)return autoUkText(segs[0]);}
+ return '';
+}
+// Same word across the two RU→UA translators (штормовая/штормова): equal, or a shared stem of ≥4 letters that differs only in the ending.
+function finalTitleSameWord(a,b){if(a===b)return true;const n=Math.min(a.length,b.length),k=Math.max(4,n-2);return n>=4&&a.slice(0,k)===b.slice(0,k);}
+function finalTitle(p){
+ const raw=String(p.marketing_name_uk||p.model_name||p.name||'').trim();
+ if(!raw.includes(' ')||p.manual_locks?.marketing_name_uk||p.fieldMeta?.name?.source==='manual')return raw;
+ const head=finalTitleHead(p);if(!head)return raw;
+ const want=finalTitleWords(head).filter(w=>!finalTitleColorWord(w)&&!FINAL_TITLE_SIZE.test(w)).map(norm);if(want.length<2)return raw;
+ const re=/[^\s,;:()«»"|]+/gu;let m,i=0,cut=-1;
+ while((m=re.exec(raw))){const w=m[0];if(finalTitleColorWord(w)||FINAL_TITLE_SIZE.test(w))continue;if(!finalTitleSameWord(norm(w),want[i]))return raw;i++;if(i===want.length){cut=m.index+w.length;break;}}
+ if(cut<0)return raw;const out=raw.slice(0,cut).replace(/[\s,;:|–—-]+$/u,'').trim();
+ return out.length<raw.length?out:raw;
+}
 // Performance only: the generated description is a pure function of the chosen source text, the manual flag, the
 // name and the translation glossary. Reuse it while those are identical (a 3 113-product catalog re-translated
 // every render otherwise took minutes).
 // The memo also survives restarts in a separate derived-cache IndexedDB (never synced, never in backups, no
 // business data): entries are keyed by a hash of every input plus the PIM version, so any change recomputes.
+// Bumped whenever the description rules change, so cached descriptions (also persisted) are rebuilt.
+const FINAL_DESCRIPTION_RULES='2';
 const FINAL_DESCRIPTION_MEMO=new Map(),finalUncachedSimpleDescription=simpleDescription;
 const FINAL_DERIVED_CACHE={db:'rubizh_pim_derived_cache_v1',key:'final-descriptions',dirty:false,timer:null};
 simpleDescription=function(p){
- const key=fnvHash(PIM_VERSION+'\u0000'+(p.fieldMeta?.desc?.source==='manual'?'M':'A')+'\u0000'+(p.name||'')+'\u0000'+ceTranslationSignature()+'\u0000'+simpleSource(p)),hit=FINAL_DESCRIPTION_MEMO.get(p.id);
+ const key=fnvHash(PIM_VERSION+'\u0000'+FINAL_DESCRIPTION_RULES+'\u0000'+(p.fieldMeta?.desc?.source==='manual'?'M':'A')+'\u0000'+(p.name||'')+'\u0000'+ceTranslationSignature()+'\u0000'+simpleSource(p)),hit=FINAL_DESCRIPTION_MEMO.get(p.id);
  if(hit&&hit.key===key)return hit.out;
  const out=finalUncachedSimpleDescription(p);FINAL_DESCRIPTION_MEMO.set(p.id,{key,out});finalDerivedCacheSaveSoon();return out;
 };
@@ -10542,6 +10604,27 @@ function finalDescription(p){return classificationEnabled()?classificationDescri
 const finalSkuCounts=memoByData(function(){const counts=new Map();for(const p of S.products.values())if(!p.archived)for(const v of p.variants||[]){const key=String(v.sku||'').trim().toLowerCase();if(key)counts.set(key,(counts.get(key)||0)+1);}return counts;});
 const finalModelReview=memoByData(function(){try{return new Set(mcPlan().review.flatMap(g=>g.ids));}catch{return new Set();}});
 function finalOwnerUnpublished(p){return !!p.simple_publish_disabled||p.fieldMeta?.pub?.source==='manual'&&p.pub===false;}
+// The supplier's own SKU size labels (dedicated SKU field, not shared between SKUs, not a range/list) for SKUs whose size awaits
+// confirmation, used only where they tell such SKUs of one colour apart (all present and distinct). They never confirm
+// the size or make a SKU payable; a single SKU or an incomplete set keeps no label.
+function finalSupplierSizeLabel(v){
+ const offers=Object.values(v?.offers||{}).filter(o=>!o.sharedSku||v.source_review_confirmed===true);
+ const labels=uniq(offers.map(o=>String(o.structured_size??o.size_raw??o.native_size??'').replace(/^[\s:]+/u,'').replace(/\s+/g,' ').trim()).filter(Boolean));
+ // A range or list (42–60, M-L, 40-42, S/M/L) describes the model's sizes, never one SKU: it is not a SKU label.
+ return labels.length===1&&labels[0].length<=60&&!['SIZE_RANGE','SIZE_LIST'].includes(RubizhSizeEvidence.parse(labels[0],{scope:'sku'})?.kind)?labels[0]:'';
+}
+function finalSizeLabels(p){
+ const byColor=new Map(),out=new Map();
+ for(const v of p.variants||[]){const z=simpleSize(p,v);if(z.size_status!=='SIZE_CONFIRMATION_REQUIRED'||z.size_display)continue;const k=mcColor(v).key;if(!byColor.has(k))byColor.set(k,[]);byColor.get(k).push(v);}
+ for(const list of byColor.values()){if(list.length<2)continue;const labels=list.map(finalSupplierSizeLabel);if(labels.every(Boolean)&&new Set(labels.map(norm)).size===labels.length)list.forEach((v,i)=>out.set(v.sku,labels[i]));}
+ return out;
+}
+// Supplier price per unit area (made-to-measure nets: «індивідуальний розмір», «ціна за 1 кв.м»): not an item price.
+const FINAL_UNIT_PRICE=/(?:ціна|цена)\s+за\s+(?:1\s*)?(?:кв\.?\s*м|м2|м²|квадратн)|індивідуальн\S*\s+розмір|индивидуальн\S*\s+размер/iu;
+function finalUnitPriced(v){return Object.values(v.offers||{}).some(o=>FINAL_UNIT_PRICE.test(String(o.source_name||o.original_name||''))||Object.values(o.source_attributes||{}).some(x=>FINAL_UNIT_PRICE.test(String(x))));}
+// What the site shows for one SKU: colour + size label (NO_SIZE_REQUIRED shows none). Two SKUs with the same public cell
+// cannot be told apart by a buyer, so such a model is never READY.
+function finalPublicCells(p){const labels=finalSizeLabels(p);return new Map((p.variants||[]).map(v=>{const z=simpleSize(p,v),size=z.size_status==='NO_SIZE_REQUIRED'?'':String(z.size_display||'')||labels.get(v.sku)||'';return [v.sku,mcColor(v).key+'|'+norm(size)];}));}
 const finalDecision=memoProd('final-decision',function(p){
  const reject=[],moderate=[],variants=p.variants||[],add=(list,code,why,evidence=[])=>list.push({code,why,evidence});
  if(p.archived)return {state:'ARCHIVED',reasons:[]};
@@ -10563,6 +10646,9 @@ const finalDecision=memoProd('final-decision',function(p){
  if(variants.length>modelLimit(p)||finalModelReview().has(p.id))add(moderate,'grouping',FINAL_MODERATION_TEXT.grouping[1],[variants.length+' SKU']);
  const unknownColors=uniq(variants.flatMap(v=>simplePalette(v).unknown));if(unknownColors.length)add(moderate,'color',FINAL_MODERATION_TEXT.color[1],unknownColors.slice(0,5));
  if(classificationEnabled()||mcEnabled()){const colors=mcColors(p);if(colors.length>1&&colors.some(c=>!c.photos.length))add(moderate,'photo_ownership',FINAL_MODERATION_TEXT.photo_ownership[1],colors.filter(c=>!c.photos.length).map(c=>[c.color,c.camouflage].filter(Boolean).join(' / ')||c.id));}
+ const unitPriced=variants.filter(finalUnitPriced);if(unitPriced.length)add(moderate,'price_unit',FINAL_MODERATION_TEXT.price_unit[1],unitPriced.slice(0,5).map(v=>v.sku));
+ const publicCells=finalPublicCells(p),cells=new Map(),same=[];for(const v of variants){const k=publicCells.get(v.sku);if(cells.has(k))same.push(cells.get(k),v.sku);else cells.set(k,v.sku);}
+ if(same.length)add(moderate,'variant_cell',FINAL_MODERATION_TEXT.variant_cell[1],uniq(same).slice(0,6));
  const shared=variants.filter(v=>v.source_binding_status&&v.source_binding_status!=='CONFIRMED');if(shared.length)add(moderate,'binding',FINAL_MODERATION_TEXT.binding[1],shared.slice(0,5).map(v=>v.sku));
  const manualBelow=priced.filter(x=>x.m.margin_blocked);if(manualBelow.length)add(moderate,'price',FINAL_MODERATION_TEXT.price[1],manualBelow.slice(0,5).map(x=>x.v.sku+': '+money(x.c.price)));
  if(simplePricePolicyConflict(p))add(moderate,'price_policy',FINAL_MODERATION_TEXT.price_policy[1]);
@@ -10580,6 +10666,13 @@ const finalSummary=memoProd('final-summary',function(p){
 function finalModelHash(model){return fnvHash(stableValue105({...model,variants:model.variants.map(v=>{const x={...v};delete x.stock_data_age_hours;delete x.stale_source;return x;})}));}
 const FINAL_COLOR_FIELDS=['id','color','camouflage','photos','variant_skus','photo_assignment'];
 const FINAL_SIZE_TEXT_FIELDS=['size_raw','size_display','size_normalized','size_system','size_type','size_alpha','size_fit','size_height'];
+const FINAL_ALPHA_SIZES=['XXS','XS','S','M','L','XL','XXL','XXXL','4XL','5XL','6XL'];
+function finalSizeRank(v){
+ const raw=String(v.size_normalized??v.size_display??v.size??'').trim().toUpperCase().replace(/^2XL$/,'XXL').replace(/^3XL$/,'XXXL');if(!raw)return 1e9;
+ const alpha=FINAL_ALPHA_SIZES.indexOf(raw);if(alpha>=0)return 1000+alpha;
+ const m=raw.match(/^(\d{2,3})(?:\s*[/-]\s*(\d{1,3}))?$/u);if(m)return 2000+Number(m[1])*100+Number(m[2]||0);
+ return 1e9;
+}
 function finalWireProduct(p){
  const out=simpleProductPayload(simpleAssess(p)),photos=finalUsablePhotos(p);
  out.colors=(out.colors||[]).map(c=>Object.fromEntries(FINAL_COLOR_FIELDS.filter(k=>Object.hasOwn(c,k)).map(k=>[k,structuredClone(c[k])])));
@@ -10590,6 +10683,11 @@ function finalWireProduct(p){
  out.pricing_policy_version=1;
  // Contract 3 carries size metadata as text (null allowed): numeric sizes parsed by the classifier (41) travel as "41".
  for(const v of out.variants)for(const f of FINAL_SIZE_TEXT_FIELDS)if(typeof v[f]==='number'&&Number.isFinite(v[f]))v[f]=String(v[f]);
+ // Logical size order inside each colour (S, M, L, XL, 2XL…; 44, 46, 48/3, 48/4…); unknown labels keep supplier order last.
+ const colorIndex=new Map(out.colors.map((c,i)=>[c.id,i])),position=new Map(out.variants.map((v,i)=>[v.sku,i]));
+ out.variants.sort((a,b)=>(colorIndex.get(a.color_id)??999)-(colorIndex.get(b.color_id)??999)||finalSizeRank(a)-finalSizeRank(b)||position.get(a.sku)-position.get(b.sku));
+ for(const c of out.colors)c.variant_skus=[...c.variant_skus].sort((a,b)=>out.variants.findIndex(v=>v.sku===a)-out.variants.findIndex(v=>v.sku===b));
+ const sizeLabels=finalSizeLabels(p);for(const v of out.variants)if(v.size_status==='SIZE_CONFIRMATION_REQUIRED'&&!v.size_display&&sizeLabels.has(v.sku)){v.size_raw=sizeLabels.get(v.sku);v.size_display=v.size_raw;}
  for(const v of out.variants){v.photos=out.colors.find(c=>c.id===v.color_id)?.photos||[];
   // Private shipment routing for the SITE server (never public): the offer that prices this SKU.
   const local=p.variants.find(x=>x.sku===v.sku),c=local?calc(p,local):null,o=c?.o||c?.ref,sid=o?.sid||'';
