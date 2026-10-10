@@ -9,11 +9,11 @@ const {createHarness,appRequire}=require('../app/tests/isolated-harness.cjs');
 const [backupPath,sourcesPath,reportPath,wirePath]=process.argv.slice(2);if(!wirePath)throw Error('Usage: BACKUP SOURCES REPORT WIRE');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 (async()=>{
- const bytes=fs.readFileSync(backupPath),source=JSON.parse(bytes),h=createHarness({runtime:true,production:true}),timing={};
+ let bytes=fs.readFileSync(backupPath),source=JSON.parse(bytes);const backupSha=sha(bytes),h=createHarness({runtime:true,production:true}),timing={};
  const time=async(k,fn)=>{const t=performance.now();const r=await fn();timing[k]=Math.round(performance.now()-t);return r;};
  h.ctx.XLSX=require('../app/vendor/xlsx-0.20.3.min.js');h.ctx.DOMParser=appRequire('linkedom').DOMParser;
  h.ctx.source=source;h.run('render=()=>{}');await h.run('Store.init()');
- await h.run('releaseStorage.write(Store.db,[],releaseStorage.portableRows(source))');await h.run('productionLoad()');
+ await h.run('releaseStorage.write(Store.db,[],releaseStorage.portableRows(source))');h.ctx.source=null;source=null;bytes=null;await h.run('productionLoad()');
  await time('migration_ms',async()=>{await h.run('productionPreview()');await h.run('productionApply()');});
  h.run('SIMPLE_UI.pricePreview=simplePricePolicyPreview()');await h.run('simpleApplyPricePolicy()');
  const cfgKeep=()=>JSON.parse(h.run(`JSON.stringify({categories:(S.cfg.canonical_categories||[]).length,suppliers:S.cfg.suppliers.map(s=>({id:s.id,name:s.name,auto:s.auto,mapping:s.mapping,fulfillment:s.fulfillment})),catMap:S.cfg.catMap,catRules:S.cfg.catRules,colorMap:S.cfg.colorMap,sizeMap:S.cfg.sizeMap,brandMap:S.cfg.brandMap,supplierAliases:S.cfg.supplierAliases,pricing:[S.cfg.pricing_policy_version,S.cfg.minMargin,S.cfg.bigPriceFrom,S.cfg.bigPriceMargin,S.cfg.kitMargin,S.cfg.discountMarginFloor],inventory_policy_version:S.cfg.inventory_policy_version,classification_version:S.cfg.classification_version,model_colors_version:S.cfg.model_colors_version,nextSku:S.cfg.nextSku})`));
@@ -69,7 +69,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  q.offers_not_in_source=h.run('[...S.products.values()].flatMap(p=>p.variants.flatMap(v=>Object.entries(v.offers||{}).map(([sid,o])=>[sid,String(o.s??"").trim()])))').filter(([sid,s])=>!sourceSkus.get(sid)?.has(s)).length;
  const wire=await time('wire_export_ms',()=>h.run('pimSiteWire()'));const wireText=JSON.stringify(wire);fs.writeFileSync(wirePath,wireText);fs.chmodSync(wirePath,0o600);
  const wireSkus=wire.products.flatMap(p=>p.variants.map(v=>v.sku));
- const report={source_backup_sha256:sha(bytes),before,reset:{removed:reset.removed,backup_sha256:reset.backup?.sha256||null},after,kept_identical:keptIdentical,kept:{categories:keepAfter.categories,suppliers:keepAfter.suppliers.length,pricing:keepAfter.pricing,inventory_policy_version:keepAfter.inventory_policy_version,next_sku:keepAfter.nextSku},
+ const report={source_backup_sha256:backupSha,before,reset:{removed:reset.removed,backup_sha256:reset.backup?.sha256||null},after,kept_identical:keptIdentical,kept:{categories:keepAfter.categories,suppliers:keepAfter.suppliers.length,pricing:keepAfter.pricing,inventory_policy_version:keepAfter.inventory_policy_version,next_sku:keepAfter.nextSku},
   imports,quality:q,wire:{models:wire.products.length,skus:wireSkus.length,duplicate_skus:wireSkus.length-new Set(wireSkus).size,categories:wire.categories.length,hide_ids:wire.hide_ids.length,catalog_revision:wire.catalog_revision,sha256:sha(wireText)},timing_ms:timing,network_requests:h.requests?.length??0};
  fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify({PIM_PRODUCTS:q.models,PIM_SKU:q.skus,...q.decisions,DUPLICATE_SKU:q.duplicate_skus,wire_models:wire.products.length},null,0));

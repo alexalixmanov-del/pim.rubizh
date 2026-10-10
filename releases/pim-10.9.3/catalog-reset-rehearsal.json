@@ -1,0 +1,306 @@
+{
+  "source_backup_sha256": "6311d34d9f89f5ba1066cb925883213a765cb1f57febab29357d869cc7c7792a",
+  "before": {
+    "products": 3113,
+    "skus": 8734
+  },
+  "reset": {
+    "removed": {
+      "products": 3113,
+      "skus": 8734,
+      "queue": 0,
+      "content": 3115,
+      "import_logs": 13
+    },
+    "backup_sha256": "a491e2abf16bda3405c9cf68770dd16e62d3677af5358c901893cc874329d015"
+  },
+  "after": {
+    "products": 0,
+    "skus": 0,
+    "queue": 0,
+    "content": 0
+  },
+  "kept_identical": false,
+  "kept": {
+    "categories": 143,
+    "suppliers": 5,
+    "pricing": [
+      1,
+      30,
+      10000,
+      25,
+      20,
+      15
+    ],
+    "inventory_policy_version": 1,
+    "next_sku": 17459
+  },
+  "imports": [
+    {
+      "supplier_id": "sf0t3l7jegf9",
+      "file_sha256": "786a52829fefabc459f8ecce5853a15905c06e41f1d7d88ee827b104dcda7884",
+      "rows": 924,
+      "mapped": {
+        "sku": "Артикул",
+        "name": "Название",
+        "cost": "Цена",
+        "rrp": "РРЦ",
+        "stock": "Наличие",
+        "brand": "Бренд",
+        "barcode": "Штрихкод",
+        "size": "Размер",
+        "color": "Цвет",
+        "category": "Категория",
+        "model": "Модель",
+        "photos": "Фото",
+        "desc": "Описание",
+        "attrs": "Характеристики",
+        "stockObservedAt": "stock_observed_at",
+        "sourceUpdatedAt": "source_updated_at",
+        "stockExpiresAt": "expires_at",
+        "preorder": "preorder",
+        "orderOnRequest": "order_on_request",
+        "supplierProductId": "ID предложения",
+        "subcategory": "Підкатегорія постачальника",
+        "categoryPath": "Шлях категорії постачальника"
+      },
+      "applied": true,
+      "ms": 167628,
+      "products_after": 902,
+      "queue_after": 0
+    },
+    {
+      "supplier_id": "s4p9slmnn0ki",
+      "file_sha256": "93e52881c8944b5183698c0ec969893c02c2a5b5952393ca582d5b680475a233",
+      "rows": 1512,
+      "mapped": {
+        "sku": "Артикул",
+        "name": "Название",
+        "cost": "Цена",
+        "rrp": "РРЦ",
+        "stock": "Наличие",
+        "brand": "Бренд",
+        "barcode": "Штрихкод",
+        "size": "Размер",
+        "color": "Цвет",
+        "category": "Категория",
+        "model": "Модель",
+        "photos": "Фото",
+        "desc": "Описание",
+        "attrs": "Характеристики",
+        "stockObservedAt": "stock_observed_at",
+        "sourceUpdatedAt": "source_updated_at",
+        "stockExpiresAt": "expires_at",
+        "preorder": "preorder",
+        "orderOnRequest": "order_on_request",
+        "supplierProductId": "ID предложения",
+        "subcategory": "Підкатегорія постачальника",
+        "categoryPath": "Шлях категорії постачальника"
+      },
+      "applied": true,
+      "ms": 121023,
+      "products_after": 1527,
+      "queue_after": 0
+    },
+    {
+      "supplier_id": "s2akya7xoafn",
+      "file_sha256": "65f56d13417270a4cc1cf86bab56a19950f10bbf8809728a57cb8c9888479d3d",
+      "rows": 447,
+      "mapped": {
+        "sku": "Унікальний_ідентифікатор",
+        "name": "Назва_позиції_укр",
+        "cost": "Ціна",
+        "stock": "Наявність",
+        "brand": "Виробник",
+        "barcode": "Код_маркування_(GTIN)",
+        "category": "Посилання_підрозділу",
+        "photos": "Посилання_зображення",
+        "desc": "Опис_укр",
+        "attrs": "Назва_Характеристики",
+        "nameFallback": "Назва_позиції",
+        "descFallback": "Опис"
+      },
+      "applied": true,
+      "ms": 99328,
+      "products_after": 1970,
+      "queue_after": 4
+    },
+    {
+      "supplier_id": "s2bggyi42dhh",
+      "file_sha256": "5c013e08591ab093df25c8eb22951db42dfbb58de66a058f09fbe332b227c296",
+      "rows": 3914,
+      "mapped": {
+        "sku": "Артикул",
+        "name": "Название",
+        "cost": "Цена",
+        "rrp": "РРЦ",
+        "stock": "Наличие",
+        "brand": "Бренд",
+        "barcode": "Штрихкод",
+        "size": "Размер",
+        "color": "Цвет",
+        "category": "Категория",
+        "model": "Модель",
+        "photos": "Фото",
+        "desc": "Описание",
+        "attrs": "Характеристики",
+        "stockObservedAt": "stock_observed_at",
+        "sourceUpdatedAt": "source_updated_at",
+        "stockExpiresAt": "expires_at",
+        "preorder": "preorder",
+        "orderOnRequest": "order_on_request",
+        "supplierProductId": "ID предложения",
+        "subcategory": "Підкатегорія постачальника",
+        "categoryPath": "Шлях категорії постачальника"
+      },
+      "applied": true,
+      "ms": 685490,
+      "products_after": 3911,
+      "queue_after": 15
+    },
+    {
+      "supplier_id": "s2hjvaqgnp29",
+      "file_sha256": "cd3be8859c300537a6b88fe4c43c2cf3b6c4391dd779f5b514cec01a92d1797a",
+      "rows": 1405,
+      "mapped": {
+        "sku": "Артикул",
+        "name": "Название",
+        "cost": "Цена",
+        "rrp": "РРЦ",
+        "stock": "Наличие",
+        "brand": "Бренд",
+        "barcode": "Штрихкод",
+        "size": "Размер",
+        "color": "Цвет",
+        "category": "Категория",
+        "model": "Модель",
+        "photos": "Фото",
+        "desc": "Описание",
+        "attrs": "Характеристики",
+        "stockObservedAt": "stock_observed_at",
+        "sourceUpdatedAt": "source_updated_at",
+        "stockExpiresAt": "expires_at",
+        "preorder": "preorder",
+        "orderOnRequest": "order_on_request",
+        "supplierProductId": "ID предложения",
+        "subcategory": "Підкатегорія постачальника",
+        "categoryPath": "Шлях категорії постачальника"
+      },
+      "applied": true,
+      "ms": 669494,
+      "products_after": 4231,
+      "queue_after": 15
+    }
+  ],
+  "quality": {
+    "models": 4231,
+    "skus": 8187,
+    "duplicate_model_ids": 0,
+    "duplicate_skus": 0,
+    "duplicate_supplier_bindings": 0,
+    "same_name_brand_models": 1240,
+    "skus_without_supplier_offer": 0,
+    "offers_not_in_source": 0,
+    "variants_sharing_one_supplier_sku": 0,
+    "multi_color_models": 254,
+    "colors": 4697,
+    "colors_without_photos": 3,
+    "photos_shared_between_colors": 99,
+    "models_without_usable_photo": 0,
+    "size_status": {
+      "ONE_SIZE": 30,
+      "NO_SIZE_REQUIRED": 2594,
+      "SIZE_CONFIRMATION_REQUIRED": 1215,
+      "EXACT_SIZE": 4348
+    },
+    "size_options": 1176,
+    "without_category": 876,
+    "price_zero_ready_skus": 1,
+    "margin_blocked_skus": 0,
+    "availability": {
+      "IN_STOCK": 4695,
+      "SIZE_CONFIRMATION_REQUIRED": 1215,
+      "OUT_OF_STOCK": 928,
+      "UNKNOWN": 1349
+    },
+    "by_supplier": {
+      "sf0t3l7jegf9": {
+        "skus": 924,
+        "availability": {
+          "IN_STOCK": 868,
+          "SIZE_CONFIRMATION_REQUIRED": 55,
+          "OUT_OF_STOCK": 1
+        }
+      },
+      "s4p9slmnn0ki": {
+        "skus": 1512,
+        "availability": {
+          "UNKNOWN": 1349,
+          "SIZE_CONFIRMATION_REQUIRED": 163
+        }
+      },
+      "s2akya7xoafn": {
+        "skus": 443,
+        "availability": {
+          "SIZE_CONFIRMATION_REQUIRED": 384,
+          "IN_STOCK": 59
+        }
+      },
+      "s2bggyi42dhh": {
+        "skus": 3903,
+        "availability": {
+          "SIZE_CONFIRMATION_REQUIRED": 598,
+          "OUT_OF_STOCK": 680,
+          "IN_STOCK": 2625
+        }
+      },
+      "s2hjvaqgnp29": {
+        "skus": 1405,
+        "availability": {
+          "IN_STOCK": 1143,
+          "OUT_OF_STOCK": 247,
+          "SIZE_CONFIRMATION_REQUIRED": 15
+        }
+      }
+    },
+    "decisions": {
+      "READY": 1528,
+      "MODERATION": 2670,
+      "REJECTED": 29,
+      "ARCHIVED": 4
+    },
+    "reasons": {
+      "REJECTED": {
+        "NO_DESCRIPTION": 13,
+        "RESTRICTED": 16
+      },
+      "MODERATION": {
+        "grouping": 2191,
+        "category": 843,
+        "color": 95,
+        "photo_ownership": 3
+      }
+    },
+    "queue": {
+      "total": 15,
+      "rejected_import": {
+        "OPEN": 15
+      }
+    }
+  },
+  "wire": {
+    "models": 1528,
+    "skus": 2820,
+    "duplicate_skus": 0,
+    "categories": 143,
+    "hide_ids": 0,
+    "catalog_revision": "b6064c6ac9e77a3b",
+    "sha256": "cf99cde1422f06a01fc4aabaf2456f921c54db82d7bec655731874a6c2bb7a99"
+  },
+  "timing_ms": {
+    "migration_ms": 66287,
+    "reset_ms": 59507,
+    "wire_export_ms": 11114
+  },
+  "network_requests": 0
+}
