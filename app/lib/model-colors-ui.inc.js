@@ -69,7 +69,9 @@ const mcPlan=memoByData(function(){
    // cards form that colour's model on their own. Per-m² cards never join a fixed-price model; the colour stays in the name.
    const byCode=new Map();for(const p of products){if(used.has(p.id)||(p.variants||[]).some(finalUnitPriced))continue;const c=mcIdentity(p).codes;if(c.length!==1)continue;if(!byCode.has(c[0]))byCode.set(c[0],[]);byCode.get(c[0]).push(p);}
    for(const [code,part] of byCode){if(part.length<2||byCode.size<2&&part.length===products.length)continue;const titles=uniq(part.map(p=>norm(mcStripOwnSize(String(p.model_name||p.name||''),p).replace(/[()]/g,' '))));if(titles.length!==1)continue;
-    const base=mcIdentity(part[0]),title=mcStripOwnSize(String(part[0].model_name||part[0].name||''),part[0]).replace(/[()]/g,' ').replace(/\s+/g,' ').trim(),sub=mcGroup(part,{...base,name:title,key:base.key+'|code:'+code});if(sub.automatic)groups.push(sub);}}
+    const base=mcIdentity(part[0]),colours=uniq(part.flatMap(p=>mcColors(p).map(c=>c.camouflage||c.color).filter(Boolean)));let title=mcStripOwnSize(String(part[0].model_name||part[0].name||''),part[0]).replace(/[()]/g,' ').replace(/\s+/g,' ').trim();
+    // The supplier's structured colour names a single-colour model when its title does not (one card per colour otherwise shares a title).
+    if(colours.length===1&&!norm(title).includes(norm(colours[0])))title+=' '+colours[0];const sub=mcGroup(part,{...base,name:title,key:base.key+'|code:'+code});if(sub.automatic)groups.push(sub);}}
  }return {version:1,groups,automatic:groups.filter(g=>g.automatic),review:groups.filter(g=>!g.automatic)};
 });
 function mcMergeGroup(group,{manual=false}={}){

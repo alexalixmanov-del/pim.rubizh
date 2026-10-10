@@ -244,5 +244,7 @@ test('one supplier group per colour (M-WIN antidrone nets): each colour\'s size 
  assert.deepEqual(auto.map(g=>g.ids).sort(),[px.slice(0,2).sort(),mc.slice(0,2).sort()].sort(),JSON.stringify(plan.groups.map(g=>[g.ids,g.automatic,g.reasons])));
  assert.ok(auto.some(g=>/Піксель/.test(g.name))&&auto.some(g=>/Мультикам/.test(g.name)),JSON.stringify(auto));
  assert.ok(auto.every(g=>!/\d×\d|\dх\d|площа/.test(g.name)),'own sizes are not in the model name');
+ h.run(`for(const id of ${JSON.stringify([...px,...mc])})S.products.get(id).name=S.products.get(id).name.replace(/ (Піксель|Мультикам)/,'')`);h.run('bumpData()');
+ const named=JSON.parse(h.run('JSON.stringify(mcPlan().automatic.map(g=>g.name))'));assert.equal(named.length,2);assert.ok(named.some(n=>/Піксель$/.test(n))&&named.some(n=>/Мультикам$/.test(n)),'structured colour completes a title without it: '+named);
  h.run('mcMigrate()');assert.equal(state(h,px[2]).state,'MODERATION');assert.ok(state(h,px[2]).reasons.some(r=>r.code==='price_unit'));
 });
